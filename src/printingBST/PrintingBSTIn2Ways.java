@@ -1,10 +1,7 @@
 package printingBST;
 
-	import java.util.LinkedList;
+import java.util.LinkedList;
 import java.util.Queue;
-
-
-
 
 	public class PrintingBSTIn2Ways {
 	public static void main(String[] args) {
