@@ -12,6 +12,7 @@ package printingBST;
 			printNodesOnEveryLevel(bst);
 			System.out.println("Printing Node Paths from root to leaf");
 			printNodesFromRootToLeaf(bst);
+			System.out.println();
 		}
 
 	private static void printNodesFromRootToLeaf(BST bst) {
