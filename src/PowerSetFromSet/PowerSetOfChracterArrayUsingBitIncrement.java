@@ -21,6 +21,7 @@ private static void printPowerSet(char[] set) {
 	for(int i=0;i<totalElements;i++){
 		for(int j=0;j<set.length;j++){
 			if(((i) & (1<<j))!=0)   // For each bit of integer i, check which of the bits are set.
+				// HandRun the above statement in if condition, to understand how to check for set bits in an integer
 				System.out.print(set[j]);  // If bit is set, then print the corresponding character
 			}
 		System.out.println();
