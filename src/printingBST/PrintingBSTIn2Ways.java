@@ -1,7 +1,9 @@
 package printingBST;
 
 	import java.util.LinkedList;
-	import java.util.Queue;
+import java.util.Queue;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 
 	public class PrintingBSTIn2Ways {
@@ -14,6 +16,8 @@ package printingBST;
 			System.out.println("Printing Node Paths from root to leaf");
 			printNodesFromRootToLeaf(bst);
 			System.out.println();
+			System.out.println(bst.maxDepth(bst.root));
+			System.out.println(bst.balTree(bst.root));
 		}
 
 	private static void printNodesFromRootToLeaf(BST bst) {
@@ -174,8 +178,8 @@ package printingBST;
 		if(node==null)
 			return true;
 		else{
-			int lsize=size(root.lchild);
-			int rsize=size(root.rchild);
+			int lsize=maxDepth(root.lchild);
+			int rsize=maxDepth(root.rchild);
 			
 			if(Math.abs(lsize-rsize)>1)
 				return false;
