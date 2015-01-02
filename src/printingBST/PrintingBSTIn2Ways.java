@@ -10,6 +10,7 @@ package printingBST;
 			BST bst = BinSearchTree.makeTree();
 			System.out.println("Printing nodes of the tree at every level");
 			printNodesOnEveryLevel(bst);
+			System.out.println();
 			System.out.println("Printing Node Paths from root to leaf");
 			printNodesFromRootToLeaf(bst);
 			System.out.println();
