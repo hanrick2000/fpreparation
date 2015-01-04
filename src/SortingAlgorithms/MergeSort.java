@@ -1,7 +1,9 @@
-package SortingAlgorithms;
 /*
 Source: http://examples.javacodegeeks.com/core-java/mergesort-algorithm-in-java-code-example/
 */
+
+package SortingAlgorithms;
+
 public class MergeSort {
 
 	private static int []a;
@@ -84,7 +86,7 @@ Analysis:
 	
 	
 	
-Algorithm os MergeSort
+Algorithm of MergeSort
 			public class MergeSort {
 
 		void mergeSort(int list[], int start, int end) {
