@@ -28,7 +28,7 @@ public static void sumOfPerfectSquares(int n){
 	if(n<0)
 		System.out.println("The number entered is negative");
 	List<int[]> list = new ArrayList<int[]>();
-	// Question: How to create an ArrayList of integer array
+	// Question: How to create an ArrayList of integer array: http://stackoverflow.com/questions/17520964/how-to-create-arraylist-arraylistinteger-from-array-int-in-java
 	int low = 0;
 	int high = (int) Math.floor(Math.sqrt(n));
 	int calculatedNumber=0;
