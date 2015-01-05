@@ -36,7 +36,7 @@ public static void sumOfPerfectSquares(int n){
 		calculatedNumber =  (int)Math.pow(low, 2)+(int)Math.pow(high,2);
 		if(calculatedNumber==n){  
 			// every combination is UNIQUE, hence we need to increment both low and high
-			int[] pair = new int[]{low,high};
+			int[] pair = {low,high};
 			// Question: All possible ways to declare an array in JAVA: http://stackoverflow.com/questions/1200621/declare-array-in-java
 			list.add(pair);
 			low++;
