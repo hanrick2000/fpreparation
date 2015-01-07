@@ -19,10 +19,8 @@ or their difference is zero. This is similar to finding an element in a sorted l
 algorithm, the Java code is furnished below.
 	
 	
-VERY IMP NOTE: However, please note that this algorithm will only work for POSITIVE numbers and
-will fail if either dividend or divisor or both are NEGATIVE
-	
-	
+VERY IMP NOTE: With modifications in the main method as mentioned in the below program,
+the program does work for negative numbers also.
 */
 package DivideTwoNumbersWithoutUsingDivisionOperator;
 
@@ -38,7 +36,11 @@ public class UsingShiftOperators {
 			System.out.println("Enter the divident and divisor respectively");
 			divident = in.nextInt();
 			divisor = in.nextInt();
-			System.out.println(getQuotient(divident,divisor));
+			int ans = getQuotient(Math.abs(divident),Math.abs(divisor));
+			if((divident>0&&divisor>0)||(divident<0&&divisor<0))
+				System.out.println(ans);
+			else if(((divident>0&&divisor<0)||(divident<0&&divisor>0)))
+				System.out.println(-ans);
 		}
 		finally{
 			in.close();
