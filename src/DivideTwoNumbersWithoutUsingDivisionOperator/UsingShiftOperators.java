@@ -75,7 +75,7 @@ public class UsingShiftOperators {
 	}
 }
 /*Analysis:
-    If n = divident and m = divisor, then
+    If n = dividend and m = divisor, then
 	Time Complexity = O(lgn) where n = dividend
 	Space Complexity = O(1)
 */
