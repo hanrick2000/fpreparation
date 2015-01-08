@@ -2,7 +2,6 @@
 Question: Detect if two integers have opposite signs
 
 Source: http://www.geeksforgeeks.org/detect-if-two-integers-have-opposite-signs/
-
 */
 package areTwoNumbersOppositeInSign;
 
