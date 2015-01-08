@@ -5,7 +5,7 @@ Source:  http://stackoverflow.com/questions/12538724/performing-arithmetic-opera
 (VIDEO)  https://www.youtube.com/watch?v=vfY7bN_3VKw  <-- Video Link for subtraction of two numbers using 2's complement
 		 http://www.cquestions.com/2011/07/write-c-program-to-subtract-two-numbers.html    	 
 */		
-package SubstractonOfTwoNumbers;
+package SubstractonOfTwoPositiveNumbers;
 
 import java.util.Scanner;
 
