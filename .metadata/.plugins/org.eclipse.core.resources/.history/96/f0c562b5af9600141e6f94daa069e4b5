@@ -1,0 +1,21 @@
+package swapNibblesInAByte;
+
+import java.util.Scanner;
+
+public class UsingBitwiseShiftOperators {
+	public static void main(String args[]){
+		Scanner in = new Scanner(System.in);
+		try{
+		System.out.println("Enter a byte");
+		char c = 100;
+		System.out.println("Result after swapping nibbles of the character: "+swapNibbles(c));
+		}
+		finally{
+			in.close();
+		}
+	}
+	public static int swapNibbles(int n){
+		return  ((n&0x0F)<<4|(n&0xF0)>>4);
+	}
+}
+

@@ -1,0 +1,37 @@
+package swapNibblesInAByte;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class UsingBitwiseShiftOperators {
+	public static void main(String args[]){
+		Scanner in = new Scanner(System.in);
+		try{
+		System.out.println("Enter a number which can be represented in a byte");
+		int c = in.nextByte();  // Enter a byte to the base 10
+		System.out.println(Integer.toBinaryString(c));
+		System.out.println("Result after swapping nibbles of the character: "+swapNibbles(c));
+		}
+		catch(InputMismatchException e){
+			System.out.println("EXCEPTION: The number cannot be represented in one byte");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			in.close();
+		}
+	}
+	public static int swapNibbles(int n){
+		System.out.println(Integer.toBinaryString(n));
+		int left = ((n&0x0F)<<4);
+		int right = ((n&0xF0)>>4);
+		System.out.println(Integer.toBinaryString(((n&0x0F)<<4|(n&0xF0)>>4)));
+		return (left|right);
+		/*
+		 The above method can be written in a single line as:
+			return ((n&0x0F)<<4|(n&0xF0)>>4);
+		*/
+	}
+}
+
