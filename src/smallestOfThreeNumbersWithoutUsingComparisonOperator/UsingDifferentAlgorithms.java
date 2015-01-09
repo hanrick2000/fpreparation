@@ -1,3 +1,9 @@
+
+/*
+Question: Smallest of three integers without comparison operators (> or <, however == is allowed)
+Source: http://www.geeksforgeeks.org/smallest-of-three-integers-without-comparison-operators/
+	http://www.geeksforgeeks.org/compute-the-minimum-or-maximum-max-of-two-integers-without-branching/
+*/
 package smallestOfThreeNumbersWithoutUsingComparisonOperator;
 
 import java.util.Scanner;
@@ -24,20 +30,20 @@ public static void main(String[] args) {
 private static int usingDivision(int a, int b, int c) {
 	/*To change this program to get the max, just change the comparison sign from '<' to '>'
 	*/
-	if(a/b<0){
-		if(a/c<0)
+	if(a/b==0){
+		if(a/c==0)
 			return a;
 		else
 			return c;
 	}
-	if(b/c<0){
-		if(b/a<0)
+	if(b/c==0){
+		if(b/a==0)
 			return b;
 		else
 			return a;
 	}
-	if(c/a<0){
-		if(c/b<0)
+	if(c/a==0){
+		if(c/b==0)
 			return c;
 		else
 			return b;
