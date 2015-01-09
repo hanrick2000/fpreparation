@@ -27,6 +27,8 @@ private static int usingXOR(int a, int b) {
 }
 
 private static int countSetBits(int n) {
+	/* Brian Kernighan’s Algorithm is used to calculate count of set bits is given
+	in the link: http://www.geeksforgeeks.org/count-set-bits-in-an-integer/       */
 	int count = 0;
 	while(n>0){
 		n&=(n-1);
@@ -35,3 +37,10 @@ private static int countSetBits(int n) {
 	return count;
 	}
 }
+/*
+Analysis:
+	Time Complexity = 
+	Time complexity of usingXOR() method is O(1) and
+	Time complexity of countSetBits() method is O(lgn)
+	Hence the total time complexity is = O(lgn)
+	Space Complexity = O(1)*/
