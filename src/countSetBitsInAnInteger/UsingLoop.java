@@ -13,12 +13,26 @@ public static void main(String[] args) {
 	try{
 	System.out.println("Enter a integer number to check for set bits in it");
 	int n = in.nextInt();
-	System.out.println("The number of set bits using loop is: "+usingLoop(n));
+	System.out.println("Using while loop, we get the number of set bits as: "+usingLoop(n));
+	System.out.println("Using Brain Kernighan's Algorithm, we get the number of set bits as: "+usingBrainKernighan(n));
+	System.out.println("Using ");
 	}
 	finally{
 	in.close();
 	}
 }
+private static int usingBrainKernighan(int n) {
+	int count = 0;
+	while(n>0){
+		n&=(n-1);
+		count++;
+	}
+	return count;
+}/*
+Analysis:
+	Time complexity = O(lgn)
+	Space complexity = O(1)
+*/
 private static int usingLoop(int n) {
 	int count = 0;
 	for(int i=0;i<32;i++){
@@ -29,7 +43,7 @@ private static int usingLoop(int n) {
 }
 /*
 Analysis:
-	Time Complexity = O(32) // 32 since the loop will run 32 times
+	Time Complexity = O(32) // Maybe the complexity is O(lgn)
 	Space Complexity = O(1)
 */
 }
