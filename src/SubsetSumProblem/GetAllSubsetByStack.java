@@ -1,3 +1,15 @@
+/*
+Question:Print all subset of a given set which sums up to ZERO 
+		{8,3,5,1,-4,-8} 
+		so answer will be : {8,-8} 
+		{3,5,-8} 
+		{3,1,-4} 
+
+Source: http://www.careercup.com/forumpost?id=5355201013743616
+	
+Solution Source: http://codereview.stackexchange.com/questions/36214/find-all-subsets-of-an-int-array-whose-sums-equal-a-given-target
+
+*/
 package SubsetSumProblem;
 
 import java.util.Stack;
