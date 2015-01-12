@@ -1,8 +1,10 @@
+/*
+Source: https://github.com/nkatre/codejam/blob/master/java/src/utilities/search/BFS_DFS.java
+*/
 package DFSAndBFSInAdjacencyMatrixORGraph;
 
 import java.util.*;
 
-/* http://www.codeproject.com/KB/java/BFSDFS/graph.PNG */
 public class UsingStackAndQueue
 {
     private static int[][] adjacencyMatrix;
