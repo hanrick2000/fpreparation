@@ -82,6 +82,6 @@ public class UsingMergeMethodOfMergeSort {
 }
 /*
 Analysis:
-	Time Complexity = Linear Time, O(n)
+	Time Complexity = Linear Time, O((m+n)/2)
 	Space Complexity = O(1)
 */
