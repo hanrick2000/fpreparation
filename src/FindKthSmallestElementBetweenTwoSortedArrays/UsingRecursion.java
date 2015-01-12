@@ -26,7 +26,7 @@ public static void main(String[] args) {
 			array2[i]=in.nextInt();
 		System.out.println("Enter the kth smallest element to be found");
 		int k = in.nextInt();
-		System.out.println("MThe kth smallest element of the two SORTED arrays is: "+findKthSmallestElement(array1,array2,array1.length,array2.length,k));
+		System.out.println("The kth smallest element of the two SORTED arrays is: "+findKthSmallestElement(array1,array2,array1.length,array2.length,k));
 	}
 	finally{
 		in.close();
