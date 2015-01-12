@@ -1,3 +1,9 @@
+/*
+Question: Median of two sorted arrays of different sizes
+Source: http://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-sizes/
+		http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
+*/
+
 package FindMedianBetween2SortedArraysOfUnequalLength;
 
 import java.util.Arrays;
