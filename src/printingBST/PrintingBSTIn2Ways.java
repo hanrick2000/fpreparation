@@ -2,6 +2,7 @@ package printingBST;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 	public class PrintingBSTIn2Ways {
 	public static void main(String[] args) {
@@ -15,6 +16,11 @@ import java.util.Queue;
 			System.out.println();
 			System.out.println(bst.maxDepth(bst.root));
 			System.out.println(bst.balTree(bst.root));
+			
+			// BFS Traversal
+			bfs(bst);
+			// DFS Traversal
+			dfs(bst);
 		}
 
 	private static void printNodesFromRootToLeaf(BST bst) {
@@ -57,6 +63,37 @@ import java.util.Queue;
 			}
 		System.out.println();
 		}
+	
+	private static void bfs(BST bst) {      // BEST method for BFS Traversal
+		// Similar to the method which prints nodes at every level of the BST
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(bst.root);
+		while(!queue.isEmpty()){
+			Node n = queue.poll();
+			System.out.print(n.data+" ");
+			if(n.lchild!=null)
+				queue.add(n.lchild);
+			if(n.rchild!=null)
+				queue.add(n.rchild);
+		}
+		System.out.println();
+	}
+	 
+	private static void dfs(BST bst) {     // BEST method for DFS Traversal
+		Stack<Node> stack = new Stack<Node>();
+		stack.push(bst.root);
+		while(!stack.isEmpty()){
+			Node n = stack.pop();
+			System.out.print(n.data+" ");
+			if(n.rchild!=null)//First insert the RCHILD into STACK, reason being, the tree will be printed from LEFT TO RIGHT
+	// However, even if LCHILD into STACK is inserted first, it is NOT worng, just that the tree will be printed from RIGHT TO LEFT
+				stack.push(n.rchild);
+			if(n.lchild!=null)  // Then insert LCHILD
+				stack.push(n.lchild);
+			
+		}
+		System.out.println();
+	}
 	}
 	class Node{
 		public int data;
