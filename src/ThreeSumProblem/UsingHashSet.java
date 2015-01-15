@@ -39,7 +39,7 @@ public static void main(String[] args) {
 			array[i]=in.nextInt();
 		System.out.println("Enter the sum that you need to find in the array");
 		int sum = in.nextInt();
-		System.out.println("The elements whose additon returns the sum are: ");
+		System.out.println("The elements whose addition returns the sum are: ");
 		findThreeSumUsingHashSet(array,sum);
 	}
 	finally{
@@ -55,9 +55,9 @@ private static void findThreeSumUsingHashSet(int[] array, int sum) {
 	// iterate through the array elements and check whether the third is in the HashMap
 	outerloop:                          // using label in Java to break the outer loop
 	for(int i=0;i<array.length;i++)
-		for(int j=i;j<array.length;j++)
-			if(set.contains(-(array[i]+array[j]))){   // time complexity of contains method of HashSet is O(1)
-				System.out.print(array[i]+" "+array[j]+" "+(-(array[i]+array[j])));
+		for(int j=i+1;j<array.length;j++)  // start from the next element
+			if(set.contains(sum-(array[i]+array[j]))){   // time complexity of contains method of HashSet is O(1)
+				System.out.print(array[i]+" "+array[j]+" "+(sum-(array[i]+array[j])));
 				break outerloop;     // we can use labels to break directly the outer loop (which in turn breaks inner loop)
 			}                       // Otherwise, we would have to implement some mechanism to break both the loops simultaneously
 	
