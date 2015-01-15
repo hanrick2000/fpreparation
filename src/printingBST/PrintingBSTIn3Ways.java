@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-	public class PrintingBSTIn2Ways {
+	public class PrintingBSTIn3Ways {
 	public static void main(String[] args) {
 
 			BST bst = BinSearchTree.makeTree();
@@ -14,12 +14,20 @@ import java.util.Stack;
 			System.out.println("Printing Node Paths from root to leaf");
 			printNodesFromRootToLeaf(bst);
 			System.out.println();
+			System.out.println("Function to print the rows of a binary tree, terminating each row with a carriage return");
+			printRowsTerminatingEachRowWithCarriageReturn(bst);
+			System.out.println();
+			System.out.println("Max depth of the tree is: ");
 			System.out.println(bst.maxDepth(bst.root));
+			System.out.println("Tree is balanced?");
 			System.out.println(bst.balTree(bst.root));
 			
 			// BFS Traversal
+			System.out.println("BFS Traversal of the tree is: ");
 			bfs(bst);
+		
 			// DFS Traversal
+			System.out.println("DFS Traversal of the ree is: ");
 			dfs(bst);
 		}
 
@@ -49,7 +57,7 @@ import java.util.Stack;
 			System.out.print(path[i]+" ");
 		System.out.println();
 	}
-
+	
 	private static void printNodesOnEveryLevel(BST bst) {
 		Queue<Node> queue = new LinkedList<Node>();
 		queue.add(bst.root);
@@ -64,6 +72,26 @@ import java.util.Stack;
 		System.out.println();
 		}
 	
+	private static void printRowsTerminatingEachRowWithCarriageReturn(BST bst){
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(bst.root);
+		queue.add(null);  // use null as 'end of certain depth' marker
+		while(queue.size()>1 || queue.peek()!=null){
+			Node node=queue.remove();
+			if(node!=null){
+				System.out.print(node.data+" ");
+				if(node.lchild!=null)
+					queue.add(node.lchild);
+				if(node.rchild!=null)
+					queue.add(node.rchild);
+			}
+			else{// node==null
+				System.out.println("\r");
+				queue.add(null);  // use null as 'end of certain depth' marker
+			}
+			
+		}
+	}
 	private static void bfs(BST bst) {      // BEST method for BFS Traversal
 		// Similar to the method which prints nodes at every level of the BST
 		Queue<Node> queue = new LinkedList<Node>();
@@ -204,7 +232,6 @@ import java.util.Stack;
 		}
 	}
 
-
 	public boolean balTree(){
 		return balTree(root);
 	}
@@ -221,8 +248,6 @@ import java.util.Stack;
 			
 		}
 	}
-
-
 	}
 	class BinSearchTree{
 		
