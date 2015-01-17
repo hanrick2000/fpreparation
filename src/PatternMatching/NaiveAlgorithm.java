@@ -2,23 +2,23 @@
 Question: Check whether a pattern string lies in the text string ?
 		
 VERY IMP NOTE: 
-	There is difference between subsequence and substring
-	The difference between them, can cearly be made out from the following readings:
-		http://en.wikipedia.org/wiki/Subsequence
-		http://en.wikipedia.org/wiki/Substring
-	
-	
-		The ALGORITHMS for finding both are also DIFFERENT:
-		1. For Subsequnece:
-		  We use the traditional LCS algorithm
-		2. For Substring:
-		  We use,
-		        1. KMP (Knuth–Morris–Pratt) algorithm
-		        URL: http://www.quora.com/What-is-the-best-resource-to-learn-KMP-Algorithm
-		        2. Rabin-Karp algorithm
-		        URL: 
-		
-		
+The difference between them, can cearly be made out from the following readings:
+http://en.wikipedia.org/wiki/Subsequence
+http://en.wikipedia.org/wiki/Substring
+
+
+The ALGORITHMS for finding both are also DIFFERENT:
+1. For Subsequnece:
+  We use the traditional LCS algorithm
+2. For Substring:
+  We use,
+        1. KMP (Knuth–Morris–Pratt) algorithm
+        URL: http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
+             http://www.quora.com/What-is-the-best-resource-to-learn-KMP-Algorithm
+        2. Rabin-Karp algorithm
+        URL: http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=stringSearching
+
+
 	In actual understanding, subsequence and substring are DIFFERENT.
 	However Java developers implemented these two methods to return the same output.
 	For Example:
@@ -37,6 +37,11 @@ VERY IMP NOTE:
 Output - 
 Hello
 Hello
+
+
+
+Explanation of KMP Algorithm:
+Source: http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
 
 		
 Question Source: http://www.careercup.com/question?id=6196366774632448
