@@ -43,7 +43,7 @@ The ALGORITHMS for finding both are also DIFFERENT:
         2. Rabin-Karp algorithm
         URL: http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=stringSearching
         
-Explanation of Rabin-Karp Algorithm:
+Explanation of Karp-Rabin Algorithm:
 Source: http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
 		http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=stringSearching
 		
@@ -85,5 +85,74 @@ public class KarpRabinAlgorithm {
 
 	private static void usingKarpRabinAlgorithm(String text, String pattern) {
 		
+		int hashValueText = 0;      // hash value for text
+		int hashValuePattern = 0;   // hash value for pattern
+		
+		int primeNumber = 101; // prime number for calculating hash value
+		
+		int i = 0; // text string iterator
+		int j = 0; // pattern string iterator
+		
+		int N = text.length();
+		int M = pattern.length();
+		
+		// d is the number of characters in input alphabet
+		int ascii = 256;   // ASCII Table characters
+		
+		// The value of hash would be (hash*ascii)%primeNumber"
+		int hash=1;
+	    for (i = 0; i < (M-1); i++)
+	        hash = (hash*ascii)%primeNumber;
+	    
+	    // Calculate the hash value of pattern and first window of text
+	    for (i = 0; i < M; i++)
+	    {
+	        hashValuePattern = (ascii*hashValuePattern + pattern.charAt(i))%primeNumber;
+	        hashValueText = (ascii*hashValueText + text.charAt(i))%primeNumber;
+	    }
+	    
+	    
+	    // Slide the pattern over text one by one 
+	    for (i = 0; i < (N - M + 1); i++)
+	    {
+	        
+	        // Check the hash values of current window of text and pattern
+	        // If the hash values match then only check for characters on by one
+	        if ( hashValuePattern == hashValueText )
+	        {
+	            /* Check for characters one by one */
+	            for (j = 0; j < M; j++)
+	            {
+	                if (text.charAt(i+j) != pattern.charAt(j))
+	                    break;
+	            }
+	            if (j == M)  // if hashValuePattern == hashValueText and pat[0...M-1] = text[i, i+1, ...i+M-1]
+	            {
+	                System.out.println("Pattern found at index: "+i);
+	            }
+	        }
+	         
+	        // Calculate hash value for next window of text: Remove leading digit, 
+	        // add trailing digit           
+	        if ( i < N-M )
+	        {
+	        	hashValueText = (ascii*(hashValueText - text.charAt(i)*hash) + text.charAt(i+M))%primeNumber;
+	             
+	            // We might get negative value of t, converting it to positive
+	            if(hashValueText < 0) 
+	            	hashValueText = (hashValueText + primeNumber); 
+	        }
+	    }
+		
 	}
 }
+/*
+Analysis:
+ 
+	Time Complexity:
+		Best and Average Case = O(n+m)
+		Worst Case = O(nm)
+		where n = length of TEXT
+			  m = length of PATTERN
+    Space Complexity = O(1)
+*/
