@@ -70,7 +70,7 @@ public class KnuthMorrisPrattAlgorithm {
 			String text = in.nextLine();
 			System.out.println("Enter the pattern");
 			String pattern = in.nextLine();
-			System.out.println("The pattern present in the text: "+usingKMPAlgorithm(text,pattern));
+			usingKMPAlgorithm(text,pattern); // Returns the index if pattern lies in text OR else returns NOTHING
 			
 			
 			/*
@@ -86,7 +86,71 @@ public class KnuthMorrisPrattAlgorithm {
 		}
 	}
 
-	private static String usingKMPAlgorithm(String text, String pattern) {
-		return null;
+	private static void usingKMPAlgorithm(String text, String pattern) {
+		
+		// create longestPrefixSuffixTable that will hold the longest prefix suffix values for pattern
+		int[] longestPrefixSuffixTable = new int[pattern.length()];
+		
+		// populate the table
+		populateTable(pattern,longestPrefixSuffixTable);
+		
+		int textIterator = 0;  // iterator for text
+		int patternIterator=0; // iterator for pattern
+		
+		while(textIterator<text.length()){
+			
+			if(pattern.charAt(patternIterator)==text.charAt(textIterator)){  // if characters in pattern and text match
+				patternIterator++;
+				textIterator++;
+			}
+			
+			if(patternIterator==pattern.length()){     // if pattern is fully visited
+				System.out.println("Found pattern at index: "+(textIterator-patternIterator));
+				patternIterator=longestPrefixSuffixTable[patternIterator-1];
+			}
+			
+			// mismatch after patternIterator matches
+			else if(textIterator<text.length() && pattern.charAt(patternIterator)!=text.charAt(textIterator)){
+				
+				// Do not match longestPrefixSuffixTable[0..longestPrefixSuffixTable[j-1]] characters,
+		        // they will match anyway
+				if(patternIterator!=0)
+					patternIterator=longestPrefixSuffixTable[patternIterator-1];
+				else
+					textIterator=textIterator+1;
+			}
+			
+		}
+	}
+
+	private static void populateTable(String pattern, int[] longestPrefixSuffixTable) {
+		
+		int i=1;  // index for iterating over the pattern string
+		longestPrefixSuffixTable[0] = 0; // longestPrefixSuffixTable[0] is always 0
+		int previousLength = 0; // length of the previous longest prefix suffix
+		
+		while(i<pattern.length()){    // the loop calculates longestPrefixSuffixTable[i] for i = 1 to M-1
+			
+			if(pattern.charAt(i)==pattern.charAt(previousLength)){
+				longestPrefixSuffixTable[i]=previousLength+1;
+				previousLength++;    // increment the previous Length
+				i++;   // increment the iterator
+			}
+			else{   // if(pattern.charAt(i)!=pattern.charAt(previousLength))
+				
+				if(previousLength!=0)
+					previousLength = longestPrefixSuffixTable[previousLength-1];
+				
+				else{ //(previousLength==0)
+					longestPrefixSuffixTable[i]=0;
+					i++;
+				}
+			}
+		}		
 	}
 }
+/*
+Analysis:
+	Time Complexity = O(n) where n = length of TEXT
+	Space Complexity = O(m) where m = length of PATTERN
+*/
