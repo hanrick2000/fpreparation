@@ -7,6 +7,11 @@ http://en.wikipedia.org/wiki/Subsequence
 http://en.wikipedia.org/wiki/Substring
 
 
+GeeksForGeeks Links for the following String Matching algorithms:
+1. Naive String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-pattern-searching/
+2. Rabin-Karp String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
+3. Knuth-Morris-Pratt String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/
+
 The ALGORITHMS for finding both are also DIFFERENT:
 1. For Subsequnece:
   We use the traditional LCS algorithm
@@ -17,6 +22,7 @@ The ALGORITHMS for finding both are also DIFFERENT:
              http://www.quora.com/What-is-the-best-resource-to-learn-KMP-Algorithm
         2. Rabin-Karp algorithm
         URL: http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=stringSearching
+        
 
 
 	In actual understanding, subsequence and substring are DIFFERENT.
@@ -46,7 +52,8 @@ Source: http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in
 		
 Question Source: http://www.careercup.com/question?id=6196366774632448
 
-Algorithm: For i = 0 to (1 + text.length - pattern.length)
+Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-pattern-searching/
+			For i = 0 to (1 + text.length - pattern.length)
 			 For j=0 to pattern.length
 			 	Check if (text[i+j]==pattern[])
 */
