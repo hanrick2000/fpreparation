@@ -6,26 +6,7 @@ The difference between them, can cearly be made out from the following readings:
 http://en.wikipedia.org/wiki/Subsequence
 http://en.wikipedia.org/wiki/Substring
 
-
-GeeksForGeeks Links for the following String Matching algorithms:
-1. Naive String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-pattern-searching/
-2. Rabin-Karp String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
-3. Knuth-Morris-Pratt String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/
-
-The ALGORITHMS for finding both are also DIFFERENT:
-1. For Subsequnece:
-  We use the traditional LCS algorithm
-2. For Substring:
-  We use,
-        1. KMP (Knuth–Morris–Pratt) algorithm
-        URL: http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
-             http://www.quora.com/What-is-the-best-resource-to-learn-KMP-Algorithm
-        2. Rabin-Karp algorithm
-        URL: http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=stringSearching
-        
-
-
-	In actual understanding, subsequence and substring are DIFFERENT.
+In actual understanding, subsequence and substring are DIFFERENT.
 	However Java developers implemented these two methods to return the same output.
 	For Example:
 	(Example Source: http://mytactics.blogspot.com/2013/10/difference-between-subsequence-and.html)
@@ -44,15 +25,32 @@ Output -
 Hello
 Hello
 
+GeeksForGeeks Links for the following String Matching algorithms:
+1. Naive String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-pattern-searching/
+2. Rabin-Karp String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
+3. Knuth-Morris-Pratt String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/
+
+The ALGORITHMS for finding both are also DIFFERENT:
+1. For Subsequnece:
+  We use the traditional LCS algorithm
+2. For Substring:
+  We use,
+        1. KMP (Knuth–Morris–Pratt) algorithm
+        URL: http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
+             http://www.quora.com/What-is-the-best-resource-to-learn-KMP-Algorithm
+        2. Rabin-Karp algorithm
+        URL: http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=stringSearching
 
 
-Explanation of KMP Algorithm:
-Source: http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
+
+Explanation of Naive Algorithm:
+Source: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-pattern-searching/
 
 		
 Question Source: http://www.careercup.com/question?id=6196366774632448
 
 Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-pattern-searching/
+
 			For i = 0 to (1 + text.length - pattern.length)
 			 For j=0 to pattern.length
 			 	Check if (text[i+j]==pattern[])
