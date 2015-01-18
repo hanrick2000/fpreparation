@@ -8,6 +8,12 @@ import java.util.Stack;
 	public static void main(String[] args) {
 
 			BST bst = BinSearchTree.makeTree();
+			// print LCA between 2 nodes
+			System.out.println("Recursively LCA of 20 and 85 is: "+recursiveLCA(bst.root,new Node(20),new Node(85)));
+			System.out.println("Iteratively LCA of 20 and 85 is: "+iterativeLCA(bst.root,new Node(20),new Node(85)));
+			
+			
+			
 			System.out.println("Printing nodes of the tree at every level");
 			printNodesOnEveryLevel(bst);
 			System.out.println();
@@ -30,6 +36,37 @@ import java.util.Stack;
 			System.out.println("DFS Traversal of the ree is: ");
 			dfs(bst);
 		}
+
+
+
+	private static int iterativeLCA(Node root, Node a, Node b) {
+		
+		if(root==null||a==null||b==null)
+			return -1;
+		
+		while(root!=null){
+			if(a.data<root.data && b.data<root.data)
+				root=root.lchild;
+			else if(a.data>root.data && b.data>root.data)
+				root=root.lchild;
+			else break;
+		}
+		return root.data;
+	}
+
+
+
+	private static int recursiveLCA(Node root, Node a, Node b) {
+		if(root==null||a==null||b==null)
+			return -1;
+		if(a.data<root.data && b.data<root.data)
+			recursiveLCA(root.lchild,a,b);
+		if(a.data>root.data && b.data>root.data)
+			recursiveLCA(root.lchild,a,b);
+		return root.data;
+	}
+
+
 
 	private static void printNodesFromRootToLeaf(BST bst) {
 		int[] path = new int[1000];
@@ -269,6 +306,7 @@ import java.util.Stack;
 			myTree.addNode(new Node(38));
 			myTree.addNode(new Node(36));
 			myTree.display();
+			
 			
 			return myTree;
 		}
