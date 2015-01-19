@@ -25,6 +25,7 @@ public class UsingSortingOnStartDateUsingComparable {
 public static void main(String[] args) {
 	IntervalOfTime[] intervals = new IntervalOfTime[]{new IntervalOfTime(1,4),
 			                              new IntervalOfTime(2,3),
+			                              new IntervalOfTime(5,8),
 			                              new IntervalOfTime(4,5),
 			                              new IntervalOfTime(3,7),
 			                              new IntervalOfTime(6,10),
@@ -49,8 +50,8 @@ private static int usingSorting(IntervalOfTime[] intervals) {
 			 */
 		
 			stack.push(current);
-		else  // Intervals overlap. Thus REPLACE last interval with current interval
-		{
+		else  // Intervals overlap. Check which interval ends first, that interval should remain in stack
+			if(current.endTime < last.endTime){
 			stack.pop();
 			stack.push(current);
 		}
