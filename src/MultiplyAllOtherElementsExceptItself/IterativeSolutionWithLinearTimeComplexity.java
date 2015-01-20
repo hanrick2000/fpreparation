@@ -1,5 +1,3 @@
-
-
 /*
  * Question:  Multiply all fields except it's own position. 
 input [2,3,1,4] 
@@ -41,7 +39,7 @@ package MultiplyAllOtherElementsExceptItself;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class UsingTwoExtraArraySpaceIteratively {
+public class IterativeSolutionWithLinearTimeComplexity {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
@@ -51,8 +49,8 @@ public static void main(String[] args) {
 	int[] a= new int[n];
 	for(int i=0;i<n;i++)
 		a[i]=in.nextInt();
-	System.out.println("Elements of the array are: "+multiplyElements(a));
-	
+	System.out.println("Solution using three arrays is: "+multiplyUsingTwoArrays(a));
+	System.out.println("Solution using single array is: "+multiplyUsingSingleArray(a));
 	}
 	finally{
 		in.close();
@@ -60,7 +58,8 @@ public static void main(String[] args) {
 	
 	}
 
-private static String multiplyElements(int[] input) {
+
+private static String multiplyUsingTwoArrays(int[] input) {
 	int[] forward = new int[input.length];
 	int[] backward = new int[input.length];
 	
@@ -90,10 +89,49 @@ private static String multiplyElements(int[] input) {
 /*
 Analysis:
 	Time Complexity,
-			3n since we pass n elements thrice, asymptotically it is = O(3n)
+			3n since we pass n elements thrice, asymptotically it is = O(n)
 			where n = number of elements in the input array
 	Space Complexity,
 			3n since forward, backward and output array is used = O(3n)
 */
+
+
+private static String multiplyUsingSingleArray(int[] input) {
+	int[] aux = new int[input.length];
+	
+	// take a variable to store the product
+	int product = 1;
+	
+	// calculate forward multiplication
+	for(int i=0;i<aux.length;i++){
+		aux[i]=product;
+		// update the product by multiplying with input array in FORWARD DIRECTION
+		product *= input[i];
+	}
+	
+	// update the product to reuse it again
+	product = 1;
+	
+	// calculate backward multiplication
+	for(int i=aux.length-1;i>=0;i--){
+		aux[i] *= product;                   // VERY IMP STEP
+		// update product
+		product *= input[i];                 // VERY IMP STEP
+	}
+	
+	// return the result
+	return Arrays.toString(aux);
+	
+}
+
+/*
+Analysis:
+	Time Complexity,
+			2n since we pass n elements twice, asymptotically it is = O(n)
+			where n = number of elements in the input array
+	Space Complexity,
+			n since only one array is used called auxiliary array. Hence O(n)
+*/
+
 
 }
