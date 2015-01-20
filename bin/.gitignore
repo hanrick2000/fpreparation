@@ -1,4 +1,6 @@
+/FindLargestAreaRectangleInHistogram/
 /ArrangeArrayInWaveForm/
+/BSTToCircularDLL/
 /CalculatePowerWithoutUsingMultiplicationAndDivisionOperators/
 /CheckForSetBitsInIntegerAndCharacter/
 /CountNumberOfBitsToBeFlippedToConvertAToB/
@@ -19,6 +21,7 @@
 /LLCopyWithRandomPointer/
 /LinkedListChallenge/
 /MoveNonZeroToTheLeftOfZeroElementsInAnArray/
+/MultiplyAllOtherElementsExceptItself/
 /MultiplyTwoNumbersUsingBitwiseOperators/
 /MultiplyTwoNumbersWithoutBitwiseMultiplcationAndDivision/
 /PatternMatching/
@@ -41,10 +44,16 @@
 /find1NonRepeatingNumber/
 /find2NonRepeatingCharacters/
 /find2NonRepeatingNumbers/
+/findCelebs/
 /findMedianOfTwoSortedArraysEachOfEqualLength/
 /findMissingElementInSequentialArrayElements/
 /findNonOverlappingIntervals/
-/findCelebs/
-/BSTToDLL/
-/BSTToCircularDLL/
-/MultiplyAllOtherElementsExceptItself/
+/forTesting/
+/lookAndSaySequence/
+/printingBST/
+/removeDuplicateCharactersFromString/
+/reverseWordsInSentenseInConstantMemory/
+/smallestOfThreeNumbersWithoutUsingComparisonOperator/
+/sortCharactersOfStringInASC/
+/sortingTwoSortedLists/
+/swapNibblesInAByte/
