@@ -8,7 +8,7 @@
  *            2. Push first interval in stack or arrayList or any other array (NOTE: we just need a storage data structure)
  *            3. Check if the next interval overlap with the first interval
  *               3.a. If NO, then add the element into the data structure
- *               3.b. If YES, the replace the last element from the data structure with the current one
+ *               3.b. If YES, the Intervals overlap. Check which interval ends first, that interval should remain in the stack
  *               
  *  VERY IMP Question: How to check if an interval overlaps with another interval ?
  *  VERY IMP Answer: If there are two intervals a and b.
@@ -50,7 +50,7 @@ private static int usingSorting(IntervalOfTime[] intervals) {
 			 */
 		
 			stack.push(current);
-		else  // Intervals overlap. Check which interval ends first, that interval should remain in stack
+		else  // Intervals overlap. Check which interval ends first, that interval should remain in the stack
 			if(current.endTime < last.endTime){
 			stack.pop();
 			stack.push(current);
