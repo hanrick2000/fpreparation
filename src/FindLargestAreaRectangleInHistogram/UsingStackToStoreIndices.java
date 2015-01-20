@@ -1,4 +1,4 @@
-package FindLargestAreaRectangleInHistogram;
+/*package FindLargestAreaRectangleInHistogram;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -63,3 +63,4 @@ private static int maxAreaRectangle(int[] hist) {
 	
 }
 }
+*/
