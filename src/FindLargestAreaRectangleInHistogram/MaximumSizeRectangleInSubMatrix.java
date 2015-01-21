@@ -24,7 +24,8 @@ public class MaximumSizeRectangleInSubMatrix {
 	      // converting to histogram
 	      for(int i=1;i<knows.length;i++)
 	          for(int j=0;j<knows[0].length;j++)
-	              s[i][j] = s[i-1][j]+1;
+	              if(knows[i][j]==1)
+	        	  s[i][j] = knows[i-1][j]+1;
 	       
 	      
 	      // feed each row to histogram program
