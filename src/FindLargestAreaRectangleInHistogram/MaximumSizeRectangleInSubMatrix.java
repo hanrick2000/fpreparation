@@ -58,7 +58,7 @@ public class MaximumSizeRectangleInSubMatrix {
 	        }    
 	        
 	        while(!stack.empty()){
-	            int height = stack.pop();
+	        	int height = a[stack.pop()];
 	                int width = stack.empty()? i : (i-stack.peek()-1);
 	                max = Math.max(height*width,max);
 	        }
