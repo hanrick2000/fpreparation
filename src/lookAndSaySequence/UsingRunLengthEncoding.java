@@ -28,6 +28,7 @@ Question:
 	111221 is read off as "three 1s, then two 2s, then one 1" or 312211.
 
 Source: http://blog.lckymn.com/2012/09/09/look-and-say-sequence/
+
 */
 
 package lookAndSaySequence;
