@@ -1,3 +1,24 @@
+
+/*
+ * 
+ * Question: Given a list of strings, return a list of lists of strings that groups all anagrams. 
+
+Ex. given {trees, bike, cars, steer, arcs} 
+return { {cars, arcs}, {bike}, {trees, steer} } 
+
+m = # of words 
+n = length of longest word 
+
+Source: http://www.careercup.com/question?id=5723872416497664
+NOTE:
+1. PLEASE READ THROUGH ALL THE "ANSWERS AND THEIR RESPECTIVE COMMENTS" TO UNDERSTAND THE REASON WHY MULTIPLE ANSWERS 
+TO THIS QUESTION IS GIVEN
+2. PLEASE UNDERSTAND THAT:
+	TIME COMPLEXITY(SOLUTION USING HASHMAP) < TIME COMPLEXITY(SOLUTION NOT USING HASHMAP)
+3. KEEP IN mind "ALL" the four solutions. LEARN "ALL THE HASH CALCULATION TECHNIQUES ON STRING" (each char value, RLE, XOR)
+
+ */
+
 package anagramGroups;
 
 import java.util.ArrayList;
