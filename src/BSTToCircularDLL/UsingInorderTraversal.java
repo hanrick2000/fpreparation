@@ -41,6 +41,8 @@ private static void convertBSTToCircularDLL(Node n) {
 	}
 	prev = n;
 	convertBSTToCircularDLL(n.rchild);
+	
+	// These statements are only to link the head with last and last with head
 	if(prev.rchild==null){ // LAST NODE IN LIST
 		head.lchild = prev; // If we do not want list to be circular then change this statement to head.lchild=null;
 		prev.rchild = head; // If we do not want list to be circular then change this statement to prev.rchild=null;     

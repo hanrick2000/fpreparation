@@ -15,6 +15,7 @@ public static void main(String[] args) {
 		int a=in.nextInt();
 		int b=in.nextInt();
 		System.out.println("Using XOR, the number of bits to be flipped to convert A to B is: "+usingXOR(a,b));
+		System.out.println("Using XOR, the number of bits to be flipped to convert A to B is: "+usingXORForBitwiseOperations(a,b));
 	}
 	finally{
 		in.close();
@@ -25,17 +26,30 @@ private static int usingXOR(int a, int b) {
 	int n = a^b;
 	return countSetBits(n);
 }
-
+private static int usingXORForBitwiseOperations(int a, int b) {
+	int n = a^b;
+	return countSetBitsUsingBitwiseOperators(n);
+}
 private static int countSetBits(int n) {
 	/* Brian Kernighan’s Algorithm is used to calculate count of set bits is given
 	in the link: http://www.geeksforgeeks.org/count-set-bits-in-an-integer/       */
 	int count = 0;
 	while(n>0){
-		n&=(n-1);
+		n&=(n-1);    // and operation with previous number
 		count++;
 	}
 	return count;
 	}
+
+
+private static int countSetBitsUsingBitwiseOperators(int n){
+	int count=0;
+	for(int i=0;i<31;i++){
+		if((n&(1<<i))!=0)
+			count++;
+	}
+	return count++;
+}
 }
 /*
 Analysis:

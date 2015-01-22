@@ -13,8 +13,8 @@ Convert n to a string and check the last character of the string. If the last ch
 then n is multiple of 5, otherwise not.
 
 Method 3 (Set last digit as 0 and use floating point trick)  // BEST ALGORITHM
-A number n can be a mulpile of 5 in two cases. When last digit of n is 5 or 10. If last bit in binary equivalent
-of n is set (which can be the case when last digit is 5) then we multiply by 2 using n<<=1 to make sure that if 
+A number n can be a mulpile of 5 in two cases. When last digit of n is 5 or 0. If last bit in binary equivalent
+of n is set (which can be the case when last digit is 5) then we multiply by 2 using n<<1 to make sure that if 
 the number is multpile of 5 then we have the last digit as 0. Once we do that, our work is to just check if the
 last digit is 0 or not, which we can do using float and integer comparison trick.
 */
@@ -44,12 +44,13 @@ private static boolean usingFloatIntTrick(int n) {
 	if((n&1)!=0)                  
 		n=n<<1;  // multiply n by 2
 	
-	float f = n;
+	float f = n;  // we can assign smaller to bigger or equal sized data type to equal size data type WITHOUT TYPE CONVERSION
+	              // PLEASE NOTE float is 32 bits and INT is 32 bits. Hence equal sized data types
 	f = (int)(n*0.1);
 	f = f*10;
 	
 	return ((int)f==n);
-	
+
 }
 /*Analysis:
 TimeComplexity = O(1)
@@ -63,7 +64,7 @@ private static boolean usingAsciiTable(int n) {
 		Ascii table has representation of 0 to 9 characters (NOTE: In ascii table 0 to 9 are considered as characters)
 		0 to 9 characters are represented by 48 to 57 in the ascci table.
 		Ascii Table Link: http://www.asciitable.com/
-		In the abobe ascii table, we can see that 0 to 9 are represented from 48 to 57
+		In the above ascii table, we can see that 0 to 9 are represented from 48 to 57
 	
 	*/
 	

@@ -35,7 +35,7 @@ public static void main(String[] args) {
 
 private static int[] usingIntelligentAlgorithm(int[] array) {
 	for(int i=0;i<array.length;i=i+2){
-		if(i>0 && (array[i-1]>array[i]))  // this will take care of last elment((n-1)th element) comparison with second last element((n-2)th element)
+		if(i>0 && (array[i-1]>array[i]))  // this will take care of last element((n-1)th element) comparison with second last element((n-2)th element)
 			swapElements(array, i-1, i);
 		if(i<array.length-1 && (array[i+1])>array[i])  // this will take care of 1st index element comparison with 0th index element
 			swapElements(array, i+1, i);
