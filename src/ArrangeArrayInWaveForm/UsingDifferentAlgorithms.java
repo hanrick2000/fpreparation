@@ -1,7 +1,7 @@
 /*
 Question: Given an unsorted array of integers, sort the array into a
-		  wave like array. An array ‘arr[0..n-1]’ is sorted in wave form if 
-		  arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= …..
+		  wave like array. An array ï¿½arr[0..n-1]ï¿½ is sorted in wave form if 
+		  arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= ï¿½..
 Source: http://www.geeksforgeeks.org/sort-array-wave-form-2/
 */
 package ArrangeArrayInWaveForm;
@@ -36,9 +36,9 @@ public static void main(String[] args) {
 private static int[] usingIntelligentAlgorithm(int[] array) {
 	for(int i=0;i<array.length;i=i+2){
 		if(i>0 && (array[i-1]>array[i]))  // this will take care of last elment((n-1)th element) comparison with second last element((n-2)th element)
-			array=swapElements(array, i-1, i);
+			swapElements(array, i-1, i);
 		if(i<array.length-1 && (array[i+1])>array[i])  // this will take care of 1st index element comparison with 0th index element
-			array=swapElements(array, i+1, i);
+			swapElements(array, i+1, i);
 	}
 	return array;
 }
@@ -58,19 +58,19 @@ private static int[] usingSorting(int[] array) {
 	Arrays.sort(array);
 	// Swap the elements in the alternate position
 	for(int i=0;i<(array.length-1);i=i+2){ // this loop will run till (array.length-2)
-		array=swapElements(array,i,i+1);
+		swapElements(array,i,i+1);
 	}
 	return array;
 }
 /*
 Analysis:
-	Time Complexity = O(lgn)
+	Time Complexity = O(nlgn)
 	Space Complexity = O(1)
 */
-private static int[] swapElements(int[] array, int i, int j) {
+private static void swapElements(int[] array, int i, int j) {
 	array[i]=array[i]^array[j];
 	array[j]=array[i]^array[j];
 	array[i]=array[i]^array[j];
-	return array;
+	//return array;
 }
 }

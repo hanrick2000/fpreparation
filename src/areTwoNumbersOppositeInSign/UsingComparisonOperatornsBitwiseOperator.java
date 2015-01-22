@@ -38,7 +38,7 @@ private static boolean usingBitwiseOperator(int a, int b) {
 	*/
 	
 	int result = (a^b);
-	return (result>>31!=0);     // Check whether the sign bit is set or not
+	return (((result>>31)&1)!=0);     // Check whether the sign bit is set or not by and operation with 1
 }
 }
 /*
