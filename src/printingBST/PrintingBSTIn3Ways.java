@@ -62,7 +62,7 @@ import java.util.Stack;
 		if(a.data<root.data && b.data<root.data)
 			recursiveLCA(root.lchild,a,b);
 		if(a.data>root.data && b.data>root.data)
-			recursiveLCA(root.lchild,a,b);
+			recursiveLCA(root.rchild,a,b);
 		return root.data;
 	}
 
