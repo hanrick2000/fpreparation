@@ -27,7 +27,7 @@ public static void main(String[] args) {
 			continue;
 		}
 		if(isOperator(a[i])){
-			if(stack.isEmpty()|| ((getPrecedence(a[i])>getPrecedence(stack.peek())))){
+			if(stack.isEmpty()|| ((getPrecedence(a[i])>getPrecedence(stack.peek())))){ // current operator precedence is greater than the top operator present in the stack
 				stack.push(a[i]);
 				continue;
 				}
