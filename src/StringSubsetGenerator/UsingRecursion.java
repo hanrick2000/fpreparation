@@ -13,6 +13,15 @@ one using the character at that position and other without it.
 
 
 NOTE: The total number of possible solution is 2^n where n = unique characters in the String
+
+
+NOTE:  The differences between subsets and substrings are two:
+    1. substrings may have repeat characters
+    2. substrings are ordered ("rm" != "mr")
+
+    Ex. For the subsets of the string "rum" there are eight: "r", "ru", "rum", "u", "um", "m", "rm", "".
+    For the substrings of the string "rum" there are seven: "r", "ru", "rum", "u", "um", "m", ""
+*
 */
 
 
