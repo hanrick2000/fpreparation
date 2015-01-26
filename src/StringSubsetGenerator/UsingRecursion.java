@@ -65,7 +65,7 @@ public class UsingRecursion {
 	    current.append(original.charAt(index));
 
 	    //System.out.println(current.toString());
-
+	     
 	    myList.add(current.toString());
 
 	    for(int i=index+1; i<original.length(); ++i)
