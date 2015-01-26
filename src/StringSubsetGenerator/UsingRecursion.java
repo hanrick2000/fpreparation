@@ -79,6 +79,6 @@ public class UsingRecursion {
 	}
 /*
 Analysis:
-Time Complexity = 
-Space Complexity = O(2^n) where n = number of unique characters in the string
+Time Complexity = O(2^n * length of each string)
+Space Complexity = O(2^n * length of each string) where n = number of unique characters in the string
 */
