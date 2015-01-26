@@ -68,12 +68,10 @@ public class UsingRecursion {
 
 	    myList.add(current.toString());
 
-
 	    for(int i=index+1; i<original.length(); ++i)
 	        genSubs(original, current, myList, i);
 
 	    current.deleteCharAt(current.toString().length()-1);
-
 
 	    return;
 	}
