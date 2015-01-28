@@ -10,26 +10,27 @@ public static void main(String[] args) {
 		System.out.println("ONLY EVEN NUMBERS");
 		int n = in.nextInt();
 		StringBuilder sb = new StringBuilder();
-		printParanthesis(n/2,n/2,sb);
+		printParanthesis(sb,n/2,n/2);
 	}
 	finally{
 		in.close();
 	}
 }
 
-private static void printParanthesis(int left, int right, StringBuilder sb) {
-	if(left==0 && right==0)
+private static void printParanthesis(StringBuilder sb, int open, int close) {
+	if((open==0) && (close==0)){
 		System.out.println(sb.toString());
-	
-	if(left>right)
+		return;
+	}
+	if(open>=close)   // if open parenthesis are more than close parenthesis then return
 		return;
 	
-	if(left>0)
-		printParanthesis(left-1, right, sb.append('('));
+	if(open>0)
+		printParanthesis(sb.append('<'), open-1, close); // using this step open will be less than close
+	if(close>0)
+		printParanthesis(sb.append('>'), open, close-1);
+		
 	
-	if(right>0)
-		printParanthesis(left, right-1, sb.append(')'));
-
 	}
 }
 /*

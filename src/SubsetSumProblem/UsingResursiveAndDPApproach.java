@@ -64,7 +64,7 @@ private static boolean usingRecursion(int[] a,int length, int sum) {
 	//    the SOLUTION does not exist there.
 	
 	// If last element is greater than sum, then ignore it
-	if(a[a.length-1]>sum)
+	if(a[length-1]>sum)
 		return usingRecursion(a,length-1,sum);
 	
 	// 3. This is the recursion step where we will call the method again and again
@@ -124,8 +124,8 @@ private static boolean usingDP(int[] a, int sum) {
             // then decrease the sum
 			if(j>=a[i-1])   // i.e sum >= array[last index element]. If it is true then include this last element by
 				            // deducting it from the total sum
-				dp[i][j] = dp[i][j] || dp[i-1][j-a[i-1]];  // VERY VERY IMP NOTE: Here dp[i][j] on R.H.S represent
-			                // dp[i-1][j] which we have assigned in the previous step
+				dp[i][j] = dp[i-1][j] || dp[i-1][j-a[i-1]];  // VERY VERY IMP NOTE: This step resembles the case
+			// where either we include the last element or exclude the last element
 			
 		}
 	}

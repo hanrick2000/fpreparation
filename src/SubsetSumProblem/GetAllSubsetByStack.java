@@ -35,7 +35,7 @@ import java.util.Stack;
 public class GetAllSubsetByStack {
 
     /** Set a value for target sum */
-    public static final int TARGET_SUM = 15;    // global & final
+    public static final int TARGET_SUM = 8;    // global & final
     
     private Stack<Integer> stack = new Stack<Integer>();  // global
 
@@ -50,7 +50,8 @@ public class GetAllSubsetByStack {
         * 
         * If so, call print method to print the candidate satisfied result.
         */
-        if (sumInStack == TARGET_SUM) {
+    	
+        if (sumInStack <= TARGET_SUM) {
             print(stack);
         }
 
