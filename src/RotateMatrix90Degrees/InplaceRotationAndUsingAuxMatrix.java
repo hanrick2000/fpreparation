@@ -107,7 +107,6 @@ public static void main(String[] args) {
 		rotateMatrixUsingAuxArray(image);
 		System.out.println();
 		rotateMatrixInPlace(image, image.length);
-		System.out.println();
 		printImage(image);
 
 	}
@@ -120,36 +119,38 @@ public static void rotateMatrixInPlace(int[][] matrix, int n){
 	
 	// NOTE: Only SQUARE matrices can be rotated using INPLACE method
 	
-	for (int layer = 0; layer < n / 2; ++layer) {
+	for (int layer = 0; layer < n/2; layer++) {
         int first = layer;
-        int last = n - 1 - layer;
-        for(int i = first; i < last; ++i) {
+        int last = n - 1 - first; // last = total-1-first
+        for(int i = first; i < last; ++i) {   // iterate from first to last
             
-        	int offset = i - first;  // this offset is calculated for finding position of BOTTOM positions
+        	int offset = i - first;  // COMPLEMENT OF i. This offset is is VERY IMP
         	
-            int leftTop = matrix[first][i];
+            /*int leftTop = matrix[first][i];
             int rightTop = matrix[i][last]; 
             int leftBottom = matrix[last-offset][first];
-            int rightBottom = matrix[last][last - offset]; 
-            
-            
+            int rightBottom = matrix[last][last - offset];        
+            */
+        	
+        	
             // save the leftTop in temp variable
-            int temp = leftTop;
+            int temp = matrix[first][i];
             
             // copy leftBottom to leftTop
-            leftTop=leftBottom;
+            matrix[first][i]=matrix[last-offset][first];
             
             // copy rightBottom to leftBottom
-            leftBottom=rightBottom;
+            matrix[last-offset][first]=matrix[last][last - offset]; 
             
             // copy rightTop to rightBottom
-            rightBottom=rightTop;
+            matrix[last][last - offset]=matrix[i][last]; 
             
             // copy temp variable to rightTop
-            rightTop=temp;
+            matrix[i][last]=temp;
           
         }
     }
+
 }
 	/*
 	 * Analysis:
