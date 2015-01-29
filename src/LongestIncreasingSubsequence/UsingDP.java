@@ -1,3 +1,17 @@
+
+
+/*
+ * Question: Find the length of the longest INCREASING subsequence in an array
+ * 
+Solution Source: http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
+https://www.youtube.com/watch?v=U-xOVWlcgmM
+http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
+http://robentan.blogspot.com/2011/11/more-efficient-algorithm-for-longest.html
+http://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
+
+
+ */
+
 package LongestIncreasingSubsequence;
 
 import java.util.Scanner;

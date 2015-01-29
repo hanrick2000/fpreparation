@@ -78,7 +78,7 @@ public class UsingNlogNAlgorithm {
 /*
  * Analysis:
  * Time Complexity = O(nlgn)
- * Space Complexity = O(1)
+ * Space Complexity = O(n) used by tail table array
  */
 	
 }
