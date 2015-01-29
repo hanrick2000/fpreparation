@@ -20,7 +20,7 @@ public class UsingDynamicProgramming {
 	            System.out.println("Enter the array elements");
 	            for(int i=0;i<n;i++)
 	                a[i]=in.nextInt();
-	            System.out.println("The max sym in the array is: "+maxSum(a));
+	            System.out.println("The max sum in the array is: "+maxSum(a));
 	        }
 	        finally{
 	        in.close();
