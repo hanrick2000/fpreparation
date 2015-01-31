@@ -24,7 +24,7 @@ YouTube Helper Links: https://www.youtube.com/watch?v=GdZSzita5V8
 */
 package SubsetSumProblem;
 
-import java.util.Scanner;
+import java.util.Scanner;	
 
 public class UsingResursiveAndDPApproach {
 public static void main(String[] args) {
