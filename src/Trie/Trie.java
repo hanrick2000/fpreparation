@@ -123,7 +123,7 @@ public class Trie {
     }
 
     public List<String> getWords() {
-        // set up a recursion call.
+        // set up a recursion call
         List<String> result = new ArrayList<String>(size);
         char[] charstack = new char[depth];
         getWords(root, charstack, 0, result);
