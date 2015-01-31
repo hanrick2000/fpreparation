@@ -12,7 +12,8 @@ Question Source: http://www.careercup.com/forumpost?id=5355201013743616
 				 http://www.careercup.com/question?id=12899672
 				 http://www.careercup.com/question?id=6241189850251264
 	
-Solution Source: http://codereview.stackexchange.com/questions/36214/find-all-subsets-of-an-int-array-whose-sums-equal-a-given-target
+Solution Source:https://www.youtube.com/watch?v=wp7FBc-idCI    -> Explanation for NP Hard Problems 
+				http://codereview.stackexchange.com/questions/36214/find-all-subsets-of-an-int-array-whose-sums-equal-a-given-target
 
 
 Algorithm:
