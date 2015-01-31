@@ -51,7 +51,7 @@ public class GetAllSubsetByStack {
         * If so, call print method to print the candidate satisfied result.
         */
     	
-        if (sumInStack <= TARGET_SUM) {
+        if (sumInStack == TARGET_SUM) {
             print(stack);
         }
 
