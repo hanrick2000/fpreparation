@@ -15,6 +15,7 @@ public static void main(String[] args) {
 	finally{
 		in.close();
 	}
+	
 }
 
 private static void printParanthesis(StringBuilder sb, int open, int close) {
