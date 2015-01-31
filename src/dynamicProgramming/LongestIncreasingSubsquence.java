@@ -25,6 +25,7 @@ public class LongestIncreasingSubsquence {
 				a[i]=in.nextInt();
 			System.out.println("Using Dynamic Programming: "+usingDynamicProgramming(a));
 			System.out.println("Using Recursion algorithm: "+usingRecursionSolution(a,a.length));
+			System.out.println("Using Binary Search Algorithm: "+usingNlgNAlgorithm(a,a.length));
 		}
 		finally{
 			in.close();
@@ -39,28 +40,31 @@ public class LongestIncreasingSubsquence {
 		  * Algorithm: http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
 		  */
 		 
-		 int maxDiff=1; // the maxDifference would at least be 1
+		 int longestSubseqLength=1; // the longest subsequence length would at least be 1 for array size > 0
 	       
-	     return usingRecursionSolution(a,n,maxDiff);
+	     return usingRecursionSolution(a,n,longestSubseqLength);
 	        
 	    }
-	    private static int usingRecursionSolution(int[] a, int n, int maxDiff) {
-	    	if(n==1)
+	    private static int usingRecursionSolution(int[] a, int n, int longestSubseqLength) {
+	    	
+	    	if(n==1)       // if the length of the array is 1 then longestSubseqLength=1
 	            return 1;
 	            
 	        int res=1;
-	        int maxEnding = 1;
-	        
+	        int subseqLength = 1;  // length of LIS ending with arr[n-1]
+	        /* Recursively get all LIS ending with arr[0], arr[1] ... ar[n-2]. If 
+	        arr[i-1] is smaller than arr[n-1], and max ending with arr[n-1] needs
+	        to be updated, then update it */
 	        for(int i=1;i<n;i++){
-	            res = usingRecursionSolution(a,i,maxDiff);
+	            res = usingRecursionSolution(a,i,longestSubseqLength);
 	            if(a[n-1] > a[i-1])
-	                maxEnding = Math.max(maxEnding, res+1);
+	            	subseqLength = Math.max(subseqLength, res+1);
 	        }
 	        
-	        if(maxEnding>maxDiff)
-	            maxDiff = maxEnding;
+	        if(subseqLength>longestSubseqLength)
+	        	longestSubseqLength = subseqLength;
 	        
-	        return maxDiff;
+	        return longestSubseqLength;
 	    }
 	    /*
 	    Analysis:
@@ -96,4 +100,84 @@ public class LongestIncreasingSubsquence {
 		
 		return longestIncreasingSubsequenceLength;
 	}
+	
+	 /*
+    Analysis:
+    Time Complexity = O(n^2)
+    Space Complexity = O(1)
+    */
+	
+	
+	
+	
+	// Binary search (note boundaries in the caller)
+		// A[] is ceilIndex in the caller
+		public static int CeilIndex(int A[], int l, int r, int key) {
+		    int m;
+		 
+		    while( r - l > 1 ) {
+		        m = l + (r - l)/2;
+		        if(A[m] >= key)
+		        	r=m;
+		        else
+		        	l=m;
+		    }
+		 
+		    return r;
+		}
+		public static int usingNlgNAlgorithm(int A[], int size) {
+		    // Add boundary case, when array size is one
+			
+			/*Algorithm Source:
+			http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
+			http://robentan.blogspot.com/2011/11/more-efficient-algorithm-for-longest.html
+			http://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
+			
+			*
+			*
+			*
+			*Our strategy determined by the following conditions,
+
+1. If A[i] is smallest among all end candidates of active lists, we will start new active list of length 1.
+
+2. If A[i] is largest among all end candidates of active lists, we will clone the largest active list, and extend 
+it by A[i].
+
+3. If A[i] is in between, we will find a list with largest end element that is smaller than A[i]. Clone and extend
+ this list by A[i]. We will discard all other lists of same length as that of this modified list.
+
+Note that at any instance during our construction of active lists, the following condition is maintained.
+
+“END ELEMENT OF SMALLER LIST IS SMALLER THAN END ELEMENTS OF LARGER LISTS”
+			*
+			*
+			*/
+		    
+			int[] tailTable   = new int[size];
+		    int len; // always points empty slot
+		
+		 
+		    tailTable[0] = A[0];
+		    len = 1;
+		    for( int i = 1; i < size; i++ ) {
+		        if( A[i] < tailTable[0] )
+		            // new smallest value
+		            tailTable[0] = A[i];
+		        else if( A[i] > tailTable[len-1] )
+		            // A[i] wants to extend largest subsequence
+		            tailTable[len++] = A[i];
+		        else
+		            // A[i] wants to be current end candidate of an existing subsequence
+		            // It will replace ceil value in tailTable
+		            tailTable[CeilIndex(tailTable, -1, len-1, A[i])] = A[i];
+		    }
+
+		 
+		    return len;
+		}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(nlgn)
+	 * Space Complexity = O(n) used by tail table array
+	 */
 }
