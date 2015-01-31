@@ -83,7 +83,11 @@ private static void printUsingAnotherAlgorithm(char[] str, int pos, int open, in
 	if(open==close)
 		System.out.println(String.valueOf(str));
 	
-	if(open>close)
+	
+	if(open>close)    // Please remember that: ONLY ONE of the conditional statements would be executed
+		              // That's why I have written "else if" and "else if" in the below two conditional statements
+					  // which means only ONE will execute inclusing this "if" statement.
+		              // SO EITHER "open>close" OR "open<n" OR "close<n", only ONE among three will be executed in EACH RECURSIVE CALL.
 		return;
 	
 	else if(open<n){ // VERY IMP: This else if is very IMPORTANT. Please NOTE this is "else if" and NOT ONLY "if" . If "else if" is not used then the program output will be wrong
@@ -107,7 +111,8 @@ private static void printParanthesis(char[] str, int pos,int open, int close, in
 			str[pos]='}';
 			printParanthesis(str, pos+1,open, close+1, n);
 		}
-		if(open<n){    // NOTE: This should NOT be else if. It should be ONLY if
+		if(open<n){    // NOTE: This should NOT be else if. It should be ONLY if. The reason being both the if's the above one and this
+			// one can be executed. Whereas in the above algorithm only one of the 3 statements of if can be executed
 			str[pos]='{';
 			printParanthesis(str, pos+1,open+1, close, n);
 		}
