@@ -7,7 +7,7 @@ For example, if N=4 return {{1,1,1,1},{1,1,2},{2,2},{1,3}}
 
 Question Source: http://www.careercup.com/question?id=6321181669982208
 Solution Source: 
-				https://www.youtube.com/watch?v=wp7FBc-idCI
+				https://www.youtube.com/watch?v=wp7FBc-idCI    -> Explanation for NP Hard Problems
 				https://github.com/nkatre/geeksforgeeksANDcareercup/tree/master/src/SubsetSumProblem
 */
 
