@@ -5,6 +5,8 @@ package SubstringAndSubsequenceProblems.Substring;
 /*
 Question : Find the longest palindrome substring using Dynamic Programming
 		   http://www.careercup.com/question?id=245679
+		   
+
 
 Question & Answer Source: http://www.geeksforgeeks.org/longest-palindromic-substring-set-2/
 
@@ -66,6 +68,8 @@ public class LongestPalindromeSubstring {
 			int low = 0;
 			int high = 0;
 			
+			//int totalPalindromes = orig.length();  // each individual character is also a palindrome
+			
 			for(int i=1;i < orig.length();i++){   // start from 1 to string.length()
 				
 				// Find the longest even length palindrome with center points
@@ -74,6 +78,18 @@ public class LongestPalindromeSubstring {
 				low = i-1;
 				high = i;
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ // check whether it is a palindrome
+					
+					
+					
+					/*
+					Question can also be modified and if asked to find and print the total Palindromes in the string:
+				    Question Source -> http://www.careercup.com/question?id=5177378863054848
+					
+				    then add this here;
+					
+					totalPalindromes++;
+					
+					System.out.println(orig.substring(low, high+1));*/
 					
 					if(high - low + 1 > maxLength){
 						start = low;
@@ -91,6 +107,17 @@ public class LongestPalindromeSubstring {
 				high = i+1;
 				
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ // check whether it is a palindrome
+					
+					/*
+					Question can also be modified and if asked to find and print the total Palindromes in the string:
+				    Question Source -> http://www.careercup.com/question?id=5177378863054848
+					
+				    then add this here;
+					
+					totalPalindromes++;
+					
+					System.out.println(orig.substring(low, high+1));*/
+					
 					
 					if(high - low + 1 > maxLength){
 						start = low;
@@ -111,6 +138,9 @@ public class LongestPalindromeSubstring {
 			
 			// Print the length of the palindrome string
 			System.out.println("The length of the longest Palindrome Substring is using Intelligent Algorithm: "+maxLength);
+			
+			// Print the total Palindromes in the String and print each character as well because each character in a string is also a palindrome
+			//System.out.println("The total Paildromes in the String are :"+totalPalindromes);
 			
 		}
 /*
