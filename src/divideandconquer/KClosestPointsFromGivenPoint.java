@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class KClosestPointsForGivenPoint {
+public class KClosestPointsFromGivenPoint {
 public static void main(String[] args) {
 	List<Point> points = new ArrayList<Point>();
 	for(int i=10;i>0;i--){
