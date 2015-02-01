@@ -1,4 +1,4 @@
-package dynamicProgramming;
+package EditDistanceAndMinInsertionsReqToFormPalindromeAndCuttingRodProblem;
 
 // Recursive Program to convert one string into another. Also called as edit distance algorithm
 

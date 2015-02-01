@@ -49,7 +49,7 @@ Algorithm:
 		Now the Minimum Number of Insertions required to form a palindrome = Original String length - length of  LONGEST PALINDROME SUBSEQUENCE
 	
 	*/
-package dynamicProgramming;
+package EditDistanceAndMinInsertionsReqToFormPalindromeAndCuttingRodProblem;
 
 import java.util.Scanner;
 

@@ -7,7 +7,7 @@
  * 
  */
 
-package dynamicProgramming;
+package EditDistanceAndMinInsertionsReqToFormPalindromeAndCuttingRodProblem;
 
 import java.util.Scanner;
 
