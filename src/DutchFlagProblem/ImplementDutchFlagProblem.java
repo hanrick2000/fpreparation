@@ -1,4 +1,4 @@
-package DuthFlagProblem;
+package DutchFlagProblem;
 
 import java.util.Scanner;
 
