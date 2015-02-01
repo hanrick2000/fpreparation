@@ -6,15 +6,27 @@ package SubstringAndSubsequenceProblems.Substring;
 Question : Find the longest palindrome substring using Dynamic Programming
 		   http://www.careercup.com/question?id=245679
 		   
-
-
+Question can also be modified and if asked to find and print the total Palindromes in the string:
+Question Source -> http://www.careercup.com/question?id=5177378863054848
+		
 Question & Answer Source: http://www.geeksforgeeks.org/longest-palindromic-substring-set-2/
 
-Algorithm:
-1. we can reverse the String
-2. Use the Longest Common Substring Algorithm for comparison between origina and reverse Strings to
-   find the Longest Palindrome Substring
 
+			 * VERY VERY IMPORTANT:
+			 * We cannot use Longest Common Substring Algorithm to find the Longest Palindrome Substring
+			 * like we did for SubSequence Problem.
+			 * 
+			 * The reason being that, for inputs such as "geeksforgeeksrof" it gives output as 3
+			 * whereas the Longest Palindrome SubString length is 2 which is "ee"
+			 * The reason why it gives wrong output is because it compares "for" and "rof" in the input "geeksforgeeksrof"
+			 * and gives output as 3 whereas for and rof individually are wrong answers
+			 
+Algorithm:
+
+ 1. Find the even length palindrome using low and high pointers
+ 2. Find the odd length palindrome using low and high pointers
+ Algorithm Source: http://www.geeksforgeeks.org/longest-palindromic-substring-set-2/
+ 		 
 */
 
 
