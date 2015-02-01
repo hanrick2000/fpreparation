@@ -39,12 +39,7 @@ public class TotalSubstringPalindromes {
 			System.out.println("Enter the string to check for Longest Palindrome SUBSTRING");
 			String orig = in.nextLine();
 			
-			// Create a reverse string
-			StringBuilder rev = new StringBuilder();
-			for(int i=orig.length()-1;i>=0;i--)
-				rev.append(orig.charAt(i));
-			
-			
+		
 			/* Using Intelligent Algorithm
 			 * INTELLIGENT ALGORITHM BECAUSE THE SPACE COMPLEXITY OF THIS ALGORITHM IS O(1)
 			 */
@@ -80,6 +75,10 @@ public class TotalSubstringPalindromes {
 			int high = 0;
 			
 			int totalPalindromes = orig.length();  // each individual character is also a palindrome
+			
+			// print individual characters as they are also palindromes
+			for(int i=0;i<orig.length();i++)
+				System.out.println(orig.charAt(i));
 			
 			for(int i=1;i < orig.length();i++){   // start from 1 to string.length()
 				

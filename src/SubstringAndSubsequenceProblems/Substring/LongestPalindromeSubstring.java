@@ -40,12 +40,6 @@ public class LongestPalindromeSubstring {
 			System.out.println("Enter the string to check for Longest Palindrome SUBSTRING");
 			String orig = in.nextLine();
 			
-			// Create a reverse string
-			StringBuilder rev = new StringBuilder();
-			for(int i=orig.length()-1;i>=0;i--)
-				rev.append(orig.charAt(i));
-			
-			
 			/* Using Intelligent Algorithm
 			 * INTELLIGENT ALGORITHM BECAUSE THE SPACE COMPLEXITY OF THIS ALGORITHM IS O(1)
 			 */
