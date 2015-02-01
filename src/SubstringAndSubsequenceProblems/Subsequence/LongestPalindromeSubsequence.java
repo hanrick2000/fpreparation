@@ -30,7 +30,7 @@ public class LongestPalindromeSubsequence {
 		
 		System.out.println("Using the longest common subsequence algorithm: "+usingLCSubSequence(orig,rev.toString()));
 		System.out.println("Using Dynamic Programming: "+usingDP(orig));
-		System.out.println("Using Recursion: "+usingRecursion(orig));
+		System.out.println("Using Recursion: "+usingRecursion(orig)); // DONOT give RECURSION solution in Interviews if the problem can be SOLVED using DP
 	}
 	finally{
 		in.close();
