@@ -18,7 +18,7 @@ CRUX OF ALGORITHM: Products of prime numbers ARE EQUAL ONLY when the same prime 
  of prime numbers equal only when have the same prime numbers. 
 */
 
-package AnagramOfStringOnePresentInStringTwo;
+package NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString;
 
 import java.util.HashSet;
 import java.util.Scanner;

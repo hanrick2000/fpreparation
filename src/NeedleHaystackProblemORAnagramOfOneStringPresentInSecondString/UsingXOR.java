@@ -20,7 +20,7 @@ Algorithm: 1. Calculate XOR of s1
 
 
 
-package AnagramOfStringOnePresentInStringTwo;
+package NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString;
 
 import java.util.Scanner;
 
