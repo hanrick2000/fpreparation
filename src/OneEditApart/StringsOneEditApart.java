@@ -15,7 +15,7 @@ xyz,xzy
 x, xyz
 
 NOTE: Can be done using EDIT-DISTANCE Algorithm, but IT WONT BE EFFICIENT since the time complexity will be O(n^2)
-ans the space complexity will also be O(n^2).
+and the space complexity will also be O(n^2).
 
 Source: http://www.careercup.com/question?id=5092486548553728
 */
