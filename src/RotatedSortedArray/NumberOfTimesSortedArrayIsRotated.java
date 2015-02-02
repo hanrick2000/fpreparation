@@ -7,6 +7,9 @@ Algorithm: We need find an element which has the following property. We will cal
 			a[pivot] < a[next]
 			a[pivot] < a[previous]
 			
+			The index of the pivot element is the number of times the SORTED array is ROTATED
+			
+			
 			To find such an element we will use Binary Search
 
 	IMP NOTE: The elements of the ARRAY SHOULD BE UNIQUE. If not unique then the answer 
