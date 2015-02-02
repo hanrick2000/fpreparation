@@ -130,7 +130,8 @@ public class UsingNodeLevels {
 		// Now both the levels are same
 		
 		/*
-		 * Since both the levels are now same, hence traverse the parents of the node until the parents are EQUAL
+		 * Since both the levels are now same, 
+		 * hence traverse the parents of the node until the parents are EQUAL
 		 */
 		
 		while(a!=b && a!=null && b!=null){
