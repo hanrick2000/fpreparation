@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class SolutionUsingXORHash {
+public class SolutionUsingXORHash_USE_IN_INTERVIEW {
 
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
