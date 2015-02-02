@@ -17,7 +17,7 @@ Source: http://www.careercup.com/question?id=13126665
 
 And pattern is MICROSOFT. 
 */
-package FindStringInMatrix;
+package StringInMatrix;
 
 public class UsingPatternMatchAlgorithm {
 public static void main(String[] args) {
