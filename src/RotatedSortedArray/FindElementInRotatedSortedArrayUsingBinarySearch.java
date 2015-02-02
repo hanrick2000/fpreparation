@@ -1,3 +1,31 @@
+
+/*
+Question: Find an element in a sorted array which is rotated
+NOTE that the elements of the array are UNIQUE
+
+Question Source: 
+Answer Source: https://www.youtube.com/watch?v=uufaK2uLnSI
+
+Algorithm: get mid and check whether element at mid is the x element. If yes then return mid
+
+        if(a[mid] >= a[low]){   // then the lower half is a sorted array & Now search for find in sorted array
+            
+            if(a[low] <=find && a[mid] > find) // if find lies here then search here
+                high = mid-1;
+            else
+                low = mid+1;
+       
+        }
+        
+        else{ //(a[mid] <= a[high])  // then the upper half is a sorted array & Now search for find in sorted array
+        // VERY IMPORTANT THAT THIS SHOULD BE "ELSE"
+            if(a[mid] < find && a[high] >= find) // if find lies here then search here
+                 low = mid+1;
+            else
+                 high = mid-1;
+       
+        }
+*/
 package RotatedSortedArray;
 
 import java.util.Scanner;
@@ -24,7 +52,16 @@ public class FindElementInRotatedSortedArrayUsingBinarySearch {
 	}
 
 public static int usingModifiedBS(int[] a, int find){
-        
+        /*
+         * VERY IMPORTANT: This algorithm NOT work if the elements of the array have DUPLICATES
+         * for example: will not work for a={2,2,2,2,2,0,1,2}
+         * and we need to find is x
+         * then this algorithm MIGHT GIVE WRONG RESULTS
+         * 
+         * IF THERE ARE DUPLICATES IN THE ARRAY THEN WE HAVE TO LINEARLY SEARCH ON EACH ELEMENT
+         * WHICH IS O(N) SOLUTION AND WE CANNOT DO BETTER THAN THIS
+         * 
+         */
         int low = 0;
         int high = a.length-1;
         int mid = 0;
