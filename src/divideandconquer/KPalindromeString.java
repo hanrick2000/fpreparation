@@ -9,7 +9,7 @@ public static void main(String[] args) {
 		System.out.println("Enter the string first and then the integer");
 		String s = in.nextLine();
 		int k = in.nextInt();
-		if(KPalinString(s, k))
+		if(usingRecursion(s, k))
 			System.out.println("YES");
 		else
 			System.out.println("NO");
@@ -22,7 +22,7 @@ public static void main(String[] args) {
 		in.close();
 	}
 }
-public static boolean KPalinString(String s, int k){
+public static boolean usingRecursion(String s, int k){
 	if(s.length()==0 || s.length() == 1)
 		return true;
 	
@@ -36,25 +36,63 @@ public static boolean KPalinString(String s, int k){
 	if(k==0)    // If there is a mismatch, then check if the k is already 0
 		return false;
 	
-	return KPalinString(s.substring(0,s.length()-1), k-1) || KPalinString(s.substring(1,s.length()), k-1); // decrement the k and check for the remaining string leaving behind the character which led to the mis-matach
+	return usingRecursion(s.substring(0,s.length()-1), k-1) || usingRecursion(s.substring(1,s.length()), k-1); // decrement the k and check for the remaining string leaving behind the character which led to the mis-matach
 	
 }
 
 public static int dynamicProgrammingSolution (String s, String rev, int k){
+	
+	
+	/*
+	 * Algorithm:
+The question asks if we can transform the given string S into its reverse deleting at most K letters.
+ 
+We could modify the traditional Edit-Distance algorithm, considering only deletions, and check if 
+this edit distance is <= 2K. There is a problem though. S can have length = 20,000 and the 
+Edit-Distance algorithm takes O(N^2). Which is too slow. 
+
+(From here on, I'll assume you're familiar with the Edit-Distance algorithm and its DP matrix) 
+
+However, we can take advantage of K. We are only interested to delete K letters. 
+This means that any position more than K positions away from the main diagonal is useless because 
+its edit distance must exceed those K deletions. 
+
+Since we are comparing the string with its reverse, we will do at most K deletions 
+and K insertions (to make them equal). Thus, we need to check if the ModifiedEditDistance is <= 2*K 
+
+Since in this algorithm, we are making the string and its reverse equal. THEY BOTH HAVE
+N CHARACTERS SO IF WE REMOVE K CHARACTERS, WE NEED TO INSERT K CHARACTERS SO AS TO 
+MAINTAIN SIZE = N.
+
+The correspondence between characters inserted and deleted is done because we're transforming 
+the input string into its reverse AND DOING NOTHING TO THE REVERSE STRING because Edit Distance
+Algorithm only modifies one string out of the given two strings in input.
+So those operations will lead to a palindrome. 
+
+"You can do (1 insertion + 1 deletion)*n times, and you will still be in the main diagonal" 
+Sure, but the cost will be 2*N. As explained above, the final step is to compare DP[N][N] with 2*K. 
+only then we decide the answer.
+
+Here's the code:
+	 */
+	
+	
+	
 	int n = s.length();
 	
 	int[][] dp = new int[n+1][n+1];
-	for(int i=0;i<n;i++)
+	for(int i=0;i<=n;i++)
 		dp[i][0]=dp[0][i]=i;
 	
-	for(int i=1;i<=n;i++){
-		int from = Math.max(1, i-k);
-		int to = Math.min(i+k, n);
+	for(int i=1;i<=n;i++){     // for every row
+		int from = Math.max(1, i-k);    // travel from the column starting from Max(1,i-k)
+		int to = Math.min(i+k, n);      // till the column ending at Min(i+k,n)
 		for(int j=from;j<=to;j++){
 			if(s.charAt(i-1)==rev.charAt(j-1))
 				dp[i][j] = dp[i-1][j-1];
 			
-			dp[i][j] = 	Math.min(Math.min(dp[i][j], 1 + dp[i][j-1]),1 + dp[i-1][j]); // delete character j
+			//(dp[i][j-1]) means delete character 'j' && (dp[i-1]+1) means inserting a character 'i'
+			dp[i][j] = 	Math.min(Math.min(dp[i][j], 1 + dp[i][j-1]),1 + dp[i-1][j]); 
 			
 		}
 	}
@@ -62,3 +100,9 @@ public static int dynamicProgrammingSolution (String s, String rev, int k){
 }
 
 }
+/*
+ * Analysis:
+ * We only process (2*K+1) columns per row. So this algorithm works in O(N*K) which is fast enough.
+ * Time Complexity = O(NK)
+ * Space Complexity = O(N^2)
+ */
