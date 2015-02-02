@@ -1,6 +1,6 @@
 package divideandconquer;
 
-public class isNumberStringPalindrome {
+public class isNumberPalindrome {
 	
 public static boolean isPalindrome(int number){
 	int temp = number;
