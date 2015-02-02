@@ -17,6 +17,8 @@ x, xyz
 NOTE: Can be done using EDIT-DISTANCE Algorithm, but IT WONT BE EFFICIENT since the time complexity will be O(n^2)
 and the space complexity will also be O(n^2).
 
+BUT WITH THIS ALGORITHM THOUGH THE TIME COMPLEXITY IF O(N^2), BUT THE SPACE COMPLEXITY IS O(1)
+
 Source: http://www.careercup.com/question?id=5092486548553728
 */
 
