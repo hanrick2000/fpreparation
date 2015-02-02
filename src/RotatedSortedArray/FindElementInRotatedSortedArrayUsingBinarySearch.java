@@ -59,3 +59,9 @@ public static int usingModifiedBS(int[] a, int find){
         
     }
 }
+
+/*
+ * Analysis:
+ * Time Complexity = O(lgn)
+ * Space Complexity = O(1)
+ */
