@@ -17,9 +17,9 @@ x, xyz
 NOTE: Can be done using EDIT-DISTANCE Algorithm, but IT WONT BE EFFICIENT since the time complexity will be O(n^2)
 and the space complexity will also be O(n^2).
 
-BUT WITH THIS ALGORITHM THOUGH THE TIME COMPLEXITY IF O(N^2), BUT THE SPACE COMPLEXITY IS O(1)
+BUT WITH THIS ALGORITHM THOUGH THE TIME COMPLEXITY IF O(N), AND THE SPACE COMPLEXITY IS O(1)
 
-Source: http://www.careercup.com/question?id=5092486548553728
+Question and Answer Source:http://www.careercup.com/question?id=4793416529477632
 */
 
 
@@ -40,39 +40,58 @@ public static void main(String[] args) {
 }
 
 private static boolean areOneEditApart(String s1, String s2) {
-	int m = s1.length();
-	int n = s2.length();
-	if(Math.abs(m-n) > 1)  // if length of both the strings differs more than 1
+	String small;
+	String large;
+	
+	if(s1.length() > s2.length()){
+		small = s2;
+	    large = s1;
+	}
+	else{
+		small = s1;
+		large = s2;
+	}
+	
+	int operations = 0;
+	
+	if(large.length() - small.length() > 1)
 		return false;
-	if(s1.equals(s2))   // if they are exactly same. That means they are NOT ONE EDIT apart
-		return false;
-	int i=0;
-	int j=0;
-	while(i < m && j < n){
-		if(s1.charAt(i)==s2.charAt(j)){
-			i++;
-			j++;
-			continue;
-		}
-		if(s1.charAt(i)!=s2.charAt(j)){
-			if(m==n){   // both strings are of equal length
-				if(s1.substring(i+1, m).equals(s2.substring(j+1,n)))
-					return true;
+	
+	else if(large.length()==small.length()){
+
+		for(int i=0;i<small.length();i++){
+			if(small.charAt(i)!=large.charAt(i)){
+				operations++;
+				if(operations>1)
+					return false;
 			}
-			else{ // both strings are of unequal length
-				if(s1.substring(i+1, m).equals(s2.substring(j, n)))
-					return true;
-				if(s1.substring(i, m).equals(s2.substring(j+1, n)))
-					return true;
+		}	
+	}
+	else{ // small and large strings are different by length = 1
+		
+	
+		// HERE WE NEED A WHILE LOOP
+		int i=0;
+		
+		while(i<small.length()){
+			
+			if(small.charAt(i)!=large.charAt(i+operations)){
+				operations++;
+				if(operations>1)
+					return false;
+			}
+			else{
+				i++;  // increment the i
 			}
 		}
 		
 	}
-	return true;  // return true because after comparing hello and hello1, where the last character is different then it is one edit apart
-}
+	return true;  // all conditions for false are checked, hence return true
+	
+	}
 }
 /*
 Analysis:
-	Time Complexity = O(n^2) since the substring method has O(n) time complexity
+	Time Complexity = O(n) where n = length of larger string
 	Space Complexity = O(1)
 */
