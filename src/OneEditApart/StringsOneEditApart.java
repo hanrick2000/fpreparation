@@ -53,18 +53,24 @@ private static boolean areOneEditApart(String s1, String s2) {
 			continue;
 		}
 		if(s1.charAt(i)!=s2.charAt(j)){
-			if(s1.substring(i+1, m).equals(s2.substring(j, n)))
-				return true;
-			if(s1.substring(i, m).equals(s2.substring(j+1, n)))
-				return true;
+			if(m==n){   // both strings are of equal length
+				if(s1.substring(i+1, m).equals(s2.substring(j+1,n)))
+					return true;
+			}
+			else{ // both strings are of unequal length
+				if(s1.substring(i+1, m).equals(s2.substring(j, n)))
+					return true;
+				if(s1.substring(i, m).equals(s2.substring(j+1, n)))
+					return true;
+			}
 		}
 		
 	}
-	return false;
+	return true;  // return true because after comparing hello and hello1, where the last character is different then it is one edit apart
 }
 }
 /*
 Analysis:
-	Time Complexity = O(n)
+	Time Complexity = O(n^2) since the substring method has O(n) time complexity
 	Space Complexity = O(1)
 */
