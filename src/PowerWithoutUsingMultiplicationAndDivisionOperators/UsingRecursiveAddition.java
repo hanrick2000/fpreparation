@@ -2,7 +2,7 @@
 Write you own Power without using multiplication(*) and division(/) operators
 Source: http://www.geeksforgeeks.org/write-you-own-power-without-using-multiplication-and-division/
 */
-package CalculatePowerWithoutUsingMultiplicationAndDivisionOperators;
+package PowerWithoutUsingMultiplicationAndDivisionOperators;
 
 import java.util.Scanner;
 

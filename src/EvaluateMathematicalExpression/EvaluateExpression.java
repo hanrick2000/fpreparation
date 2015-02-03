@@ -12,7 +12,7 @@ Youtube Link: https://www.youtube.com/watch?v=vq-nUF0G4fI
 
 
 ALERT:
-	1. Conversion from char to int and visa-versa which pushing into and poppinh from stack
+	1. Conversion from char to int and visa-versa which pushing into and popping from stack
 */
 
 package EvaluateMathematicalExpression;

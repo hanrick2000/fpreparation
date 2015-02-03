@@ -1,8 +1,5 @@
 package AnagramAndPalindromeProblems.PalindromeQuestions;
 
-
-
-
 /*
 
 Question:  Find total palindromes and print the each palindrome in the string:

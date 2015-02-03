@@ -18,6 +18,7 @@ public class UsingHashSet {
 		String[] array = {"world","hello","super","hell"};
 		HashSet<String> dictionary=createHashSetDictionary(array);
 		System.out.println(isConcatenationOfDictionaryWords("helloworld",dictionary));
+	
 	}
 
 	private static boolean isConcatenationOfDictionaryWords(String search, HashSet<String> dictionary) {

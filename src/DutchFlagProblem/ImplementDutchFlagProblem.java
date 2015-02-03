@@ -1,5 +1,35 @@
 package DutchFlagProblem;
 
+/*
+Question And Answer Source : http://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
+
+Algorithm:
+Examine a[Mid]. There are three possibilities: a[Mid] is (0) red, (1) white or (2) blue.
+Case (0) a[Mid] is red, swap a[Lo] and a[Mid]; Lo++; Mid++
+
+0 0 0 0 1 1 1 ? ? ? 2 2 2
+^     ^   ^
+|     |   |
+Lo    Mid Hi
+
+Case (1) a[Mid] is white, Mid++
+
+0 0 0 1 1 1 1 ? ? ? 2 2 2
+^       ^   ^
+|       |   |
+Lo      Mid Hi
+
+Case (2) a[Mid] is blue, swap a[Mid] and a[Hi]; Hi-- ;
+
+0 0 0 1 1 1 ? ? ? 2 2 2 2
+^     ^   ^
+|     |   |
+Lo    Mid Hi
+
+Continue until Mid>Hi.
+*
+*/
+
 import java.util.Scanner;
 
 public class ImplementDutchFlagProblem {

@@ -6,7 +6,7 @@ For Example: Meaning of  4.21E10 meaning ?
 Ans: 4.21 x10^10 (Answer Source: https://answers.yahoo.com/question/index?qid=20100915180740AALkWaT)
 
 
-Source: http://www.careercup.com/question?id=4901629824335872	
+qUESTION and ANSWER Source: http://www.careercup.com/question?id=4901629824335872	
 */
 
 package EvaluateMathematicalExpression;
@@ -70,9 +70,9 @@ public class EvaluateStringToFloat {
 	
 	public static void main(String[] args) throws Exception {
 		EvaluateStringToFloat a = new EvaluateStringToFloat("3.2");
-		System.out.println(a.result);
+		System.out.println(a.result); //Output: 3.2
 		EvaluateStringToFloat b = new EvaluateStringToFloat("342.18E-10");
-		System.out.println(b.result);
+		System.out.println(b.result);  //Output: 3.4218E-8
 		// Example of float
 		float f=(float) 342.18E-10;
 		System.out.println(f);

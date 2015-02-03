@@ -1,9 +1,5 @@
 package AnagramAndPalindromeProblems.AnagramQuestions;
 
-
-
-
-
 /*
  * Question: bool anaStrStr (string needle, string haystack) {}
 Write a function that takes 2 strings , search returns true if any anagram of string1(needle)
