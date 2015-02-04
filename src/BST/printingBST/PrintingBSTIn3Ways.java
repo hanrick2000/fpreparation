@@ -1,4 +1,4 @@
-package printingBST;
+package BST.printingBST;
 
 import java.util.LinkedList;
 import java.util.Queue;
