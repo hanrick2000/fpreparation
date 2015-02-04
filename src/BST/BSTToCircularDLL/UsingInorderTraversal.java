@@ -9,7 +9,7 @@
  * 				 Make current.previous = previous
  */
 
-package BSTToCircularDLL;
+package BST.BSTToCircularDLL;
 
 public class UsingInorderTraversal {
 	
