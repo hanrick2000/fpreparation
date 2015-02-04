@@ -19,7 +19,7 @@ the number is multpile of 5 then we have the last digit as 0. Once we do that, o
 last digit is 0 or not, which we can do using float and integer comparison trick.
 */
 
-package checkIfANumberIsMultipleOf5;
+package Number.checkIfANumberIsMultipleOf5;
 
 import java.util.Scanner;
 

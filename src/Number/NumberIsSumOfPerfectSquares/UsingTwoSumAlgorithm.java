@@ -5,7 +5,7 @@
 	Determine the number of ways which it can be written as the sum of two squares
 Source: http://www.careercup.com/question?id=5767787551129600
 */
-package NumberIsSumOfPerfectSquares;
+package Number.NumberIsSumOfPerfectSquares;
 
 import java.util.ArrayList;
 import java.util.Iterator;

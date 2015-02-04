@@ -7,53 +7,57 @@ so that no node with value zero could be parent of node with non-zero.
 Question Source: http://www.careercup.com/question?id=5344154741637120
 
 Algorithm:
-1. First do a pre-order traversal
-2. Now do a post-order traversal
-	The result would be sinkZero Tree
- 
-OR vise-versa where we do first post-order and then pre-order traversal
+void sinkzero(Node& node, deque<int>& d) {
+	if (node == null) return;
+	if (node->val == 0) d.push_back(node);
+	else {
+		swap(node->val, d.front()->val);
+		d.pop_front();
+		d.push_back(node);
+	}
+	sinkzero(node->left, d);
+	sinkzero(node->right, d);
+	if (!d.empty() && d.back() == node) d.pop_back();   // Even if this step is NOT done its fine OR instead replace this
+	                                                    // step with queue.clear() 
+}
  
  */
 
 
-package SinkZeroInBinaryTree;
+package BST.SinkZeroInBinaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class UsingPreorderFollowedByPostOrder {
+public class UsingPreorderAndQueue {
 	public static void main(String[] args) {
 		Node root = makeTree();
 		printTree(root);
 		System.out.println();
-		sinkZeroByPreOrder(root);
-		printTree(root);
-		System.out.println();
-		sinkZeroByPostOrder(root);
-		printTree(root);
-		System.out.println();
 		
+		Queue<Node> q = new LinkedList<Node>();
+		sinkZeroUsingPreOderAndQueue(root,q);
+		printTree(root);
+		System.out.println();
 	}
 
-
-	private static void sinkZeroByPostOrder(Node n) {
+	private static void sinkZeroUsingPreOderAndQueue(Node n, Queue<Node> q) {
 		if(n==null)
 			return;
-		
-		sinkZeroByPostOrder(n.left);
-		sinkZeroByPostOrder(n.right);
-		if(n.data==0){
-			if(n.left!=null && n.left.data!=0){
-				n.data=n.left.data;
-				n.left.data=0;
-			}
-			else if(n.right!=null && n.right.data!=0){
-				n.data=n.right.data;
-				n.right.data=0;
-			}
+		if(n.data==0)
+			q.add(n);
+		else{
+			Node element = q.remove();
+			int d = n.data;
+			n.data=element.data;
+			element.data=d;
+			q.add(n);
 		}
+		sinkZeroUsingPreOderAndQueue(n.left,q);
+		sinkZeroUsingPreOderAndQueue(n.right, q);
 		
-	}
-	
 
+	}
 	private static void printTree(Node n) {
 		if(n==null)
 			return;
@@ -61,24 +65,6 @@ public class UsingPreorderFollowedByPostOrder {
 		printTree(n.left);
 		printTree(n.right);
 	}
-
-	private static void sinkZeroByPreOrder(Node n) {
-		if(n==null)
-			return;
-		if(n.data==0){
-			if(n.left!=null && n.left.data!=0){
-				n.data=n.left.data;
-				n.left.data=0;
-			}
-			else if(n.right!=null && n.right.data!=0){
-				n.data=n.right.data;
-				n.right.data=0;
-			}
-		}
-		sinkZeroByPreOrder(n.left);
-		sinkZeroByPreOrder(n.right);
-	}
-
 	private static Node makeTree() {
 		Node one = new Node(0);
 		Node two = new Node(3);
@@ -131,19 +117,8 @@ public class UsingPreorderFollowedByPostOrder {
 		
 	}
 }
-class Node{
-	int data;
-	Node left;
-	Node right;
-	
-	public Node(int data){
-		this.data = data;
-		this.left=null;
-		this.right=null;
-	}
-}
 /*
 Analysis: 
-Time Complexity = O(2n) since each node is visited twice
-Space Complexity = O(1)
+Time Complexity = O(n) since each node is visited only once
+Space Complexity = O(n) used by the queue
 */
