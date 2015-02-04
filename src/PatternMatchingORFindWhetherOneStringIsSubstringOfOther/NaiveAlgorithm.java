@@ -56,7 +56,7 @@ Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-patte
 			 	Check if (text[i+j]==pattern[])
 */
 	
-package PatternMatching;
+package PatternMatchingORFindWhetherOneStringIsSubstringOfOther;
 
 import java.util.Scanner;
 

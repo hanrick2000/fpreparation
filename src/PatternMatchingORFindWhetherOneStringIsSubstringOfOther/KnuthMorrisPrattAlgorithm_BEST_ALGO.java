@@ -54,11 +54,11 @@ http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-
 http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/
 */
 
-package PatternMatching;
+package PatternMatchingORFindWhetherOneStringIsSubstringOfOther;
 
 import java.util.Scanner;
 
-public class KnuthMorrisPrattAlgorithm {
+public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{

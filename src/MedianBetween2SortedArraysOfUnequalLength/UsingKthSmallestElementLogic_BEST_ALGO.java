@@ -9,7 +9,7 @@ package MedianBetween2SortedArraysOfUnequalLength;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class UsingKthSmallestElementLogic {
+public class UsingKthSmallestElementLogic_BEST_ALGO {
 	
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
