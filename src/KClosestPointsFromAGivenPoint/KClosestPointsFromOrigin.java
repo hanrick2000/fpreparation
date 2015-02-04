@@ -112,3 +112,9 @@ public class KClosestPointsFromOrigin {
         }
 }
 
+
+/*
+ * Analysis:
+ * Time Complexity = O(nlgk) where k = number of closest points required and n = total points considered
+ * Space Complexity = O(k)
+ */
