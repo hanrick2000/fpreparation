@@ -18,20 +18,23 @@ public class MaximumSizeRectangleInSubMatrix {
 	      int[][] knows = new int[][]{{0,1,1,0,1},
 	                                  {1,1,1,0,0},
 	                                  {0,1,1,1,0},
-	                                  {0,0,1,0,0}};
-	      int[][] s = new int[knows.length][knows[0].length];
+	                                  {0,1,1,0,0}};
+	   // copy the matrix to a new matrix
+	      int[][] s = knows;
+	      
 	                                  
 	      // converting to histogram
-	      for(int i=1;i<knows.length;i++)
-	          for(int j=0;j<knows[0].length;j++)
-	              if(knows[i][j]==1)
-	        	  s[i][j] = knows[i-1][j]+1;
+	      for(int i=1;i<s.length;i++)
+	          for(int j=0;j<s[0].length;j++)
+	              if(s[i][j]==1)
+	            	  s[i][j] = s[i-1][j]+1;
+	              
 	       
 	      
 	      // feed each row to histogram program
 	      int max = 0;
 	      int area;
-	      for(int i=0;i<knows.length;i++){
+	      for(int i=0;i<s.length;i++){
 	          area=largestRectangleInHistogckram(s[i]);
 	          max = Math.max(max,area);
 	          }
@@ -44,7 +47,7 @@ public class MaximumSizeRectangleInSubMatrix {
 	    Stack<Integer> stack = new Stack<Integer>();
 	   
 	    
-	    int i =1;
+	    int i =0;
 	        while(i<a.length){
 	            
 	            if(stack.isEmpty() || a[i]>=a[stack.peek()]){

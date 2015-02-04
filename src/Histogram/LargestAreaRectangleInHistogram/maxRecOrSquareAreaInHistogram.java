@@ -3,7 +3,7 @@ package Histogram.LargestAreaRectangleInHistogram;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class UsingStackToStoreIndices {
+public class maxRecOrSquareAreaInHistogram {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
