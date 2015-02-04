@@ -65,5 +65,6 @@ private static int findKthSmallestElement(int[] a, int[] b,
 }
 /*
 Analysis:
-	Time Complexity = O(log(n+m))
+	Time Complexity = O(log(n+m)) //(lg(n+m) because if we take the combined array of n+m we are 
+	// reducing the combined array by 1/2 everytime, hence lg(n+m))
     Space Complexity = O(1)*/
