@@ -1,4 +1,4 @@
-package CheckForSetBitsInIntegerAndCharacter;
+package SetBitsInIntegerAndCharacter;
 
 import java.util.Scanner;
 

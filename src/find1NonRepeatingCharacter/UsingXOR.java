@@ -1,7 +1,8 @@
 package find1NonRepeatingCharacter;
 
 /*
- * NOTE: This method is applicable ONLY for 1 NON-repeating character and NOT for n Non-repeating characters.
+ * NOTE: This method is applicable ONLY for 1 NON-repeating character and NOT for n
+ *  Non-repeating characters.
 */
 
 import java.util.Scanner;

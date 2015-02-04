@@ -8,7 +8,7 @@
  */
 
 
-package CountNumberOfConnectedComponentsOrIslandsInUndirectedGraph;
+package ConnectedComponentsOrIslandsInUndirectedGraph;
 
 public class UsingDFS{
 	public static void main(String[] args) {

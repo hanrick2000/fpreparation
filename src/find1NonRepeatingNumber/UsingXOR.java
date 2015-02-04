@@ -12,7 +12,9 @@ public static void main(String[] args) {
 		System.out.println("The size of the array should be 2n+1");
 		System.out.println("Enter the number of elements in the array");
 		int n = in.nextInt();
-		System.out.println("Enter the elements of the array, one should be non-repeating and the others should be repeting EXACTLY even number of times");
+		System.out.println("Enter the elements of the array, "
+				+ "one should be non-repeating and the others should be repeting EXACTLY "
+				+ "even number of times");
 		int[] a = new int[n];
 		for(int i=0;i<n;i++)
 			a[i]=in.nextInt();
