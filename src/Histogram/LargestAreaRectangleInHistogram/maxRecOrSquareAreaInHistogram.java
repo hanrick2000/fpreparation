@@ -46,7 +46,7 @@ public static int largestRectangleArea(int[] height) {
         }
         
     }
-    
+    // pop the remaining elements from the stack
     while (!stack.isEmpty()){
         int h=height[stack.pop()];
         int wid=stack.isEmpty()?i:i-stack.peek()-1;

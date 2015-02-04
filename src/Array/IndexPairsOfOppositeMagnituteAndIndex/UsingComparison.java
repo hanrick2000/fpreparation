@@ -9,7 +9,7 @@ find all the pairs(i,j) such that : i < j and A[i]>B[j]
 Question Source: http://www.careercup.com/question?id=6260358392053760
 
 */
-package IndexPairsOfOppositeMagnituteAndIndex;
+package Array.IndexPairsOfOppositeMagnituteAndIndex;
 
 import java.util.Scanner;
 

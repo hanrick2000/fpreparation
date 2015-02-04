@@ -5,7 +5,7 @@
  * 		   https://www.youtube.com/watch?v=hXlv88ddcgw&list=PL962BEE1A26238CA3
  */
 
-package MaxContinuousSumInArray;
+package Array.MaxContinuousSumInArray;
 
 import java.util.Scanner;
 

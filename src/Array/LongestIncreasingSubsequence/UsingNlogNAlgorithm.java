@@ -154,14 +154,13 @@ does’t lead to worst case complexity). To discard an element, we will trace ce
 A[i] in auxiliary array (again observe the end elements in your rough work), and replace 
 ceil value with A[i]. We extend a list by adding element to auxiliary array. We also maintain 
 a counter to keep track of auxiliary array length.
+
  */
-
-
-package SubstringAndSubsequenceProblems.Subsequence;
+package Array.LongestIncreasingSubsequence;
 
 import java.util.Scanner;
 
-public class LongestIncreasingSubsequence {
+public class UsingNlogNAlgorithm {
 	 public static void main(String[] args){
 		   
 		   Scanner in = new Scanner(System.in);

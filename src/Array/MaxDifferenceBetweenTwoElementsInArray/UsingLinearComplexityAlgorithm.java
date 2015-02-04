@@ -19,7 +19,7 @@
  * 
  */
 
-package MaxDifferenceBetweenTwoElementsInArray;
+package Array.MaxDifferenceBetweenTwoElementsInArray;
 
 import java.util.Scanner;
 

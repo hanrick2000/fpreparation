@@ -17,7 +17,7 @@ Loop for each element of the array
 return max_so_far
  */
 
-package MaxContinuousSumInArray;
+package Array.MaxContinuousSumInArray;
 
 import java.util.Scanner;
 

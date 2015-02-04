@@ -2,8 +2,9 @@
 Question:
 	Given a regular expression with characters a-z, ' * ', ' . ' 
 	the task was to find if that string could match another string with characters from: a-z 
-	where ' * ' can delete the character before it, and ' . '
-	could match whatever character. ' * ' always appear after a a-z character. 
+	where ' * ' may or may not delete the character before it, 
+	and ' . ' could match whatever character. 
+	' * ' always appear after a a-z character. 
 	Example: 
 		isMatch("a*", "") = true; 
 		isMatch(".", "") = false; 
@@ -26,6 +27,7 @@ public class UsingRecursion {
 		System.out.println(isMatch("a", "a"));
 		System.out.println(isMatch("aaaa*a.", "aaaab"));
 		System.out.println(isMatch("ab*", "ab"));
+		System.out.println(isMatch("Facebk","F.c.bo*k"));
 	}
 	static boolean isMatch(String regex, String s)
 	{

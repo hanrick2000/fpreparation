@@ -12,7 +12,7 @@ http://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
  */
 
 
-package LongestIncreasingSubsequence;
+package Array.LongestIncreasingSubsequence;
 
 import java.util.Scanner;
 

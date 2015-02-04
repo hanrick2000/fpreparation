@@ -4,7 +4,7 @@ Question: Given an unsorted array of integers, sort the array into a
 		  arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= �..
 Source: http://www.geeksforgeeks.org/sort-array-wave-form-2/
 */
-package ArrangeArrayInWaveForm;
+package Array.ArrangeArrayInWaveForm;
 
 import java.util.Arrays;
 import java.util.Scanner;

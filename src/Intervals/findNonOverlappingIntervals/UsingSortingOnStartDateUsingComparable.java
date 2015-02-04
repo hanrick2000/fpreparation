@@ -36,7 +36,9 @@ public static void main(String[] args) {
 
 private static int usingSorting(IntervalOfTime[] intervals) {
 	Stack<IntervalOfTime> stack = new Stack<IntervalOfTime>();
-	Arrays.sort(intervals);  // Natural Ordering of Arrays.sort() method, URL: http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort(java.lang.Object[])
+	Arrays.sort(intervals);  
+	// Natural Ordering of Arrays.sort() method,
+	// URL: http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort(java.lang.Object[])
 	// push the first interval in the stack
 	stack.push(intervals[0]);
 	// start with the second interval and start comparing with the last interval in the stack
@@ -46,7 +48,8 @@ private static int usingSorting(IntervalOfTime[] intervals) {
 		// check for overlap
 		if(last.endTime <= current.startTime) // does not overlap, push into stack. 
 			/*
-			 * 	NOTE: Since we have sorted according to start times hence we DO NOT need to check if (last.startTime >= current.endTime)
+			 * 	NOTE: Since we have sorted according to start times hence we DO NOT need to
+			 *  check if (last.startTime >= current.endTime)
 			 */
 		
 			stack.push(current);

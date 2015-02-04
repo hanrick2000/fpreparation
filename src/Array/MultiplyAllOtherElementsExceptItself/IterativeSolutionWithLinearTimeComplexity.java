@@ -33,7 +33,7 @@ Then to find number at index 'i' you would just do:
 output[i]=arr1[i]*arr2[i]    (arrays multiplied starting from 0 to (n-1))
  */
 
-package MultiplyAllOtherElementsExceptItself;
+package Array.MultiplyAllOtherElementsExceptItself;
 
 import java.util.Arrays;
 import java.util.Scanner;

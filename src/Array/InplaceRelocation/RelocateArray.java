@@ -39,7 +39,7 @@ arr[i] += (arr[arr[i]]%size)*size;
 
 
 
-package InplaceRelocation;
+package Array.InplaceRelocation;
 
 import java.util.Scanner;
 
@@ -74,8 +74,8 @@ private static void inplaceRelocation(int[] arr) {
 		/*
 		 * This loop does x = (x + y*z)
 		 */
-		arr[i] %=size;                             // %size is just to handle the case where arr[i] > size                    
-		arr[i] += (arr[arr[i]]%size)*size;         // %size is just to handle the case where arr[arr[i]] > size 
+		arr[i] %=size;                      // %size is just to handle the case where arr[i] > size                    
+		arr[i] += (arr[arr[i]]%size)*size;  // %size is just to handle the case where arr[arr[i]] > size 
 	}
 	for(int i=0;i<size;i++) {
 		/*
