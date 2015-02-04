@@ -4,7 +4,7 @@ Source: http://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-si
 		http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 */
 
-package FindMedianBetween2SortedArraysOfUnequalLength;
+package MedianBetween2SortedArraysOfUnequalLength;
 
 import java.util.Arrays;
 import java.util.Scanner;

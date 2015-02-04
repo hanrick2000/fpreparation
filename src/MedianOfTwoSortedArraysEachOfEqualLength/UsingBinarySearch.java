@@ -3,7 +3,7 @@ Question: We have two SORTED arrays, each of length n. We have to find the media
 
 * TODO: This solution is INCOMPLETE
 */
-package findMedianOfTwoSortedArraysEachOfEqualLength;
+package MedianOfTwoSortedArraysEachOfEqualLength;
 
 import java.util.Scanner;
 

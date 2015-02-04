@@ -58,7 +58,7 @@ Case 2.
 */
 
 
-package FindLCAInTreeForest;
+package LCAInTreeForest;
 
 public class UsingNodeLevels {
 

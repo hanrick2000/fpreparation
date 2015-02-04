@@ -3,7 +3,7 @@ Question: Find Kth smallest element in two sorted arrays
 Source:	http://algorithmsandme.blogspot.in/2014/12/fins-kth-smallest-element-in-two-sorted.html#.VLNiz5_0_VN
 */	
 
-package FindKthSmallestElementBetweenTwoSortedArraysOfUnequalLength;
+package KthSmallestElementBetweenTwoSortedArraysOfUnequalLength;
 
 import java.util.Arrays;
 import java.util.Scanner;

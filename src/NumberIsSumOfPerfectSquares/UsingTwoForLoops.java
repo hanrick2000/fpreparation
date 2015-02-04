@@ -1,4 +1,4 @@
-package FindWhetherANumberIsSumOfPerfectSquares;
+package NumberIsSumOfPerfectSquares;
 
 import java.util.Scanner;
 

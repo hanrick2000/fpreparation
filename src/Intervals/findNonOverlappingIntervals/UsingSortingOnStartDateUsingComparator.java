@@ -16,33 +16,34 @@
  *  Thus, we only need to check the startTime of one with endTime of the other OR vice-versa to check for OVERLAP condition
  */
 
-package findNonOverlappingIntervals;
+package Intervals.findNonOverlappingIntervals;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Stack;
 
-public class UsingSortingOnStartDateUsingComparable {
+public class UsingSortingOnStartDateUsingComparator {
 public static void main(String[] args) {
-	IntervalOfTime[] intervals = new IntervalOfTime[]{new IntervalOfTime(1,4),
-			                              new IntervalOfTime(2,3),
-			                              new IntervalOfTime(5,8),
-			                              new IntervalOfTime(4,5),
-			                              new IntervalOfTime(3,7),
-			                              new IntervalOfTime(6,10),
-			                              new IntervalOfTime(7,8),
-			                              new IntervalOfTime(9,12)};
+	Interval[] intervals = new Interval[]{new Interval(1,4),
+										  new Interval(5,8),
+			                              new Interval(2,3),
+			                              new Interval(4,5),
+			                              new Interval(3,7),
+			                              new Interval(6,10),
+			                              new Interval(7,8),
+			                              new Interval(9,12)};
 	System.out.println("The maximum number of non-overlapping intervals USING SORTING: "+usingSorting(intervals));
 	}
 
-private static int usingSorting(IntervalOfTime[] intervals) {
-	Stack<IntervalOfTime> stack = new Stack<IntervalOfTime>();
-	Arrays.sort(intervals);  // Natural Ordering of Arrays.sort() method, URL: http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort(java.lang.Object[])
+private static int usingSorting(Interval[] intervals) {
+	Stack<Interval> stack = new Stack<Interval>();
+	Arrays.sort(intervals, new IntervalComparator()); // Custom Ordering of Arrays.sort() method, URL: http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort(T[],%20java.util.Comparator)
 	// push the first interval in the stack
 	stack.push(intervals[0]);
 	// start with the second interval and start comparing with the last interval in the stack
 	for(int i=1;i<intervals.length;i++){
-		IntervalOfTime last = stack.peek();
-		IntervalOfTime current = intervals[i];
+		Interval last = stack.peek();
+		Interval current = intervals[i];
 		// check for overlap
 		if(last.endTime <= current.startTime) // does not overlap, push into stack. 
 			/*
@@ -50,11 +51,11 @@ private static int usingSorting(IntervalOfTime[] intervals) {
 			 */
 		
 			stack.push(current);
-		else  // Intervals overlap. Check which interval ends first, that interval should remain in the stack
-			if(current.endTime < last.endTime){
-			stack.pop();
-			stack.push(current);
-		}
+			else  // Intervals overlap. Check which interval ends first, that interval should remain in the stack
+				if(current.endTime < last.endTime){
+				stack.pop();
+				stack.push(current);
+			}
 	}
 	return stack.size(); // since the stack contains all non-overlapping intervals
 }
@@ -84,19 +85,21 @@ private static int usingSorting(IntervalOfTime[] intervals) {
  * VERY VERY VERY IMPORTANT: For deep understanding of custom defined Comparator, please refer this URL: http://www.programcreek.com/2013/11/arrays-sort-comparator/
  */
 
-class IntervalOfTime implements Comparable<IntervalOfTime>{
+class Interval{
 	int startTime;
 	int endTime;
 
-public IntervalOfTime(int startTime, int endTime){
+public Interval(int startTime, int endTime){
 	this.startTime = startTime;
 	this.endTime = endTime;
 	}
+}
+class IntervalComparator implements Comparator<Interval>{ 
 /*
- * VERY VERY VERY IMP NOTE: If we are using Comparable, then we DONOT need a separate class, since we are NOT PASSING any instance to Arrays.sort() method
+ * VERY VERY VERY IMP NOTE: If we are using Comparator, then we need a separate class, since the instance of this class is passed to Arrays.sort() method
 */
-@Override
-public int compareTo(IntervalOfTime o) {
-	return this.startTime - o.startTime;
+	@Override
+	public int compare(Interval a, Interval b) {
+		return a.startTime-b.startTime;
 	}
 }

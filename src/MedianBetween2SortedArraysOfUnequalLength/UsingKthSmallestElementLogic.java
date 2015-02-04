@@ -4,7 +4,7 @@ Source: http://algorithmsandme.blogspot.com/2014/12/find-median-of-two-sorted-ar
 		http://algorithmsandme.blogspot.in/2014/12/fins-kth-smallest-element-in-two-sorted.html#.VLNiz5_0_VN
 	    http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 */
-package FindMedianBetween2SortedArraysOfUnequalLength;
+package MedianBetween2SortedArraysOfUnequalLength;
 
 import java.util.Arrays;
 import java.util.Scanner;
