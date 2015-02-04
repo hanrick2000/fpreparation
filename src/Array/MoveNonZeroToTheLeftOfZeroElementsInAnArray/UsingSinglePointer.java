@@ -1,4 +1,4 @@
-package MoveNonZeroToTheLeftOfZeroElementsInAnArray;
+package Array.MoveNonZeroToTheLeftOfZeroElementsInAnArray;
 
 import java.util.Scanner;
 
