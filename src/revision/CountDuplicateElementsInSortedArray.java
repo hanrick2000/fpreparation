@@ -25,6 +25,7 @@ public static void calculate(int[] a,int start,int end){
     if(a[start]==a[end]){
         if(!map.containsKey(a[start])){
             map.put(a[start],(end-start+1));
+            
         }
         else{
             int count = map.get(a[start]);
