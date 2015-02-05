@@ -41,7 +41,7 @@ for the remaining brackets.
 
 
 
-package PrintValidParanthesis;
+package ValidParanthesis;
 
 import java.util.Scanner;
 
