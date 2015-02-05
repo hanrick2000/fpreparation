@@ -10,7 +10,7 @@ Given an array of integers, return one set of 3 elements such that the 3 numbers
  * Algorithm : This is a THREE SUM PROBLEM:
  * 			   1. Store all elements in a HashSet
  *             2. for i=0 to array.length
- *                     for j = i to array.length
+ *                     for j = i+1 to array.length
  *                          check if [-(i+j)] exists in HashMap OR HashSet
  *                          
  * VERY IMPORTANT NOTE:
