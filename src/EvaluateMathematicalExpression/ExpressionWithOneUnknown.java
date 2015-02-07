@@ -4,6 +4,13 @@ The expression is a string and the variable is always x.
 
 Question and Answer Source: http://www.careercup.com/question?id=15468738
 
+Algorithm:
+If there is only X i.e one degree expression,then we can use 2 stacks here, 
+Stack 1: for keeping all the operators 
+Stack 2: for keeping terms 
+keep pushing data to stacks,when you hit a left parenthesis ')' pop 1 element
+from stack 1 and 2 elements from stack 2,then apply the operator to the terms and push
+the result again on the stack..you will end up with a simple expression in X that can be solved easily
 */
 
 package EvaluateMathematicalExpression;
@@ -30,18 +37,19 @@ public class ExpressionWithOneUnknown {
 		int start = 0;
 		for (int i = 0; i < input.length(); i++) {
 			char c = input.charAt(i);
-			if (isX(c)) {
+			// If  x is encountered then push into values stack
+			if (isX(c)) { 
 				values.push(input.substring(start, i + 1));
 				start = i + 1;
 				continue;
 			}
-
+			// If the character is operator then push in operations stack
 			if (isOperation(c)) {
 				operations.push(input.substring(start, i + 1));
 				start = i + 1;
 				continue;
 			}
-			
+			// If the character is '(' then push to values stack
 			if (isBeginSkobka(c)){
 				if (start != i){
 					values.push(input.substring(start, i));
@@ -50,7 +58,7 @@ public class ExpressionWithOneUnknown {
 				start = i + 1;
 				continue;
 			}
-
+			// If the character is ')' then push to values stack
 			if (isEndSkobka(c)) {
 				if (start != i){
 					values.push(input.substring(start, i));
@@ -157,6 +165,6 @@ public class ExpressionWithOneUnknown {
 }
 /*
 Analysis:
-Time Complexity = O()
-Space Compexity = O()
+Time Complexity = O(n)
+Space Compexity = O(n)
 */
