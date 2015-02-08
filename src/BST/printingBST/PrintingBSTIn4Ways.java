@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-	public class PrintingBSTIn3Ways {
+	public class PrintingBSTIn4Ways {
 	public static void main(String[] args) {
 
 			BST bst = BinSearchTree.makeTree();
@@ -19,6 +19,9 @@ import java.util.Stack;
 			System.out.println();
 			System.out.println("Printing Node Paths from root to leaf");
 			printNodesFromRootToLeaf(bst);
+			System.out.println();
+			System.out.println("Printing the BST in SPIRAL ORDER");
+			printTreeInSpiralOrder(bst.root);
 			System.out.println();
 			System.out.println("Function to print the rows of a binary tree, terminating each row with a carriage return");
 			printRowsTerminatingEachRowWithCarriageReturn(bst);
@@ -38,6 +41,59 @@ import java.util.Stack;
 		}
 
 
+
+	private static void printTreeInSpiralOrder(Node root) {
+/*
+ * Algorithm:
+ * We can print spiral order traversal in O(n) time and O(n) extra space. 
+ * The idea is to use two stacks. We can use one stack for printing from left to right
+ * and other stack for printing from right to left. In every iteration, we have nodes of one level 
+ * in one of the stacks. We print the nodes, and push nodes of next level in other stack.		
+ */
+		if(root==null) // NULL check
+			return;
+		
+		Stack<Node> stack1 = new Stack<Node>(); // For levels to be printed from right to left
+		Stack<Node> stack2 = new Stack<Node>(); // For levels to be printed from left to right
+		
+		// Push first level to first stack 'stack1'
+		stack1.push(root);
+		
+		// Keep printing while any of the stacks has some nodes
+		while(!stack1.empty() || !stack2.empty()){
+			// Print nodes of current level from s1 and push nodes of next level to s2
+			while(!stack1.empty()){              // this is stack1
+				Node n = stack1.pop();           // this is stack1
+				System.out.print(n.data+" ");
+				
+				// Note that is right is pushed before left
+				if(n.rchild!=null)
+					stack2.push(n.rchild);   // this is stack2 with rchild first
+				if(n.lchild!=null)
+					stack2.push(n.lchild);   // this is stack2
+			}
+			
+			// Print nodes of current level from s2 and push nodes of next level to s1
+			while(!stack2.empty()){            // this is stack2
+				Node n = stack2.pop();         // this is stack2
+				System.out.print(n.data+" ");
+				
+				// Note that is left is pushed before right
+				if(n.lchild!=null)
+					stack1.push(n.lchild);  // this is stack1 with lchild first
+				if(n.rchild!=null)
+					stack1.push(n.rchild);  // this is stack1
+			}
+			
+		}
+		
+	}
+
+/*
+ * Analysis
+ * Time Complexity = O(n)
+ * Space Complexity = O(n)
+ */
 
 	private static int iterativeLCA(Node root, Node a, Node b) {
 		
