@@ -44,6 +44,8 @@ import java.util.Stack;
 
 	private static void printTreeInSpiralOrder(Node root) {
 /*
+ * Algorithm Source: http://www.geeksforgeeks.org/level-order-traversal-in-spiral-form/
+ * 					 http://prismoskills.appspot.com/lessons/Binary_Trees/Traversal_in_spiral_order.jsp
  * Algorithm:
  * We can print spiral order traversal in O(n) time and O(n) extra space. 
  * The idea is to use two stacks. We can use one stack for printing from left to right
