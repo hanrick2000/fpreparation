@@ -30,7 +30,6 @@ public class DecodeToString {
 			System.out.println("Enter the numeric string to be decoded");
 			String num = in.nextLine();
 			Set<String> result = decode("",num);
-			System.out.println("Number of decoded strings: "+result.size());
 			System.out.println(result.toString());
 		}
 		finally{
@@ -74,3 +73,8 @@ public class DecodeToString {
 }
 
 }
+/*
+Analysis:
+Time Complexity = O()
+Space Complexity = O()
+*/
