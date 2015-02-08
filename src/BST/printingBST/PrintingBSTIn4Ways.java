@@ -20,7 +20,7 @@ import java.util.Stack;
 			System.out.println("Printing Node Paths from root to leaf");
 			printNodesFromRootToLeaf(bst);
 			System.out.println();
-			System.out.println("Printing the BST in SPIRAL ORDER");
+			System.out.println("Printing the BST in SPIRAL OR ZIGZAG ORDER");
 			printTreeInSpiralOrder(bst.root);
 			System.out.println();
 			System.out.println("Function to print the rows of a binary tree, terminating each row with a carriage return");
