@@ -8,7 +8,7 @@ Algorithm:
 2. For Smallest element -> Do a PREORDER traversal
 */
 
-package BST.FindKthSmallestAndLargestNode;
+package BST.KthSmallestAndLargestNode;
 
 import java.util.Scanner;
 
