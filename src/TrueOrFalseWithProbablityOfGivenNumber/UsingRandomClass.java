@@ -7,6 +7,13 @@ Question Source: http://www.careercup.com/question?id=22106665
 	Answer Source: 
 		https://sites.google.com/site/csharpofjameschen/home/math/generate-true-or-false-with-given-probability----facebook
 		https://sites.google.com/site/spaceofjameschen/home/math/generate-true-of-false-with-specifed-probability	
+
+Algorithm:
+
+	1. Both numbers, random and givenNumber should be less than 100
+	2. if(givenNumber>random) then return true else return false
+
+*
 */
 
 package TrueOrFalseWithProbablityOfGivenNumber;
