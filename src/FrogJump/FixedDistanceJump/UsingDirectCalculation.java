@@ -4,7 +4,7 @@ The frog is currently located at position X and wants to get to a position great
 The small frog always jumps a fixed distance, D. 
 Count the minimal number of jumps that the small frog must perform to reach its target.
 
-Question Source: http://codereview.stackexchange.com/questions/46699/codility-frog-jump-count-minimal-number-of-jumps-from-position-x-to-y
+Question And Answer Source: http://www.jordanterry.co.uk/blog/2014/10/26/frog-jump/
 
 Algorithm:
 	calculate distance
