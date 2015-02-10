@@ -1,6 +1,6 @@
 /*
 Question: 
-	CONDITION: WE SHOULD NOT SELECT TWO CONTIGUOUS NUMBERS
+	CONDITION: WE SHOULD NOT SELECT TWO CONTIGUOUS NUMBERS. The numbers selected should be non-contiguous
 	Given a sequence of numbers A(1) ..A(n), 
 	find the continuous subsequenceA(i)..A(j) for which the sum of elements is maximum.
 	
@@ -40,6 +40,12 @@ public class MaxNonContiguousSubsequenceSum {
 			for(int i=2;i<a.length;i++)
 				a[i] = findMax(a[i-2],a[i-1],a[i], (a[i]+a[i-2]) ) ; 
 			return a[a.length-1];
+			
+			/*
+			 * NOTE: If we donot want to modify the original array, we can create a temp array
+			 * and copy all elements of a[] into temp[] and run the for loop for temp[]
+			 * VERY IMP: Its important to copy all elements of a[] into temp[]
+			 */
 		}
 		/*
 		 * Example Program:
