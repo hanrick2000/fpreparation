@@ -1,4 +1,4 @@
-package RomanToDecimal;
+package RomanNumeral;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -45,3 +45,8 @@ public class DecimalToRoman {
 		System.out.println(RomanNumerals(12));
 	}
 }
+/*
+Analaysis:
+Time Complexity: O(n)
+Space Complexity: O(1) 
+*/

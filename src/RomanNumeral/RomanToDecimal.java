@@ -1,4 +1,4 @@
-package RomanToDecimal;
+package RomanNumeral;
 
 public class RomanToDecimal {
 	
@@ -65,3 +65,8 @@ public static void main(java.lang.String args[]) {
     romanToDecimal("XIV");
 }
  }
+/*
+Analaysis:
+Time Complexity: O(n)
+Space Complexity: O(1) 
+*/
