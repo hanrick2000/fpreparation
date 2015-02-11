@@ -94,6 +94,7 @@ public class PowerSetWithoutRepetition {
 						
 						}
 					} 
+					
 					else{  // if the input element is NOT VISITED BEFORE
 						hm.put(focoused, 1);   // mark it as visited in the HashMap
 						
