@@ -17,7 +17,7 @@ Question Source: http://www.careercup.com/question?id=19300678
 
 Answer Source: http://techinterviewsolutions.net/2014/07/03/string-decode-problem/
 */
-package DecodeToString;
+package String.DecodeToString;
 
 import java.util.HashSet;
 import java.util.Scanner;
