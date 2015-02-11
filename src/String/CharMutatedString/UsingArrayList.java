@@ -51,18 +51,26 @@ public class UsingArrayList {
 	}
 
 	private static ArrayList<String> getMutation(String str, HashMap<Character, char[]> map) {
-		 ArrayList<String> result = new ArrayList<String>();
-	        int len = str.length();
-	        if(len == 0){
+		 
+		    // Declare a ArrayList of String to store mutated strings
+		    ArrayList<String> result = new ArrayList<String>();
+
+            // If the string is null or length of string is 0 
+	        if(str.length() == 0 || str==null){
 	            return result;
 	        }
+	        
+	        // If there are NO MUTATIONS
 	        if(map.isEmpty()){
 	            result.add(str);
 	            return result;
 	        }
-	        char[] mutation = new char[len];
+	        
+// Check whether Mutation is present for ALL CHARACTERS of the string. Hence mutation array is of string.length()
+	        char[] mutation = new char[str.length()];
 	        getMutation(str, map, result, mutation, 0);
-	        return result;
+	        
+	        return result;  // return the ArrayList
 	    }
 	    
 public static void getMutation(String str, HashMap<Character, char[]> map,
@@ -110,8 +118,12 @@ public static void getMutation(String str, HashMap<Character, char[]> map,
 }
 /*
 Analysis:
-Time Complexity = 
-Space Complexity = 
+Time Complexity = O(n*m) 
+where n = length of string and 
+m = highest length of choice array for a character
+Space Complexity = Approximately close to O(n*m)
+where n = length of string and 
+m = highest length of choice array for a character
 */
 
 
