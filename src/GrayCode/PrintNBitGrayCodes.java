@@ -103,7 +103,7 @@ from 1 bit Gray codes, then 3-bit Gray codes from 2-bit Gray codes till the numb
 		 * Start the loop from 2nd number to 2^(n)-1 
 		 */
 		
-		for(int i=2;i<(int)Math.pow(2,n)/2;i++){
+		for(int i=2;i<=n;i++){
 			
 			// Enter the previously generated codes again in ArrayList in reverse order
 			for(int j=i-1;j>=0;j--)
