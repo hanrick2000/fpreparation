@@ -87,8 +87,7 @@ public class PowerSetWithoutRepetition {
 							if(counter==dupCounter-1)
 							{
 
-								// clone each element of powerSet, add the current input element and add back the arrayList as a new set
-								// of the powerSet
+		    // clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
 								
 								set = (ArrayList<Integer>) powerSet.get(i).clone(); // get the first element(and type cast it to ArrayList) of the powerSet and clone it
 								set.add(focoused); // add the current input element to this 
@@ -106,8 +105,7 @@ public class PowerSetWithoutRepetition {
 						
 						for (int i = 0; i < psize; i++) {   // iterate through all the elements of the powerSet
 							
-							// clone each element of powerSet, add the current input element and add back the arrayList as a new set
-							// of the powerSet
+			// clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
 							
 							set = (ArrayList<Integer>) powerSet.get(i).clone(); // get the first element(and type cast it to ArrayList) of the powerSet and clone it
 							set.add(focoused); // add the current input element to this 
