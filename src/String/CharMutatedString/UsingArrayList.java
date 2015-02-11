@@ -68,12 +68,16 @@ public class UsingArrayList {
 public static void getMutation(String str, HashMap<Character, char[]> map,
 	    		ArrayList<String> result, char[] mutation, int index){
 	        
+	// BASE CASE: If the index==string.length() then form the string, add to result and return
+	// NOTE: index is compared with string.length() AND NOT (string.length()-1)
 	    	if(index == str.length()){
 	            String newItem = new String(mutation);
 	            result.add(newItem);
 	            return;
 	        }
-	        
+	  
+	    	
+   // RECURSIVE CASE : get the current char, check for its mutation choices and get the mutated string
 	        char current = str.charAt(index);
 	        
 	        
