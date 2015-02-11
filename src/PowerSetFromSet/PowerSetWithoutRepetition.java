@@ -9,6 +9,13 @@ So, as per the question requirements, we need to print
 {NULL, {1}, {2}, {1,2}, {2,2}, {1,2,2}}
 
 Question And Answer Source: http://www.careercup.com/question?id=6189585818189824
+
+Algorithm:
+for each element of input : 
+If it is visited for the first time, just add it to all sets that has been added to powerset. 
+
+else check hashmap to find number of this element that has been visited, then add new element to 
+set(s) that has exactly this number of duplication.
 */
 package PowerSetFromSet;
 
