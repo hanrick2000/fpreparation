@@ -22,7 +22,7 @@ YouTube Helper Links: https://www.youtube.com/watch?v=GdZSzita5V8
 					  https://www.youtube.com/watch?v=hi-Ec4jYyII
 
 */
-package SubsetSumProblem;
+package String.SubsetSumProblem;
 
 import java.util.Scanner;	
 

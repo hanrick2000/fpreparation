@@ -25,7 +25,7 @@ NOTE:  The differences between subsets and substrings are two:
 */
 
 
-package StringSubsetGenerator;
+package String.StringSubsetGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;

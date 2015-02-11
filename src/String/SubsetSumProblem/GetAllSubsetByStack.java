@@ -29,7 +29,7 @@ However, we still continue with the recursion.
 
 
 */
-package SubsetSumProblem;
+package String.SubsetSumProblem;
 
 import java.util.Stack;
 
