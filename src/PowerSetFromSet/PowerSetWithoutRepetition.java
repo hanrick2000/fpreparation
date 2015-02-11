@@ -16,6 +16,9 @@ If it is visited for the first time, just add it to all sets that has been added
 
 else check hashmap to find number of this element that has been visited, then add new element to 
 set(s) that has exactly this number of duplication.
+
+
+VERY IMP NOTE: Debug this program to understand it
 */
 package PowerSetFromSet;
 
@@ -78,7 +81,7 @@ public class PowerSetWithoutRepetition {
 						for (int i = 0; i < psize; i++) {
 							
 							
-							// get only those ArrayList which contains single element
+							// get only those ArrayList element of the powerSet which contains single element
 							for(Integer ii : powerSet.get(i))
 								if(ii==focoused)
 									counter++;
@@ -89,9 +92,9 @@ public class PowerSetWithoutRepetition {
 
 		    // clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
 								
-								set = (ArrayList<Integer>) powerSet.get(i).clone(); // get the first element(and type cast it to ArrayList) of the powerSet and clone it
-								set.add(focoused); // add the current input element to this 
-								powerSet.add(set); // add this new ArrayList element to the powerSet
+								set = (ArrayList<Integer>) powerSet.get(i).clone(); // get EACH element(and type cast it to ArrayList) of the powerSet and clone it
+								set.add(focoused); // add the current input element to this new cloned ArrayList
+								powerSet.add(set); // add this new cloned ArrayList element as a NEW ARRAYLIST element to the powerSet
 							}
 							
 							// make the counter 0
@@ -107,9 +110,9 @@ public class PowerSetWithoutRepetition {
 							
 			// clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
 							
-							set = (ArrayList<Integer>) powerSet.get(i).clone(); // get the first element(and type cast it to ArrayList) of the powerSet and clone it
-							set.add(focoused); // add the current input element to this 
-							powerSet.add(set); // add this new ArrayList element to the powerSet
+							set = (ArrayList<Integer>) powerSet.get(i).clone(); // get EACH element(and type cast it to ArrayList) of the powerSet and clone it
+							set.add(focoused); // add the current input element to this new cloned ArrayList
+							powerSet.add(set); // add this new cloned ArrayList element as a NEW ARRAYLIST element to the powerSet
 						}
 					}
 				}
@@ -118,3 +121,9 @@ public class PowerSetWithoutRepetition {
 		}
 	}
 }
+/*
+ * Analysis:
+ * Time Complexity = O()
+ * Space Complexity = O()
+ * 
+ */
