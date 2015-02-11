@@ -88,6 +88,7 @@ public class PowerSetWithoutRepetition {
 								set.add(focoused); // add the current input element to this 
 								powerSet.add(set); // add this ArrayList back to the powerSet
 							}
+							
 							// make the counter 0
 							counter=0;
 						
