@@ -1,3 +1,16 @@
+/*
+Question: There is a list of rectangles and a list of points in a 2d space.
+Note that the edge of each rectangle are aligned to XY axis. 
+Question is how to find rectangles with point or points inside
+
+Question Source: Asked 2 times
+http://www.careercup.com/question?id=5722141007806464
+http://www.careercup.com/question?id=15443800
+
+Answer Source: http://www.careercup.com/question?id=5722141007806464
+
+*/
+
 package RectanglesAndPoints;
 
 import java.util.LinkedList;
@@ -74,6 +87,14 @@ class Rectangle{
 	public String toString(){
 		return ("BottomLeft: "+bottomLeft.toString()+" TopRight: "+topRight.toString());
 	}
-	
 }
-
+/*
+ * Analysis:
+ * Time Complexity = O(rp) where
+ * r = number of rectangles
+ * p = number of points
+ * 
+ * Space Complexity = O(r+p)
+ * where r = list for storing all rectangles
+ * p = list for storing all points
+ */
