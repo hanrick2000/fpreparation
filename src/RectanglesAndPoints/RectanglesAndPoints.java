@@ -9,6 +9,29 @@ http://www.careercup.com/question?id=15443800
 
 Answer Source: http://www.careercup.com/question?id=5722141007806464
 
+TODO: http://stackoverflow.com/questions/17448814/count-points-in-a-rectangle
+http://stackoverflow.com/questions/217578/point-in-polygon-aka-hit-test
+https://github.com/aerlinn/traffic/blob/8395c15b9a028ec06c394f1cab1b11b18749f9ce/src/edu/brown/cs32/cjm5/stars/KDTree.java
+
+Solution is Using KD Tree: http://en.wikipedia.org/wiki/K-d_tree#Complexity
+(since it has O(nlgn^2) time complexity if heap sort is used to compute the mdian at each level)
+
+
+
+Time Complexity of kd tree(Source: http://en.wikipedia.org/wiki/K-d_tree#Complexity):
+
+Building a static k-d tree from n points takes:
+1. O(n log2 n) time if an O(n log n) sort such as Heapsort is used to compute the median at each level;
+2. O(n log n) time if Quickselect is used;
+3. O(kn log n) time if n points are sorted in each of k dimensions using an O(n log n) sort prior to 
+building the k-d tree.
+
+Inserting a new point into a balanced k-d tree takes O(log n) time.
+Removing a point from a balanced k-d tree takes O(log n) time.
+Querying an axis-parallel range in a balanced k-d tree takes O(n1-1/k +m) time, where m is the 
+number of the reported points, and k the dimension of the k-d tree.
+Finding 1 nearest neighbor in a balanced k-d tree with randomly distributed points takes O(log n) time 
+on average.
 */
 
 package RectanglesAndPoints;
