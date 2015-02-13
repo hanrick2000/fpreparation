@@ -60,7 +60,45 @@ public class UsingQuickSelectAlgorithm {
 		}
 	}
 
-	private static int usingQuickSelect(int[] a, int i, int j, int k) {
-		return -1;
+	private static int usingQuickSelect(int[] A, int l, int h, int k) {
+		
+	        int p = partition(A, l, h); 
+	        if(p==(k-1)) return A[p];
+	        else if(p>(k-1)) return usingQuickSelect(A, l, p - 1,k);  
+	        else return usingQuickSelect(A, p + 1, h,k);
+	}
+
+	private static int partition(int[] a, int low, int high) {
+		
+		int i = low;
+		int j = high;
+		int temp = 0;
+		
+		int pivot = a[low+(high-low)/2];
+		
+		while(i<=j){
+			while(a[i]<pivot)
+				i++;
+			while(a[j]>pivot)
+				j--;
+			if(i>j)
+				break;
+			else{ // if(i<=j)
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+				i++;
+				j--;
+			}
+		}
+		return i; // return the pivot index
+		
 	}
 }
+/*
+Analysis:
+(Analysis Source: http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-2-expected-linear-time/)
+Worst Case Time Complexity = O(n^2)
+Best and Average Case Time Complexity = O(n)
+Space Complexity = O(1)
+*/
