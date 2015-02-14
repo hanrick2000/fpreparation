@@ -32,7 +32,7 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	boolean found = false;
 	boolean[][] visited = new boolean[rowLength][columnLength];  // this will initialize visited matrix to false
 	
-	outerloop:
+	outerloop:               // label the outer for loop as outerloop:
 	for(int i=0;i<rowLength;i++)
 		for(int j=0;j<columnLength;j++){
 			if(findPattern(matrix, i, j, rowLength, columnLength, pattern, visited)){
@@ -65,19 +65,21 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	if(matrix[currentRow][currentColumn]!=pattern.charAt(0)||visited[currentRow][currentColumn]==true)
 		return false;
 	
-	// If we reach here, that means that the current position in the matrix matches with the 0th position of the pattern
+	// If we reach here, that means that the current position in the matrix MATCHES with the 0th position of the pattern
 	// i.e. matrix[currentRow][currentColumn]==pattern.charAt(0) is true here since we 
 	// already checked previously that if this is not true then return false
 	
 	visited[currentRow][currentColumn]=true;
 	
+	
+	// move in all 8 directions
 	for(int k=0;k<8;k++){
 		if(findPattern(matrix, currentRow+rowDir[k], currentColumn+columnDir[k], rowLength, columnLength, pattern.substring(1), visited))
 			return true;
 	}
 	
-	return (visited[currentRow][currentColumn]=false);
-		
+	visited[currentRow][currentColumn]=false; // for backtracking, make this again as false
+	return visited[currentRow][currentColumn]; // return this false
 	}
 }
 /*
