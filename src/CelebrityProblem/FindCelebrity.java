@@ -133,7 +133,7 @@ Efficient Celebrity Algorithm
 		if (!knows(candidate, candidate)) {
 			return findCelebrity(candidate + 1, totalPeople);
 		}
-		
+
 		for (int newCandidate = candidate + 1; newCandidate < totalPeople; newCandidate++) {
 
 			if (knows(candidate, newCandidate)) {  // Does 1 know 4? Yes. Eliminate 1. That is eliminate candidate
