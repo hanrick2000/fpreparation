@@ -1,3 +1,12 @@
+
+/*
+ * Question: Calculate the average of each Level of a Tree. 
+ * 
+ * Question Source: http://vosggll.blogspot.com/2014/12/fb.html
+ * 
+ * Algorithm : level order traverse + average function
+ */
+
 package BST.AverageOfEachLevelOfTree;
 
 import java.util.ArrayList;
