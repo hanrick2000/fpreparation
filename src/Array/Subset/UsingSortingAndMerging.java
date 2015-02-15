@@ -49,7 +49,7 @@ public class UsingSortingAndMerging {
 			System.out.println("Enter the elements of the second array");
 			for(int i=0;i<n;i++)
 				a2[i]=in.nextInt();
-			System.out.println("Is one of the array a subset of another ?"+subset(a1,a2));
+			System.out.println("Is one of the array a subset of another ? "+subset(a1,a2));
 		}
 		finally{
 			in.close();
