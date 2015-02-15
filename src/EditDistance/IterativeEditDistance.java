@@ -1,8 +1,8 @@
-package EditDistanceAndMinInsertionsReqToFormPalindromeAndCuttingRodProblem;
+package EditDistance;
 
 import java.util.Scanner;
 
-public class UsingIterativeEditDistance {
+public class IterativeEditDistance {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{

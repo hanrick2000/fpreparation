@@ -7,7 +7,7 @@
  * 
  */
 
-package EditDistanceAndMinInsertionsReqToFormPalindromeAndCuttingRodProblem;
+package CuttingRodProblem;
 
 import java.util.Scanner;
 

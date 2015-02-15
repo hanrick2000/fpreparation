@@ -1,5 +1,4 @@
-package divideandconquer;
-
+package EditDistance;
 /*
 Question: Given two strings, return boolean True/False, if they are only one edit apart.Edit can be insert/delete/update of only one character in the string. Eg: 
 
