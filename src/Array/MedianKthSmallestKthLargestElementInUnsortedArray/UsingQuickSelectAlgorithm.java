@@ -44,7 +44,7 @@ public class UsingQuickSelectAlgorithm {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
-			System.out.println("Program to find the kth SMALLEST element in the array");
+			System.out.println("Program to find the kth SMALLEST element in the array using QUICK SELECT Algorithm");
 			System.out.println("Enter the number of elements in the array");
 			int n = in.nextInt();
 			int[] a=new int[n];
@@ -63,9 +63,12 @@ public class UsingQuickSelectAlgorithm {
 	private static int usingQuickSelect(int[] A, int l, int h, int k) {
 		
 	        int p = partition(A, l, h); 
-	        if(p==(k-1)) return A[p];
-	        else if(p>(k-1)) return usingQuickSelect(A, l, p - 1,k);  
-	        else return usingQuickSelect(A, p + 1, h,k);
+	        if(p==(k-1)) 
+	        	return A[p];
+	        else if(p>(k-1)) 
+	        	return usingQuickSelect(A, l, p ,k);  
+	        else 
+	        	return usingQuickSelect(A, p+1, h , k-p);
 	}
 
 	private static int partition(int[] a, int low, int high) {
