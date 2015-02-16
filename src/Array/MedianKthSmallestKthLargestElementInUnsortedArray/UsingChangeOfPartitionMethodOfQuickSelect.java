@@ -6,6 +6,7 @@ Source: http://cs.stackexchange.com/questions/11458/quicksort-partitioning-hoare
 1. Lomuto -> To understand this watch this video: https://www.youtube.com/watch?v=MZaf_9IZCrc
 2. Hoare -> Normal i and j counter partition
 
+The code for Hoare parition is:
 private static int partition(int[] a, int low, int high) {
 		
 		int i = low;
