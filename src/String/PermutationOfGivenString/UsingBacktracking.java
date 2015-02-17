@@ -64,17 +64,36 @@ public class UsingBacktracking {
 		}
 
 	private static void swap(char[] s, int from, int to) {
-		char c = s[from];
+		char temp = s[from];
 		s[from] = s[to];
-		s[to] = c;
+		s[to] = temp;
 	}
+	
+	/*
+	 * Is there a better time complexity solution ?
+	 * http://www.quora.com/What-is-the-fastest-algorithm-to-find-all-possible-permutations-of-a-string
+	 * http://stackoverflow.com/questions/20991167/improving-the-time-complexity-of-all-permutations-of-a-given-string
+	 * https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8&client=ubuntu#q=best%20possible%20time%20complexity%20for%20finding%20all%20permutations%20in%20a%20given%20string
+	 * 
+	 * Ans:
+	 * An optimal permutation algorithm has to generate all the possible n! permutation, 
+	 * each with n characters. So the best time complexity one can attain would be O(n*n!), 
+	 * which is same as the complexity of almost all the permutation algorithms/code you can find online.
+	 * 
+	 */
+	
+	
+	
 	/* Algorithm Paradigm: Backtracking
 	 * Analysis:
 	 * Time Complexity = O(n*n!) where n = length of string
 	 * Space Complexity = O(n) where n = length of string
 	 * 
+	 * 
+	 * 
+	 * 
 	 * If all characters in the string are distinct there are exactly 
-	 * n! permutations that must be stored and computed. The niave answer is 
+	 * n! permutations that must be stored and computed. The naive answer is 
 	 * the optimal one for all choices of strings.
 
 	  I think what you mean is that in the case of repeated letters you can reduce 

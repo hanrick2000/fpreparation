@@ -65,7 +65,7 @@ public static void MaxHeapify(int[] A, int index){    // this is for min heap
 
 /* Analysis:
 Time Complexity of Heapify funtion is O(Lg(n)), where n is the total elements in the array.
-Time Compexity of BuildHeap is O(nLg(n)), since BuildHeap calls Heapify function on n/2 elements of the array. Hence in totality
-the time complexity is O(nLg(n)).
+Time Compexity of BuildHeap is O(nLg(n)), since BuildHeap calls Heapify function on n/2 elements of the array. 
+Hence in totality the time complexity of buildHeap method is O(nLg(n)).
 */
 }

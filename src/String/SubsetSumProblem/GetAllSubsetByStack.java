@@ -35,13 +35,21 @@ import java.util.Stack;
 
 public class GetAllSubsetByStack {
 
+	
+	/*
+	 * 3 parameters are global in this program:
+	 * 1. Stack
+	 * 2. sumInStack
+	 * 3. targetSum 
+	 */
+	
     /** Set a value for target sum */
     public static final int TARGET_SUM = 8;    // global & final
     
     private Stack<Integer> stack = new Stack<Integer>();  // global
 
     /** Store the sum of current elements stored in stack */
-    private int sumInStack = 0;
+    private int sumInStack = 0;                // global
 
     public void populateSubset(int[] data, int fromIndex, int endIndex) {
 
@@ -55,7 +63,7 @@ public class GetAllSubsetByStack {
         if (sumInStack == TARGET_SUM) {
             print(stack);
         }
-
+        else{
         for (int currentIndex = fromIndex; currentIndex < endIndex; currentIndex++) {
 
             if (sumInStack + data[currentIndex] <= TARGET_SUM) {
@@ -67,8 +75,9 @@ public class GetAllSubsetByStack {
                 * further.
                 */
                 populateSubset(data, currentIndex + 1, endIndex);
-                sumInStack -= (Integer) stack.pop();
+                sumInStack -= (Integer) stack.pop(); // backtracking
             }
+        }
         }
     }
 
@@ -91,6 +100,7 @@ public class GetAllSubsetByStack {
 
         GetAllSubsetByStack get = new GetAllSubsetByStack();
         get.populateSubset(DATA, 0, DATA.length);
+        
     }
 }
 /*

@@ -14,7 +14,7 @@ http://stackoverflow.com/questions/217578/point-in-polygon-aka-hit-test
 https://github.com/aerlinn/traffic/blob/8395c15b9a028ec06c394f1cab1b11b18749f9ce/src/edu/brown/cs32/cjm5/stars/KDTree.java
 
 Solution is Using KD Tree: http://en.wikipedia.org/wiki/K-d_tree#Complexity
-(since it has O(nlgn^2) time complexity if heap sort is used to compute the mdian at each level)
+(since it has O(nlgn^2) time complexity if heap sort is used to compute the median at each level)
 
 
 
