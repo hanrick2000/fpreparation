@@ -13,13 +13,13 @@ public class MergeSort {
 		sort();
 		System.out.println();
 		printArray(a);
+		
 	}
 	
 	public static void sort(){
 		int []tempArray = new int[a.length];
 		mergeSort(tempArray,0,a.length-1);
 	}
-	
 	public static void mergeSort(int []tempArray,int lowerIndex,int upperIndex){
 		if(lowerIndex == upperIndex){
 			return;
@@ -39,7 +39,7 @@ public class MergeSort {
 		
 		// Variables used here are start1,end1,start2,end2
 		while(start1 <= end1 && start2 <= end2){
-			if(a[start1] < a[end2]){   // compare the elements of the input array and store the answer in tempArray
+			if(a[start1] < a[end2]){ // compare the elements of the input array and store the answer in tempArray
 				tempArray[tempIndex++] = a[start1++];
 			}else{
 				tempArray[tempIndex++] = a[start2++];
