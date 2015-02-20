@@ -31,6 +31,9 @@ public class Maze {
 		Point start = new Point(0,0);
 		Point exit = new Point(5,5);
 		
+		mazeSolution(maze,start,exit);
+	}
+		public static void mazeSolution(int[][] maze,Point start, Point exit){
 		//DFS approach
 		Stack<Point> s = new Stack<Point>();
 		s.push(start);
@@ -41,28 +44,31 @@ public class Maze {
 			Point currentP = s.peek();
 			boolean isAllVisited = true;
 			
-			for (Point p : getAdjacent(currentP.x, currentP.y)){
+			for (Point p : getAdjacent(currentP.x, currentP.y)){ // get the neighbors of the current point
 				//It should be y and x, see above array
-				if (visited.get(p)==null && maze[p.x][p.y]==1){
-					visited.put(p, Status.VISITING);
-					isAllVisited = false ;
-					s.push(p);
+				if (visited.get(p)==null && maze[p.x][p.y]==1){  // If NOT VISITED before and this point is REACHABLE
+					visited.put(p, Status.VISITING);  // mark currentPoint as VISITING
+					isAllVisited = false;  // all the neighbors are NOT VISITED
+					s.push(p);  // push to stack
 					if ( p.equals(exit)){
-						printPath(s);
+						printStack(s);
 					}
-break;
-				}
-			}
-			if (isAllVisited){
-				visited.put(currentP, Status.VISITED);
+					break;  // break the for loop and go to the while loop since now we need to check the neighbors of this neighbor
+				}  // if VISITED before OR this point is INVALID then do nothing, check the next neighbor
+			} // end of for
+			
+			
+			if (isAllVisited){  // if none of the neighbors are VALID TRAVERSALS then we reach a dead end 
+				// we mark the node as VISITED and remove the node
+				visited.put(currentP, Status.VISITED);  // all the neighbors of currentPoint are VISITED
 				s.pop();
 			}
-		}
-	}
+		} // end of while
+	} // end of method mazeSolution
 	private static enum Status {
 		UNVISITED, VISITING, VISITED
-	};
-	private static void printPath(Stack<Point> s){
+	}	
+	private static void printStack(Stack<Point> s){
 		while (!s.isEmpty()){
 			System.out.print("->");
 			Point p = s.remove(0);
@@ -75,19 +81,19 @@ break;
 		//above point;
 		if (y-1>=0) {
 			result.add(new Point(x, y-1));
-		};
+		}
 		//right point;
 		if (x+1<=5) {
 			result.add(new Point(x+1, y));
-		};
+		}
 		//below point;
 		if (y+1<=5) {
 			result.add(new Point(x, y+1));
-		};
+		}
 		//left point;
 		if (x-1>=0) {
 			result.add(new Point(x-1, y));
-		};
+		}
 		return result;		
 	}
 
@@ -126,7 +132,7 @@ break;
 			
 			return true;
 		}
-	}
+	}  // end of private static class Point
 	
 }
 /*
