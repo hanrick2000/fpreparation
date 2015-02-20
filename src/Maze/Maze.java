@@ -59,7 +59,9 @@ break;
 			}
 		}
 	}
-	
+	private static enum Status {
+		UNVISITED, VISITING, VISITED
+	};
 	private static void printPath(Stack<Point> s){
 		while (!s.isEmpty()){
 			System.out.print("->");
@@ -105,23 +107,27 @@ break;
 		}
 		@Override
 		public boolean equals(Object obj) {
+			
 			if (this == obj)
 				return true;
+			
 			if (obj == null)
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
+			
+			
+			
 			Point other = (Point) obj;
 			if (x != other.x)
 				return false;
 			if (y != other.y)
 				return false;
+			
 			return true;
 		}
 	}
-	private static enum Status {
-		UNVISITED, VISITING, VISITED
-	};
+	
 }
 /*
 Analysis:
