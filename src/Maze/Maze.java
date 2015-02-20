@@ -138,5 +138,5 @@ public class Maze {
 /*
 Analysis:
 Time Complexity = O(n^2)
-Space Complexity = O()
+Space Complexity = O(n^2)
 */
