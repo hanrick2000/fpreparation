@@ -42,7 +42,7 @@ public class Maze {
 		
 		while(!s.isEmpty()){
 			Point currentP = s.peek();
-			boolean isAllVisited = true;
+			boolean isAllVisited = true; // check whether all neighbors of this point are VISITED
 			
 			for (Point p : getAdjacent(currentP.x, currentP.y)){ // get the neighbors of the current point
 				//It should be y and x, see above array
