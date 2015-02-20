@@ -83,6 +83,11 @@ public class UsingBitMap {
      * 
      * Question c.  Given Memory = x
      * 				Same logic of (b) is applicable to all memory constraints.
+     * 
+     * 
+     * NOTE: The above program logic finds the missing integer/integers from the given 4 billion integers
+     * The same program logic can be used to find the repeated integer/integers from the given 4 billion integers
+     * 
 	 */
 	
 	
