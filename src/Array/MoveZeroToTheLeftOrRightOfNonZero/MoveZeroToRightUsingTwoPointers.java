@@ -14,14 +14,14 @@ public class MoveZeroToRightUsingTwoPointers {
 	for(int i=0;i<n;i++)
 		a[i] = in.nextInt();
 	System.out.println(Arrays.toString(a));
-	a = moveElements(a);
+	a = moveZeroToRightUsingTwoPointers(a);
 	System.out.println(Arrays.toString(a));
 	}
 	finally{
 		in.close();
 		}
 	}
-	private static int[] moveElements(int[] a) {
+	private static int[] moveZeroToRightUsingTwoPointers(int[] a) {
 		
 		// If we have to move 0 to the right then we have to start from left
 		// Both the pointers start from the first element in the array

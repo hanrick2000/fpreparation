@@ -10,7 +10,7 @@ public class MoveZeroToLeftUsingTwoPointers {
 			System.out.println("Enter the number of elements in the array");
 			int n = in.nextInt();
 			int[] a = new int[n];
-			System.out.println("Enter the elements in the array");
+			System.out.println("Enter the elements of the array - zero and non zero");
 			for(int i=0;i<n;i++)
 				a[i]=in.nextInt();
 			System.out.println(Arrays.toString(a));
