@@ -24,20 +24,25 @@ public class MoveZeroToLeftUsingTwoPointers {
 
 	private static int[] moveZeroToLeftUsingTwoPointers(int[] a) {
 		
+		// If we have to move 0 to the left then we have to start from right
 		// Both the pointers start from the last element in the array
 		
 		int source = a.length-1;  
 		int dest = a.length-1;     
 		
 		while(source>=0){
-			if(a[source]!=0){  // if not zero then move this to the zero'th element index
-				if(a[source]!=a[dest])  // dont swap if same elements
-					a[dest--]=a[source];
-				else // both source and destination are equal
-					dest--;
-			}
 			
-			source--;
+			if(a[source]!=0){  
+				if(a[source]!=a[dest])  // if both the elements are different then copy source to dest and decrement both the pointers
+					a[dest--]=a[source--];
+				else{ // if the elements are the same then dont copy but decrement both source and dest
+					dest--;
+					source--;
+				}
+			}
+			else{ // if a[source] is 0 then ONLY decrement source BUT NOT dest
+				source--;
+			}
 		}
 		while(dest>=0)  // fill the zeros
 			a[dest--]=0;
