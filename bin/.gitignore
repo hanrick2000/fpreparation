@@ -23,6 +23,7 @@
 /Heap/
 /Histogram/
 /Intervals/
+/IteratorForNestedList/
 /KClosestPointsFromAGivenPoint/
 /LCAInTreeForest/
 /LLCopyWithRandomPointer/
@@ -40,6 +41,7 @@
 /NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString/
 /Number/
 /OneEditApart/
+/OnlineUsers/
 /PatternMatchingORFindWhetherOneStringIsSubstringOfOther/
 /PowerSetFromSet/
 /PowerWithoutUsingMultiplicationAndDivisionOperators/
@@ -62,33 +64,3 @@
 /TrueOrFalseWithProbablityOfGivenNumber/
 /ValidParanthesis/
 /anagramGroups/
-/areTwoNumbersOppositeInSign/
-/concatenatedDictionaryWordsString/
-/countSetBitsInAnInteger/
-/divideandconquer/
-/find1NonRepeatingCharacter/
-/find1NonRepeatingNumber/
-/find2NonRepeatingCharacters/
-/find2NonRepeatingNumbers/
-/findMissingElementInSequentialArrayElements/
-/forTesting/
-/lookAndSaySequence/
-/printAllPossibleCombinationThatAddUpToN/
-/removeDuplicateCharactersFromString/
-/reverseWordsInSentenseInConstantMemory/
-/revision/
-/smallestOfThreeNumbersWithoutUsingComparisonOperator/
-/sortCharactersOfStringInASC/
-/sortingTwoSortedLists/
-/swapNibblesInAByte/
-<<<<<<< Updated upstream
-/IteratorForNestedList/
-=======
-/CuttingRodProblem/
-/Heap/
-/MathematicalOperations/
-/Maze/
-/BillionIntegerSearch/
-/McDonalds/
-/OnlineUsers/
->>>>>>> Stashed changes

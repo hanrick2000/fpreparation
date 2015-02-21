@@ -1,6 +1,6 @@
 
 /*
-Question: Check whether a pattern string lies in the text string ?
+Question: Check whether a p string lies in the t string ?
 		
 VERY IMP NOTE: 
 The difference between them, can early be made out from the following readings:
@@ -27,9 +27,9 @@ Hello
 Hello
 
 GeeksForGeeks Links for the following String Matching algorithms:
-1. Naive String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-1-naive-pattern-searching/
-2. Rabin-Karp String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
-3. Knuth-Morris-Pratt String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/
+1. Naive String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-ps-set-1-naive-p-searching/
+2. Rabin-Karp String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-ps-set-3-rabin-karp-algorithm/
+3. Knuth-Morris-Pratt String Matching Algorithm: http://www.geeksforgeeks.org/searching-for-ps-set-2-kmp-algorithm/
 
 The ALGORITHMS for finding both are also DIFFERENT:
 1. For Subsequnece:
@@ -51,7 +51,7 @@ Question Source: http://www.careercup.com/question?id=6196366774632448
 
 Algorithm: Algorithm is very well explained in these two sources:
 http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
-http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/
+http://www.geeksforgeeks.org/searching-for-ps-set-2-kmp-algorithm/
 */
 
 package PatternMatchingORFindWhetherOneStringIsSubstringOfOther;
@@ -63,16 +63,18 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 		Scanner in = new Scanner(System.in);
 		try{
 			System.out.println("Enter the text");
-			String text = in.nextLine();
+			String t = in.nextLine();  // text
 			System.out.println("Enter the pattern");
-			String pattern = in.nextLine();
-			usingKMPAlgorithm(text,pattern); // Returns the index if pattern lies in text OR else returns NOTHING
-			
-			
+			String p = in.nextLine();  // pattern
+			int result = usingKMPAlgorithm(t,p); // Returns the index if p lies in t OR else returns NOTHING
+			if(result==-1)
+				System.out.println("pattern NOT PRESENT in text");
+			else
+				System.out.println("pattern PRESENT in text at index: "+result);
 			/*
 			// Understand how substring and subsequence methods are implemented in String class
-			String substring = text.substring(0,3);
-			CharSequence sequence = text.subSequence(0, 3);
+			String substring = t.substring(0,3);
+			CharSequence sequence = t.subSequence(0, 3);
 			System.out.println(substring);
 			System.out.println(sequence);
 			*/
@@ -82,72 +84,97 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 		}
 	}
 
-	private static void usingKMPAlgorithm(String text, String pattern) {
+	private static int usingKMPAlgorithm(String t, String p) {   // t = text and p = pattern
 		
-		// create longestPrefixSuffixTable that will hold the longest prefix suffix values for pattern
-		int[] longestPrefixSuffixTable = new int[pattern.length()];
+		
+		/*
+		NOTE: THREE IMP THINGS TO REMEMBER ABOUT THIS FUNCTION
+		
+		I. When there is a match between characters
+			tI++ && pI++
+	    II. When the match is found
+	    	index = tI-pI
+	    	pI=table[pI-1]
+		II. When there is NO MATCH between characters
+			a. Check if pI==0 then INCREMENT tI
+			b. Check if pI!=0 then UPDATE pI using the table
+		*/
+		
+
+		
+		// create longestPrefixSuffixTable that will hold the longest prefix suffix values for p
+		int[] table = new int[p.length()];
 		
 		// populate the table
-		populateTable(pattern,longestPrefixSuffixTable);
+		table = populateTable(p,table);
 		
-		int textIterator = 0;  // iterator for text
-		int patternIterator=0; // iterator for pattern
+		int tI = 0;  // iterator for t
+		int pI=0; // iterator for p
 		
-		while(textIterator<text.length()){
+		while(tI<t.length()){
 			
-			if(pattern.charAt(patternIterator)==text.charAt(textIterator)){  // if characters in pattern and text match
-				patternIterator++;
-				textIterator++;
+			if(p.charAt(pI)==t.charAt(tI)){  // if characters in p and t match
+				pI++;
+				tI++;
 			}
 			
-			if(patternIterator==pattern.length()){     // if pattern is fully visited
-				System.out.println("Found pattern at index: "+(textIterator-patternIterator));
-				patternIterator=longestPrefixSuffixTable[patternIterator-1];
+			if(pI==p.length()){     // if p is fully visited
+				return (tI-pI);
+				// pI=table[pI-1];   // skip these many locations
 			}
 			
-			// mismatch after patternIterator matches
-			else if(textIterator<text.length() && pattern.charAt(patternIterator)!=text.charAt(textIterator)){
+			// mismatch after pI matches
+			else if(tI<t.length() && p.charAt(pI)!=t.charAt(tI)){
 				
-				// Do not match longestPrefixSuffixTable[0..longestPrefixSuffixTable[j-1]] characters,
+				// Do not match table[0..table[j-1]] characters,
 		        // they will match anyway
-				if(patternIterator!=0)
-					patternIterator=longestPrefixSuffixTable[patternIterator-1];
+				if(pI==0)
+					tI++;
 				else
-					textIterator=textIterator+1;
+					pI=table[pI-1];  // skip these many locations
 			}
 			
 		}
+		return -1;
 	}
 
-	private static void populateTable(String pattern, int[] longestPrefixSuffixTable) {
+	private static int[] populateTable(String p, int[] table) {
+		/*
+		NOTE: TWO IMP THINGS TO REMEMBER ABOUT THIS FUNCTION
 		
-		
-		longestPrefixSuffixTable[0] = 0; // longestPrefixSuffixTable[0] is always 0
-		int i=1;  // index for iterating over the pattern string
+		I. When there is a match between characters
+			Update table, i and previousLength
+		II. When there is NO MATCH between characters
+			a. Check if peviousLength==0
+			b. Check if previousLength!=0
+		*/
+		table[0] = 0; // table[0] is always 0
+		int i=1;  // index for iterating over the p string
 		int previousLength = 0; // length of the previous longest prefix suffix
 		
-		while(i<pattern.length()){    // the loop calculates longestPrefixSuffixTable[i] for i = 1 to M-1
+		while(i<p.length()){    // the loop calculates table[i] for i = 1 to M-1
 			
-			if(pattern.charAt(i)==pattern.charAt(previousLength)){
-				longestPrefixSuffixTable[i]=previousLength+1;
+			if(p.charAt(i)==p.charAt(previousLength)){
+				table[i]=previousLength+1;
 				previousLength++;    // increment the previous Length
 				i++;   // increment the iterator
 			}
-			else{   // if(pattern.charAt(i)!=pattern.charAt(previousLength))
+			else{   // if(p.charAt(i)!=p.charAt(previousLength))
 				
-				if(previousLength!=0)   // VERY IMP, here we update the previousLength and MAINTAIN i
-					previousLength = longestPrefixSuffixTable[previousLength-1];
-				
-				else{ //(previousLength==0)
-					longestPrefixSuffixTable[i]=0;
+				if(previousLength==0) {  
+					table[i]=0;
 					i++;
 				}
+				else{ //(previousLength!=0) VERY IMP, here we ONLY UPDATE the previousLength	
+					previousLength = table[previousLength-1];
+				}
 			}
-		}		
+		}
+		return table;
 	}
 }
 /*
 Analysis:
-	Time Complexity = O(n) where n = length of TEXT
-	Space Complexity = O(m) where m = length of PATTERN
+	Time Complexity = O(n) where n = length of t
+	Space Complexity = O(m) where m = length of p
 */
