@@ -1,8 +1,8 @@
-package Array.MoveNonZeroToTheLeftOfZeroElementsInAnArray;
+package Array.MoveZeroToTheLeftOrRightOfNonZero;
 
 import java.util.Scanner;
 
-public class UsingTwoPointersInTheArray {
+public class MoveZeroToRightUsingTwoPointersInTheArray {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
