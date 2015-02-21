@@ -3,7 +3,7 @@
 Question: Check whether a pattern string lies in the text string ?
 		
 VERY IMP NOTE: 
-The difference between them, can cearly be made out from the following readings:
+The difference between them, can early be made out from the following readings:
 http://en.wikipedia.org/wiki/Subsequence
 http://en.wikipedia.org/wiki/Substring
 
@@ -121,8 +121,9 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 
 	private static void populateTable(String pattern, int[] longestPrefixSuffixTable) {
 		
-		int i=1;  // index for iterating over the pattern string
+		
 		longestPrefixSuffixTable[0] = 0; // longestPrefixSuffixTable[0] is always 0
+		int i=1;  // index for iterating over the pattern string
 		int previousLength = 0; // length of the previous longest prefix suffix
 		
 		while(i<pattern.length()){    // the loop calculates longestPrefixSuffixTable[i] for i = 1 to M-1
@@ -134,7 +135,7 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 			}
 			else{   // if(pattern.charAt(i)!=pattern.charAt(previousLength))
 				
-				if(previousLength!=0)
+				if(previousLength!=0)   // VERY IMP, here we update the previousLength and MAINTAIN i
 					previousLength = longestPrefixSuffixTable[previousLength-1];
 				
 				else{ //(previousLength==0)
