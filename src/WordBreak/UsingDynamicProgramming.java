@@ -1,32 +1,23 @@
-/*Question: You're given a dictionary of strings, and a key. Check if the key is composed of an 
-		  arbitrary number of concatenations of strings from the dictionary. 
-
-For example: 
-
-dictionary: "world", "hello", "super", "hell" 
-key: "helloworld" --> return true 
-key: "superman" --> return false 
-key: "hellohello" --> return true
-Source: http://www.careercup.com/question?id=5705581721550848
-*/
-package concatenatedDictionaryWordsString;
+package WordBreak;
 
 import java.util.HashSet;
 
-public class UsingHashSet {
+public class UsingDynamicProgramming {
 	public static void main(String[] args) {
 		String[] array = {"world","hello","super","hell"};
-		HashSet<String> dictionary=createHashSetDictionary(array);
-		System.out.println(isConcatenationOfDictionaryWords("helloworld",dictionary));
+		System.out.println(usingDP("helloworld", array));
 	
 	}
 
-	private static boolean isConcatenationOfDictionaryWords(String search, HashSet<String> dictionary) {
+	private static boolean usingDP(String search, String[] array) {
 		
+		HashSet<String> dictionary=createHashSetDictionary(array);
+			
 		// Create a boolean array of s.length()+1
 		boolean[] locations = new boolean[search.length()+1];
-		// set the first location as true
-		locations[0]=true;
+		
+		locations[0]=true;   // IF AN EMPTY SEARCH STRING IS PRESENT THEN RETURN TRUE
+		
 		for(int i=0;i<search.length();i++){
 			for(int j = i;j>=0;j--){                 // Please remember (j>=0) condition
 				// Create substrings and check for existence in dictionary
@@ -35,8 +26,8 @@ public class UsingHashSet {
 					if(locations[j]==true)      // Here we deal with "j" index
 						locations[i+1]=true;   // Here we deal with "i" index
 				}
-			}
-		}
+			}// end of inner for
+		} // end of outer for
 		return locations[search.length()];    // last location in boolean array of length=s.length()+1
 		
 	}
@@ -57,6 +48,6 @@ Analysis:
 	
 	Time Complexity = O(n^3) where n = length of search string
 	Space Complexity = O(n*m)
-	where n = length of search string
-		  m = number of strings
+	where n = length of each string in the dictionary
+		  m = number of strings in the dictionary
 */
