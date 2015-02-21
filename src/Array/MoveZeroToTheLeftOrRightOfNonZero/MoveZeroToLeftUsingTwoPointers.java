@@ -24,7 +24,9 @@ public class MoveZeroToLeftUsingTwoPointers {
 
 	private static int[] moveZeroToLeftUsingTwoPointers(int[] a) {
 		
-		int source = a.length-1;
+		// Both the pointers start from the last element in the array
+		
+		int source = a.length-1;  
 		int dest = a.length-1;     
 		
 		while(source>=0){
