@@ -1,0 +1,265 @@
+
+****************************** PART I. Divide two numbers using bitwise shift operators************************
+
+/*
+Question: Given dividen and divisor, return the quotient without using / operator
+Solution Source: 
+	http://www.prasannatech.net/2009/01/division-without-division-operator_24.html
+	http://www.careercup.com/question?id=5647672717344768
+	
+	
+ALGORITHM:
+	For the sake of completeness, I would like to highlight the algorithm, which is quite simple. 
+	Before that one should understand some basics of bit shifting.
+
+1. Left shifting an unsigned number by 1 multiplies that number by 2.
+2. Right shifting an unsigned number by 1 divides that number by 2.
+
+Therefore the procedure for the division algorithm, given a dividend and a divisor would be to 
+left shift (multiply by 2) the divisor till it reaches dividend/2, then continue this routine with the 
+difference between the dividend and divisor and divisor till the point where dividend is less than divisor 
+or their difference is zero. This is similar to finding an element in a sorted list using the binary search 
+algorithm, the Java code is furnished below.
+	
+	
+VERY IMP NOTE: With modifications in the main method as mentioned in the below program,
+the program does work for negative numbers also.
+*/
+package DivideTwoNumbersWithoutUsingDivisionOperator;
+
+import java.util.Scanner;
+
+public class UsingShiftOperators {
+	static int divident;
+	static int divisor;
+	static int remainder;
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		try{
+			System.out.println("Enter the divident and divisor respectively");
+			divident = in.nextInt();
+			divisor = in.nextInt();
+			int ans = getQuotient(Math.abs(divident),Math.abs(divisor));
+			if((divident>0&&divisor>0)||(divident<0&&divisor<0))
+				System.out.println(ans);
+			else if(((divident>0&&divisor<0)||(divident<0&&divisor>0)))
+				System.out.println(-ans);
+		}
+		finally{
+			in.close();
+		}
+	}
+	private static int getQuotient(int tempDivident, int tempDivisor) {
+		
+		int quotient = 1;
+		
+		if(tempDivisor==tempDivident){
+			remainder = 0;
+			return 1;
+		}
+		if(tempDivisor > tempDivident){
+			remainder = tempDivident;
+			return 0;
+		}
+		
+		while(tempDivident >= tempDivisor){
+			/* Here divisor <> divisor and quotient */
+			tempDivisor=tempDivisor<<1;     // Multiply by 2
+			quotient=quotient<<1;           
+		}
+		
+		/* We have reached the point where divisor > dividend, therefore divide divisor and quotient by 2 */
+		tempDivisor=tempDivisor>>1;         // Divide by 2
+		quotient=quotient>>1;
+
+		/* Call division recursively for the difference to get the exact quotient */
+		return quotient+getQuotient(tempDivident-tempDivisor, divisor);
+		
+	}
+}
+/*Analysis:
+    If n = dividend and m = divisor, then
+	Time Complexity = O(lgn) where n = dividend
+	Space Complexity = O(1)
+*/
+
+
+****************************** PART II. Multiply two numbers using bitwise shift operators************************
+
+/*
+Question: Multiply two numbers using bitwise operations
+Source: http://www.geeksforgeeks.org/fast-multiplication-method-without-using-multiplication-operator-russian-peasants-algorithm/
+
+Algorithm:
+	Let the two given numbers be 'a' and 'b'
+	1) Initialize result 'res' as 0.
+	2) Do following while 'b' is greater than 0
+	   a) If 'b' is odd, add 'a' to 'res'
+	   b) Double 'a' and halve 'b'
+	3) Return 'res'. 
+*/
+package MultiplyTwoNumbersUsingBitwiseOperators;
+
+import java.util.Scanner;
+
+public class UsingRussianPeasantAlgorithm {
+public static void main(String[] args) {
+	Scanner in = new Scanner(System.in);
+	try{
+		System.out.println("Enter the two numbers for multiplication");
+		int a = in.nextInt();
+		int b = in.nextInt();
+		if((a<0 && b<0)||(a>0 && b>0))
+			System.out.println(multiplyUsingRussianPeasantAlgorithm(Math.abs(a),Math.abs(b)));
+		else
+			System.out.println(-(multiplyUsingRussianPeasantAlgorithm(Math.abs(a),Math.abs(b))));
+	}
+	finally{
+		in.close();
+	}
+}
+
+private static int multiplyUsingRussianPeasantAlgorithm(int a, int b) {
+	int result = 0;
+	while(b>0){
+		
+		if((b&1)!=0)   // check if multiplicant(i.e. second number) is odd
+			result=result+a;
+		
+		// double first number
+		a=a<<1;
+		
+		// half the second number
+		b=b>>1;
+	}
+	return result;
+}
+}
+/*
+Analysis:
+	Time Complexity = O(nlgn) where n = 2nd number
+	Space Complexity = O(1)
+*/
+
+****************************** PART III. Add two numbers using bitwise shift operators************************
+
+/*Question: Add two numbers without using arithmetic operators
+Source: http://www.geeksforgeeks.org/add-two-numbers-without-using-arithmetic-operators/
+Algorithm:
+Sum of two bits can be obtained by performing XOR (^) of the two bits. Carry bit can be obtained 
+by performing AND (&) of two bits.
+Above is simple Half Adder logic that can be used to add 2 single bits.
+We can extend this logic for integers. If x and y don’t have set bits at same position(s),
+then bitwise XOR (^) of x and y gives the sum of x and y. To incorporate common set bits also,
+bitwise AND (&) is used. Bitwise AND of x and y gives all carry bits.
+We calculate (x & y) << 1 and add it to x ^ y to get the required result
+
+VERY IMPORTANT NOTE: The below code only works for POSITIVE NUMBERS
+
+*/
+
+package AdditionOfTwoNumbersWithBitwiseShiftOperators;
+
+import java.util.Scanner;
+
+class UsingBitwiseShiftOperators{
+	public static void main(String args[]){
+		Scanner in = new Scanner(System.in);
+		try{
+			System.out.println("Enter two integers for addition");
+			int a = in.nextInt();
+			int b = in.nextInt();
+			System.out.println("Addition result is: "+additionUsingBitwiseShiftOperators(a,b));
+			System.out.println("Using bitwise operators recursively: "+usingRecursiveBitwiseShiftOperators(a,b));
+		}
+		finally{
+			in.close();
+		}
+	}
+	public static int additionUsingBitwiseShiftOperators(int a, int b){
+		
+		// EXOR gives SUM
+		int sum=0;
+		// AND gives CARRY
+		int carry=0;
+		while(b!=0){
+			sum = a^b;
+			carry = a&b;
+			// copy sum to X
+			a=sum;
+			// copy left shift carry by 1 to Y
+			b=carry<<1;
+		}
+		return a;
+	}
+	public static int usingRecursiveBitwiseShiftOperators(int a, int b){
+		if(b==0)
+			return a;
+		else
+			return usingRecursiveBitwiseShiftOperators((a^b),(a&b)<<1);
+	}
+}
+
+/*
+Analysis:
+	Time Complexity = O(n), since we are dealing with while loop 
+	Space Complexity = O(1)
+*/
+
+
+****************************** PART IV. Substract two POSITIVE numbers using bitwise shift operators************************
+
+/*
+Question: Subtract two positive numbers without using - sign. The first number can be greater or smaller than the second number
+Source:  http://stackoverflow.com/questions/12538724/performing-arithmetic-operations-in-binary-using-only-bitwise-operators
+(VIDEO)  https://www.youtube.com/watch?v=vfY7bN_3VKw  <-- Video Link for subtraction of two numbers using 2's complement
+		 http://www.cquestions.com/2011/07/write-c-program-to-subtract-two-numbers.html    	 
+*/		
+package SubstractonOfTwoPositiveNumbers;
+
+import java.util.Scanner;
+
+public class UsingPlusSignAndBitwiseOperators {
+public static void main(String[] args) {
+	Scanner in = new Scanner(System.in);
+	try{
+	System.out.println("Substraction Operation.");
+	System.out.println("The first number can be greater or smaller. Similarly second number can be greater or smaller.");
+	System.out.println("DONOT ENTER - SIGN. THE PROGRAM WILL CONSIDER THE SECOND NUMBER AS NEGATIVE");
+	System.out.println("Enter the first positive number");
+	int a = in.nextInt();
+	System.out.println("Enter the second positive number");
+	int b = in.nextInt();
+	System.out.println("Substraction Result using + sign is: "+usingPlusSign(a,b));
+	System.out.println("Substraction Result using bitwise operators is: "+usingBitwiseOperators(a,b));	
+	}
+	finally{
+		in.close();
+	}
+}
+private static int usingBitwiseOperators(int a, int b) {
+	return add(a,add(~b,1));
+}
+
+private static int add(int i, int j) {
+	int sum = 0;
+	int carry = 0;
+	while(j!=0){
+		sum = i^j;
+		carry = (i&j)<<1;
+		i=sum;
+		j=carry;
+	} 
+	return i;
+}
+private static int usingPlusSign(int a, int b) {
+	int twosComplementOfSecondNumber = (~b+1);
+	return (a+twosComplementOfSecondNumber);
+}
+}
+/*
+Analysis:
+	Time Complexity = O(n) for using bitwise shift operators since while loop is there
+					= O(1) for using + operator
+	Space Complexity = O(1)
+*/

@@ -85,6 +85,6 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 /*
 Analysis: 
 Time Complexity = O(m*n) since each element of the matrix is VISITED. 
-I think there cannot be better solution than BRUTE FORCE method.
+There cannot be better solution than BRUTE FORCE method.
 Space Complexity = O(m*n) used by visited matrix
 */ 
