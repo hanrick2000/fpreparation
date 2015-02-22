@@ -66,9 +66,9 @@ private static void usingSorting(int[] array, int sum) {
 				System.out.println(array[i]+" "+array[low]+" "+array[high]);
 				break outerloop;
 			}
-			if(array[i]+array[low]+array[high]<sum)
+			else if(array[i]+array[low]+array[high]<sum)
 				low++;
-			if(array[i]+array[low]+array[high]>sum)
+			else //(array[i]+array[low]+array[high]>sum)
 				high--;
 			
 		}
