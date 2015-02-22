@@ -27,7 +27,7 @@ package ThreeSumProblem;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class UsingSorting {
+public class UsingSorting_BEST_ALGO {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{

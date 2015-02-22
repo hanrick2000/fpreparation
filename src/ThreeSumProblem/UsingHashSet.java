@@ -27,7 +27,7 @@ package ThreeSumProblem;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class UsingHashSet_BEST_ALGO {
+public class UsingHashSet {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
