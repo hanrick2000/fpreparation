@@ -2,11 +2,11 @@
 Write you own Power without using multiplication(*) and division(/) operators
 Source: http://www.geeksforgeeks.org/write-you-own-power-without-using-multiplication-and-division/
 */
-package CalculatePowerWithoutUsingMultiplicationAndDivisionOperators;
+package MathematicalOperations;
 
 import java.util.Scanner;
 
-public class UsingRecursiveAddition {
+public class CalculatePowerWithoutUsingMultiplicationAndDivisionOperators {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
@@ -76,3 +76,4 @@ Analysis:
 	Space Complexity = O(1) // This is not the space complexity
 	
 */
+

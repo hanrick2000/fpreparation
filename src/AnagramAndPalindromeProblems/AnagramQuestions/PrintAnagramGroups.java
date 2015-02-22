@@ -14,22 +14,25 @@ package AnagramAndPalindromeProblems.AnagramQuestions;
 		String[] strArray = new String[n];
 		for(int i=0;i<n;i++)
 			strArray[i] = in.next();
-		HashMap<Integer,ArrayList<String>> map = new HashMap<Integer,ArrayList<String>>();
-		for(String s : strArray){
-			int hash = calculateXORHash(s);
-			if(!map.containsKey(hash))
-				map.put(hash, new ArrayList<String>());
-			map.get(hash).add(s);
-		}
-		printHashMap(map);
+		anagramGroups(strArray);
 		}
 		finally{
 			in.close();
 		}
 	}
+	public static void anagramGroups(String[] strArray){
+		HashMap<Integer,ArrayList<String>> map = new HashMap<Integer,ArrayList<String>>();
+		for(String s : strArray){
+				int hash = calculateXORHash(s);
+				if(!map.containsKey(hash))
+					map.put(hash, new ArrayList<String>());
+				map.get(hash).add(s);
+		}
+			printHashMap(map);
+		}
 	public static void printHashMap(HashMap<Integer, ArrayList<String>> map) {
 		for(ArrayList<String> s: map.values()){    // VERY IMP: values() method of HashMap returns a Collection of values in the HashMap
-			System.out.println(s);    // print the object of ArrayList by calling the toString method
+			System.out.println(s.toString());    // print the object of ArrayList by calling the toString method
 		}
 		
 	}

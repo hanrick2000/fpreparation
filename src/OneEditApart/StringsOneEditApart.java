@@ -17,7 +17,9 @@ x, xyz
 NOTE: Can be done using EDIT-DISTANCE Algorithm, but IT WONT BE EFFICIENT since the time complexity will be O(n^2)
 and the space complexity will also be O(n^2).
 
-BUT WITH THIS ALGORITHM THOUGH THE TIME COMPLEXITY IF O(N), AND THE SPACE COMPLEXITY IS O(1)
+
+BUT WITH THIS ALGORITHM THE TIME COMPLEXITY IS O(N), AND THE SPACE COMPLEXITY IS O(1)
+
 
 Question and Answer Source:http://www.careercup.com/question?id=4793416529477632
 */
@@ -40,6 +42,15 @@ public static void main(String[] args) {
 }
 
 private static boolean areOneEditApart(String s1, String s2) {
+	
+	/*
+	 * 3 important conditions we have to check in this problem
+	 * 
+	 * 1. if lengths differ by > 1
+	 * 2. if lengths are equal              -> use for loop
+	 * 3. if lengths differ by exactly 1    -> use while loop
+	 */
+	
 	String small;
 	String large;
 	
@@ -64,9 +75,9 @@ private static boolean areOneEditApart(String s1, String s2) {
 				operations++;
 				if(operations>1)
 					return false;
-			}
-		}	
-	}
+			} // end of inner if
+		}	// end of for
+	} // end of outer if
 	else{ // small and large strings are different by length = 1
 		
 	
@@ -75,23 +86,24 @@ private static boolean areOneEditApart(String s1, String s2) {
 		
 		while(i<small.length()){
 			
-			if(small.charAt(i)!=large.charAt(i+operations)){
+			if(small.charAt(i)!=large.charAt(i+operations)){ // IF NOT EQUAL THEN DONT INCREMENT i
 				operations++;
 				if(operations>1)
 					return false;
 			}
-			else{
+			else{                                         // IF EQUAL THEN INCREMENT i
 				i++;  // increment the i
 			}
-		}
+		}  // end of while
 		
-	}
+	}   // end of else
 	return true;  // all conditions for false are checked, hence return true
 	
 	}
 }
 /*
 Analysis:
-	Time Complexity = O(n) where n = length of larger string
-	Space Complexity = O(1)
+	Time Complexity = O(n) where n = length of large string
+	Space Complexity = O(m+n) where m = length of small string
+									n = length of large string
 */

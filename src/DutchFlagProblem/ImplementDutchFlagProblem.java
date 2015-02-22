@@ -4,7 +4,14 @@ package DutchFlagProblem;
 Question And Answer Source : http://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
 
 Algorithm:
-Examine a[Mid]. There are three possibilities: a[Mid] is (0) red, (1) white or (2) blue.
+
+int low = 0;
+int mid = 0;
+int high = a.length-1;
+Examine a[mid]. 
+
+
+There are three possibilities: a[Mid] is (0) red, (1) white or (2) blue.
 Case (0) a[Mid] is red, swap a[Lo] and a[Mid]; Lo++; Mid++
 
 0 0 0 0 1 1 1 ? ? ? 2 2 2
@@ -53,7 +60,7 @@ public static void main(String[] args) {
 }
 
 public static int[] implementation(int[] a){
-	if(a.length==0)
+	if(a==null||a.length==0)
 		return null;
 	if(a.length==1)
 		return a;
@@ -61,7 +68,7 @@ public static int[] implementation(int[] a){
 	int mid = 0;
 	int high = a.length-1;
 	
-	while(mid<=high){
+	while(mid<=high){ // VERY IMP: MID IS LESS THAN OR EQUAL TO HIGH
 		if(a[mid]==0){   // If the mid is 0, then swap the low with mid, increment BOTH low and mid
 			a=swap(a,mid,low);
 			mid++;
