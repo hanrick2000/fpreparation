@@ -152,6 +152,9 @@ Check if there is right child to that node. If yes, move right child to stack an
 		/*
 		 * Algorithm: Same as dfs traversal in a tree
 		 * Source: https://github.com/nkatre/Operations-on-Trees/blob/master/Traversal%20in%20BST-BFS%2CDFS%2CPre%2CIn%2CPos-Both%20rec%20and%20nonrec
+		 * 
+		 * VERY IMPORTANT NOTE: First insert RCHILD into stack then insert LCHILD into stack
+		 * 
 		 */
 		
 		Node curr = root;
@@ -163,10 +166,10 @@ Check if there is right child to that node. If yes, move right child to stack an
 		while(!s.isEmpty()){
 			Node n = s.pop();
 			System.out.print(n.data+" ");
-			if(n.lchild!=null)
-				s.push(n.lchild);
-			if(n.rchild!=null)
+			if(n.rchild!=null)//First insert the RCHILD into STACK, reason being, the tree will be printed from LEFT TO RIGHT
 				s.push(n.rchild);
+			if(n.lchild!=null)  // Then insert LCHILD
+				s.push(n.lchild);
 		}
 		System.out.println();
 	}
