@@ -27,7 +27,12 @@
 
 
 
-Answer Source: http://stackoverflow.com/questions/9958216/simple-hashtable-implementation-using-an-array-in-java
+Answer Source: 
+HashTable Implementation with array in Java:
+https://github.com/ylwu/java-exercises/blob/master/src/HashTable.java   ->  Good Program
+https://github.com/zwaldowski/zw-schoolwork/blob/master/CS%201332/HW6/HashTable.java
+
+
 http://iwillgetthatjobatgoogle.tumblr.com/post/11352414963/implement-a-hash-table
 
 
