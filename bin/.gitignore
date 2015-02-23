@@ -3,6 +3,7 @@
 /AnagramAndPalindromeProblems/
 /DutchFlagProblem/
 /MathematicalOperations/
+<<<<<<< HEAD
 /BST/
 /AddingTwoBitStrings/
 /AnyAnagramPalindrome/
@@ -84,3 +85,10 @@
 /sortCharactersOfStringInASC/
 /sortingTwoSortedLists/
 /swapNibblesInAByte/
+=======
+/KClosestPointsFromAGivenPoint/
+/divideandconquer/
+/ImplementHashTable/
+/ImplementHashtable/
+/BST/
+>>>>>>> 81c3783fbf8714fc03bb3bbd75abfc35984a6253
