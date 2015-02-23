@@ -1,14 +1,9 @@
-/ThreeSumProblem/
-/OneEditApart/
-/AnagramAndPalindromeProblems/
-/DutchFlagProblem/
-/MathematicalOperations/
-<<<<<<< HEAD
-/BST/
 /AddingTwoBitStrings/
+/AnagramAndPalindromeProblems/
 /AnyAnagramPalindrome/
 /ArithmeticProgressionMissingElement/
 /Array/
+/BST/
 /BillionIntegerSearch/
 /CelebrityProblem/
 /ConnectedComponentsOrIslandsInUndirectedGraph/
@@ -17,6 +12,7 @@
 /CuttingRodProblem/
 /DFSAndBFSInAdjacencyMatrixORGraph/
 /DivideTwoNumbersWithoutUsingDivisionOperator/
+/DutchFlagProblem/
 /EditDistance/
 /EvaluateMathematicalExpression/
 /ExcelNumbers/
@@ -26,6 +22,7 @@
 /GrayCode/
 /Heap/
 /Histogram/
+/ImplementHashtable/
 /Intervals/
 /IteratorForNestedList/
 /KClosestPointsFromAGivenPoint/
@@ -34,6 +31,7 @@
 /LRUCache/
 /LinkedListChallenge/
 /MatchTwoStringsWithDotAndStar/
+/MathematicalOperations/
 /Matrix/
 /Maze/
 /McDonalds/
@@ -44,6 +42,7 @@
 /MultiplyTwoNumbersWithoutBitwiseMultiplcationAndDivision/
 /NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString/
 /Number/
+/OneEditApart/
 /OnlineUsers/
 /PatternMatchingORFindWhetherOneStringIsSubstringOfOther/
 /PowerSetFromSet/
@@ -62,6 +61,7 @@
 /SubstractonOfTwoPositiveNumbers/
 /SubstringAndSubsequenceProblems/
 /Testing/
+/ThreeSumProblem/
 /Trie/
 /TrueOrFalseWithProbablityOfGivenNumber/
 /ValidParanthesis/
@@ -85,10 +85,3 @@
 /sortCharactersOfStringInASC/
 /sortingTwoSortedLists/
 /swapNibblesInAByte/
-=======
-/KClosestPointsFromAGivenPoint/
-/divideandconquer/
-/ImplementHashTable/
-/ImplementHashtable/
-/BST/
->>>>>>> 81c3783fbf8714fc03bb3bbd75abfc35984a6253

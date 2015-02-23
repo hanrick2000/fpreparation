@@ -1,4 +1,4 @@
-package BST.InorderPreorderAndPostOrder;
+package BST.ITERATIVEInorderPreorderAndPostOrder;
 
 import java.util.Stack;
 
