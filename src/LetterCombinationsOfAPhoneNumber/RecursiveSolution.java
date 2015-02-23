@@ -27,23 +27,32 @@ public class RecursiveSolution {
 	
 	    public static List<String> letterCombinations(String digits) {
 	        String[] letters = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-	        List<String> rec = new LinkedList<>();
-	        StringBuilder string = new StringBuilder();
-	        letterCombinations(digits, 0, letters, string, rec);
-	        return rec;
+	        List<String> result = new LinkedList<>();
+	        StringBuilder sb = new StringBuilder();
+	        letterCombinations(digits, 0, letters, sb, result);
+	        return result;
 	    }
 	    
-	    private static void letterCombinations(String digits, int number, String[] letters, StringBuilder string, List<String> rec) {
-	        if (digits.length() == number) {
-	            rec.add(string.toString());
+	    private static void letterCombinations(String input, int start, String[] letters, StringBuilder sb, List<String> list) {
+	        if (input.length() == start) {
+	        	list.add(sb.toString());
 	            return;
 	        }
-	        String letter = letters[digits.charAt(number) - '2'];
-	        for (int i = 0; i < letter.length(); i++) {
-	            string.append(letter.charAt(i));
-	            letterCombinations(digits, number + 1, letters, string, rec);
-	            string.deleteCharAt(string.length() - 1);
+	        String lettersSet = letters[input.charAt(start) - '2']; // 0 = "abc"
+	        for (int i = 0; i < lettersSet.length(); i++) {
+	            sb.append(lettersSet.charAt(i));
+	            letterCombinations(input, start + 1, letters, sb, list);
+	            sb.deleteCharAt(sb.length() - 1);
 	        }
 	    }
 	
 }
+/*
+Analysis:
+Time Complexity
+Assuming the average number of letters on every number is m, and the length of digits string is n, 
+then the complexity is O(m^n)      [lettersOnNumber^input]
+Space Complexity = O(m^n)
+where m = average number of letters on every number
+	  n = length of digits string
+*/
