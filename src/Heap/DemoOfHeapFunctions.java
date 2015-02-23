@@ -48,7 +48,6 @@ Now, the Heaify function can be written RECURSIVELY as:
 
 //Similarly MaxHeapify can be written as:
 	
-	
 public static void MaxHeapify(int[] A, int index){    // this is for min heap
 	int leftIndex = Left(index);
 	int rightIndex = Right(index);
