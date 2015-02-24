@@ -20,7 +20,7 @@ package EvaluateMathematicalExpression;
 import java.util.Stack;
 
 public class EvaluateExpression {
-	public static Stack<Character> stack = new Stack<Character>();
+	public static Stack<Character> stack = new Stack<Character>();    // THIS IS A CHARACTER STACK
 	
 public static void main(String[] args) {
 	String s  =  "3+2*3-4/7";
@@ -52,6 +52,24 @@ public static void main(String[] args) {
 	evaluatePostfixExpression(postfix.toString());
 		
 }
+private static void evaluatePostfixExpression(String postfix) {
+	char[] c = postfix.toCharArray();
+	Stack<Integer> evalStack = new Stack<Integer>(); // This is an INTEGER STACK. PREVIOUS WAS CHARACTER STACK
+	for(int i=0;i<c.length;i++){
+		if(!isOperator(c[i])){
+			evalStack.push((int) c[i]-'0');
+			continue;
+		}
+		else{
+			int secondOperand = evalStack.pop(); // TR: FIRST POPPED IS THE SECOND OPERAND
+			int firstOperand = evalStack.pop();
+			int result=operation(c[i],firstOperand,secondOperand);
+			evalStack.push(Integer.valueOf(result));
+		}
+	}
+	int finalResult = (int)evalStack.pop();
+	System.out.println("Result of the expression is: "+finalResult);
+}
 
 private static int getPrecedence(char c) {
 	int precedence=0;
@@ -65,25 +83,6 @@ private static int getPrecedence(char c) {
 }
 private static boolean isOperator(char c){
 	return (c=='+'||c=='-'||c=='/'||c=='*');
-}
-
-private static void evaluatePostfixExpression(String postfix) {
-	char[] c = postfix.toCharArray();
-	Stack<Integer> evalStack = new Stack<Integer>();
-	for(int i=0;i<c.length;i++){
-		if(!isOperator(c[i])){
-			evalStack.push((int) c[i]-'0');
-			continue;
-		}
-		else{
-			int secondOperand = evalStack.pop();
-			int firstOperand = evalStack.pop();
-			int result=operation(c[i],firstOperand,secondOperand);
-			evalStack.push(Integer.valueOf(result));
-		}
-	}
-	int finalResult = (int)evalStack.pop();
-	System.out.println("Result of the expression is: "+finalResult);
 }
 
 private static int operation(char c, int firstOperand, int secondOperand) {
