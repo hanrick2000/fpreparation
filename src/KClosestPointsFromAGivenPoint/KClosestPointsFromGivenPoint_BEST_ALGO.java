@@ -5,7 +5,9 @@
  * Question Source: http://www.careercup.com/question?id=15974664
  * 					http://www.careercup.com/question?id=5309537623998464
  * 
- * Answer Source: http://www.careercup.com/question?id=15974664
+ * Answer Source: 
+ * http://stackoverflow.com/questions/18861455/java-2d-find-the-k-closest-points-to-the-origin-in-2d-plane
+ * https://solvethat.wordpress.com/2013/10/21/find-the-k-closest-point-to-the-origin/
  * 
  * BEST EXPLANATION: http://stackoverflow.com/questions/9202315/algorithm-to-find-100-closest-stars-to-the-origin
  * http://www.careercup.com/question?id=15974664
@@ -27,5 +29,41 @@ So you can use some modification of Quick-Select algorithm, to achieve O(n) spee
 package KClosestPointsFromAGivenPoint;
 
 public class KClosestPointsFromGivenPoint_BEST_ALGO {
-	
+	  public static class Point
+      {
+              private int xCoord;
+              private int yCoord;
+              
+              public int getxCoord() {
+                      return xCoord;
+              }
+              public void setxCoord(int xCoord) {
+                      this.xCoord = xCoord;
+              }
+              public int getyCoord() {
+                      return yCoord;
+              }
+              public void setyCoord(int yCoord) {
+                      this.yCoord = yCoord;
+              }
+              
+              public Point(int xCoord, int yCoord) {
+                      super();
+                      this.xCoord = xCoord;
+                      this.yCoord = yCoord;
+              }
+              
+              @Override
+              public String toString() {
+                      return "Point [xCoord=" + xCoord + ", yCoord=" + yCoord + "]";
+              }
+              
+              public double getDistanceFromOrigin()
+              {
+                      return Math.sqrt((xCoord * xCoord) + (yCoord * yCoord));
+              }
+              
+      }
+	  
 }
+
