@@ -1,6 +1,6 @@
 
 /*
- * Question: Convert a binary search tree to a circular doubly-linked list
+ * Question: Convert a binary search tree to a SORTED circular doubly-linked list
  * 
  * Source: http://www.careercup.com/question?id=5156120807079936
  * 
@@ -14,11 +14,11 @@ package BST.BSTToCircularDLL;
 public class UsingInorderTraversal {
 	
 	static Node prev,head;
-public static void main(String[] args) {
+	public static void main(String[] args) {
 	BST bst=BinSearchTree.makeTree();
 	convertBSTToCircularDLL(bst.root);
 	//printDLL(head);
-}
+	}
 /*
 private static void printDLL(Node n) {
 
@@ -30,7 +30,7 @@ private static void printDLL(Node n) {
 */
 private static void convertBSTToCircularDLL(Node n) {
 	if(n==null)
-		return;
+		return;   // VERY IMP return "void"
 	convertBSTToCircularDLL(n.lchild);
 	if(prev==null){  // FIRST NODE IN LIST
 		head=n;

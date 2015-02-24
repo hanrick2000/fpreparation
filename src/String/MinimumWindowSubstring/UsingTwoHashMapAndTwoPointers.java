@@ -14,9 +14,10 @@ Question Source: http://www.careercup.com/question?id=5092414932910080
  * Answer Source: https://linchicoding.wordpress.com/2014/08/20/leetcode-minimum-window-substring/
  * 
  * IMP Sources:
-http://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
-http://mattcb.blogspot.com/2012/12/minimum-window-substring.html
 https://linchicoding.wordpress.com/2014/08/20/leetcode-minimum-window-substring/
+http://rleetcode.blogspot.com/2014/01/minimum-window-substring-java.html
+http://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
+http://mattcb.blogspot.com/2012/12/minimum-window-subs	tring.html
 */
 package String.MinimumWindowSubstring;
 
@@ -39,6 +40,22 @@ public class UsingTwoHashMapAndTwoPointers {
 		}
 	}
 	public static String minWindow(String S, String T) {
+		
+		// EXTREME CASES
+		if (S==null||T==null){
+            return null;
+        }
+        
+        if(S.length()==0 && T.length()==0){
+            return "";
+        }
+        if (S.length()<T.length()){
+            return"";
+        }
+		
+        // END OF EXTREME CASES
+        
+        
 	        int[] tArr = new int[256];
 	        for(int i = 0; i < T.length(); i++){
 	            tArr[T.charAt(i)]++;
