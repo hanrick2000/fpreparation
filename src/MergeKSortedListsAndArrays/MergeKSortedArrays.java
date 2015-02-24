@@ -7,10 +7,10 @@ Answer Source: http://www.geeksforgeeks.org/merge-k-sorted-arrays/
 */
 
 
-package MergeKSortedArrays;
+package MergeKSortedListsAndArrays;
 
 
-public class UsingMinHeap {
+public class MergeKSortedArrays {
 	public static void main(String[] args) {
 		int[][] a =  new int[][]{ {1, 3, 5, 7},
 	            				  {2, 4, 6, 8},
