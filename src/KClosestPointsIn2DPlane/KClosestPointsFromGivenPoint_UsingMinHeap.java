@@ -1,4 +1,4 @@
-package KClosestPointsFromAGivenPoint;
+package KClosestPointsIn2DPlane;
 
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class KClosestPointsFromGivenPoint {
+public class KClosestPointsFromGivenPoint_UsingMinHeap {
 public static void main(String[] args) {
 	List<Point> points = new ArrayList<Point>();
 	for(int i=10;i>0;i--){

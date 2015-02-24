@@ -1,4 +1,4 @@
-package KClosestPointsFromAGivenPoint;
+package KClosestPointsIn2DPlane;
 
 
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
-public class KClosestPointsFromOrigin {
+public class KClosestPointsFromOrigin_UsingMinHeap {
 
         public static class Point
         {
@@ -73,7 +73,7 @@ public class KClosestPointsFromOrigin {
                         return new ArrayList<Point>(); // Return Empty result
                 
                 ClosestPointComparator cmp = new ClosestPointComparator();
-                PriorityQueue<Point> heapQueue = new PriorityQueue<KClosestPointsFromOrigin.Point>(k, cmp);
+                PriorityQueue<Point> heapQueue = new PriorityQueue<KClosestPointsFromOrigin_UsingMinHeap.Point>(k, cmp);
                 
                 int size = points.size();
                 

@@ -46,7 +46,7 @@ Analysis:
 		contains = O(1) or if all the strings entered are same then their hash values are same and hence in worst 
 		case it is O(n) if all strings are same
 	
-	Time Complexity = O(n^3) where n = length of search string
+	Time Complexity = O(n^2) where n = length of search string
 	Space Complexity = O(n*m)
 	where n = length of each string in the dictionary
 		  m = number of strings in the dictionary
