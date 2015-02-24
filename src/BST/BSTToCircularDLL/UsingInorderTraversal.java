@@ -11,13 +11,61 @@
 
 package BST.BSTToCircularDLL;
 
+import java.util.Stack;
+
 public class UsingInorderTraversal {
 	
 	static Node prev,head;
 	public static void main(String[] args) {
 	BST bst=BinSearchTree.makeTree();
-	convertBSTToCircularDLL(bst.root);
+	System.out.println("Recursive Method");
+	recursiveConvertBSTToCircularDLL(bst.root);
 	printDLL(head);
+	
+	
+	
+	BST bst1=BinSearchTree.makeTree();
+	System.out.println("Iterative Method");
+	Node tempHead=iterativeBSTToSortedCircularLL(bst1.root);
+	printDLL(tempHead);
+	}
+
+private static Node iterativeBSTToSortedCircularLL(Node root) {
+		
+	Node head = null, tail = null;
+	  Stack<Node> stack = new Stack<Node>();
+	  Node n = root;
+	  //inorder loop
+	  while (n!=null || !stack.isEmpty()) {
+	    //traverse left
+	    if (n!=null) {
+	      stack.push(n);
+	      n = n.lchild;
+	    }
+	    else {//visit
+	      n = stack.pop(); // get the previous pushed element in the stack
+	      	if (head==null) {
+	      		head = n;
+	      		tail = n;
+	      	}
+	      	else {
+	        tail.rchild = n;//link right
+	        n.lchild = tail;//link left
+	        tail = tail.rchild;//reassign tail
+	      	} // else
+	      	//traverse right
+	      	n = n.rchild;
+	    }//else
+	  }//while
+	 
+	  //make circular
+	  if (null != head) {
+	    tail.rchild = head;
+	    head.lchild = tail;
+	  }//if
+	  
+	  return head;
+		
 	}
 
 private static void printDLL(Node head) {
@@ -31,7 +79,7 @@ private static void printDLL(Node head) {
 	System.out.println();
 }
 
-private static void convertBSTToCircularDLL(Node n) {
+private static void recursiveConvertBSTToCircularDLL(Node n) {
 	
 	// VERY IMP NOTE: Make prev and head as GLOBAL VARIABLES (class data members). SEE declaration of this class
 	// to check whether prev and head are GLOBAL VARIABLES
@@ -39,7 +87,7 @@ private static void convertBSTToCircularDLL(Node n) {
 	
 	if(n==null)
 		return;   // VERY IMP return "void"
-	convertBSTToCircularDLL(n.lchild);
+	recursiveConvertBSTToCircularDLL(n.lchild);
 	if(prev==null){  // FIRST NODE IN LIST
 	   head=n;
 	}
@@ -51,7 +99,7 @@ private static void convertBSTToCircularDLL(Node n) {
 	// update prev to current
 	prev = n;
 	// traverse right
-	convertBSTToCircularDLL(n.rchild);
+	recursiveConvertBSTToCircularDLL(n.rchild);
 	
 	// These statements are only to link the head with last and last with head
 	if(prev.rchild==null){ // LAST NODE IN LIST
