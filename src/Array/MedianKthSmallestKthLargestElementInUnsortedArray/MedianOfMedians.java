@@ -41,7 +41,7 @@ public class MedianOfMedians {
 	        return a[s];
 	     
 	    int m = (n+4) /5;
-	    int[] mid = new int[m];
+	    int[] mid = new int[m]; // array to store the median elements
 	     
 	    for (int i=0; i<m; i++) {
 	        int t = s+i*5;      // 5-elements block pointer
