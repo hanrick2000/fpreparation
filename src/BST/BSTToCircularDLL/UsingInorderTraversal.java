@@ -1,8 +1,8 @@
-
 /*
  * Question: Convert a binary search tree to a SORTED circular doubly-linked list
  * 
- * Source: http://www.careercup.com/question?id=5156120807079936
+ * Iterative Solution Source: http://www.geekviewpoint.com/java/bst/to_circular_doubly_linked_list_iterative
+ * Recursive Solution Source: http://www.careercup.com/question?id=5156120807079936
  * 
  * Algorithm: 1. Visit every node using in-order traversal, In every visit keep track of previous node
  * 			  2. Make previous.next = current
@@ -17,29 +17,40 @@ public class UsingInorderTraversal {
 	public static void main(String[] args) {
 	BST bst=BinSearchTree.makeTree();
 	convertBSTToCircularDLL(bst.root);
-	//printDLL(head);
+	printDLL(head);
 	}
-/*
-private static void printDLL(Node n) {
 
-	while(n!=null){
+private static void printDLL(Node head) {
+	Node n = head;
+	System.out.println("The SORTED CIRCULAR DLL is: ");
+	while(n.rchild!=head){
 		System.out.print(n.data+" ");
 		n=n.rchild;
 	}
+	System.out.print(n.data+" ");
+	System.out.println();
 }
-*/
+
 private static void convertBSTToCircularDLL(Node n) {
+	
+	// VERY IMP NOTE: Make prev and head as GLOBAL VARIABLES (class data members). SEE declaration of this class
+	// to check whether prev and head are GLOBAL VARIABLES
+	
+	
 	if(n==null)
 		return;   // VERY IMP return "void"
 	convertBSTToCircularDLL(n.lchild);
 	if(prev==null){  // FIRST NODE IN LIST
-		head=n;
+	   head=n;
 	}
 	else{
-		prev.rchild = n;
+		// Store prev in current left and store current in prev.right
 		n.lchild = prev;
+		prev.rchild = n;
 	}
+	// update prev to current
 	prev = n;
+	// traverse right
 	convertBSTToCircularDLL(n.rchild);
 	
 	// These statements are only to link the head with last and last with head
@@ -143,5 +154,3 @@ class BinSearchTree{
 		return myTree;
 	}
 }
-		
-		
