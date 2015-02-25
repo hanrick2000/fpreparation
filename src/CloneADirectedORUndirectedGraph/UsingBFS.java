@@ -8,13 +8,18 @@ Answer Source: http://www.programcreek.com/2012/12/leetcode-clone-graph-java/
 	
 IMP Sources: http://leetcode.com/2012/05/clone-graph-part-i.html
 */
-package CloneAUndirectedGraph;
+package CloneADirectedORUndirectedGraph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-
+/*
+ * VERY IMP NOTE: The same code can be used for DIRECTED OR UNDIRECTED Graphs WITH OR WITHOUT CYCLES
+ * 1. Code works for DIRECTED AS WELL AS UNDIRECTED graphs
+ * 2. Code works for graphs WITH CYCLES OR WITHOUT CYCLES
+ * 
+ */
 /**
  * Definition for undirected graph.
  * class UndirectedGraphNode {
