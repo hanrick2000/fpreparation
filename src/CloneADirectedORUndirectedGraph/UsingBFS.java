@@ -13,6 +13,7 @@ package CloneADirectedORUndirectedGraph;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /*
  * VERY IMP NOTE: The same code can be used for DIRECTED OR UNDIRECTED Graphs WITH OR WITHOUT CYCLES
@@ -36,25 +37,25 @@ public class UsingBFS {
         if(node == null)
             return null;
  
-        LinkedList<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
+        Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
         HashMap<UndirectedGraphNode, UndirectedGraphNode> map = 
                                    new HashMap<UndirectedGraphNode,UndirectedGraphNode>();
  
-        UndirectedGraphNode newHead = new UndirectedGraphNode(node.label);
+        UndirectedGraphNode newHead = new UndirectedGraphNode(node.label);  // CLONE
  
-        queue.add(node);          // add the node
-        map.put(node, newHead);   // map the node
+        queue.add(node);          // ADD
+        map.put(node, newHead);   // MAP
  
         while(!queue.isEmpty()){
-            UndirectedGraphNode curr = queue.pop();  // get the node
+            UndirectedGraphNode curr = queue.poll();  // remove the node
             ArrayList<UndirectedGraphNode> currNeighbors = curr.neighbors; // get the neighbors 
  
             for(UndirectedGraphNode aNeighbor: currNeighbors){
                 if(!map.containsKey(aNeighbor)){
-                    UndirectedGraphNode copy = new UndirectedGraphNode(aNeighbor.label);
-                    map.put(aNeighbor,copy);
-                    map.get(curr).neighbors.add(copy);
-                    queue.add(aNeighbor);
+                    UndirectedGraphNode copy = new UndirectedGraphNode(aNeighbor.label); // CLONE
+                    queue.add(aNeighbor);         // ADD
+                    map.put(aNeighbor,copy);      // MAP
+                    map.get(curr).neighbors.add(copy);     // this is same as the below line "map.get(curr).neighbors.add(map.get(aNeighbor))"
                 }else{
                     map.get(curr).neighbors.add(map.get(aNeighbor));
                 }
