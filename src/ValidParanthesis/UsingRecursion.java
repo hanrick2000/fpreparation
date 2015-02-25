@@ -52,9 +52,11 @@ public static void main(String[] args) {
 		System.out.println("Given 'n', this program will generate all valid parenthesis strings of length '2n");
 		System.out.println("Enter n");
 		int n = in.nextInt();
-		char[] str = new char[20];  // VERY VERY IMPORTANT NOTE: Donot use StringBuilder, because it will not work
+		char[] str = new char[2*n];  // VERY VERY IMPORTANT NOTE: Donot use StringBuilder, because it will not work
 		// due to append function it appends but does not remove what it has appended. HENCE we should use
 		// char array for BOTH the below algorithms
+		
+	
 		printParanthesis(str,0,0,0,n);
 		str=null;
 		str=new char[20];
@@ -120,6 +122,21 @@ private static void printParanthesis(char[] str, int pos,int open, int close, in
 }
 /*
 Analysis:
-Time Complexity = O()
-Space Complexity = O()
+The number of valid parenthesis with number n is the nth Catalan number. 
+Catalan Numbers are calculated as O(n).
+
+Time Complexity Source: http://stackoverflow.com/questions/2535472/what-would-be-the-time-complexity-of-counting-the-number-of-all-structurally-dif
+http://www.geeksforgeeks.org/program-nth-catalan-number/
+
+The first Catalan numbers for n = 0, 1, 2, 3, … are
+
+1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, 35357670,
+129644790, 477638700, 1767263190, 6564120420, 24466267020, 91482563640, 343059613650, 1289904147324, 
+4861946401452, … (sequence A000108 in OEIS).
+
+
+
+Time Complexity = O(n)
+Space Complexity = O(1)
+*
 */
