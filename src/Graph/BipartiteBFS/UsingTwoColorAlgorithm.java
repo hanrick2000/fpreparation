@@ -4,7 +4,7 @@ Question and Answer Source:
 http://www.sanfoundry.com/java-program-check-whether-graph-bipartite-using-bfs/
 http://www.geeksforgeeks.org/bipartite-graph/
 */
-package Graphs.BipartiteBFS;
+package Graph.BipartiteBFS;
 
 import java.util.InputMismatchException;
 import java.util.LinkedList;

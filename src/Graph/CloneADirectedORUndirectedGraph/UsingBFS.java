@@ -8,7 +8,7 @@ Answer Source: http://www.programcreek.com/2012/12/leetcode-clone-graph-java/
 	
 IMP Sources: http://leetcode.com/2012/05/clone-graph-part-i.html
 */
-package CloneADirectedORUndirectedGraph;
+package Graph.CloneADirectedORUndirectedGraph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
