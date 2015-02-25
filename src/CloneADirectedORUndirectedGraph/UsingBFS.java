@@ -16,6 +16,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /*
+ * We can clone a graph using BFS or DFS Traversal. Here we will use BFS Traversal
  * VERY IMP NOTE: The same code can be used for DIRECTED OR UNDIRECTED Graphs WITH OR WITHOUT CYCLES
  * 1. Code works for DIRECTED AS WELL AS UNDIRECTED graphs
  * 2. Code works for graphs WITH CYCLES OR WITHOUT CYCLES
