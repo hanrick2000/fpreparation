@@ -46,13 +46,16 @@ public class UsingFastFibonacciMatrixAlgorithm {
 	}
 
 	private static void power(int[][] F, int n) {
-		
-		if(n==0||n==1)       // The 1st fibonacci number is 1, the 2nd fibonacci number is 1. Hence return, since
-			                 // this return will cause fibo(matrix,n) method to return F[0][0] which is 1
+	
+		// The 1st fibonacci number is 1, the 2nd fibonacci number is 1. Hence return, since
+		// this return will cause fibo(matrix,n) method to return F[0][0] which is 1
+		if(n==0||n==1)
 			return;
-		power(F,n/2);
+		power(F,n/2); 
+		 
 		multiply(F,F);
-// till here the F is already modified and its no longer {{1,1},{1,0}}. Hence we use another matrix M such that M = {{1,1},{1,0}} 
+		// till here the F is already modified and its no longer {{1,1},{1,0}}. 
+		// Hence we use another matrix M such that M = {{1,1},{1,0}} 
 		int[][] M = new int[][]{{1,1},{1,0}};
 		if(n%2!=0)
 			multiply(F,M);
