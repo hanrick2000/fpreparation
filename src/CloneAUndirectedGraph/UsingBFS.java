@@ -37,12 +37,12 @@ public class UsingBFS {
  
         UndirectedGraphNode newHead = new UndirectedGraphNode(node.label);
  
-        queue.add(node);
-        map.put(node, newHead);
+        queue.add(node);          // add the node
+        map.put(node, newHead);   // map the node
  
         while(!queue.isEmpty()){
-            UndirectedGraphNode curr = queue.pop();
-            ArrayList<UndirectedGraphNode> currNeighbors = curr.neighbors; 
+            UndirectedGraphNode curr = queue.pop();  // get the node
+            ArrayList<UndirectedGraphNode> currNeighbors = curr.neighbors; // get the neighbors 
  
             for(UndirectedGraphNode aNeighbor: currNeighbors){
                 if(!map.containsKey(aNeighbor)){
