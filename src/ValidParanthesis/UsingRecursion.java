@@ -4,7 +4,7 @@ Question: Given "n", generate all valid parenthesis strings of length "2n".
 
 Example: 
 Given n=2 
-
+ q q
 Output: 
 (()) 
 ()()
@@ -82,11 +82,10 @@ private static void printUsingAnotherAlgorithm(char[] str, int pos, int open, in
 	
 	if(open==close)
 		System.out.println(String.valueOf(str));
-	
-	
+
 	if(open>close)    // Please remember that: ONLY ONE of the conditional statements would be executed
 		              // That's why I have written "else if" and "else if" in the below two conditional statements
-					  // which means only ONE will execute inclusing this "if" statement.
+					  // which means only ONE will execute including this "if" statement.
 		              // SO EITHER "open>close" OR "open<n" OR "close<n", only ONE among three will be executed in EACH RECURSIVE CALL.
 		return;
 	
@@ -102,9 +101,9 @@ private static void printUsingAnotherAlgorithm(char[] str, int pos, int open, in
 }
 
 private static void printParanthesis(char[] str, int pos,int open, int close, int n) {
-	// Algorithm Source (GeeksForGeeks): http://www.geeksforgeeks.org/print-all-combinations-of-balanced-parentheses/
+	// Algorithm Source (GeeksForGeeks): http://www.geeksforgeeks.org/pri	nt-all-combinations-of-balanced-parentheses/
 	
-	if(close==n)
+	if((close==n)&&(open==n))
 		System.out.println(String.valueOf(str));
 	else{
 		if(open>close){
