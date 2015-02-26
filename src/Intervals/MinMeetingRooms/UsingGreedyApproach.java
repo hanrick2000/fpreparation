@@ -1,14 +1,8 @@
 /*
-Question: You have a number of meetings (with their start and end times). 
-		  You need to schedule them using the minimum number of rooms. Return the list of meetings in every room.
-
-
-Question Source: Facebook Interview Question
-
+Question: All Questions are written in the program itself
 IMP Sources:
-http://stackoverflow.com/questions/24657695/optimal-room-count-and-sizes-for-n-overlapping-meeting-schedules
-	https://nuttynanaus.wordpress.com/2014/04/26/software-engineer-interview-questions-3/
-		https://hellosmallworld123.wordpress.com/2014/05/30/arranging-the-meeting-room/
+	Good Amount of Question Here -> https://hellosmallworld123.wordpress.com/2014/05/30/arranging-the-meeting-room/
+	Solution -> http://www.fgdsb.com/2015/01/30/meeting-rooms/
 */
 package Intervals.MinMeetingRooms;
 
@@ -68,6 +62,11 @@ public class UsingGreedyApproach {
 		 * 			--cur;
 		 * 4. return cur;
 		 */
+		
+		// Extreme case
+		if(meetings==null||meetings.size()==0)
+			return 0;
+		
 		List<Integer> list = new ArrayList<Integer>();
 		for(Meeting m: meetings){
 			list.add(m.start);
@@ -98,6 +97,10 @@ public class UsingGreedyApproach {
 	 * Space Complexity = O(2n) where n = number of meetings. Every meeting will have start and end time hence 2n
 	 */
 	private static boolean solveSecondProgram(List<Meeting> meetings) {
+		
+		// Extreme case
+		if(meetings==null||meetings.size()==0)
+			return false;
 		
 		Collections.sort(meetings,new Comparator<Meeting>(){
 			public int compare(Meeting a, Meeting b){
