@@ -4,7 +4,7 @@ IMP Sources:
 	Good Amount of Question Here -> https://hellosmallworld123.wordpress.com/2014/05/30/arranging-the-meeting-room/
 	Solution -> http://www.fgdsb.com/2015/01/30/meeting-rooms/
 */
-package Intervals.MinMeetingRooms;
+package Intervals.MeetingRooms;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -153,17 +153,33 @@ public class UsingGreedyApproach {
 		System.out.println("Answer: All meetings can be attended by a single person? "+solveSecondProgram(meetings));
 	}
 
-	private static void thirdProgram() {
+	private static void thirdProgram(List<Meeting> meetings) {
+		/*
+		 * Answer Source: 
+		 */
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program III");
-		System.out.println("You have ONLY ONE room, what is the maximum number of meetings that can be scheduled into that room.");
+		System.out.println("Find the number of maximum possible non-overlapping meetings");
 		System.out.println("Algorithm:");
 		System.out.println("1. We sort the meetings by start time");
-		System.out.println("2. Iterate through all the meetings, if subsequent meetings dont overlap then fine, otherwise increment count");
-		System.out.println("3. return the count");
+		System.out.println("2. Push the first meeting in a stack. The stack only maintains NON-OVERLAPPING meetings");
+		System.out.println("3. Iterate through all the meetings");
+		System.out.println(" \t if current meeting overlaps with stack.peek() meeting than "+
+		"the meeting whic ends first should be in the stack");
+		System.out.println(" \t else push the current meeting on the stack");
+		System.out.println("3. return stack.size()");
+		System.out.println("Answer is: "+solveThirdProgram(meetings));
+	}
+	/*	
+	private static void fourthProgram() {
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Program IV");
+		System.out.println("You have ONLY ONE room, what is the maximum number of meetings that can be scheduled into that room.");
+		System.out.println("Algorithm:");
+		
 		System.out.println("-----------------------------------------------------------------------------");
 	}
-	
+	*/
 }
 class Meeting{
 	int start;
