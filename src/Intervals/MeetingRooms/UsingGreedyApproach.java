@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 
 public class UsingGreedyApproach {
@@ -20,6 +21,7 @@ public class UsingGreedyApproach {
 			List<Meeting> meetings=Meeting.createMeetings();
 			firstProgram(meetings);
 			secondProgram(meetings);
+			thirdProgram(meetings);
 		}
 		finally{
 			in.close();
@@ -119,6 +121,40 @@ public class UsingGreedyApproach {
 	 * Time Complexity = O(nlgn) where n = number of meetings
 	 * Space Complexity = O(1)
 	 */
+	private static int solveThirdProgram(List<Meeting> meetings) {
+		
+		// Extreme case
+		if(meetings==null||meetings.size()==0)
+			return 0;
+		
+		Collections.sort(meetings,new Comparator<Meeting>(){
+			public int compare(Meeting a, Meeting b){
+				return (a.start-b.start);
+			}
+		});
+		
+		Stack<Meeting> stack = new Stack<Meeting>();
+		stack.push(meetings.get(0));
+		for(int i=1;i<meetings.size();i++){
+		
+			Meeting prev = stack.peek();
+			Meeting cur = meetings.get(i);
+			if(cur.start < prev.end){ // overlap
+				if(prev.end > cur.end){
+					stack.pop();
+					stack.push(cur);
+				}
+			}
+			else // no overlap
+				stack.push(cur);
+		}
+		return stack.size();
+	}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(nlgn) where n = number of meetings
+	 * Space Complexity = O(n) where n = number of meetings because we have used Stack
+	 */
 	private static void firstProgram(List<Meeting> meetings) {
 		/*
 		 * Answer Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
@@ -155,18 +191,18 @@ public class UsingGreedyApproach {
 
 	private static void thirdProgram(List<Meeting> meetings) {
 		/*
-		 * Answer Source: 
+		 * Answer Source: https://github.com/nkatre/geeksforgeeksANDcareercup/blob/master/src/Intervals/findNonOverlappingIntervals/UsingSortingOnStartDateUsingComparator.java
 		 */
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program III");
 		System.out.println("Find the number of maximum possible non-overlapping meetings");
 		System.out.println("Algorithm:");
-		System.out.println("1. We sort the meetings by start time");
+		System.out.println("1. We sort the meetings by START TIME");
 		System.out.println("2. Push the first meeting in a stack. The stack only maintains NON-OVERLAPPING meetings");
 		System.out.println("3. Iterate through all the meetings");
-		System.out.println(" \t if current meeting overlaps with stack.peek() meeting than "+
-		"the meeting whic ends first should be in the stack");
-		System.out.println(" \t else push the current meeting on the stack");
+		System.out.println(" \t if current meeting overlaps with stack.peek() meeting \n \t\t "+
+		"the meeting which ends first should be in the stack");
+		System.out.println(" \t else \n \t\t push the current meeting on the stack");
 		System.out.println("3. return stack.size()");
 		System.out.println("Answer is: "+solveThirdProgram(meetings));
 	}
@@ -195,10 +231,10 @@ class Meeting{
 		meetings.add(new Meeting(10,14));
 		meetings.add(new Meeting(4,8));
 		meetings.add(new Meeting(3,6));
+		meetings.add(new Meeting(7,9));
+		meetings.add(new Meeting(5,7));
 		meetings.add(new Meeting(6,10));
 		meetings.add(new Meeting(2,3));
-		meetings.add(new Meeting(7,9));
-		
 		return meetings;
 	}
 }
