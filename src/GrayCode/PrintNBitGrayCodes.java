@@ -52,6 +52,7 @@ public class PrintNBitGrayCodes {
 		// USE THIS EFFICIENT METHOD IN INTERVIEWS
 		for(int i=0;i<(int)Math.pow(2, n);i++){
 			System.out.println(Integer.toBinaryString( (i>>1)^(i) )); //EXOR Operation between (value) and (value/2)    
+		// TR: i ke aage 1 topi i
 		}	
 	}
 	/*
