@@ -75,7 +75,8 @@ public class SortLL {
 		}
 	 
 		public static ListNode merge(ListNode l, ListNode r) {
-			
+			if(l==null&&r==null)
+				return null;
 			if(l==null)
 				return r;
 			if(r==null)
