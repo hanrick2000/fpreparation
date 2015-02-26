@@ -45,7 +45,7 @@ package ValidParanthesis;
 
 import java.util.Scanner;
 
-public class UsingRecursion {
+public class Print2nValidParanthesisUsingRecursion {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{

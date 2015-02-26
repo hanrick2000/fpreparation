@@ -14,8 +14,19 @@ Question:
 		isMatch("ab*", "ab") = true;
 		
 Question & Answer Source: http://www.careercup.com/question?id=6631993756352512
+
+Hints:
+Think carefully how you would do matching of ‘*’. Please note that ‘*’ in regular expression
+ is different from wildcard matching, as we match the previous character 0 or more times. 
+ But, how many times? If you are stuck, recursion is your friend.
+ 
+ THUS, THIS PROGRAM CAN ONLY BE SOLVED EFFECTIVELY USING RECURSION
+ 
+ IMP Sources:
+ http://www.programcreek.com/2012/12/leetcode-regular-expression-matching-in-java/
+ http://leetcode.com/2011/09/regular-expression-matching.html
 */
-package REGEXStarDotProblem;
+package Regex.StarDotProblem;
 
 
 public class UsingRecursion {
@@ -27,30 +38,30 @@ public class UsingRecursion {
 		System.out.println(isMatch("a", "a"));
 		System.out.println(isMatch("aaaa*a.", "aaaab"));
 		System.out.println(isMatch("ab*", "ab"));
-		System.out.println(isMatch("Facebk","F.c.bo*k"));
+		System.out.println(isMatch("F.c.bo*k","Facebk"));
 	}
 	static boolean isMatch(String regex, String s)
 	{
 	    return IsMatch(regex, s, regex.length() - 1, s.length() - 1);
 	}
 
-	static boolean IsMatch(String regex, String s, int i, int j)
+	static boolean IsMatch(String regex, String s, int regIndex, int strIndex)
 	{
-	    if (i < 0) // If the regex is over
+	    if (regIndex < 0) // If the regex is over
 	    {
-	        return j < 0;   // return true if the string is also over OR ELSE return false
+	        return strIndex < 0;   // return true if the string is also over OR ELSE return false
 	    }
 
 	    boolean result = false;
 
-	    if (j >= 0)
+	    if (strIndex >= 0) // if the string exists
 	    {
-	        if (regex.charAt(i) == '.' || regex.charAt(i) == s.charAt(j) ) 
-	        	result = IsMatch(regex, s, i - 1, j - 1);
+	        if (regex.charAt(regIndex) == '.' || regex.charAt(regIndex) == s.charAt(strIndex) ) 
+	        	result = IsMatch(regex, s, regIndex - 1, strIndex - 1);
 	    }
 
-	    if (regex.charAt(i)  == '*')
-	    	result = IsMatch(regex, s, i - 2, j) || IsMatch(regex, s, i - 1, j);
+	    if (regex.charAt(regIndex)  == '*')
+	    	result = IsMatch(regex, s, regIndex - 2, strIndex) || IsMatch(regex, s, regIndex - 1, strIndex);
 
 	    return result;
 	}
