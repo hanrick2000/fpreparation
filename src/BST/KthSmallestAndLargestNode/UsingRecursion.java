@@ -48,6 +48,8 @@ private static void findKthLargestNode(Node root, int k) {
 		if(root==null)
 			return;
 		
+		// index is GLOBAL
+		
 		findKthLargestNode(root.right, k);
 		if(++index==k){
 			System.out.println(root.value);
@@ -65,6 +67,8 @@ private static void findKthSmallestNode(Node root, int k) {
 	
 	if(root==null)
 		return;
+	
+	// index is GLOBAL
 	
 	findKthSmallestNode(root.left, k);
 	if(++index==k){

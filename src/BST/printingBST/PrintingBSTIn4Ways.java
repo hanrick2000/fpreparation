@@ -97,10 +97,10 @@ import java.util.Stack;
  * Space Complexity = O(n)
  */
 
-	private static int iterativeLCA(Node root, Node a, Node b) {
+	private static Node iterativeLCA(Node root, Node a, Node b) {
 		
 		if(root==null||a==null||b==null)
-			return -1;
+			return null;
 		
 		while(root!=null){
 			if(a.data<root.data && b.data<root.data)
@@ -109,22 +109,22 @@ import java.util.Stack;
 				root=root.lchild;
 			else break;
 		}
-		return root.data;
+		return root;
 	}
 
-
-
-	private static int recursiveLCA(Node root, Node a, Node b) {
+	private static Node recursiveLCA(Node root, Node a, Node b) {
+		
+		// TR: THREE if, NO else
+		
+		
 		if(root==null||a==null||b==null)
-			return -1;
+			return null;
 		if(a.data<root.data && b.data<root.data)
 			recursiveLCA(root.lchild,a,b);
 		if(a.data>root.data && b.data>root.data)
 			recursiveLCA(root.rchild,a,b);
-		return root.data;
+		return root;
 	}
-
-
 
 	private static void printNodesFromRootToLeaf(BST bst) {
 		int[] path = new int[1000];
