@@ -17,7 +17,7 @@ and ends on Z)
 Question Source: http://www.careercup.com/question?id=6139456847347712
 
 I think of it this way:
-1-26 (26 of them)
+A-26 (26 of them)
 AA-ZZ (26*26 of them)
 AAA-ZZZ (26*26*26 of them)
 
@@ -33,6 +33,9 @@ public static void main(String[] args) {
 }
 
 public static String numToStr(int n) {
+	// Extreme Case
+	if(n==0)
+		return null;
   
     String columnName = "";
     while(n>0){
@@ -49,10 +52,15 @@ Space Complexity = O(1)
 
 
 public static int strToNum(String str){  // If str=A
+	
+	// Extreme Case
+	if(str==null || str.length()==0)
+		return -1;
+	
 	int sum=0;
-	for(int i =str.length()-1;i>=0;i--){  
-		sum = sum + (int)(str.charAt(i) - 64) * (int)Math.pow(26, str.length()-i-1); // Math.pow returns double, hence we typecast it to int
-	} // we do -64 because we need 1 for A, so that multiplication would be VALID
+	for(int i =str.length()-1;i>=0;i--)  
+		sum = sum + (int)(str.charAt(i) - 64) * (int)Math.pow(26, str.length()-1-i); // Math.pow returns double, hence we typecast it to int
+	  // we do -64 because we need 1 for A, so that multiplication would be VALID
 	return sum;
 	}
 }
