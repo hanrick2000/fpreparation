@@ -22,54 +22,53 @@ public class UsingQueue {
 	}
 
 	private static void serialize(StringBuilder sb, Node node) {
-		if(node==null)
-			return;
+		 if(node==null)
+			 return;
 		
-		sb.append(node.data);
-		sb.append(" ");
+		 sb.append(node.data);
+		 sb.append(" ");
 		
 		  if (node.lchild != null) {
               serialize(sb, node.lchild);
-      }
-      else {
+		  	}
+		  else {
               sb.append("NULL");
               sb.append(" ");
-      }
+		  }
       
-      if (node.rchild != null) {
+		  if (node.rchild != null) {
               serialize(sb, node.rchild);
-      }
-      else {
+		  }
+		  else {
               sb.append("NULL");
               sb.append(" ");
-      }
+		  }
 	}
 	 public static Node deserialize(String str) {
-         if (str == null || str.isEmpty()) {
+         if (str == null || str.isEmpty()) 
                  return null;
-         }
+         
          String[] data = str.split(" ");
          Queue<Node> q = new LinkedList<Node>();
          
          //System.out.println(Arrays.toString(data));
 
          for(String s : data) {
-                
-                 if (s.equals("NULL")) {
+              
+                 if (s.equals("NULL"))
                          q.add(null);
-                 } else {
+                 else
                          q.add(new Node(Integer.parseInt(s)));
-                 }
          }
          Node root = deserialize(q, q.remove());
          return root;
  }
 	 private static Node deserialize(Queue<Node> q, Node node) {
-         if (node == null) {
-                 return null;
-         }
-         node.lchild = deserialize(q, q.remove());
-         node.rchild= deserialize(q, q.remove());
+         if (node == null)
+            return null;
+         
+         node.lchild = deserialize(q, q.remove()); // left storage
+         node.rchild= deserialize(q, q.remove());  // right storage
          
          return node;
  }
