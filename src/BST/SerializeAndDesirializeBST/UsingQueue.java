@@ -1,4 +1,4 @@
-package BST.SerializeAndDeserializeBST;
+package BST.SerializeAndDesirializeBST;
 
 import java.util.LinkedList;
 import java.util.Queue;
