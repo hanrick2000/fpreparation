@@ -57,8 +57,6 @@ public class UsingPreorderAndQueue {
 		}
 		sinkZeroUsingPreOderAndQueue(n.left,q);
 		sinkZeroUsingPreOderAndQueue(n.right, q);
-		
-
 	}
 	private static void printTree(Node n) {
 		if(n==null)
