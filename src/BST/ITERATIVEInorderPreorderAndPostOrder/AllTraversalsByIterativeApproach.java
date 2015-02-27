@@ -30,7 +30,6 @@ public static void main(String[] args) {
  * 
  * Algorithm Source: http://www.algorithmsandme.com/2014/02/tree-traversal-without-recursion-using.html#.VOpYVp_0_VM
  * 
- * 
  * Algorithm is simple, we go to left child downwards till we reach the NULL node. 
  * Once we reach there, we trace back the previous node, and print that node data. 
  * Once node is printed, we go and process the right child of the node in similar manner.
@@ -50,8 +49,6 @@ So we go on traversing all left node, as we visit the node, we will put that nod
 Check if there is right child to that node. If yes, move right child to stack and again start
  traversing left child node and put them on to stack. Once we have traversed all node, our stack
   will be empty.
- * 
- * 
  */
 
 	public static void inorder(Node root){
@@ -100,7 +97,7 @@ Check if there is right child to that node. If yes, move right child to stack an
 	public static void postorder(Node root){
 		
 		/*
-		 * VERY IMP NOTE: For postorder traversal, we need previous node record
+		 * VERY IMP NOTE: For postorder traversal, we need next node record
 		 * 
 		 * 
 		 * TWO VERY VERY IMP NOTES:
@@ -122,7 +119,7 @@ Check if there is right child to that node. If yes, move right child to stack an
 		
 		while(!s.isEmpty()){
 			next = s.peek();
-		    // If the Previous node is parent of the current node  OR Previous node is leaf node
+		    // If the next node is parent of the current node  OR Previous node is leaf node
 			if(next.lchild==curr || next.rchild==curr || (next.lchild==null && next.rchild==null)){
 				s.pop();
 				System.out.print(next.data+" ");

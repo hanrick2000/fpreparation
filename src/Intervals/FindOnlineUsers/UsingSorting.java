@@ -75,6 +75,7 @@ public class UsingSorting {
 		result = Math.abs(time-punchTimes.get(low)) < Math.abs(time-punchTimes.get(high)) ? low:high;
 		return result;
 		
+		
 	}
 
 	private static List<Integer> sortLogins(List<User> users) {
