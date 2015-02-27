@@ -35,7 +35,7 @@ private static Node iterativeBSTToSortedCircularLL(Node root) {
 	Node head = null, tail = null;
 	  Stack<Node> stack = new Stack<Node>();
 	  Node n = root;
-	  //inorder loop
+	  //SAME AS ITERSTIVE INORDER TRAVERSAL LOOP : https://github.com/nkatre/geeksforgeeksANDcareercup/blob/master/src/BST/ITERATIVEInorderPreorderAndPostOrder/AllTraversalsByIterativeApproach.java
 	  while (n!=null || !stack.isEmpty()) {
 	    //traverse left
 	    if (n!=null) {

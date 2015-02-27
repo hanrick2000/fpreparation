@@ -93,11 +93,11 @@ public Node root=null;
 		while(q.size()>1 || q.peek()!=null){
 			Node node = q.remove();
 			if(node!=null){
-				list.add(node.data);
+				list.add(node.data); // List
 				if(node.lchild!=null)
-					q.add(node.lchild);
+					q.add(node.lchild); // Queue
 				if(node.rchild!=null)
-					q.add(node.rchild);
+					q.add(node.rchild); // Queue
 			}
 			else{// node==null
 				// calculate average
