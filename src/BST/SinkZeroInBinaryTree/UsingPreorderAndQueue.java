@@ -47,7 +47,7 @@ public class UsingPreorderAndQueue {
 		if(n.data==0) // current node.data==0 then add to the queue
 			q.add(n);
 		else{
-		// remove the front element, swap node.value of current with the removed and add current node to the queue
+	// remove the front element, swap node.value of current with the removed and add current node to the queue
 			Node element = q.remove();
 			// swap the node.data values
 			int d = n.data;
