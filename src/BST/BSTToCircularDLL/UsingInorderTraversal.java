@@ -44,6 +44,7 @@ private static Node iterativeBSTToSortedCircularLL(Node root) {
 	    }
 	    else {//visit
 	      n = stack.pop(); // get the previous pushed element in the stack
+	   // the above statement same as iterative inorder traversal loop statement
 	      	if (head==null) {
 	      		head = n;
 	      		tail = n;
@@ -54,12 +55,12 @@ private static Node iterativeBSTToSortedCircularLL(Node root) {
 	        tail = tail.rchild;//reassign tail
 	      	} // else
 	      	//traverse right
-	      	n = n.rchild;
+	      	n = n.rchild;     // same as iterative inorder traversal loop statement
 	    }//else
 	  }//while
 	 
 	  //make circular
-	  if (null != head) {
+	  if (head != null) {
 	    tail.rchild = head;
 	    head.lchild = tail;
 	  }//if
@@ -81,10 +82,7 @@ private static void printDLL(Node head) {
 
 private static void recursiveConvertBSTToCircularDLL(Node n) {
 	
-	// VERY IMP NOTE: Make prev and head as GLOBAL VARIABLES (class data members). SEE declaration of this class
-	// to check whether prev and head are GLOBAL VARIABLES
-	
-	
+	// VERY IMP NOTE: TWO POINTERS ARE REQUIRED, prev and head are GLOBAL VARIABLES
 	if(n==null)
 		return;   // VERY IMP return "void"
 	recursiveConvertBSTToCircularDLL(n.lchild);
