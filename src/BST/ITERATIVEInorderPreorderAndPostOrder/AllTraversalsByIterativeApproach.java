@@ -119,7 +119,7 @@ Check if there is right child to that node. If yes, move right child to stack an
 		
 		while(!s.isEmpty()){
 			next = s.peek();
-		    // If the next node is parent of the current node  OR Previous node is leaf node
+		    // If the next node is parent of the current node  OR next node is leaf node
 			if(next.lchild==curr || next.rchild==curr || (next.lchild==null && next.rchild==null)){
 				s.pop();
 				System.out.print(next.data+" ");
@@ -127,6 +127,7 @@ Check if there is right child to that node. If yes, move right child to stack an
 			}
 			else{
 				// VERY IMP NOTE: First push RIGHT then LEFT
+				// Everything is about next. No mention of cur here in else part
 				if(next.rchild!=null)   
 					s.push(next.rchild);
 				if(next.lchild!=null)
