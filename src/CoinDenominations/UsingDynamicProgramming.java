@@ -4,9 +4,7 @@ Question: Dynamic programming problem: Coin change problem:
 	for a given sum (given unlimited cumber of N different denominations coin)
 
 Question And Answer Source: Facebook Interview
-http://www.careercup.com/question?id=14405712
 http://www.careercup.com/question?id=3753407
-http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/		
 
 IMP Source: https://www.youtube.com/watch?v=GafjS0FfAC0
 */
