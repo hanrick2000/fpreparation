@@ -20,19 +20,22 @@ public class UsingRecursion {
 	public static void main(String[] args) {
 		int[] denom = new int[]{1,5,10,25};
 		int[] result = new int[denom.length];
-		printAll(0, denom, 30, result);
+		giveAllPossibleCombinationsrecursively(0, denom, 30, result);
 	}
-	 public static void printAll(int index, int[] denom,int amount,int[] result){
-		    if(amount==0){
+	 public static void giveAllPossibleCombinationsrecursively(int index, int[] denom,int amount,int[] result){
+		 	// If amount is EXHAUSTED then PRINT,RETURN
+		 	if(amount==0){
 		        System.out.println(Arrays.toString(result));
 		        return;
 		    }
+		    // If denominations are EXHAUSTED then RETURN
 		    if(index == (denom.length))
-		    	return;             
+		    	return;
+		    // get the denominationAmount and find the coins required of this denomination
 		    int currdenom = denom[index];
 		    for(int i=0;i<=(amount/currdenom);i++){
 		    	result[index] = i;
-		        printAll((index+1),denom,(amount-(i*currdenom)),result);
+		    	giveAllPossibleCombinationsrecursively((index+1),denom,(amount-(i*currdenom)),result);
 		    }
 		 }
 }
