@@ -68,6 +68,11 @@ public class SlidingWindowSumORContinuousSubsequenceSum {
 	
 	
 	public static boolean findSum (int [] A ,int T){
+		// Extreme Case
+		if(A==null||A.length==0)
+			return (T==0);
+		
+		
 		int sum = 0 ;
 		int j = 0;
 		for (int i = 0 ; i < A.length ; i++) {
