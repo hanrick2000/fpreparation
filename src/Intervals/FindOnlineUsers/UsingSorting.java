@@ -73,6 +73,12 @@ public class UsingSorting {
 		 * II. If key is not present
 		 * 			then return all logged in users before this key(i.e. search for a newKey where newKey=key-1)
 		 * NOTE: The second point (i.e. II) is very nicely explained here -> http://javatroops.blogspot.com/2012/12/facebook-write-function-that-can-show.html
+		 * 
+		 * The MOST IMP part in the above link and I quote.
+		 * "Will see with an example. In the figure above, at time 37411 we had 1 user. 
+		 * At time 37506 we had 2 users. So if I query for time 37506 we can directly say 2. 
+		 * If we query for 37500 we have 1 user. How did we arrive at this? At 37500 the value was -1. 
+		 * So we navigate left and at 37411 we get  value 1. That is the result."
 		 */
 		
 		
