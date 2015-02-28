@@ -1,8 +1,9 @@
 /*
  * Question:
 	Given API: 
-		int Read4096(char* buf); 
-		It reads data from a file and records the position so that the next time when it is called it read the next 4k chars (or the rest of the file, whichever is smaller) from the file. 
+		int Read4(char* buf); 
+		It reads data from a file and records the position so that the next time when it is called it read the next 4 chars (or the rest of the file, whichever is smaller) from the file. 
+		The parameter buf is the destination buffer to store the characters.
 		The return is the number of chars read. 
 
 		Todo: Use above API to Implement API 
@@ -42,24 +43,25 @@ public class Read4KI {
 * @param    n        Maximum number of characters to read
 * @return            The number of characters read
 */
-	public int read(char[] destBuffer, int n) {
+	public int read(char[] destBuffer, int targetChars) {
 		char[] sourceBuffer = new char[4];
 		boolean eof = false;
-		int total = 0;    // total bytes read
+		int totalCharsRead = 0;    // total bytes read
+		int currentCarsRead=0;	   // current chars read
 		
-		while (!eof && total < n) {
+		while (!eof && totalCharsRead < targetChars) {
 			int temp = read4(sourceBuffer);
 			
 			if (temp < 4) {
 				eof = true;
 			}
 			
-			int bytes = Math.min(n - total, temp);   // this handles the case when the file is not empty but all the n characters are read
-			System.arraycopy(sourceBuffer, 0, destBuffer, total, bytes); //arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
-			total += bytes;
+			currentCarsRead = Math.min(targetChars - totalCharsRead, temp);   // this handles the case when the file is not empty but all the n characters are read
+			System.arraycopy(sourceBuffer, 0, destBuffer, totalCharsRead, currentCarsRead); //arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+			totalCharsRead += currentCarsRead;
 		}// end of while
 		
-		return total;
+		return totalCharsRead;
 	}
 	
 	// API funciton
