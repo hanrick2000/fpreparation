@@ -67,7 +67,7 @@ public class SlidingWindowSumORContinuousSubstringSum {
 	*/
 	
 	
-	public static boolean findSum (int [] A ,int T){
+	public static boolean findSum (int [] A ,int T){  // BEST SOLUTION
 		// Extreme Case
 		if(A==null||A.length==0)
 			return (T==0);
