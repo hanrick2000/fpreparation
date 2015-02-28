@@ -59,32 +59,40 @@ public class UsingSorting {
 
 		List<Integer> sortedLogins = sortLogins(users);
 		List<Integer> sortedLogouts = sortLogouts(users);
-		int loggedinUsers = binarySearch(sortedLogins,time);
-		int loggedoutUsers = binarySearch(sortedLogouts,time);
+		int loggedinUsers = binarySearch(sortedLogins,time)+1; // +1 due to index starting from 0
+		int loggedoutUsers = binarySearch(sortedLogouts,time)+1; // +1 due to index starting from 0
 		return (loggedinUsers-loggedoutUsers);
 	}
 
 	private static int binarySearch(List<Integer> punchTimes, int time) {
+		
+		if(punchTimes==null || punchTimes.size()==0)  // no punchTimes given then return 0
+			return 0;
+		
+		if(time<=0)  // no login before this time hence return 0
+			return 0;
+		
 		int low = 0;
 		int high = punchTimes.size()-1;
 		int mid=0;
 		int result=0;
+		boolean found=false;
 		while(low<=high){
 			mid=low+(high-low)/2;
 			if(punchTimes.get(mid)==time){
 				result = mid;
-				break;
+				found=true;
+				low=mid+1;
 			}
 			else if(punchTimes.get(mid)<time)
 				low=mid+1;
 			else //(punchTimes.get(mid)>time)
 				high=mid-1;
 		}
-		
-		result = Math.abs(time-punchTimes.get(low)) < Math.abs(time-punchTimes.get(high)) ? low:high;
-		return result;
-		
-		
+		if(found)
+			return result;
+		else
+			return binarySearch(punchTimes, time-1);
 	}
 
 	private static List<Integer> sortLogins(List<User> users) {
@@ -118,31 +126,28 @@ class User{
 		loginTime=a;
 		logoutTime=b;
 	}
-	/*
-	// Duplicated Logged Logedout times
+	
 	public static List<User> createUsers(){
 		List<User> users = new ArrayList<User>();
-		users.add(new User(1,2));
+		// users.add(new User(1,2));
 		users.add(new User(2,5));
-		users.add(new User(10,14));
-		users.add(new User(4,8));
+		users.add(new User(2,3));
 		users.add(new User(3,6));
-		users.add(new User(7,9));
+		users.add(new User(4,8));
 		users.add(new User(5,7));
 		users.add(new User(6,10));
-		users.add(new User(2,3));
-		return users;
-	}
-	
-	*/
-	public static List<User> createUsers(){
-		List<User> users = new ArrayList<User>();
-		users.add(new User(1,2));
-		users.add(new User(3,5));
-		users.add(new User(10,12));
-		users.add(new User(4,8));
 		users.add(new User(7,9));
-		users.add(new User(6,11));
+		users.add(new User(10,14));
 		return users;
 	}
 }
+/*
+Analysis:
+I. Time Complexity
+1. Sorting = O(nlgn) where n = number of intervals
+   Query searching = O(lgn) where n = number of login/logout times (same as number of intervals)
+   Total = O((n+1)lgn) for 1 query
+   For d queries, the overall time complexity is = O((n+d)lgn) time
+II. Space Complexity = O(2n) where n = number of intervals which is used by two list which maintains
+login and logout times in separate lists
+*/
