@@ -8,7 +8,6 @@ For example, if 100 was given, the answer should be...
 4 quarter(s) 0 dime(s) 0 nickel(s) 0 pennies
 3 quarter(s) 1 dime(s) 0 nickel(s) 15 pennies
 etc.
-
 Question And Answer Source: http://stackoverflow.com/questions/1106929/find-all-combinations-of-coins-when-given-some-dollar-value
 */
 
