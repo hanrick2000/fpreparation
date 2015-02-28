@@ -19,20 +19,20 @@ public class UsingRecursion {
 
 	public static void main(String[] args) {
 		int[] denom = new int[]{1,5,10,25};
-		int[] vals = new int[denom.length];
-		printAll(0, denom, 30, vals);
+		int[] result = new int[denom.length];
+		printAll(0, denom, 30, result);
 	}
-	 public static void printAll(int ind, int[] denom,int N,int[] vals){
-		    if(N==0){
-		        System.out.println(Arrays.toString(vals));
+	 public static void printAll(int index, int[] denom,int amount,int[] result){
+		    if(amount==0){
+		        System.out.println(Arrays.toString(result));
 		        return;
 		    }
-		    if(ind == (denom.length))
+		    if(index == (denom.length))
 		    	return;             
-		    int currdenom = denom[ind];
-		    for(int i=0;i<=(N/currdenom);i++){
-		        vals[ind] = i;
-		        printAll(ind+1,denom,N-i*currdenom,vals);
+		    int currdenom = denom[index];
+		    for(int i=0;i<=(amount/currdenom);i++){
+		    	result[index] = i;
+		        printAll((index+1),denom,(amount-(i*currdenom)),result);
 		    }
 		 }
 }
