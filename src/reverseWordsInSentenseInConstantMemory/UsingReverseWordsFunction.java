@@ -16,7 +16,7 @@ Example:
 input "I wish you a merry Christmas" 
 output "Christmas merry a you wish I" 
 
-Constrains: O(1) additional memory
+Constraints: O(1) additional memory
 
 
 
