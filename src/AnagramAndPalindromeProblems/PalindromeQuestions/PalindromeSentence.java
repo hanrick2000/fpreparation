@@ -1,11 +1,18 @@
 /*
-Question: Write a function that takes a string and returns true if the entire string is a palindrome,
-otherwise return false. The function should be case-insensitive and ignore any whitespace or punctuation. 
+Question:Given a string containing letter, digit, and other characters, write a function to 
+check palindrome for only letter and digit. The implementation need to be in-place, 
+no extra memory is allowed to create another string or array. 
 
-For example, return true for: 
-"A man, a plan, a canal: Panama."
+For example: 
 
-Question & Solution Source: http://www.careercup.com/question?id=16239684
+"ABA" is palindrome 
+"A!#A" is palindrome 
+"A man, a plan, a canal, Panama!" is palindrome
+
+
+Question & Solution Source: 
+http://www.careercup.com/question?id=16239684
+http://www.careercup.com/question?id=5085545090777088
 
 Algorithm:
 
@@ -48,18 +55,26 @@ public class PalindromeSentence {
 	}
 
 	private static boolean isPalindromeSentence(String s) {
-		
+		// Extreme Case
 		if(s.length()==0||s==null)
 			return true;
+		
+		
 		int start = 0;
 		int end = s.length()-1;
 		while(start<end){
-			
-			if(!isAlphabet(s.charAt(start))){
+		
+			/*
+			 * VERY IMP NOTE:
+			 * 1. AND CONDITION between NOT-alphabet and NOT-letter
+			 * 2. continue after every skipped character
+			 */
+			if(!isAlphabet(s.charAt(start)) && !isLetter(s.charAt(start))){ // NOT-alphabet AND NOT-letter then skip
 				start++;
 				continue;
 			}
-			if(!isAlphabet(s.charAt(end))){
+			
+			if(!isAlphabet(s.charAt(end)) && !isLetter(s.charAt(end))){ // NOT-alphabet AND NOT-letter then skip
 				end--;
 				continue;
 			}
@@ -83,12 +98,19 @@ public class PalindromeSentence {
 		else
 			return false;
 	}
+	private static boolean isLetter(char c) {
+		int value = (int)c;
+		if(value >=48 && value <=57)
+			return true;
+		else
+			return false;
+	}
 	/*
 	 * Remember the following properties of ASCII table:
 	 * 0 to 9 = 48 to 57 both inclusive
 	 * A to Z = 65 to 90 both inclusive
 	 * a to z = 97 to 122 both inclusive
-	 * NULL = 0 in ascii table
+	 * NULL = 0 in ASCII table
 	 */
 }
 /*

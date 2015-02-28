@@ -5,6 +5,7 @@ public static void main(String[] args) {
 	System.out.println((int)Math.sqrt(5));
 	System.out.println((int)Math.ceil(Math.sqrt(8)));
 	System.out.println(callfunction());
+	System.out.println("A#$%A".toLowerCase());
 }
 
 private static boolean callfunction() {
