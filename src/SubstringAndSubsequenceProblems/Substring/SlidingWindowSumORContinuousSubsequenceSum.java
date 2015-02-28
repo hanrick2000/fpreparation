@@ -9,7 +9,7 @@ Question: SLIDING WINDOW SUM
 Question Source: http://www.careercup.com/question?id=6305076727513088
 */
 
-package SubstringAndSubsequenceProblems.Subsequence;
+package SubstringAndSubsequenceProblems.Substring;
 
 import java.util.Scanner;
 
