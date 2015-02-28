@@ -95,7 +95,7 @@ Hence we need to create a HashMap for the data given to us
  * We have m strings in the dictionary therefore O(m*n*2^n) where
  * m = number of strings in the dictionary
  * n = average length of each string in the dictionary
- * 2. O(1) time required to search each query
+ * 2. O(1) time required to search each query  <-- AS REQUIRED IN THE QUESTION TO SEARCH EACH QUERY IN O(1) TIME
  * Thus, overall the time complexity = O(m*n*2^n)
  * II. SPACE COMPLEXITY
  * (2^n) possible string where n = average length of each string
