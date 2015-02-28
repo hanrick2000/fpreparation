@@ -66,6 +66,16 @@ public class UsingSorting {
 
 	private static int binarySearch(List<Integer> punchTimes, int time) {
 		
+		/*
+		 * Now, we need a binary search algorithm with the following properties:
+		 * I. If key is present in the array (which contains duplicates)
+		 * 			then return the last occurence of the key
+		 * II. If key is not present
+		 * 			then return all logged in users before this key(i.e. search for a newKey where newKey=key-1)
+		 * NOTE: The second point (i.e. II) is very nicely explained here -> http://javatroops.blogspot.com/2012/12/facebook-write-function-that-can-show.html
+		 */
+		
+		
 		if(punchTimes==null || punchTimes.size()==0)  // no punchTimes given then return 0
 			return 0;
 		
@@ -82,7 +92,7 @@ public class UsingSorting {
 			if(punchTimes.get(mid)==time){
 				result = mid;
 				found=true;
-				low=mid+1;
+				low=mid+1;  // binary search for finding last occurrence of repeated numbers
 			}
 			else if(punchTimes.get(mid)<time)
 				low=mid+1;
@@ -92,7 +102,7 @@ public class UsingSorting {
 		if(found)
 			return result;
 		else
-			return binarySearch(punchTimes, time-1);
+			return binarySearch(punchTimes, time-1); // even if (time-1) goes to <=0 then also this condition is handled at the start of this method
 	}
 
 	private static List<Integer> sortLogins(List<User> users) {
@@ -129,7 +139,7 @@ class User{
 	
 	public static List<User> createUsers(){
 		List<User> users = new ArrayList<User>();
-		// users.add(new User(1,2));
+		users.add(new User(1,2));
 		users.add(new User(2,5));
 		users.add(new User(2,3));
 		users.add(new User(3,6));
