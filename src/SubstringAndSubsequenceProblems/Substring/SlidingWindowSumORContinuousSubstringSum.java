@@ -1,19 +1,19 @@
 /*
 Question: SLIDING WINDOW SUM
-	 Given a sequence of positive integers A and an integer T, return whether there is a continuous sequence of A that sums up to exactly T 
+	 Given a sequence of positive integers A and an integer T, return whether there is a continuous substring of A that sums up to exactly T 
 			Example 
 			[23, 5, 4, 7, 2, 11], 20. Return True because 7 + 2 + 11 = 20 
 			[1, 3, 5, 23, 2], 8. Return True because 3 + 5 = 8 
 			[1, 3, 5, 23, 2], 7 Return False because no sequence in this array adds up to 7
 			
-Question Source: http://www.careercup.com/question?id=6305076727513088
+Question and Answer Source: http://www.careercup.com/question?id=6305076727513088
 */
 
 package SubstringAndSubsequenceProblems.Substring;
 
 import java.util.Scanner;
 
-public class SlidingWindowSumORContinuousSubsequenceSum {
+public class SlidingWindowSumORContinuousSubstringSum {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
