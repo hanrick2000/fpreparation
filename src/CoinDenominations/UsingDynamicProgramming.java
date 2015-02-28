@@ -33,7 +33,12 @@ public class UsingDynamicProgramming {
 	}
 
 	private static int coins( int[] coins, int amount ) {
-	// This is a DP question
+		// Extreme Case
+		if(amount==0||coins==null||coins.length==0)
+			return 0;
+		
+		// This is a DP question
+
 		
 		int[] minCoins = new int[amount+1];  // table of min_coins where the iterator i is AMOUNT
 		// EXAMPLE: minCoins[10] represents minCoins required for making amount=10
@@ -60,4 +65,9 @@ public class UsingDynamicProgramming {
 			 * Also watch the video -> https://www.youtube.com/watch?v=GafjS0FfAC0
 			 */
 	}
+	/*
+	 * Analysis
+	 * Time Complexity = O(amount*denominations)
+	 * Space Complexity = O(amount*denominations)
+	 */
 }
