@@ -55,6 +55,11 @@ Hence we need to create a HashMap for the data given to us
 	}
 
 	private static void printQueryResults(HashMap<String, Boolean> map,	String[] queries) {
+		
+		// Extreme Case
+		if(map==null||queries==null||queries.length==0)
+			return;
+		
 		for(int i=0;i<queries.length;i++){
 			if(map.containsKey(queries[i]))
 				System.out.println(map.get(queries[i]));
@@ -64,6 +69,11 @@ Hence we need to create a HashMap for the data given to us
 	}
 
 	private static void hasDictionaryWithStar(HashMap<String, Boolean> map,	String[] dictionary) {
+		
+		// Extreme Case
+		if(dictionary==null||dictionary.length==0)
+			return;
+		
 		for(int i=0;i<dictionary.length;i++){
 			populateHashMap(map,dictionary[i],"",0);
 		}
