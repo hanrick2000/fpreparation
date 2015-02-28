@@ -13,7 +13,18 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
-
+/*
+ * REASON WHY WE HAVE NOT USED INTERVAL SEARCH TREES.
+ * 
+ * QUESTION FROM INTERVIEWER: Why not use interval search trees, since searching in interval search trees
+ * in O(lgn) time.
+ * ANSWER: Yes, it is true that searching in interval search trees in O(lgn) times similar to BST but,
+ * Constructing the Interval Search Trees from Intervals takes O(nlgn) time similar to constructing BST
+ * Also extra space is required at each node for left, right pointers.
+ * Hence it is better to use sorting which also takes O(nlgn) time similar to contructing a interval search tree for intervals
+ * But advantage of sorting is that it is inplace and does not require extra memory unlike interval search tree node
+ * 
+ */
 public class UsingGreedyApproach {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
