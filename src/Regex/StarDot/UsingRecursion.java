@@ -26,7 +26,7 @@ Think carefully how you would do matching of ‘*’. Please note that ‘*’ i
  http://www.programcreek.com/2012/12/leetcode-regular-expression-matching-in-java/
  http://leetcode.com/2011/09/regular-expression-matching.html
 */
-package Regex.StarDotProblem;
+package Regex.StarDot;
 
 
 public class UsingRecursion {
