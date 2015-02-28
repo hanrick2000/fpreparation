@@ -3,6 +3,12 @@
  * 
  Question: A period of time where users login and logout, given a sets of login and logout time pairs, 
  write a function that can show the number of users online at any given time.
+ 
+ You're given a period of time where users log in and log out and a set of login and log out times for 
+ those users. Facebook is asking you to create an efficient algorithm that will calculate a simple, 
+ but extremely important, metric.
+
+Read more: http://www.businessinsider.com/15-brain-bending-interview-questions-that-every-facebook-engineer-can-answer-2012-3?op=1#ixzz3SvjAdcn8
 
 Question and Answer Source: http://www.careercup.com/question?id=14797777
  
@@ -22,6 +28,9 @@ specified time
 Thus for 'd' queries the search time would be dlgn.
 Thus, the total number of online users = loggedins - loggedouts	
 Effective Time Complexity = O(nlgn+dlgn) = O((n+d)lgn)
+
+Effective Solution: http://javatroops.blogspot.com/2012/12/facebook-write-function-that-can-show.html
+
 */
 package Intervals.FindOnlineUsers;
 
