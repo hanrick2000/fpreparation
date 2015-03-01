@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("rawtypes")
-public class FlattenNestedList implements Iterator {
+public class FlattenNestedList implements Iterator { // VERY VERY IMP: implements Iterator
 	
 	/*
 	 *  The generic types are REMOVED
@@ -32,13 +32,13 @@ public class FlattenNestedList implements Iterator {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void extractAll(Collection obj) {
+	private void extractAll(Collection obj) {  // parameter is Collection
 		Iterator collectionItr = obj.iterator(); // iterator for the collection
 		while(collectionItr.hasNext()) {
 			Object o = collectionItr.next();
 			if(o != null) {                  // FIRST CHECK FOR NULL
 				if(o instanceof Collection)  // THEN CHECK FOR whether instance of COLLECTION
-					extractAll((Collection)o);
+					extractAll((Collection)o);  // recursively call the method
 				else
 					result.add(o); // Here we are adding the underlying primitive Wrapper type. In this case it is Integer
 				    // objs is Global variable				
