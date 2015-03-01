@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-	public class PrintingBSTIn4Ways {
+	public class PrintingBSTIn5Ways {
 	public static void main(String[] args) {
 
 			BST bst = BinSearchTree.makeTree();
@@ -12,8 +12,11 @@ import java.util.Stack;
 			System.out.println("Recursively LCA of 20 and 85 is: "+recursiveLCA(bst.root,new Node(20),new Node(85)));
 			System.out.println("Iteratively LCA of 20 and 85 is: "+iterativeLCA(bst.root,new Node(20),new Node(85)));
 			
+			System.out.println("Pretty Printing a BST");
+			prettyPrint(bst.root,3);
+			System.out.println();
 			
-			
+
 			System.out.println("Printing nodes of the tree at every level");
 			printNodesOnEveryLevel(bst);
 			System.out.println();
@@ -39,6 +42,74 @@ import java.util.Stack;
 			System.out.println("DFS Traversal of the ree is: ");
 			dfs(bst);
 		}
+	
+
+	
+	private static void prettyPrint(Node root, int spaceSize) {
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		
+		int height = height(root);
+		int curLevelNodes = 1, nextLevelNodes=0;
+		int level=1;
+		
+		int padding = spaceSize*(int)(Math.pow(2,height-level)-1);
+		int noOfSpaces = padding/2;
+		while(noOfSpaces>0){
+			System.out.print(" ");
+			noOfSpaces--;
+		}
+		while(level<=height){
+			noOfSpaces = spaceSize;
+			while(noOfSpaces>0){
+				System.out.print(" ");
+				noOfSpaces--;
+			}
+			
+			Node n = q.peek();
+			if(n!=null){
+				System.out.print(n.data);
+				q.add(n.lchild);
+				q.add(n.rchild);
+			}
+			else{
+				System.out.print(" ");
+				q.add(null);
+				q.add(null);
+			}
+			
+			nextLevelNodes+=2;
+			noOfSpaces = padding;
+			while(noOfSpaces>0){
+				System.out.print(" ");
+				noOfSpaces--;
+			}
+			q.remove();
+		    // go to next level
+			if(--curLevelNodes==0){
+				curLevelNodes=nextLevelNodes;
+				nextLevelNodes=0;
+				level++;
+				padding = spaceSize*(int)(Math.pow(2,height-level)-1);
+				
+				noOfSpaces = padding/2;
+				System.out.println();
+				while(noOfSpaces>0){
+					System.out.print(" ");
+					noOfSpaces--;
+				}
+				
+				
+			}
+		}
+		
+	}
+	private static int height(Node root){
+		if(root==null)
+			return 0;
+		else
+			return (Math.max(height(root.lchild), height(root.rchild))+1);
+	}
 
 
 
