@@ -5,6 +5,15 @@
  * Source: http://www.geeksforgeeks.org/find-number-of-islands/
  * 
  * Algorithm: Using DFS we can find the connected components in a graph
+
+What is an island?
+A group of connected 1s forms an island. For example, the below matrix contains 5 islands
+
+	                	{1, 1, 0, 0, 0},
+                        {0, 1, 0, 0, 1},
+                        {1, 0, 0, 1, 1},
+                        {0, 0, 0, 0, 0},
+                        {1, 0, 1, 0, 1}
  */
 
 
@@ -40,7 +49,7 @@ public class UsingDFS{
 		// get the neighboring 8 nodes around this (row,column) node
 		for(int rowNeighbor = row-1;rowNeighbor<=row+1;rowNeighbor++)
 			for(int columnNeighbor = column-1;columnNeighbor<=column+1;columnNeighbor++)
-				// we are looking for neighbors hence exclude the node when rowNeighbor==row && columnNeighbor==column 
+		// we are looking for neighbors hence exclude the node when rowNeighbor==row && columnNeighbor==column 
 				if(!(rowNeighbor==row && columnNeighbor==column) && (validNeighbor(M,rowNeighbor,columnNeighbor,visited)))
 					DFS(M,rowNeighbor,columnNeighbor,visited);    // Now check for the neighbors of this node			
 	}

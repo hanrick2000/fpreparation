@@ -1,10 +1,10 @@
 /*
-Question: Find Maximum size square sub-matrix with all 1s
-Source: http://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/
+Question: Find Maximum size square sub-matrix with all 1's
+Source: 	
 Algorithm:
 	1. create a solution matrix 
-	2. Copy the first row as it is
-	3. Copy the first column as it is
+	2. Copy the 0th row as it is
+	3. Copy the 0th column as it is
 	4. iterate from 1st row and 1st column till the end
 		 if(original[i][j]==1)
 			change solution[i][j] to Math.min(Math.min(input[i][j-1],input[i-1][j]),input[i-1][j-1])+1;
@@ -45,8 +45,7 @@ class MaximumSizeSquareSubMatrix{
 	            for(int j=1;j<a[0].length;j++){
 	                if(a[i][j]==1)
 	                    aux[i][j] = Math.min(Math.min(a[i-1][j-1],a[i][j-1]),a[i-1][j])+1;
-	                if(aux[i][j]>max)
-	                    max=aux[i][j];
+	                max=Math.max(aux[i][j], max);
 	            }
 	        }
 	       

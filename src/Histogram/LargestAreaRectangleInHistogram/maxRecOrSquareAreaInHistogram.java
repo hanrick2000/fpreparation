@@ -34,9 +34,9 @@ public static int largestRectangleArea(int[] height) {
     while(i<height.length){
         
         
-        if (stack.isEmpty()||height[i]>=height[stack.peek()]){
+        if (stack.isEmpty()||height[i]>=height[stack.peek()]){ // VERY IMP: greater than = to (>=)
             stack.push(i);
-            i++;
+            i++; // Only increment i if we push to the stack
         }
         else{
             

@@ -50,7 +50,7 @@ public class MaximumSizeRectangleInSubMatrix {
 	    int i =0;
 	        while(i<a.length){
 	            
-	            if(stack.isEmpty() || a[i]>=a[stack.peek()]){
+	            if(stack.isEmpty() || a[i]>=a[stack.peek()]){ // VERY IMP: greater than = to (>=)
 	                stack.push(i++);
 	            }
 	            
