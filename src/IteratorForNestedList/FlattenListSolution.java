@@ -1,3 +1,7 @@
+/*
+Question: Flatten a Nest List in Java
+Question and Answer Source: http://www.careercup.com/question?id=17727664
+*/
 package IteratorForNestedList;
 
 
