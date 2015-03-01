@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class FlattenListSolution{
+public class FlattenListListSolution{
 	
 	public static void main(String[] args) {
 		
