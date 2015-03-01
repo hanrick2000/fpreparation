@@ -96,7 +96,8 @@ public IntervalOfTime(int startTime, int endTime){
 	this.endTime = endTime;
 	}
 /*
- * VERY VERY VERY IMP NOTE: If we are using Comparable, then we DONOT need a separate class, since we are NOT PASSING any instance to Arrays.sort() method
+ * VERY VERY VERY IMP NOTE: If we are using Comparable, then we DONOT need a separate class, since we are doing
+ * NATURAL SORTING ON THE CLASS which does not require any special other class
 */
 @Override
 public int compareTo(IntervalOfTime o) {
