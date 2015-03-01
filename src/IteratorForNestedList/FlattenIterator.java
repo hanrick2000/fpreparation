@@ -21,11 +21,9 @@ IMP Sources:
 
 package IteratorForNestedList;
 
-public class FlattenIterator {
-	public static void main(String[] args) {
-		
-	}
-	public static void flattenList(){
-		
-	}
-}
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+
