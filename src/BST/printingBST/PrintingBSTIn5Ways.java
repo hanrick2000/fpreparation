@@ -46,6 +46,15 @@ import java.util.Stack;
 
 	
 	private static void prettyPrint(Node root, int spaceSize) {
+		
+		if(root==null)
+			return;
+		
+		/*
+		 * Source: http://www.fgdsb.com/tags/BST/
+		 * IMP Source: http://billmill.org/pymag-trees/
+		 */
+		
 		Queue<Node> q = new LinkedList<Node>();
 		q.add(root);
 		
