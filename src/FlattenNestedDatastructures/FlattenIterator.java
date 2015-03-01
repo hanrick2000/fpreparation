@@ -18,7 +18,7 @@ IMP Sources:
 	http://codereview.stackexchange.com/questions/32827/flatten-iterator-for-nested-list
 	http://stackoverflow.com/questions/12625038/nested-iterating-through-list-followed-by-an-eventual-deletion
 */		
-package IteratorForNestedList;
+package FlattenNestedDatastructures;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

@@ -5,7 +5,7 @@ Question:
 
 Question and Answr Source: http://www.careercup.com/question?id=5153954321137664
 */
-package IteratorForNestedList;
+package FlattenNestedDatastructures;
 
 import java.util.ArrayList;
 import java.util.Collection;
