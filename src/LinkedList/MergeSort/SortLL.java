@@ -32,7 +32,7 @@ public class SortLL {
 		printList(n1);
 	}
  
-	// merge sort
+	   // merge sort
 		public static ListNode mergeSortList(ListNode head) {
 	 
 			if (head == null || head.next == null)
@@ -49,24 +49,26 @@ public class SortLL {
 			// break up to two list
 			int middle = count / 2;
 	 
-			ListNode l = head, r = null;
-			ListNode p2 = head;
+			ListNode left = head;
+			ListNode right = null;
+			
+			ListNode headItr = head;
 			int countHalf = 0;
-			while (p2 != null) {
+			while (headItr != null) {
 				countHalf++;
-				ListNode next = p2.next;
+				ListNode next = headItr.next;
 	 
 				if (countHalf == middle) {
-					p2.next = null;
-					r = next;
+					headItr.next = null;
+					right = next;
 					break;
 				}
-				p2 = next;
+				headItr = next;
 			}
 	 
 			// now we have two parts l and r, recursively sort them
-			ListNode h1 = mergeSortList(l);
-			ListNode h2 = mergeSortList(r);
+			ListNode h1 = mergeSortList(left);
+			ListNode h2 = mergeSortList(right);
 	 
 			// merge together
 			ListNode merged = merge(h1, h2);

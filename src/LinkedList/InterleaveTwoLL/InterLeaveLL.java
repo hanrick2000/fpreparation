@@ -37,6 +37,10 @@ public class InterLeaveLL {
  
 		ListNode result= interleaveLL(n1,n11);
 		printList(result);
+		
+		ListNode resultHead = interleaveLLWithoutExtraSpace(n1,n11);
+		printList(resultHead);
+		
 	}
  
 
@@ -75,6 +79,58 @@ public class InterLeaveLL {
 			
 			return actualNode.next;
 		}
+	
+	public static ListNode interleaveLLWithoutExtraSpace(ListNode first, ListNode second) {
+		
+		if(first==null&&second==null)
+			return null;
+		if(first==null)
+			return second;
+		if(second==null)
+			return first;
+		
+		
+		ListNode resultHead = first;
+		
+		/*
+		 * Key Thinking:
+		 * Store the firstNext, secondNext and prev
+		 */
+		
+		ListNode firstNext=null;
+		ListNode prev=null;
+		ListNode secondNext=null;
+		
+		while(first!=null && second!=null){
+			
+			firstNext = first.next;
+			secondNext = second.next;
+			
+			prev=second;
+			
+			first.next = second;
+			first=first.next;
+			
+			first.next = firstNext;
+			first=first.next;
+			
+			first=firstNext;
+			second=secondNext;
+			
+		}
+		
+		while(second!=null){
+			prev.next=second;
+			second=second.next;
+			prev=prev.next;
+		}
+		
+		while(first!=null){
+			first = first.next;
+		}
+		
+		return resultHead;
+	}
 	public static void printList(ListNode x) {
 		if(x != null){
 			System.out.print(x.val + " ");
