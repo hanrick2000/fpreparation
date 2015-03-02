@@ -13,7 +13,7 @@ Question:
 	
 	You're given number n and your task is to return nth look-and-say sequence.
 
-	Wiki:
+	Wikipedia:
 
 	In mathematics, the look-and-say sequence is the sequence of integers beginning as follows:
 

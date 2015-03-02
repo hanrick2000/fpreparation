@@ -120,7 +120,7 @@ public static int[] firstNPrimeNumbers(int n){ // This program will calculate th
 	int divident = 3; // start checking for prime numbers starting from 3
 	boolean prime=true; // we will assume that all numbers starting from 3 are prime
 	
-	for(int count=1;count<n;){  // start searching for the 1st prime number till count<n, so that the total will be n prime number
+	for(int count=1;count<n;){  // 0th prime number is already recorded
 		
 		for(int divisor=2;divisor<=(int)Math.ceil(Math.sqrt(divident));divisor++){
 			if(divident%divisor==0){
