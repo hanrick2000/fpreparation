@@ -1,4 +1,4 @@
-
+//
 /*
  * Question: Find k closest points from a given point
  * 
@@ -163,7 +163,7 @@ public class Iterative_QuickSelect_BEST_ALGO {
 	    		
 	    		// from (left) to (right-1)
 	    		for(int i =left; i < right; i++){
-	 //for each number i, if i is less than the pivot, swap i and left and increment left
+	 //for each number i, if i is less than the pivot, swap i and storage and increment storage
 	    			if(x[i].distance < pivotValue.distance){
 	    				Point temp =x[storage];
 	    				x[storage] = x[i];
@@ -172,6 +172,7 @@ public class Iterative_QuickSelect_BEST_ALGO {
 	    				storage++;
 	    			}
 	    		}
+	    		// swap the storage and right
 	    		x[right]=x[storage];
 	    		x[storage]=pivotValue;//move the pivot to its correct absolute location in the list
 	 
