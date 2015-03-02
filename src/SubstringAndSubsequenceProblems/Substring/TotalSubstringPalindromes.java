@@ -99,14 +99,14 @@ public class TotalSubstringPalindromes {
 					}
 					--low;
 					++high;
-				}
+				} // end of while
 				
 				
 				// Find the longest odd length palindrome with center 
 		        // point as i
 				
 				low = i-1;
-				high = i+1;
+				high = i+1;   // CHANGE IS HERE (ONLY CHANGE)
 				
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ // check whether it is a palindrome
 			
@@ -122,10 +122,10 @@ public class TotalSubstringPalindromes {
 					--low;
 					++high;
 					
-				}
+				} // end of while
 				
 				
-			}
+			}// end of for
 			
 			
 			// Print the palindrome string
@@ -143,7 +143,5 @@ public class TotalSubstringPalindromes {
  * Analysis:
  * Time Complexity = O(n^2)
  * Space Complexity = O(1)
- * 
- * 
  */
 }
