@@ -39,13 +39,18 @@ public static void main(String[] args) {
 
 private static boolean findAnagrams(String s1, String s2) {
 	
-	if(s1==null||s2==null||s2.length()==0)
-        return false;
-    if(s1.length()==0)
-    	return true;
+	
 	
 	if(s1.length()>s2.length()) // we assume that s1 is needle and s2 is haystack. If not then reverse them
         return findAnagrams(s2,s1);
+	
+	
+	if(s1==null||s2==null||s2.length()==0)
+        return false;
+    if(s1.length()==0)  // needle is of length=0 then true
+    	return true;
+	
+	
 	
 	// generate the first 26 prime numbers
 	int[] primeNumbers = firstNPrimeNumbers(26);
