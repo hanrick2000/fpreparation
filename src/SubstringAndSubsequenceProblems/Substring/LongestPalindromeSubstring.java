@@ -88,21 +88,10 @@ public class LongestPalindromeSubstring {
 				
 				// Find the longest even length palindrome with center points
 		        // as i-1 and i.
-				
 				low = i-1;
 				high = i;
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ 
-					// check whether it is a palindrome
-
-					/*
-					Question can also be modified and if asked to find and print the total Palindromes in the string:
-				    Question Source -> http://www.careercup.com/question?id=5177378863054848
 					
-				    then add this here;
-					
-					totalPalindromes++;
-					
-					System.out.println(orig.substring(low, high+1));*/
 					
 					if(high - low + 1 > maxLength){
 						start = low;
@@ -115,22 +104,10 @@ public class LongestPalindromeSubstring {
 				
 				// Find the longest odd length palindrome with center 
 		        // point as i
-				
 				low = i-1;
 				high = i+1;
 				
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ // check whether it is a palindrome
-					
-					/*
-					Question can also be modified and if asked to find and print the total Palindromes in the string:
-				    Question Source -> http://www.careercup.com/question?id=5177378863054848
-					
-				    then add this here;
-					
-					totalPalindromes++;
-					
-					System.out.println(orig.substring(low, high+1));*/
-					
 					
 					if(high - low + 1 > maxLength){
 						start = low;
