@@ -29,10 +29,10 @@ public class UsingGreedyApproach {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
-			List<Meeting> meetings=Meeting.createMeetings();
-			firstProgram(meetings);
-			secondProgram(meetings);
-			thirdProgram(meetings);
+			firstProgram();
+			secondProgram();
+			thirdProgram();
+			fourthProgram();
 		}
 		finally{
 			in.close();
@@ -79,7 +79,7 @@ public class UsingGreedyApproach {
 		// Extreme case
 		if(meetings==null||meetings.size()==0)
 			return 0;
-		
+			
 		List<Integer> list = new ArrayList<Integer>();
 		for(Meeting m: meetings){
 			list.add(m.start);
@@ -94,15 +94,18 @@ public class UsingGreedyApproach {
 		
 		
 		int cur=0;
-		int right=0;
+		int maxOverlaps=0;
 		for(Integer i:list){
-			if(i>=0)
-				right=Math.max(right, ++cur);
+			if(i>=0){  // if it is a start point then increment
+				cur++;
+				maxOverlaps=Math.max(maxOverlaps, cur);   // update the maxOverlaps
+			}
 			else
-				--cur;
+				cur--; // if it is a end point then decrement
+			
 		}
 		
-		return right;
+		return maxOverlaps;  // the maxOverlaps gives the number of meetings rooms required
 	}
 	/*
 	 * Analysis:
@@ -166,28 +169,75 @@ public class UsingGreedyApproach {
 	 * Time Complexity = O(nlgn) where n = number of meetings
 	 * Space Complexity = O(n) where n = number of meetings because we have used Stack
 	 */
-	private static void firstProgram(List<Meeting> meetings) {
+	
+private static int solveFourthProgram(List<Meeting> meetings) {
+		
+	if(meetings==null||meetings.size()==0)
+		return 0;
+	
+	List<Integer> al = new ArrayList<Integer>();
+	for(Meeting m:meetings){
+		al.add(m.start);
+		al.add(-(m.end));
+	}
+	
+	Collections.sort(al,new Comparator<Integer>(){
+		public int compare(Integer a, Integer b){
+			return (Math.abs(a)-Math.abs(b));
+		}
+	});
+	
+	
+	int current=0;
+	int maxOverlapsTillHere=0;
+	
+	for(Integer i: al){
+		if(i>=0)
+			current++;
+		else
+			current--;
+		maxOverlapsTillHere=Math.max(current, maxOverlapsTillHere);
+	}
+	
+	return maxOverlapsTillHere;
+	
+}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(nlgn) where n = number of meetings
+	 * Space Complexity = O(n) where n = number of meetings because we have used Stack
+	 */
+	
+	private static void firstProgram() {
 		/*
 		 * Answer Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
+		 * 
+		 * HINT: The MAX number of overlaps = MIN meeting rooms required
+		 * 
 		 */
+		List<Meeting> meetings=Meeting.createMeetings();
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program I");
+		System.out.println("The same program denotes the MAX Overlaps in the give set of intervlas");
+		System.out.println("MAX OVERLAPS = MIN MEETING ROOMS REQUIRED");
 		System.out.println("You are given a set of meetings with start time and end time, what is the minimum number of meeting rooms you need to have to hold all the meetings.");
 		System.out.println("Algorithm:");
 		System.out.println("1. Add the (startTime) and -(endTime) to an array");
 		System.out.println("2. Sort the array by ABSOLUTE VALUES");
 		System.out.println("3. Iterate through array");
 		System.out.println("\t if(arrayElement >= 0) \n"+
-		"\t\t right = max(right,++cur); \n"+
+		"\t\t current++; \n"+
 		"\t else \n"+
-		"\t\t --cur; \n");
+		"\t\t current--; \n"+
+		"\t maxOverlaps=Math.max(maxOverlaps,current)");
 		System.out.println("4. return cur;");
 		System.out.println("Answer is: "+solveFirstProgram(meetings));
 	}
-	private static void secondProgram(List<Meeting> meetings){
+	private static void secondProgram(){
 		/*
 		 * Answer Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
 		 */
+		List<Meeting> meetings=Meeting.createMeetings();
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program II");
 		System.out.println("Given a array of pairs where each pair contains the start and end time of a meeting"+
@@ -200,10 +250,11 @@ public class UsingGreedyApproach {
 		System.out.println("Answer: All meetings can be attended by a single person? "+solveSecondProgram(meetings));
 	}
 
-	private static void thirdProgram(List<Meeting> meetings) {
+	private static void thirdProgram() {
 		/*
 		 * Answer Source: https://github.com/nkatre/geeksforgeeksANDcareercup/blob/master/src/Intervals/findNonOverlappingIntervals/UsingSortingOnStartDateUsingComparator.java
 		 */
+		List<Meeting> meetings=Meeting.createMeetings();
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program III");
 		System.out.println("Find the number of maximum possible non-overlapping meetings");
@@ -217,16 +268,15 @@ public class UsingGreedyApproach {
 		System.out.println("3. return stack.size()");
 		System.out.println("Answer is: "+solveThirdProgram(meetings));
 	}
-	/*	
+	
 	private static void fourthProgram() {
+		// Source: https://haixiaoyang.wordpress.com/2012/03/19/find-the-point-intersect-with-most-intervals/
+		List<Meeting> meetings=Meeting.createMeetings();
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program IV");
-		System.out.println("You have ONLY ONE room, what is the maximum number of meetings that can be scheduled into that room.");
-		System.out.println("Algorithm:");
-		
-		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("The maximum overlaps are: "+solveFourthProgram(meetings));
 	}
-	*/
+	
 }
 class Meeting{
 	int start;
@@ -246,6 +296,9 @@ class Meeting{
 		meetings.add(new Meeting(5,7));
 		meetings.add(new Meeting(6,10));
 		meetings.add(new Meeting(2,3));
+		meetings.add(new Meeting(8,9));
+		meetings.add(new Meeting(8,10));
+		meetings.add(new Meeting(8,11));
 		return meetings;
 	}
 }

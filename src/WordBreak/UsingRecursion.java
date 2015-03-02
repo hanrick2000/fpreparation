@@ -29,7 +29,7 @@ public class UsingRecursion {
 				usingRecursion(search.substring(i, search.length()), dict))
 				return true;
 			
-		// If we have tried all prefixes and none of them worked
+		// If we have tried all prefixes and none of them workedJennifer Lawrence
 		return false;
 		
 	}
@@ -38,7 +38,7 @@ public class UsingRecursion {
 	//  n = length of each dictionary string
 	//  m = number of strings in the dictionary
 	// This search method has O(m) search time where m = number of strings in the dictionary 
-	private static boolean dictContains(String[] dict, String substring) {
+	private static boolean dictContains(String[] dict, String substring){
 		
 		for(String s: dict){
 			if(s.equals(substring))
