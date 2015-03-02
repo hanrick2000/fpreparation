@@ -66,7 +66,7 @@ public class LongestPalindromeSubstring {
 		}
 		finally{
 			in.close();
-		}
+			}
 		}
 
 		private static void usingIntelligentAlgorithm(String orig) {
