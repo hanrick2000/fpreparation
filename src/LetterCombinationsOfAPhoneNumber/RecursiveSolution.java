@@ -25,23 +25,27 @@ public class RecursiveSolution {
 		}
 	}
 	
-	    public static List<String> letterCombinations(String digits) {
-	        String[] letters = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-	        List<String> result = new LinkedList<>();
+	    public static List<String> letterCombinations(String input) {
+	    	
+	    	if(input==null||input.length()==0)
+	    		return null;
+	    	
+	        String[] alphaKeypad = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+	        List<String> list = new LinkedList<>();
 	        StringBuilder sb = new StringBuilder();
-	        letterCombinations(digits, 0, letters, sb, result);
-	        return result;
+	        letterCombinations(input, 0, alphaKeypad, sb, list);
+	        return list;
 	    }
 	    
-	    private static void letterCombinations(String input, int start, String[] letters, StringBuilder sb, List<String> list) {
+	    private static void letterCombinations(String input, int start, String[] alphaKeypad, StringBuilder sb, List<String> list) {
 	        if (input.length() == start) {
 	        	list.add(sb.toString());
 	            return;
 	        }
-	        String lettersSet = letters[input.charAt(start) - '2']; // 0 = "abc"
+	        String lettersSet = alphaKeypad[input.charAt(start) - '2']; // 0 = "abc"
 	        for (int i = 0; i < lettersSet.length(); i++) {
 	            sb.append(lettersSet.charAt(i));
-	            letterCombinations(input, start + 1, letters, sb, list);
+	            letterCombinations(input, start + 1, alphaKeypad, sb, list);
 	            sb.deleteCharAt(sb.length() - 1);
 	        }
 	    }
