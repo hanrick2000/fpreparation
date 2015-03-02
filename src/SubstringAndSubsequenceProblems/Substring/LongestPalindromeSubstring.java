@@ -93,9 +93,7 @@ public class LongestPalindromeSubstring {
 				high = i;
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ 
 					// check whether it is a palindrome
-					
-					
-					
+
 					/*
 					Question can also be modified and if asked to find and print the total Palindromes in the string:
 				    Question Source -> http://www.careercup.com/question?id=5177378863054848
