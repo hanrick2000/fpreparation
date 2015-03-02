@@ -7,8 +7,10 @@ public class FindNonPalindromeIndex {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
-	String str = in.nextLine();
-	System.out.println(NonPalindromeIndex(str));
+		System.out.println("Program to find the non-palindrome index");
+		System.out.println("Enter a string");
+		String str = in.nextLine();
+		System.out.println(NonPalindromeIndex(str));
 	}
 	finally{
 		in.close();
@@ -31,11 +33,18 @@ public static int NonPalindromeIndex(String s){
 	return -1;
 }
 public static boolean isPalindrome(String s){
-	if(s.length()==0||s.length()==1)
-		return true;
-	if(s.charAt(0)==s.charAt(s.length()-1))
-		return isPalindrome(s.substring(1, s.length()-1));
-	return false;
+	int low=0;
+	int high=s.length()-1;
+	
+	while(low<high){
+		if(s.charAt(low)!=s.charAt(high))
+			return false;
+		else{
+			low++;
+			high--;
+		}
+	}
+	return true;
 }	
 
 }
