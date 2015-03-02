@@ -9,8 +9,13 @@ Question Source -> http://www.careercup.com/question?id=5177378863054848
 Question & Answer Source: http://www.geeksforgeeks.org/longest-palindromic-substring-set-2/
 
 
+			 
 			 * VERY VERY IMPORTANT:
-			 * We cannot use Longest Common Substring Algorithm to find the Longest Palindrome Substring
+			 * 
+			 * A suggestion was to reverse the input string and search for longest common substring 
+			 * between input and reverse thus resulting in longest palindrome substring
+			 * 
+			 * BUT NOTE THAT WE CANNOT USE Longest Common Substring Algorithm to find the Longest Palindrome Substring
 			 * like we did for SubSequence Problem.
 			 * 
 			 * The reason being that, for inputs such as "geeksforgeeksrof" it gives output as 3
@@ -43,7 +48,11 @@ public class FindSubstringsWhichArePalindrome {
 			usingIntelligentAlgorithm(orig);
 			/*
 			 * VERY VERY IMPORTANT:
-			 * We cannot use Longest Common Substring Algorithm to find the Longest Palindrome Substring
+			 * 
+			 * A suggestion was to reverse the input string and search for longest common substring 
+			 * between input and reverse thus resulting in longest palindrome substring
+			 * 
+			 * BUT NOTE THAT WE CANNOT USE Longest Common Substring Algorithm to find the Longest Palindrome Substring
 			 * like we did for SubSequence Problem.
 			 * 
 			 * The reason being that, for inputs such as "geeksforgeeksrof" it gives output as 3

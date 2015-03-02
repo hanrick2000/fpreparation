@@ -13,7 +13,11 @@ Question & Answer Source: http://www.geeksforgeeks.org/longest-palindromic-subst
 
 
 			 * VERY VERY IMPORTANT:
-			 * We cannot use Longest Common Substring Algorithm to find the Longest Palindrome Substring
+			 * 
+			 * A suggestion was to reverse the input string and search for longest common substring 
+			 * between input and reverse thus resulting in longest palindrome substring
+			 * 
+			 * BUT NOTE THAT WE CANNOT USE Longest Common Substring Algorithm to find the Longest Palindrome Substring
 			 * like we did for SubSequence Problem.
 			 * 
 			 * The reason being that, for inputs such as "geeksforgeeksrof" it gives output as 3
@@ -46,7 +50,11 @@ public class LongestPalindromeSubstring {
 			usingIntelligentAlgorithm(orig);
 			/*
 			 * VERY VERY IMPORTANT:
-			 * We cannot use Longest Common Substring Algorithm to find the Longest Palindrome Substring
+			 * 
+			 * A suggestion was to reverse the input string and search for longest common substring 
+			 * between input and reverse thus resulting in longest palindrome substring
+			 * 
+			 * BUT NOTE THAT WE CANNOT USE Longest Common Substring Algorithm to find the Longest Palindrome Substring
 			 * like we did for SubSequence Problem.
 			 * 
 			 * The reason being that, for inputs such as "geeksforgeeksrof" it gives output as 3
@@ -83,7 +91,8 @@ public class LongestPalindromeSubstring {
 				
 				low = i-1;
 				high = i;
-				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ // check whether it is a palindrome
+				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ 
+					// check whether it is a palindrome
 					
 					
 					
