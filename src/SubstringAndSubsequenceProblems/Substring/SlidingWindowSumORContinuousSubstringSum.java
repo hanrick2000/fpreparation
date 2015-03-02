@@ -76,8 +76,8 @@ public class SlidingWindowSumORContinuousSubstringSum {
 		int sum = 0 ;
 		int j = 0;
 		for (int i = 0 ; i < A.length ; i++) {
-			// using while loop for sliding window
-			while (j < A.length &&  sum < T) {
+		// using while loop for sliding window
+			while (j < A.length &&  sum < T) { // code for sliding window. The sliding window is "sum" variable
 				sum += A[j] ;
 				j++;
 			}			
