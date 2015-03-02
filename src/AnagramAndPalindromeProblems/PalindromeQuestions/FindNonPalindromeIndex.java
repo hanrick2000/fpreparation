@@ -5,10 +5,14 @@ import java.util.Scanner;
 
 public class FindNonPalindromeIndex {
 public static void main(String[] args) {
-	@SuppressWarnings("resource")
 	Scanner in = new Scanner(System.in);
+	try{
 	String str = in.nextLine();
 	System.out.println(NonPalindromeIndex(str));
+	}
+	finally{
+		in.close();
+	}
 }
 public static int NonPalindromeIndex(String s){
 	int start =0;
