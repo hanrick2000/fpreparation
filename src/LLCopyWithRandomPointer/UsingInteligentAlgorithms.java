@@ -5,7 +5,7 @@
  * 
  * 	Source: http://www.careercup.com/question?id=5412018236424192
  * 
- * Algorithm:
+ *  Algorithm:
  * 
  * 
 I. Using Intelligent Algorithm:
@@ -74,13 +74,10 @@ hash maps need something to hash on.. what are you assuming that is?
 The value of the node? What if several nodes have the same value? 
 Your map is going to get messed up pretty quick
 
-
-
 VERY IMP NOTE:
 HENCE, HASHMAP CAN ONLY BE USED IF EVERY NODE.DATA IS UNIQUE WHEREAS THE FIRST APPROACH
 OF USING INTELLIGENT ALGORITHM CAN BE USED FOR ANY CASE (EVEN IF NODE.DATA IS NOT UNIQUE)
-
- */
+*/
 
 
 package LLCopyWithRandomPointer;
