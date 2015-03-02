@@ -27,17 +27,21 @@ public class IterativeSolution {
 		}
 	}
 	public static List<String> letterCombinations(String digits) {
-        String[] array = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        String[] alphaKeypad = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         LinkedList<String> list = new LinkedList<>();
         list.add(""); // VERY IMP: Add an empty string in the list
         for (int i = 0; i < digits.length(); i++) {
+        	/*
+        	 * Get the numeric number and size of the list
+        	 */
+        	
+        	
             int num = digits.charAt(i) - '2'; // -'2' because the digits in the phone number start from 2
             int size = list.size(); // get the size of the list
             for (int j = 0; j < size; j++) { // iterate through all the elements of the list
-                String s = list.pop();   // VERY IMP: REMOVE THE FIRST ELEMENT OF THE LL. Same as removeFirst() method. 
-                //Removes and returns the first element from this list.
-                for (int k = 0; k < array[num].length(); k++) 
-                    list.add(s + array[num].charAt(k));
+                String s = list.removeFirst();   // VERY IMP: REMOVE THE FIRST ELEMENT OF THE LL.
+                for (int k = 0; k < alphaKeypad[num].length(); k++) 
+                    list.add(s + alphaKeypad[num].charAt(k));
             }
         }
         
