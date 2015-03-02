@@ -8,8 +8,7 @@ Question & Answer Source: http://www.geeksforgeeks.org/dynamic-programming-set-1
 Algorithm:
 1. if single character in the string then palindrome and 1 character match
 2. If 2 characters in the string and j==i+1 then palindrome and 2 characters match
-3. If first and last characters match then s[i]==[length-1] then s[i+1][length-2] +2 characters match 
-
+3. If first and last characters match then s[i]==[length-1] then s[i+1][length-2] +2 characters match
 */
 
 import java.util.Scanner;
@@ -126,7 +125,7 @@ This solution is also a O(n^2) solution.
 			return usingRecursion(s.substring(1, s.length()-1)) + 2;
 		
 		else               //if(s.charAt(0)!=s.charAt(s.length()-1))
-			return Math.max(  usingRecursion(s.substring(1, s.length())),usingRecursion(s.substring(0,s.length()-1))) ;
+			return Math.max(usingRecursion(s.substring(1, s.length())),usingRecursion(s.substring(0,s.length()-1))) ;
 		
 		
 		}

@@ -9,10 +9,10 @@ Algorithm: Using Dynamic Programming
     3. for i = 1 to s1.length+1
     		for j=1 to s2.length+1
     			if(s1[i-1]==s2[j-1])
-    				then dp[i][j] = dp[i-1][j-1]+1;  // current character matches then the totalmatches are previous matches + 1
-    				result = max(result,dp[i][j])
+    				then dp[i][j] = dp[i-1][j-1]+1;  // current character matches then the totalmatches are previous matches + 1	
     			else
     				dp[i][j]=0 since the characters donot match
+    			result = max(result,dp[i][j])
     				
     4. return result
  */   					
@@ -65,7 +65,15 @@ public class LongestCommonSubstring {
 	                
 	            }
 	        }
-	        
+	        //printTable(dp);
 	        return result;
 	    }
+
+	/*private static void printTable(int[][] dp) {
+		for(int i=0;i<dp.length;i++){
+			for(int j=0;j<dp[0].length;j++)
+				System.out.print(dp[i][j]+" ");
+			System.out.println();
+		}
+	}*/
 }

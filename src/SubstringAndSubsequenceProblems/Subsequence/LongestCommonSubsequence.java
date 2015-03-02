@@ -12,7 +12,8 @@ Algortihm: 1. declare a matrix of s1.length()+1 and s2.length()+1.
            				dp[i][j]= dp[i-1][j-1]+1 // current match = previous match +1 
            			else
            				dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]) 
-           				
+           			result = max(result,dp[i][j])
+           4. return result				
            		// if the characters don't then the current matches = max of(previous matches)
            				
 */
@@ -99,7 +100,7 @@ public class LongestCommonSubsequence {
 		 	
 		 	while(i>0 && j>0){ // greater than 0 because there is nothing at 0th row and 0th column in the match matrix
 		 	
-		 		if(s1.charAt(i-1)==s2.charAt(j-1)){ // -1 because i and j start from their respective lengths
+		 		if(s1.charAt(i-1)==s2.charAt(j-1)){// -1 because i and j start from their respective lengths
 		 			// append the character
 		 			LCSubSequence[index]=s1.charAt(i-1);
 		 			// decrement the index
