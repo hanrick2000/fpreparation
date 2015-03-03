@@ -39,7 +39,7 @@ public class UsingRandomClass {
 		Random r = new Random();
 		// nextInt() method of Random number is instance method hence we need to create an object of Random class
 		
-		int random = r.nextInt()%100; // random number should be less than 100
+		int random = r.nextInt(100); // gives integer value between 0 (inclusive) and the specified value (exclusive) as the parameter
 		boolean result = false;
 		if(number>random)     // if number>random then return true else return false
 			result = true;
