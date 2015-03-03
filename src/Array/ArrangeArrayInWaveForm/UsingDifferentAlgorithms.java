@@ -1,6 +1,6 @@
 /*
 Question: Given an unsorted array of integers, sort the array into a
-		  wave like array. An array �arr[0..n-1]� is sorted in wave form if 
+		  wave like array. An array arr[0..n-1] is sorted in wave form if 
 		  arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= �..
 Source: http://www.geeksforgeeks.org/sort-array-wave-form-2/
 */
@@ -35,8 +35,10 @@ public static void main(String[] args) {
 
 private static int[] usingIntelligentAlgorithm(int[] array) {
 	for(int i=0;i<array.length;i=i+2){
+		// if condition for the right arrangement
 		if(i>0 && (array[i-1]>array[i]))  // this will take care of last element((n-1)th element) comparison with second last element((n-2)th element)
 			swapElements(array, i-1, i);
+		// if condition for the odd arrangement
 		if(i<array.length-1 && (array[i+1])>array[i])  // this will take care of 1st index element comparison with 0th index element
 			swapElements(array, i+1, i);
 	}

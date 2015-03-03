@@ -44,14 +44,15 @@ public class UsingBinarySearch {
 			System.out.println("Enter the elements of the array");
 			for(int i=0;i<n;i++)
 				a[i]=in.nextInt();
-			System.out.println("The max element is: "+usingBinarySearch(a,0,a.length-1));
+			System.out.println("The max element is: "+recursiveBinarySearch(a,0,a.length-1));
+			System.out.println("The max element is: "+iterativeBinarySearch(a));
 		}
 		finally{
 			in.close();
 		}
 	}
 
-	private static int usingBinarySearch(int[] a, int low, int high) {
+	private static int recursiveBinarySearch(int[] a, int low, int high) {
 		
 		 /* Base Case: Only one element is present in arr[low..high]*/
 		
@@ -94,17 +95,77 @@ public class UsingBinarySearch {
 		 /* If we reach a point where arr[mid] is greater than both of
 	     its adjacent elements arr[mid-1] and arr[mid+1], then arr[mid]
 	     is the maximum element*/
+		
 		if((a[mid]>a[mid-1] && a[mid]>a[mid+1]))
 			return a[mid];
 		
 		/* If arr[mid] is greater than the next element and smaller than the previous 
 	    element then maximum lies on left side of mid */
 		if((a[mid]>a[mid+1]) && (a[mid]<a[mid-1]))
-			return usingBinarySearch(a, low, mid-1);
+			return recursiveBinarySearch(a, low, mid-1);
 		else// when arr[mid] is greater than arr[mid-1] and smaller than arr[mid+1]
-			return usingBinarySearch(a, mid+1,high);
+			return recursiveBinarySearch(a, mid+1,high);
 				
 		
+	}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(lgn)
+	 * Space Complexity = O(1)
+	 */
+
+	/*
+Corner case (No decreasing part)
+Input: arr[] = {10, 20, 30, 40, 50}
+Output: 50
+
+Corner case (No increasing part)
+Input: arr[] = {120, 100, 80, 20, 0}
+Output: 120
+	 */
+	public static int iterativeBinarySearch(int[] a){
+		
+		if(a==null||a.length==0)
+			return -1;
+		
+		int low=0;
+		int high=a.length-1;
+		int mid=0;
+		
+		/*
+		 * Since we need 3 elements for comparison, we have to consider
+		 * corner cases of:
+		 * 1. EXACTLY one element
+		 * 2. EXACTLY two elements
+		 * 3. MORE THAN two elements
+		 */
+		while(low<=high){
+			
+			// If there is exactly one element in the array
+			if(low==high)
+				return a[low];
+			
+			
+			// If there is exactly two element in the array
+			if((low==high-1) && (a[low]>a[high]))
+				return a[low];
+			
+			if((low==high-1) && (a[high]>a[low]))
+				return a[high];
+			
+			// When there are more than 2 elements in the array
+			mid=low+(high-low)/2;
+			
+			if((a[mid]>a[mid-1]) && (a[mid]>a[mid+1]))
+				return a[mid];
+			
+			else if((a[mid]>a[mid-1]) && (a[mid]<a[mid+1]))
+				low=mid+1;
+			
+			else
+				high=mid-1;
+		}
+		return -1;
 	}
 }
 /*
