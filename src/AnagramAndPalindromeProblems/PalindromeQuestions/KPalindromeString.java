@@ -1,3 +1,21 @@
+/*
+Question: A k-palindrome is a string which transforms into a palindrome on removing at most k characters. 
+
+Given a string S, and an interger K, print "YES" if S is a k-palindrome; otherwise print "NO". 
+Constraints: 
+S has at most 20,000 characters. 
+0<=k<=30 
+
+Sample Test Case#1: 
+Input - abxa 1 
+Output - YES 
+Sample Test Case#2: 
+Input - abdxa 1 
+Output - No
+
+Question and Answer Source: http://www.careercup.com/question?id=6287528252407808
+
+*/
 package AnagramAndPalindromeProblems.PalindromeQuestions;
 
 
@@ -14,7 +32,14 @@ public static void main(String[] args) {
 			System.out.println("YES");
 		else
 			System.out.println("NO");
-		if(dynamicProgrammingSolution("abxa","axba",k) <= 2*k)
+		
+		
+		StringBuilder rev = new StringBuilder();
+		for(int i=s.length()-1;i>=0;i--)
+			rev.append(s.charAt(i));
+		
+		
+		if(dynamicProgrammingSolution(s,rev.toString(),k) <=2*k)
 			System.out.println("YES");
 		else
 			System.out.println("NO");
@@ -24,13 +49,17 @@ public static void main(String[] args) {
 	}
 }
 public static boolean usingRecursion(String s, int k){
+	/*
+	 * Definition: A k-palindrome is a string which transforms into a palindrome on REMOVING AT MOST K characters. 
+	 */
 	if(s.length()==0 || s.length() == 1)
 		return true;
 	
-	while(s.charAt(0)==s.charAt(s.length()-1)){
+	
+	while(s.charAt(0)==s.charAt(s.length()-1)){  // since start and end chars are equal hence no need to decrement k
 		s=s.substring(1,s.length()-1);
 		
-		if(s.length()==0 || s.length() == 1)// If the substring is decremented till the point where the length is 0 or 1, then return true
+		if(s.length()==0 || s.length() == 1) // If the substring is decremented till the point where the length is 0 or 1, then return true
 			return true;
 	}
 	 
@@ -49,7 +78,7 @@ public static int dynamicProgrammingSolution (String s, String rev, int k){
 The question asks if we can transform the given string S into its reverse deleting at most K letters.
  
 We could modify the traditional Edit-Distance algorithm, considering only deletions, and check if 
-this edit distance is <= 2K. There is a problem though. S can have length = 20,000 and the 
+this edit distance is < 2K. There is a problem though. S can have length = 20,000 and the 
 Edit-Distance algorithm takes O(N^2). Which is too slow. 
 
 (From here on, I'll assume you're familiar with the Edit-Distance algorithm and its DP matrix) 
@@ -85,21 +114,29 @@ Here's the code:
 	for(int i=0;i<=n;i++)
 		dp[i][0]=dp[0][i]=i;
 	
+	
 	for(int i=1;i<=n;i++){     // for every row
+		/*
+		 * TR:
+		 *     MAX(i-k)
+		 *     MIN(i+k)
+		 *     
+		 *     HENCE OPPOSITES
+		 */
 		int from = Math.max(1, i-k);    // travel from the column starting from Max(1,i-k)
 		int to = Math.min(i+k, n);      // till the column ending at Min(i+k,n)
 		for(int j=from;j<=to;j++){
-			if(s.charAt(i-1)==rev.charAt(j-1))
+			if(s.charAt(i-1)==rev.charAt(j-1))  // same character
 				dp[i][j] = dp[i-1][j-1];
+				
+				// note that we don't allow letter substitutions
 			
-			//(dp[i][j-1]) means delete character 'j' && (dp[i-1]+1) means inserting a character 'i'
-			dp[i][j] = 	Math.min(Math.min(dp[i][j], 1 + dp[i][j-1]),1 + dp[i-1][j]); 
-			
+				dp[i][j] = Math.min(dp[i][j], 1 + dp[i][j-1]); // delete character j
+				dp[i][j] = Math.min(dp[i][j], 1 + dp[i-1][j]); // insert character i
 		}
 	}
 	return dp[n][n];	
-}
-
+	}
 }
 /*
  * Analysis:

@@ -32,19 +32,26 @@ public class UsingBinarySearch {
 			System.out.println("Enter the elements of the array");
 			for(int i=0;i<n;i++)
 				a[i]=in.nextInt();
-			System.out.println("The missing element is: "+findMissingElementUsingBinarySearch(a));
+			System.out.println("The missing element is: "+recursiveBinarySearch(a));
+			// System.out.println("The missing element is: "+findMissing_binary(a));
+			System.out.println("Missing element is: "+iterativeBinarySearch(a));
 		}
 		finally{
 			in.close();
 		}
 	}
-	 public static int findMissingElementUsingBinarySearch(int[] a){
+	 public static int recursiveBinarySearch(int[] a){
 		    
 	        int diff = (a[a.length-1]-a[0])/a.length;  // get the difference in the AP
-	        return findMissingElementUsingBinarySearch(a,0,a.length-1,diff);
+	        
+	        /*
+	         * TR: To find diff in AP series, where 1 element is missing
+	         * diff = (last-first)/length;
+	         */
+	        return recursiveBinarySearch(a,0,a.length-1,diff);
 	    }
 	    
-	    public static int findMissingElementUsingBinarySearch(int[] a, int low, int high, int diff){
+	    public static int recursiveBinarySearch(int[] a, int low, int high, int diff){
 	        
 	        if(high<=low)
 	            return Integer.MAX_VALUE;
@@ -61,13 +68,76 @@ public class UsingBinarySearch {
 	         
 	        
 	        // If the elements till mid follow AP, then recur for right half
-	        if(a[mid]==a[0]+(mid)*diff)
-	            return findMissingElementUsingBinarySearch(a,mid+1,high,diff);
+	        if(a[mid]==a[0]+(mid)*diff)  // nth AP is a_n = a_1 + (n - 1)d
+	            return recursiveBinarySearch(a,mid+1,high,diff);
 	        else  // Else recur for left half
-	            return findMissingElementUsingBinarySearch(a,low,mid-1,diff);
+	            return recursiveBinarySearch(a,low,mid-1,diff);
 	        
 	        
 	        }
+	    /*
+	    public static int findMissing_binary(int[] array) {
+			assert array != null && array.length > 2;
+			
+			int diff = Math.min(array[2]-array[1], array[1]-array[0]);
+
+			int low = 0, high = array.length-1;
+			while(low < high) {
+				int mid = (low+high) >>> 1;
+
+				int leftDiff = array[mid]-array[low];
+				if(leftDiff > diff * (mid-low)) {
+					if(mid-low == 1)
+						return (array[mid]+array[low]) / 2;
+					
+					high = mid;
+					continue;
+				}
+				
+				int rightDiff = array[high]-array[mid];
+				if(rightDiff > diff * (high-mid)) {
+					if(high-mid == 1)
+						return (array[high]+array[mid]) / 2;
+					
+					low = mid;
+					continue;
+				}
+			}
+			
+			return -1;
+		}
+	    */
+	    public static int iterativeBinarySearch(int[] a){
+	    	
+	    	if(a==null||a.length==0)
+	    		return -1;
+	    	
+	    	
+	    	int diff = (a[a.length-1]-a[0])/a.length;
+	    	
+	    	int mid=0;
+	    	int low=0;
+	    	int high=a.length-1;
+	    	
+	    	while(low<high){
+	    		
+	    		mid=low+(high-low)/2;
+	    		if(a[mid+1]-a[mid]!=diff)
+	    			return (a[mid]+diff);
+	    		
+	    		else if(a[mid]-a[mid-1]!=diff)
+	    			return (a[mid]-diff);
+	    		
+	    		else if(a[mid]==(a[0]+mid*diff)) // nth AP is a_n = a_1 + (n - 1)d
+	    			low=mid+1;
+	    		
+	    		else
+	    			high=mid-1;
+	    	}
+	    	
+	    	return -1;
+	    	
+	    }
 	    
     }
 
