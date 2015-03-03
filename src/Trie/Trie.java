@@ -1,5 +1,5 @@
 /*
-Question : You have a dictionary which is an array of words and array of strings. 
+Question : You have a dictionary(i.e is an array of words) and you have an array of strings. 
 
 Write two functions 
 
