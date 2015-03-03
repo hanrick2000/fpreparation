@@ -188,18 +188,28 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 	});
 	
 	
-	int current=0;
-	int maxOverlapsTillHere=0;
+	int current = 0;
+    int maxOverlaps = 0;
+    int final_begin = 0;
+    int res = 0;
 	
 	for(Integer i: al){
-		if(i>=0)
+		if(i>=0){
 			current++;
-		else
+			if(maxOverlaps < current) {
+					maxOverlaps = current;
+	                final_begin = i;
+	            }
+		}
+		else{
+			if(current == maxOverlaps)  // gist to pass Example 2
+                res = (i + final_begin)/2;
 			current--;
-		maxOverlapsTillHere=Math.max(current, maxOverlapsTillHere);
+		
+		}
 	}
 	
-	return maxOverlapsTillHere;
+	return res;
 	
 }
 	/*
@@ -271,6 +281,7 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 	
 	private static void fourthProgram() {
 		// Source: https://haixiaoyang.wordpress.com/2012/03/19/find-the-point-intersect-with-most-intervals/
+		// Source: https://gist.github.com/sundeepblue/11291774
 		List<Meeting> meetings=Meeting.createMeetings();
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program IV");

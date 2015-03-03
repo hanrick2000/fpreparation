@@ -72,18 +72,18 @@ private static boolean findAnagrams(String s1, String s2) {
 }
 
 private static long updateProduct(char remove,char add, long hayProduct, int[] primeNumbers) {
-	int asciiDifference = 97;
+	
 	long originalProduct = hayProduct;
-	originalProduct/=primeNumbers[remove-asciiDifference];
-	originalProduct*=primeNumbers[add-asciiDifference];
+	originalProduct/=primeNumbers[remove-'a'];
+	originalProduct*=primeNumbers[add-'a'];
 	return originalProduct;
 }
 
 private static long getProduct(String s, int[] primeNumbers) {
-	int asciiDifference = 97;  // small a starts from 97 in the ASCII table
+	
 	long result = 1;
 	for(int i=0;i<s.length();i++)
-		result*=primeNumbers[s.charAt(i)-asciiDifference];  // the primeNumbers array starts from 0 to 25
+		result*=primeNumbers[s.charAt(i)-'a'];  // the primeNumbers array starts from 0 to 25
 	return result;
 }
 
