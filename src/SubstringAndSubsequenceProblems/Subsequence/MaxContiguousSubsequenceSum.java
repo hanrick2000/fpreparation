@@ -28,7 +28,7 @@ private static int usingKadanesAlgorithm(int[] a) {
 	 * Source: http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 	 * Algorithm: 
 	 * 			int positveSum = 0 . This variable only maintains ONLY the positive sum
-	 * 			Iterate through all array elements and add hen individually to the positiveSum
+	 * 			Iterate through all array elements and add then individually to the positiveSum
 	 * 			if(positiveSum+a[i]<0) then positiveSum=0
 	 * 			otherwise we retain this positiveSum in the next iteration
 	 * 			At the same time we maintian another variable called overallMax which compares 
@@ -36,8 +36,8 @@ private static int usingKadanesAlgorithm(int[] a) {
 	 * 
 	 */
 	
-	int positiveSum = 0;  // only the positiveSum of previous sum and cuurent element
-	int overallMax  = 0;  // gives the overall contiguos max in the array
+	int positiveSum = 0;  // only the positiveSum of previous sum and current element
+	int overallMax  = 0;  // gives the overall contiguous max in the array
 	for(int i=0;i<a.length;i++){
 		positiveSum+=a[i];
 		if(positiveSum<0)

@@ -2,7 +2,7 @@
 Question: 
 	CONDITION: WE SHOULD NOT SELECT TWO CONTIGUOUS NUMBERS. The numbers selected should be non-contiguous
 	Given a sequence of numbers A(1) ..A(n), 
-	find the continuous subsequenceA(i)..A(j) for which the sum of elements is maximum.
+	find the non-continuous subsequenceA(i)..A(j) for which the sum of elements is maximum.
 	
 Question and Answer Source: http://www.careercup.com/question?id=23594662
 */
