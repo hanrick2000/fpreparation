@@ -1,7 +1,6 @@
 package SubstringAndSubsequenceProblems.Subsequence;
 
 	/*
-
 	Question: Find the Minimum Number of Insertions required to form a palindrome
 
 	Question and Answer Source: http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
@@ -158,7 +157,7 @@ package SubstringAndSubsequenceProblems.Subsequence;
 					dpMatrix[low][high] = (
 							             (s.charAt(low)==s.charAt(high)) ? 
 							             (dpMatrix[low+1][high-1])   :  // reduce the search space
-							             (Math.min(dpMatrix[low+1][high], dpMatrix[low][high-1])+1) // reduce the search space
+							             (Math.min(dpMatrix[low+1][high], dpMatrix[low][high-1])+1)// reduce the search space
 							             );
 			
 			
