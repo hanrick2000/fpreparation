@@ -1,5 +1,9 @@
 package EditDistance;
 
+/*
+ * Source: http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
+ */
+
 import java.util.Scanner;
 
 public class IterativeEditDistance {
@@ -38,8 +42,8 @@ private static int calculateCost(String s1, String s2) {
 			
 			left = table[i-1][j] + 1;
 			top = table[i][j-1] + 1;
-			corner = table[i-1][j-1] + check(s1.charAt(i-1),s2.charAt(j-1));// It seems as if we are calling the check() method on
-			//the previous characters. This is not the case, the check method is called on the current characters. Please construct the 
+			corner = table[i-1][j-1] + (s1.charAt(i-1)==s2.charAt(j-1)?0:1);// It seems as if we are checking
+			// the previous characters. This is not the case, the checking is done on current characters. Please construct the 
 			// 'table' to understand that the call is on current characters and not previous characters. 
 			// To make it easy, construct the table for small strings such as 'me','tu'.
 			
@@ -61,12 +65,6 @@ private static void printTable(int[][] table, int m, int n) {
 		}
 		System.out.println();
 	}
-}
-
-private static int check(char c1, char c2) {
-	if(c1==c2)
-		return 0;
-	return 1;
 }
 
 }

@@ -1,6 +1,7 @@
 package EditDistance;
 /*
-Question: Given two strings, return boolean True/False, if they are only one edit apart.Edit can be insert/delete/update of only one character in the string. Eg: 
+Question: Given two strings, return boolean True/False, if they are only one edit apart.Edit can be insert/delete/update of only one character in the string.
+ Eg: 
 
 -True 
 xyz,xz 
@@ -18,7 +19,7 @@ and the space complexity will also be O(n^2).
 
 BUT WITH THIS ALGORITHM THOUGH THE TIME COMPLEXITY IF O(N), AND THE SPACE COMPLEXITY IS O(1)
 
-Question and Answer Source:http://www.careercup.com/question?id=4793416529477632
+Question and Answer Source: http://www.careercup.com/question?id=4793416529477632
 */
 
 
