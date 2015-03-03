@@ -22,19 +22,29 @@ import java.util.Map;
 
 public class Trie {
 
-    private static final TrieNode[] EMPTYNODES = new TrieNode[0];
+    private static final TrieNode[] EMPTYNODES = new TrieNode[0]; // Empty TrieNodeNode of length = 0
 
-    private static final class TrieNode implements Comparable<TrieNode> {
+    private static final class TrieNode implements Comparable<TrieNode> {    // VERY IMP: implements Comparable hence NATURAL ORDERING
 
         private final char character;
         private boolean isWord = false;
         private Map<Character, TrieNode> children = null;
-
-        public TrieNode(char ch) {
+        
+        
+        // --------------------- set and get NODE ----------------------
+        
+        public TrieNode(char ch) {  // using constructor we SET the character of the node
             character = ch;
         }
 
-        public TrieNode getOrCreateChild(char ch) {
+        public char getNodeChar() {    // using this method we GET the character of the node
+            return character;
+        }
+        
+        
+        // --------------------- set and get CHILD ----------------------
+        
+        public TrieNode getOrSetChild(char ch) {  // set a child
             if (children == null) {
                 children = new HashMap<>();
             }
@@ -45,32 +55,40 @@ public class Trie {
             }
             return kid;
         }
-
-        public TrieNode get(char ch) {
+        
+        public TrieNode getChild(char ch) {           // get the child
             return children != null ? children.get(ch) : null;
         }
 
-        public void setWord() {
+        
+        // --------------------- set and get WORD ----------------------
+        
+        public void setWord() {                 // set word
             isWord = true;
         }
-
-        public boolean isWord() {
+        
+        public boolean isWord() {              // get word
             return isWord;
         }
 
-        public char getChar() {
-            return character;
-        }
+        // ------------------------ get all the CHILDRENS ----------------------
 
         public TrieNode[] getChildNodes() {
             if (children == null) {
                 return EMPTYNODES;
             }
             TrieNode[] result = children.values().toArray(new TrieNode[children.size()]);
+            /*
+             * Source: http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html
+             * toArray(T[] a)
+Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array as parameter.
+             */
+            
             Arrays.sort(result);
             return result;
         }
-
+        
+        // --------------------- Override Comparable method ---------------------
         @Override
         public int compareTo(TrieNode o) {
             // cheap way to sort alphabetically.
@@ -94,7 +112,7 @@ public class Trie {
         TrieNode node = root; 
         int wdepth = 0;  // word depth is 0
         for (char ch : word.toLowerCase().toCharArray()) {  // add all the characters of the word
-            node = node.getOrCreateChild(ch);
+            node = node.getOrSetChild(ch);
             wdepth++;                         // word depth is incremented till the last character of the word
         }
         if (!node.isWord()) { // after adding all the characters of the word, flag the last character of the word 
@@ -110,7 +128,7 @@ public class Trie {
     public boolean containsWord(String word){
         TrieNode node = root;
         for (char ch : word.toLowerCase().toCharArray()) {
-            node = node.get(ch);
+            node = node.getChild(ch);
             if (node == null) {
                 break;
             }
@@ -138,7 +156,7 @@ public class Trie {
             result.add(new String(charstack, 0, stackdepth));
         }
         for (TrieNode kid : node.getChildNodes()) {
-            charstack[stackdepth] = kid.getChar();
+            charstack[stackdepth] = kid.getNodeChar();
             getWords(kid, charstack, stackdepth + 1, result);
         }
     }

@@ -26,7 +26,7 @@ public class UsingBinarySearch {
 		Scanner in = new Scanner(System.in);
 		try{
 			System.out.println("Program to find the MISSING ARITHMETIC PROGRESSION");
-			System.out.println("Enter the elements of the array");
+			System.out.println("Enter the NUMBER of elements of the array");
 			int n = in.nextInt();
 			int[] a = new int[n];
 			System.out.println("Enter the elements of the array");
@@ -53,8 +53,24 @@ public class UsingBinarySearch {
 	    
 	    public static int recursiveBinarySearch(int[] a, int low, int high, int diff){
 	        
-	        if(high<=low)
-	            return Integer.MAX_VALUE;
+	    	
+	    	if(high>low)      // Handle situation for INVALID case
+	        	return -1;
+	    	
+	    	
+	        if(high==low)  // If there is EXACTLY one element in the array
+	            return -1;
+	        
+	        
+	        if(low==high-1 && a[low]<a[high]) // if there is EXACTLY two elements in the array and hish is greater than low element
+	        	return -1;
+	        
+
+	        if(low==high-1 && a[low]>a[high]) // if there is EXACTLY two elements in the array and low is greater than high element
+	        	return -1;
+	        
+	        
+	        // If there are MORE THAN 2 elements in the array then calculate the mid value
 	        
 	        int mid = low+(high-low)/2;
 	        
@@ -68,7 +84,7 @@ public class UsingBinarySearch {
 	         
 	        
 	        // If the elements till mid follow AP, then recur for right half
-	        if(a[mid]==a[0]+(mid)*diff)  // nth AP is a_n = a_1 + (n - 1)d
+	        else if(a[mid]==a[0]+(mid)*diff)  // nth AP is a_n = a_1 + (n - 1)d
 	            return recursiveBinarySearch(a,mid+1,high,diff);
 	        else  // Else recur for left half
 	            return recursiveBinarySearch(a,low,mid-1,diff);
@@ -76,36 +92,9 @@ public class UsingBinarySearch {
 	        
 	        }
 	    /*
-	    public static int findMissing_binary(int[] array) {
-			assert array != null && array.length > 2;
-			
-			int diff = Math.min(array[2]-array[1], array[1]-array[0]);
-
-			int low = 0, high = array.length-1;
-			while(low < high) {
-				int mid = (low+high) >>> 1;
-
-				int leftDiff = array[mid]-array[low];
-				if(leftDiff > diff * (mid-low)) {
-					if(mid-low == 1)
-						return (array[mid]+array[low]) / 2;
-					
-					high = mid;
-					continue;
-				}
-				
-				int rightDiff = array[high]-array[mid];
-				if(rightDiff > diff * (high-mid)) {
-					if(high-mid == 1)
-						return (array[high]+array[mid]) / 2;
-					
-					low = mid;
-					continue;
-				}
-			}
-			
-			return -1;
-		}
+	    Analysis:
+	    Time Complexity = O(lgn)
+	    Space Complexity = O(1)
 	    */
 	    public static int iterativeBinarySearch(int[] a){
 	    	
@@ -121,7 +110,23 @@ public class UsingBinarySearch {
 	    	
 	    	while(low<high){
 	    		
+	    		
+	    		// if there is exactly one element in the array
+	    		if(low==high)
+	    			return -1;
+	    		
+	    		// if there are exactly two elements in the array
+	    		if((low==high-1)&&(a[low]>a[high]))
+	    			return -1;
+	    		
+	    		// if there are exactly two elements in the array
+	    		if((low==high-1)&&(a[high]>a[low]))
+	    			return -1;
+	    		
+	    		
+	    		// if there are more than 2 elements in the array then calculate the mid
 	    		mid=low+(high-low)/2;
+	    		
 	    		if(a[mid+1]-a[mid]!=diff)
 	    			return (a[mid]+diff);
 	    		
@@ -135,7 +140,7 @@ public class UsingBinarySearch {
 	    			high=mid-1;
 	    	}
 	    	
-	    	return -1;
+	    	return -1;  // if (high>low)
 	    	
 	    }
 	    
