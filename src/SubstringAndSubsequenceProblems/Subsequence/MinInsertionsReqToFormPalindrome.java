@@ -18,37 +18,7 @@ package SubstringAndSubsequenceProblems.Subsequence;
 					minInsertions(str[l+1…..h-1]) if str[l] is equal to str[h]
 					(min {minInsertions(str[l…..h-1]), minInsertions(str[l+1…..h])}  +  1) otherwise
 		
-		II. Using Dynamic Programming
-		The table should be filled in diagonal fashion. 
-		For the string abcde, 0….4, the following should be order in which the table is filled:
-
-			Gap = 1:
-			(0, 1) (1, 2) (2, 3) (3, 4)
-
-			Gap = 2:
-			(0, 2) (1, 3) (2, 4)
-
-			Gap = 3:
-			(0, 3) (1, 4)
-
-			Gap = 4:
-			(0, 4)
-		
-			
-			// Fill the table
-	    for (gap = 1; gap < n; ++gap)
-	        for (l = 0, h = gap; h < n; ++l, ++h)
-	            table[l][h] = (str[l] == str[h])? table[l+1][h-1] :
-	                          (min(table[l][h-1], table[l+1][h]) + 1);
-	 
-	    // Return minimum number of insertions for str[0..n-1]
-	    return table[0][n-1];
-			
-			
-		III. Using (by Dynamic Programming) LONGEST PALINDROME SUBSEQUENCE Algorithm
-			Find the length of  LONGEST PALINDROME SUBSEQUENCE between original and reverse string
-			Now the Minimum Number of Insertions required to form a palindrome = Original String length - length of  LONGEST PALINDROME SUBSEQUENCE
-		
+	
 		*/
 
 
@@ -97,6 +67,11 @@ package SubstringAndSubsequenceProblems.Subsequence;
 			
 			/*
 			 * Algorithm Source: http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
+			 *
+			 *III. Using (by Dynamic Programming) LONGEST PALINDROME SUBSEQUENCE Algorithm
+			Find the length of  LONGEST PALINDROME SUBSEQUENCE between original and reverse string
+			Now the Minimum Number of Insertions required to form a palindrome = Original String length - length of  LONGEST PALINDROME SUBSEQUENCE
+		
 			 */
 			
 			
@@ -140,6 +115,33 @@ package SubstringAndSubsequenceProblems.Subsequence;
 			
 			/*
 			 * Algorithm Source: http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
+			 *
+			 *	II. Using Dynamic Programming
+		The table should be filled in diagonal fashion. 
+		For the string abcde, 0….4, the following should be order in which the table is filled:
+
+			Gap = 1:
+			(0, 1) (1, 2) (2, 3) (3, 4)
+
+			Gap = 2:
+			(0, 2) (1, 3) (2, 4)
+
+			Gap = 3:
+			(0, 3) (1, 4)
+
+			Gap = 4:
+			(0, 4)
+		
+			
+			// Fill the table
+	    for (gap = 1; gap < n; ++gap)
+	        for (l = 0, h = gap; h < n; ++l, ++h)
+	            table[l][h] = (str[l] == str[h])? table[l+1][h-1] :
+	                          (min(table[l][h-1], table[l+1][h]) + 1);
+	 
+	    // Return minimum number of insertions for str[0..n-1]
+	    return table[0][n-1];
+			
 			 */
 			
 			int[][] dpMatrix = new int[s.length()][s.length()];  // dp matrix of exactly the same length
