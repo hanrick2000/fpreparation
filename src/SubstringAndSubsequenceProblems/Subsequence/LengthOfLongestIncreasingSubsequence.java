@@ -108,14 +108,11 @@ public class LengthOfLongestIncreasingSubsequence {
 	    Time Complexity = O(n^2)
 	    Space Complexity = O(1)
 	    */
-		
-		
-		
-		
+
 		// Binary search (note boundaries in the caller)
 			// A[] is ceilIndex in the caller
 			public static int CeilIndex(int A[], int l, int r, int key) {
-			    int m;
+			    int m;	
 			 
 			    while( r - l > 1 ) {
 			        m = l + (r - l)/2;
@@ -157,8 +154,7 @@ public class LengthOfLongestIncreasingSubsequence {
 			    
 				int[] tailTable   = new int[size];
 			    int len; // always points empty slot
-			
-			 
+			    
 			    tailTable[0] = A[0];
 			    len = 1;
 			    for( int i = 1; i < size; i++ ) {
