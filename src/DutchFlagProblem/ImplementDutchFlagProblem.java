@@ -68,6 +68,10 @@ public static int[] implementation(int[] a){
 	int mid = 0;
 	int high = a.length-1;
 	
+	
+	/*
+	 * TO REMEMBER: "while" and "3 if's", all contain "MID" comparison
+	 */
 	while(mid<=high){ // VERY IMP: MID IS LESS THAN OR EQUAL TO HIGH
 		if(a[mid]==0){   // If the mid is 0, then swap the low with mid, increment BOTH low and mid
 			a=swap(a,mid,low);

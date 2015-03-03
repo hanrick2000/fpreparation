@@ -47,7 +47,7 @@ public static void main(String[] args) {
 	int n = in.nextInt();
 	System.out.println("Enter the elements");
 	for(int i=0;i<n;i++)
-		linkedList.add(1);
+		linkedList.add(in.nextInt());
 	linkedList = LLDutchFlagImplementation(linkedList);
 	printLL(linkedList);
 	}
@@ -68,28 +68,32 @@ public static void main(String[] args) {
 	public static List<Integer> LLDutchFlagImplementation(List<Integer> linkedList){
 		
 		Iterator<Integer> iter = linkedList.iterator();
-		HashMap<Integer, Integer> hash = new HashMap<Integer,Integer>();
+		HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
 		while(iter.hasNext()){
 			int key = iter.next();
-			if(!hash.containsKey(key))
-				hash.put(key, 1);
-			else{
-			int count = hash.get(key);
-			count+=1;
-			hash.put(key, count);
-			}
+			if(!map.containsKey(key))
+				map.put(key, 1);
+			else
+				map.put(key, map.get(key)+1);
 		}
 		linkedList.clear();
-		Set<Map.Entry<Integer, Integer>> set = hash.entrySet();
-		Iterator<Map.Entry<Integer, Integer>> loop = set.iterator();
-		while(loop.hasNext()){
-			Map.Entry<Integer, Integer> obj = loop.next();
+		Set<Map.Entry<Integer, Integer>> set = map.entrySet();
+		Iterator<Map.Entry<Integer, Integer>> itr = set.iterator();
+		while(itr.hasNext()){
+			Map.Entry<Integer, Integer> obj = itr.next();
 			int key = obj.getKey();
 			int value = obj.getValue();
-			while(value>0)
-				linkedList.add(key);	
+			while(value>0){
+				linkedList.add(key);
+				value--;
+			}
 		}
 		return linkedList;
 	}
 }
+/*
+ * Analysis:
+ * Time Complexity = O(n)
+ * Space Complexity = O(2n) where O(n) used by HashMap and O(n) used by HashSet
+ */
 
