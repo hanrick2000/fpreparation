@@ -30,7 +30,7 @@ public class UsingBitwiseShiftOperators {
 			in.close();
 		}
 	}
-	public static int swapNibbles(int n){
+	public static int swapNibbles(byte n){
 		System.out.println("Original number decimal representation: "+n);
 		System.out.println("Original number binary representation:\n"+Integer.toBinaryString(n));
 		int left = ((n&0x0F)<<4);
