@@ -54,7 +54,7 @@ public class LengthOfLongestIncreasingSubsequence {
 		            
 		        int res=1;
 		        int subseqLength = 1;  // length of LIS ending with arr[n-1]
-		        /* Recursively get all LIS ending with arr[0], arr[1] ... ar[n-2]. If 
+		        /* Recursively get all LIS 	ending with arr[0], arr[1] ... ar[n-2]. If 
 		        arr[i-1] is smaller than arr[n-1], and max ending with arr[n-1] needs
 		        to be updated, then update it */
 		        for(int i=1;i<n;i++){
@@ -106,7 +106,7 @@ public class LengthOfLongestIncreasingSubsequence {
 		 /*
 	    Analysis:
 	    Time Complexity = O(n^2)
-	    Space Complexity = O(1)
+	    Space Complexity = O(n)
 	    */
 
 		// Binary search (note boundaries in the caller)

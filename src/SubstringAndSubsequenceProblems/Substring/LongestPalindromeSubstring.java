@@ -47,7 +47,7 @@ public class LongestPalindromeSubstring {
 			/* Using Intelligent Algorithm
 			 * INTELLIGENT ALGORITHM BECAUSE THE SPACE COMPLEXITY OF THIS ALGORITHM IS O(1)
 			 */
-			usingIntelligentAlgorithm(orig);
+			usingSimpleAlgorithm(orig);
 			/*
 			 * VERY VERY IMPORTANT:
 			 * 
@@ -69,7 +69,7 @@ public class LongestPalindromeSubstring {
 			}
 		}
 
-		private static void usingIntelligentAlgorithm(String orig) {
+		private static void usingSimpleAlgorithm(String orig) {
 		
 			
 			// This function prints the longest palindrome substring (LPSubstring)
