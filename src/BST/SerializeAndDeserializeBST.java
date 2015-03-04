@@ -18,62 +18,56 @@ public class SerializeAndDeserializeBST {
 
 	private static String serialize(NodeClass root) {
 		StringBuilder sb = new StringBuilder();
-		serialize(sb,root);
+		recursiveSerialize(sb,root);
 		return sb.toString().trim();
 	}
 
-	private static void serialize(StringBuilder sb, NodeClass node) {
+	private static void recursiveSerialize(StringBuilder sb, NodeClass node) {
 		if(node==null)
 			return;
 		
 		sb.append(node.data);
 		sb.append(" ");
 		
-		  if (node.lchild != null) {
-              serialize(sb, node.lchild);
-      }
+      if (node.lchild != null) 
+		  recursiveSerialize(sb, node.lchild);
+     
       else {
               sb.append("NULL");
               sb.append(" ");
-      }
+      	}
       
-      if (node.rchild != null) {
-              serialize(sb, node.rchild);
-      }
+      if (node.rchild != null) 
+    	  recursiveSerialize(sb, node.rchild);
+      
       else {
               sb.append("NULL");
               sb.append(" ");
-      }
+      	}
 	}
 	 public static NodeClass deserialize(String str) {
-         if (str == null || str.isEmpty()) {
+         if (str == null || str.isEmpty())
                  return null;
-         }
+         
          String[] data = str.split(" ");
          Queue<NodeClass> q = new LinkedList<NodeClass>();
          
-         //System.out.println(Arrays.toString(data));
-
-         for(String s : data) {
-                
-                 if (s.equals("NULL")) {
-                         q.add(null);
-                 } else {
-                         q.add(new NodeClass(Integer.parseInt(s)));
-                 }
+         for(String s : data) {     
+                 if (s.equals("NULL"))
+                       q.add(null);
+                 else 
+                       q.add(new NodeClass(Integer.parseInt(s)));    
          }
-         NodeClass root = deserialize(q, q.remove());
+         NodeClass root = recursiveDeserialize(q, q.remove()); // removes the first node
          return root;
- }
-	 private static NodeClass deserialize(Queue<NodeClass> q, NodeClass node) {
-         if (node == null) {
-                 return null;
-         }
-         node.lchild = deserialize(q, q.remove());
-         node.rchild= deserialize(q, q.remove());
-         
+	 }
+	 private static NodeClass recursiveDeserialize(Queue<NodeClass> q, NodeClass node){
+         if(node == null)
+            return null;
+         node.lchild = recursiveDeserialize(q, q.remove());
+         node.rchild= recursiveDeserialize(q, q.remove()); 
          return node;
- }
+	 }
 }
 class NodeClass{
 	public int data;

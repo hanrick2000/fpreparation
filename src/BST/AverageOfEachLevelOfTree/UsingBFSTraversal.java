@@ -10,7 +10,6 @@
 package BST.AverageOfEachLevelOfTree;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -107,8 +106,11 @@ public Node root=null;
 				q.add(null);  // use null as 'end of certain depth' marker
 			}
 		}
-		int avg=calAverage(list);
-		System.out.println(avg);
+		/*
+		 * VERY IMP: DONOT FORGET THE STATEMENTS MENTIONED HERE
+		 */
+		int avg=calAverage(list);  // PRINT THE LAST AVERAGE
+		System.out.println(avg);   
 	}
 	
 	/*
@@ -117,10 +119,9 @@ public Node root=null;
 	 * Space Complexity = O(n) where n = number of nodes in the tree
 	 */
 	public static int calAverage(ArrayList<Integer> list){
-		Iterator<Integer> iter = list.iterator();
-		int sum = 0;
-		while(iter.hasNext())
-			sum+=iter.next();
+		int sum=0;
+		for(Integer i:list)
+			sum+=i;
 		return (sum/list.size());
 	}
 }
