@@ -4,7 +4,7 @@ Find a number in the array having least difference with the given number (n).
 
 Question Source: http://www.careercup.com/question?id=20982670
 	
-Answer Source: https://sites.google.com/site/spaceofjameschen/home/search/find-a-number-in-the-array-having-least-difference-with-the-given-number-n----facebook
+Answer Source: Facebook Question: https://sites.google.com/site/spaceofjameschen/home/search/find-a-number-in-the-array-having-least-difference-with-the-given-number-n----facebook
 */
 package Array.FindNearestNumberInSortedArray;
 
@@ -71,7 +71,7 @@ public class UsingBinarySearch {
 			
 		}
 		
-		return Math.abs(a[low]-find) < Math.abs(a[high]-find) ? a[low]:a[high];
+		return (Math.abs(a[low]-find) < Math.abs(a[high]-find) ? a[low]:a[high]);
 	}
 }
 /*
