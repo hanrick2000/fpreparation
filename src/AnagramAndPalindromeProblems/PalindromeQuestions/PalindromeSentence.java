@@ -66,7 +66,7 @@ public class PalindromeSentence {
 		
 			/*
 			 * VERY IMP NOTE:
-			 * 1. AND CONDITION between NOT-alphabet and NOT-letter
+			 * 1. AND CONDITION between NOT-alphabet AND NOT-letter
 			 * 2. continue after every skipped character
 			 */
 			if(!isAlphabet(s.charAt(start)) && !isLetter(s.charAt(start))){ // NOT-alphabet AND NOT-letter then skip

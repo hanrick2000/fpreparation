@@ -119,9 +119,7 @@ Returns an array containing all of the elements in this collection; the runtime 
         	// as end of the word with end of word marker to that last character node
             node.setWord();
             size++;         // size maintains the number of words in the trie
-            if (wdepth > depth) {
-                depth = wdepth;  // depth maintains the size of longest word
-            }
+            depth=Math.max(depth, wdepth);
         }
     }
 

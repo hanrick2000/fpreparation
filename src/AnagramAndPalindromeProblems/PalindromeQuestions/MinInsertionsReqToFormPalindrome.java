@@ -134,13 +134,13 @@ public class MinInsertionsReqToFormPalindrome {
 	 */
 	
 	
-	private static int usingDPTable(String s) {
+	private static int usingDPTable(String s) { // BEST ALGORITHM TO BE GIVEN IN INTERVIEW
 		
 		/*
 		 * Algorithm Source: http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
 		 */
 		
-		int[][] dpMatrix = new int[s.length()][s.length()];  // dp matrix of exactly the same length
+		int[][] dpMatrix = new int[s.length()][s.length()];  // dp matrix of EXACTLY THE SAME LENGTH
 		
 		int low = 0;
 		int high = 0;
@@ -160,7 +160,8 @@ public class MinInsertionsReqToFormPalindrome {
 		
 		
 		return dpMatrix[0][s.length()-1]; // Return minimum number of insertions for str[0..n-1]
-					
+	    // -1 because dp matrix is of EXACTLY THE SAME LENGTH int[][] dp= new int[s.length()][s.length()]
+		// JODI : 0 and -1
 	}
 	
 	/*
