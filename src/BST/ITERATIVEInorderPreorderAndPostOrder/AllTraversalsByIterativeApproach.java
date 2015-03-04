@@ -1,5 +1,7 @@
 package BST.ITERATIVEInorderPreorderAndPostOrder;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 
@@ -20,8 +22,10 @@ public static void main(String[] args) {
 	inorder(tree.root);
 	System.out.println("Postoder: ");
 	postorder(tree.root);
-	System.out.println("Preorder: ");
-	preorder(tree.root);
+	System.out.println("Preorder OR DFS Traversal: ");
+	preorderORdfs(tree.root);
+	System.out.println("BFS Traversal: ");
+	bfs(tree.root);
 }
 
 /*
@@ -146,7 +150,7 @@ Check if there is right child to that node. If yes, move right child to stack an
 	
 	
 	
-	public static void preorder(Node root){
+	public static void preorderORdfs(Node root){
 		/*
 		 * Algorithm: Same as dfs traversal in a tree
 		 * Source: https://github.com/nkatre/Operations-on-Trees/blob/master/Traversal%20in%20BST-BFS%2CDFS%2CPre%2CIn%2CPos-Both%20rec%20and%20nonrec
@@ -177,6 +181,26 @@ Check if there is right child to that node. If yes, move right child to stack an
 	 * Space Complexity = O(n)
 	 */
 	
+	
+	public static void bfs(Node n){
+		if(n==null)
+			return;
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(n);
+		while(!q.isEmpty()){
+			Node node=q.remove();
+			System.out.print(node.data+" ");
+			if(node.lchild!=null)
+				q.add(node.lchild);
+			if(node.rchild!=null)
+				q.add(node.rchild);
+		}
+	}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(n)
+	 * Space Complexity = O(1)
+	 */
 	
 }// end of class
 class Node{
