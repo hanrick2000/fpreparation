@@ -15,8 +15,7 @@ import java.util.Scanner;
 
 public class UsingRecursion { 
 	
-	private static int index = 0;    // VERY VERY VERY VERY IMP GLOBAL VARIABLE
-	
+	private static int index=0;
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
@@ -34,7 +33,7 @@ public class UsingRecursion {
 		int k = in.nextInt();
 		System.out.println("The kth smallest element in the tree is: ");
 		findKthSmallestNode(root,k);
-		index=0;  // reinitialize index to 0
+		index=0;
 		System.out.println("The kth largest element in the tree is: ");
 		findKthLargestNode(root,k);
 		}
@@ -42,20 +41,21 @@ public class UsingRecursion {
 			in.close();
 		}
 	}
-private static void findKthLargestNode(Node root, int k) { 
-	// similar to POSTORDER traversal
+private static void findKthLargestNode(Node root,int k) { 
+
 	
+	/*
+	 * TR: I.  kth LARGEST = FIRST RIGHT THEN LEFT
+	 *     II. Global Variable = index
+	 */
 		if(root==null)
 			return;
-		
-		// index is GLOBAL
-		
-		findKthLargestNode(root.right, k);
+		findKthLargestNode(root.right,k);  // First RIGHT
 		if(++index==k){
 			System.out.println(root.value);
 			return;
 		}
-		findKthLargestNode(root.left, k);
+		findKthLargestNode(root.left, k);  // then LEFT
 	}
 /*
  * Analysis:
@@ -63,19 +63,20 @@ private static void findKthLargestNode(Node root, int k) {
  * Space Complexity = O(1)
  */
 private static void findKthSmallestNode(Node root, int k) {
-	// similar to PREORDER traversal
 	
+	/*
+	 * TR: I.  kth SMALLEST = FIRST LEFT THEN RIGHT
+	 *     II. Global Variable = index
+	 */
 	if(root==null)
 		return;
-	
-	// index is GLOBAL
-	
-	findKthSmallestNode(root.left, k);
+
+	findKthSmallestNode(root.left,k);     // First LEFT
 	if(++index==k){
-		System.out.println(root.value);
+		System.out.println(root.value);    
 		return;
 	}
-	findKthSmallestNode(root.right, k);
+	findKthSmallestNode(root.right,k);   // then RIGHT
 }
 /*
  * Analysis:
