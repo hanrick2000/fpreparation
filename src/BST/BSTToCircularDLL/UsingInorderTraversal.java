@@ -31,6 +31,10 @@ public class UsingInorderTraversal {
 	}
 
 private static Node iterativeBSTToSortedCircularLL(Node root) {
+	
+	if(root==null)
+		return null;
+	
 		// INORDER TRAVERSAL
 	Node head = null, tail = null;
 	  Stack<Node> stack = new Stack<Node>();
