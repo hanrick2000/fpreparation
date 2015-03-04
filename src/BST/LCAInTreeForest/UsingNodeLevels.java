@@ -58,7 +58,7 @@ Case 2.
 */
 
 
-package LCAInTreeForest;
+package BST.LCAInTreeForest;
 
 public class UsingNodeLevels {
 
