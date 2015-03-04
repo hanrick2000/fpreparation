@@ -82,6 +82,7 @@ public class PalindromeSentence {
 			if(s.charAt(start)==s.charAt(end)){
 				start++;
 				end--;
+				continue;
 			}
 			else // s.charAt(start)!=s.charAt(end)
 				return false;
@@ -93,14 +94,14 @@ public class PalindromeSentence {
 
 	private static boolean isAlphabet(char c) {
 		int value = (int)c;
-		if(value >=97 && value <=122)
+		if(value >=(int)'a' && value <=(int)'z')
 			return true;
 		else
 			return false;
 	}
 	private static boolean isLetter(char c) {
 		int value = (int)c;
-		if(value >=48 && value <=57)
+		if(value >=(int)'0' && value <=(int)'9')
 			return true;
 		else
 			return false;
