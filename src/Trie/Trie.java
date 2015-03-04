@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class Trie {
 
-    private static final TrieNode[] EMPTYNODES = new TrieNode[0]; // Empty TrieNodeNode of length = 0
+    private static final TrieNode[] EMPTYNODES = new TrieNode[0]; // Empty TrieNodeNode array of length = 0. USED FOR REPREENTING EMPTY CHILDRENS FOR A TRIENODE
 
     private static final class TrieNode implements Comparable<TrieNode> {    // VERY IMP: implements Comparable hence NATURAL ORDERING
 
@@ -112,7 +112,7 @@ Returns an array containing all of the elements in this collection; the runtime 
         TrieNode node = root; 
         int wdepth = 0;  // word depth is 0
         for (char ch : word.toLowerCase().toCharArray()) {  // add all the characters of the word
-            node = node.getOrSetChild(ch);
+            node = node.getOrSetChild(ch);  // update the NODE(root)
             wdepth++;                         // word depth is incremented till the last character of the word
         }
         if (!node.isWord()) { // after adding all the characters of the word, flag the last character of the word 
@@ -128,19 +128,19 @@ Returns an array containing all of the elements in this collection; the runtime 
     public boolean containsWord(String word){
         TrieNode node = root;
         for (char ch : word.toLowerCase().toCharArray()) {
-            node = node.getChild(ch);
+            node = node.getChild(ch); // update the NODE(root)
             if (node == null) {
                 break;
             }
         }
-        return node != null && node.isWord();
+        return (node != null && node.isWord());
     }
 
     public int size() {
         return size;
     }
 
-    public List<String> getWords() {
+    public List<String> getAllWords() {
         // set up a recursion call
         List<String> result = new ArrayList<String>(size);
         char[] charstack = new char[depth];
@@ -170,7 +170,7 @@ Returns an array containing all of the elements in this collection; the runtime 
         t.addWord("sampson");
         t.addWord("Double Vision");
 
-        List<String> words = t.getWords();
+        List<String> words = t.getAllWords();
 
         for(String s : words){
             System.out.println(s);
