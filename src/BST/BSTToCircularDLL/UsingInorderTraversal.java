@@ -31,7 +31,7 @@ public class UsingInorderTraversal {
 	}
 
 private static Node iterativeBSTToSortedCircularLL(Node root) {
-		
+		// INORDER TRAVERSAL
 	Node head = null, tail = null;
 	  Stack<Node> stack = new Stack<Node>();
 	  Node n = root;
@@ -64,7 +64,9 @@ private static Node iterativeBSTToSortedCircularLL(Node root) {
 	    tail.rchild = head;
 	    head.lchild = tail;
 	  }//if
-	  
+	  /*
+	   * VERY IMP: DONOT FORGET STATEMENTS AFTER THE WHILE LOOP 
+	   */
 	  return head;
 		
 	}
@@ -81,12 +83,12 @@ private static void printDLL(Node head) {
 }
 
 private static void recursiveConvertBSTToCircularDLL(Node n) {
-	
+	// INORDER TRAVERSAL
 	// VERY IMP NOTE: TWO POINTERS ARE REQUIRED, prev and head are GLOBAL VARIABLES
 	if(n==null)
 		return;   // VERY IMP return "void"
 	recursiveConvertBSTToCircularDLL(n.lchild);
-	if(prev==null){  // FIRST NODE IN LIST
+	if(head==null){  // FIRST NODE IN LIST
 	   head=n;
 	}
 	else{

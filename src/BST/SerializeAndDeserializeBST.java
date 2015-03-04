@@ -23,6 +23,8 @@ public class SerializeAndDeserializeBST {
 	}
 
 	private static void recursiveSerialize(StringBuilder sb, NodeClass node) {
+		
+		// PREORDER TRAVERSAL
 		if(node==null)
 			return;
 		
