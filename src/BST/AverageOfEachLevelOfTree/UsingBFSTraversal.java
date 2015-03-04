@@ -107,7 +107,7 @@ public Node root=null;
 			}
 		}
 		/*
-		 * VERY IMP: DONOT FORGET THE STATEMENTS MENTIONED HERE
+		 * VERY IMP: DONOT FORGET THE STATEMENTS MENTIONED AFTER WHILE LOOP
 		 */
 		int avg=calAverage(list);  // PRINT THE LAST AVERAGE
 		System.out.println(avg);   
