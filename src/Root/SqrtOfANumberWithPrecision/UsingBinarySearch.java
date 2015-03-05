@@ -47,7 +47,7 @@ public class UsingBinarySearch {
 		double right = n;
 		double mid = 0.0;
 		while((left+PRECISION) < right){
-			mid = (left+right)/2.0;
+			mid = left+(right-left)/2.0;
 			if(n<mid*mid)
 				right = mid;
 			else

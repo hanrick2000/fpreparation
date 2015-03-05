@@ -35,20 +35,23 @@ private static int usingDivision(int a, int b, int c) {
 	 * 2. BIT SHIFTING AND BIT OPERATION
 	 * 3. -- operations
 	*/
-	if(a/b==0){
-		if(a/c==0)
+	if(a/b==0){                                              // COMPARE a
+		// VERY IMP NOTE: a followed by a comparison
+		if(a/c==0)										     // here also COMPARE a
 			return a;
 		else
 			return c;
 	}
-	if(b/c==0){
-		if(b/a==0)
+	if(b/c==0){												 // COMPARE b
+		// VERY IMP NOTE: b followed by b comparison
+		if(b/a==0)											 // here also COMPARE b
 			return b;
 		else
 			return a;
 	}
-	if(c/a==0){
-		if(c/b==0)
+	if(c/a==0){												 // COMPARE c
+		// VERY IMP NOTE: c followed by c comparison
+		if(c/b==0)											 // here also COMPARE c
 			return c;
 		else
 			return b;

@@ -26,7 +26,9 @@ public class FindNumberOfRepeatedElementsInTheSortedArray {
 	}
 
 	private static int usingModifiedBS(int[] a, int find, boolean firstOccurance) {
-		
+		// EXTREME CASE
+		if(a==null||a.length==0)
+			return -1;
 		
 		int result = -1;
 		int low = 0;

@@ -81,8 +81,8 @@ public class NumberOfTimesSortedArrayIsRotated {
 				return low;
 			
 			// find the next and the previous index which are required by the REMAINING CASES
-			int prev = (mid-1+a.length)%a.length;
-			int next = (mid+1+a.length)%a.length;
+			int prev = (mid-1+a.length)%a.length;       // VERY IMP
+			int next = (mid+1+a.length)%a.length;       // VERY IMP
 			
 			
 			// case 2: the mid is the pivot
