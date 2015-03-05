@@ -30,17 +30,23 @@ public class DecimalToRoman {
 	    StringBuilder res=new StringBuilder();
 	    
 	    for(Map.Entry<String, Integer> entry : roman_numerals.entrySet()){
-	      int matches = givenNumber/entry.getValue();                          // Divide
-	      res.append(repeat(entry.getKey(), matches));
-	      givenNumber = givenNumber % entry.getValue();                                // Modulus
+	      // get the key and value
+	      String s = entry.getKey();
+	      int v = entry.getValue();
+	      // get the repeat chars
+	      int repeat = givenNumber/v;                          // Divide
+	      // append the repeated chars
+	      res.append(repeatChar(s, repeat));
+	      // modify the input number
+	      givenNumber = givenNumber % v;                       // Modulus
 	    } 
 	    return res.toString();
 	  }
-	  public static String repeat(String s, int repeat) {
+	  public static String repeatChar(String s, int repeat) {
 	    if(s == null) {
 	        return null;
 	    }
-	    final StringBuilder sb = new StringBuilder();
+	    StringBuilder sb = new StringBuilder();
 	    for(int i = 0; i < repeat; i++)
 	        sb.append(s);
 	    return sb.toString();

@@ -2,7 +2,11 @@ package RomanNumeral;
 
 public class RomanToDecimal {
 	
-public static void romanToDecimal(java.lang.String romanNumber) {
+public static void romanToDecimal(String romanNumber) {
+	
+	if(romanNumber == null || romanNumber.length()==0)
+		System.out.println("Invalid Number");
+	
     int decimal = 0;
     int lastNumber = 0;
     String romanNumeral = romanNumber.toUpperCase();  // convert to upper case
