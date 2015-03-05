@@ -27,6 +27,9 @@ public class UsingBinarySearch {
 			System.out.println("Enter the number");
 			double n = in.nextDouble();
 			System.out.println("SQRT OF THE NUMBER WITH PRECISION is: "+findSqrtWithPrecision(n));
+			System.out.println("Enter a number for CUBE ROOT");
+			double x = in.nextDouble();
+			System.out.println("CUBE ROOT of the number is: "+cubeRoot(x,-3));
 		}
 		finally{
 			in.close();
@@ -47,12 +50,31 @@ public class UsingBinarySearch {
 		double mid = 0.0;
 		while((left+PRECISION) < right){
 			mid = (left+right)/2.0;
-			if(mid*mid>n)
+			if(n<mid*mid)
 				right = mid;
 			else
 				left = mid;
 		}
 		return left;
+	}
+	
+	
+	public static double cubeRoot(double x, int y){
+		// Source: http://www.glassdoor.com/Interview/Implement-a-function-to-compute-cubic-root-what-is-the-time-complexity-QTN_236611.htm
+		
+		if(y==0)
+			return 1.0;
+		
+		double temp = cubeRoot(x,y/2);
+		
+		if(y%2==0)
+			return temp*temp;
+		else{
+			if(y>0)
+				return (x*temp*temp);
+			else
+				return (temp*temp/x);
+		}
 	}
 }
 /*
