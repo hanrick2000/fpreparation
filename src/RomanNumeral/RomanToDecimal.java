@@ -12,7 +12,9 @@ public static void romanToDecimal(java.lang.String romanNumber) {
     
     for (int x = romanNumeral.length() - 1; x >= 0 ; x--) {
         char convertToDecimal = romanNumeral.charAt(x);
-
+/*
+ * TR: 15 - XLCDM             Total Conditions = 7
+ */
         switch (convertToDecimal) {
             case 'M':
                 decimal = processDecimal(1000, lastNumber, decimal);
@@ -53,12 +55,11 @@ public static void romanToDecimal(java.lang.String romanNumber) {
     System.out.println(decimal);
 }
 
-public static int processDecimal(int decimal, int lastNumber, int lastDecimal) {
-    if (lastNumber > decimal) {
-        return lastDecimal - decimal;
-    } else {
-        return lastDecimal + decimal;
-    }
+public static int processDecimal(int value, int lastNumber, int lastDecimal) {
+    if (lastNumber > value)
+        return lastDecimal - value;
+    else
+        return lastDecimal + value;
 }
 
 public static void main(java.lang.String args[]) {
