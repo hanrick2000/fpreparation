@@ -48,7 +48,12 @@ private static LinkedList<Integer> sortSortedLists(LinkedList<Integer> l1,
 	int j=0;  // This will iterate through second list
 	while((i<l1.size())&&(j<l2.size())){
 		/*
-		 * VERY IMP: listObject.get(index i) FUNCTION
+		 * VERY IMP: 
+		 * 
+		 * 				add() and get() methods of LinkedList class
+		 * 
+		 * 1. listObject.get(index i) method
+		 * 2. listObject.add(Element e) method
 		 */
 		if(l1.get(i)<l2.get(j)){
 			result.add(l1.get(i));
