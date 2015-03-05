@@ -17,37 +17,37 @@ public static void romanToDecimal(java.lang.String romanNumber) {
  */
         switch (convertToDecimal) {
             case 'M':
-                decimal = processDecimal(1000, lastNumber, decimal);
+                decimal = processDecimal(lastNumber, 1000, decimal);
                 lastNumber = 1000;
                 break;
 
             case 'D':
-                decimal = processDecimal(500, lastNumber, decimal);
+                decimal = processDecimal(lastNumber, 500, decimal);
                 lastNumber = 500;
                 break;
 
             case 'C':
-                decimal = processDecimal(100, lastNumber, decimal);
+                decimal = processDecimal(lastNumber, 100, decimal);
                 lastNumber = 100;
                 break;
 
             case 'L':
-                decimal = processDecimal(50, lastNumber, decimal);
+                decimal = processDecimal(lastNumber, 50, decimal);
                 lastNumber = 50;
                 break;
 
             case 'X':
-                decimal = processDecimal(10, lastNumber, decimal);
+                decimal = processDecimal(lastNumber, 10, decimal);
                 lastNumber = 10;
                 break;
 
             case 'V':
-                decimal = processDecimal(5, lastNumber, decimal);
+                decimal = processDecimal(lastNumber, 5, decimal);
                 lastNumber = 5;
                 break;
 
             case 'I':
-                decimal = processDecimal(1, lastNumber, decimal);
+                decimal = processDecimal(lastNumber, 1, decimal);
                 lastNumber = 1;
                 break;
         }
@@ -55,11 +55,11 @@ public static void romanToDecimal(java.lang.String romanNumber) {
     System.out.println(decimal);
 }
 
-public static int processDecimal(int value, int lastNumber, int lastDecimal) {
+public static int processDecimal(int lastNumber, int value, int decimal) {
     if (lastNumber > value)
-        return lastDecimal - value;
+        return decimal - value;
     else
-        return lastDecimal + value;
+        return decimal + value;
 }
 
 public static void main(java.lang.String args[]) {
