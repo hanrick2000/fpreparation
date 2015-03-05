@@ -50,7 +50,7 @@ public class MaxStockProfit {
 		for(int i=1;i<a.length;i++){
 			maxProfit = Math.max(a[i]-minStockPrice,maxProfit);
 			minStockPrice = Math.min(minStockPrice,a[i]);
-		}
+		}	
 		
 		return maxProfit;
 		}
