@@ -15,7 +15,7 @@ Algorithm:
 	So if F(mid) is larger than the number, we need to go for values less then mid. Go 
 	for larger values otherwise.
 */
-package SqrtOfANumberWithPrecision;
+package Root.SqrtOfANumberWithPrecision;
 
 import java.util.Scanner;
 
@@ -41,6 +41,7 @@ public class UsingBinarySearch {
 		
 		double PRECISION = 0.0001;
 		
+		// Extreme Case
 		if(n<PRECISION)     // the number should be greater than the precision
 			return -1.0;
 		
