@@ -4,6 +4,7 @@
  * Source: http://www.careercup.com/question?id=83756
  * 		   http://www.geeksforgeeks.org/turn-an-image-by-90-degree/
  * 
+ * In place Solution Source: http://www.careercup.com/question?id=83756
  * 
  * VERY IMP POINTS:
  * 1. Square matrix CAN be rotated in place
@@ -16,7 +17,8 @@
  * 
  * 
  * Solution Source: 
- * BEST EXPLANATION SOURCE: http://stackoverflow.com/questions/25882480/rotating-a-nxn-matrix-in-java
+ * BEST EXPLANATION SOURCE: http://www.careercup.com/question?id=83756
+ * http://stackoverflow.com/questions/25882480/rotating-a-nxn-matrix-in-java
  * http://stackoverflow.com/questions/20773692/rotate-matrix-in-place
  * http://www.programcreek.com/2013/01/leetcode-rotate-image-java/
  * 
@@ -113,25 +115,68 @@ public static void main(String[] args) {
 		for(int i=0;i<rows;i++)
 			for(int j=0;j<cols;j++)
 				image[i][j]=in.nextInt();
+		int[][] copy = image;
 		int[][] copyImage = image;
+		System.out.println("\n");
+		
+		// In place Rotation using Intelligent Algorithm
+		System.out.println("INPLACE ROTATION USING INTELLIGENT ALGORITHM");
 		System.out.println("Original Matrix: ");
-		printImage(image);
-		System.out.println();
-		rotateMatrixUsingAuxArray(image);
-		System.out.println();
+		printImage(copy);
+		intelligentInPlaceRotation(copy);
+		System.out.println("Inplace rotation using intelligent algorithm: ");
+		printImage(copy);
+		System.out.println("\n");
+		
+		// In place Rotation using traditional Algorithm
+		System.out.println("INPLACE ROTATION USING TRADITIONAL ALGORITHM");
 		System.out.println("Original Matrix: ");
 		printImage(copyImage);
 		rotateMatrixInPlace(copyImage, copyImage.length);
-		System.out.println("Rotated Matrix in place: ");
+		System.out.println("Inplace rotation using traditional algorithm: ");
 		printImage(copyImage);
-
+		System.out.println("\n");
+		
+		// Rotation using aux[][] matrix (additional memory)
+		System.out.println("ROTATION USING EXTRA MATRIX MEMORY, AUX MATRIX");
+		System.out.println("Original Matrix: ");
+		printImage(image);
+		rotateMatrixUsingAuxArray(image);
+		System.out.println("\n");
 	}
 	finally{
 		in.close();
 		}
 
 	}
-public static void rotateMatrixInPlace(int[][] matrix, int n){
+
+public static void intelligentInPlaceRotation(int[][] m){   // IN PLACE ROTATION Applicable ONLY for square matrix
+	
+	// first mirror the matrix along the diagonal line (Same as TRANSPOSE of matrix)
+	for(int i=0;i<m.length;i++){
+		for(int j=i+1;j<m.length;j++){
+			int temp = m[i][j];
+			m[i][j]=m[j][i];
+			m[j][i]=temp;
+		}
+	}
+	
+	// mirror the matrix horizontally.
+	for(int i=0;i<(m.length/2);i++){   // half of rows
+		for(int j=0;j<m.length;j++){   // all columns
+			int temp = m[j][i];            // COLUMN FIRST
+			m[j][i] = m[j][m.length-i-1];  // COLUMN FIRST
+			m[j][m.length-i-1]=temp;       // COLUMN FIRST
+		}
+	}
+
+}
+/*
+ * Analysis:
+ * Time Complexity = O(mn)
+ * Space Complexity = O(1) since NO aux matrix is used
+ */
+public static void rotateMatrixInPlace(int[][] matrix, int n){   // IN PLACE ROTATION Applicable ONLY for square matrix
 	
 	// NOTE: Only SQUARE matrices can be rotated using INPLACE method
 	
@@ -171,14 +216,14 @@ public static void rotateMatrixInPlace(int[][] matrix, int n){
 	/*
 	 * Analysis:
 	 * Time Complexity = O(mn)
-	 * Space Complexity = O(1) since NO aux array is used
+	 * Space Complexity = O(1) since NO aux matrix is used
 	 */
 	private static void rotateMatrixUsingAuxArray(int[][] image) {
 	int[][] aux = new int[image[0].length][image.length]; // rows becomes columns and columns becomes rows
 	for(int i=0;i<image.length;i++)
 		for(int j=0;j<image[0].length;j++)
 			aux[j][image.length-i-1] = image[i][j];  // row and columns are swapped in aux matrix
-	System.out.println("Rotated Matrix using AUX matrix: ");
+	System.out.println("Rotated Matrix using AUX matrix (extra memory): ");
 	printImage(aux);
 		
 }
