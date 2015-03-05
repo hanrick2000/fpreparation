@@ -8,6 +8,11 @@ public class CheckCeil {
 
 
 public static void main(String[] args) {
+	
+	
+	System.out.println((char)(2+(int)'0'));
+	System.out.println("Hello");
+	
 	System.out.println((int)Math.sqrt(5));
 	System.out.println((int)Math.ceil(Math.sqrt(8)));
 	System.out.println(callfunction());

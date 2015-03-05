@@ -40,8 +40,9 @@ public class MaxStockProfit {
 		if(a.length==0||a==null)
 			return -1;
 		
+		// The array should have at least two elements to represent buying and selling
 		if(a.length<2)
-			return a[0];
+			return -1;
 		
 		int maxProfit = a[1]-a[0];
 		int minStockPrice = a[0];
