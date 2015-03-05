@@ -5,11 +5,11 @@ import java.util.Map;
 
 
 public class DecimalToRoman {
-	public static String RomanNumerals(int Int) {
+	public static String RomanNumerals(int givenNumber) {
 	    LinkedHashMap<String, Integer> roman_numerals = new LinkedHashMap<String, Integer>();
 	    
 	    /*
-	     * TR: 1,4,5,9   -    XLCDM = 10,50,100,500,1000
+	     * TR: 1,4,5,9   -    XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13      LinkedHashMap<String,Integer>
 	     */
 	    
 	    roman_numerals.put("M", 1000);
@@ -30,10 +30,10 @@ public class DecimalToRoman {
 	    StringBuilder res=new StringBuilder();
 	    
 	    for(Map.Entry<String, Integer> entry : roman_numerals.entrySet()){
-	      int matches = Int/entry.getValue();
+	      int matches = givenNumber/entry.getValue();                          // Divide
 	      res.append(repeat(entry.getKey(), matches));
-	      Int = Int % entry.getValue();
-	    }
+	      givenNumber = givenNumber % entry.getValue();                                // Modulus
+	    } 
 	    return res.toString();
 	  }
 	  public static String repeat(String s, int repeat) {
