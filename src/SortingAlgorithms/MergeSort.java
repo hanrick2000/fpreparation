@@ -7,6 +7,7 @@ package SortingAlgorithms;
 public class MergeSort {
 
 	private static int []a;
+	
 	public static void main(String[] args) {
 		a = getArray();
 		printArray(a);
@@ -21,7 +22,7 @@ public class MergeSort {
 		mergeSort(tempArray,0,a.length-1);
 	}
 	public static void mergeSort(int []tempArray,int lowerIndex,int upperIndex){
-		if(lowerIndex == upperIndex){
+		if(lowerIndex >= upperIndex){
 			return;
 		}else{
 			int mid = (lowerIndex+upperIndex)/2;
@@ -39,26 +40,24 @@ public class MergeSort {
 		
 		// Variables used here are start1,end1,start2,end2
 		while(start1 <= end1 && start2 <= end2){
-			if(a[start1] < a[end2]){ // compare the elements of the input array and store the answer in tempArray
+			if(a[start1] < a[start2]) // compare the elements of the input array and store the answer in tempArray
 				tempArray[tempIndex++] = a[start1++];
-			}else{
+			else
 				tempArray[tempIndex++] = a[start2++];
-			}
 		}
 		
-		while(start1 <= end1){
+		while(start1 <= end1)
 			tempArray[tempIndex++] = a[start1++];
-		}
 		
-		while(start2 <= end2){
+		
+		while(start2 <= end2)
 			tempArray[tempIndex++] = a[start2++];
-		}
+		
 		// END OF Variables used here are start1,end1,start2,end2
 		
 		// This loop copies the solution to the input array(i.e. a[])
-		for(int i=0;i<totalItems;i++){
+		for(int i=0;i<totalItems;i++)
 			a[lowerIndex+i] = tempArray[i];  // lowerIndex is stored at the start of the loop
-		}
 	}
 	
 	public static void printArray(int []array){

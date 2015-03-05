@@ -29,6 +29,11 @@ public static void main(String[] args) {
 
 private static int usingDivision(int a, int b, int c) {
 	/*To change this program to get the max, just change the comparison sign from '<' to '>'
+	 * 
+	 * THREE WAYS OF CALCULATING SMALLEST AMONG 3 NUMBERS:
+	 * 1. DIVISION
+	 * 2. BIT SHIFTING AND BIT OPERATION
+	 * 3. -- operations
 	*/
 	if(a/b==0){
 		if(a/c==0)
@@ -48,7 +53,7 @@ private static int usingDivision(int a, int b, int c) {
 		else
 			return b;
 	} 
-	return a;                        // otherwise all three numbers are equal. Hence return any one of the three numbers(for example: a=5,b=5,c=5 then min(a,b,c)=a OR b OR c)
+	return a;        // otherwise all three numbers are equal. Hence return any one of the three numbers(for example: a=5,b=5,c=5 then min(a,b,c)=a OR b OR c)
 } 
 /*
 Analysis:
