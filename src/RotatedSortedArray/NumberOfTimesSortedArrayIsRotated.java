@@ -41,12 +41,39 @@ public class NumberOfTimesSortedArrayIsRotated {
 
 	private static int usingModifiedBS(int[] a) {
 		
+		if(a==null||a.length==0)
+			return -1;
+		
 		int low = 0;
 		int high = a.length-1;
 		int mid = 0;
 		
 		while(low<=high){
 			
+			// EXACTLY one number in the array
+			if(low==high)
+				return low;
+			
+			// EXACTLY two numbers in the array where a[low]<=a[high]
+			if((low==high-1) && (a[low] <= a[high]))
+				return low;
+			
+			// EXACTLY two numbers in the array where a[low]>a[high]
+			if((low==high-1) && (a[low] > a[high]))
+				return high;
+					
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			// MORE than two numbers present in the array
+			
+			// We handle 4 cases. VERY IMP CASE is Case 1: NOT ROTATED
 			mid = low+(high-low)/2;
 			
 			// case 1: Not rotated
@@ -64,11 +91,11 @@ public class NumberOfTimesSortedArrayIsRotated {
 			
 			// case 3: the lower half is sorted hence pivot is in upper half
 			else if(a[mid] >= a[low])
-				low=mid+1;
+				low=mid+1;                                                          // VERY IMP
 			
-			// case 4: the upper half is sorted hence the pivot is in lowe half
+			// case 4: the upper half is sorted hence the pivot is in lower half
 			else if(a[mid]<=a[high])
-				high=mid-1;
+				high=mid-1;															// VERY IMP
 		}
 		
 		return -1; // the array is not sorted

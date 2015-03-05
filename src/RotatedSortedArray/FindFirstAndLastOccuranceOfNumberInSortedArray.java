@@ -1,6 +1,6 @@
 /*
 Question: A Rotated Sorted Array contains duplicate elements
-		Find the first and last occurance of an element in the REPEATED SORTED ARRAY
+		  Find the first and last occurance of an element in the REPEATED SORTED ARRAY
 		
 Quetion And Answer Source: https://www.youtube.com/watch?v=OE7wUUpJw6I
 

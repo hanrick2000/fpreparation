@@ -4,6 +4,17 @@
  * Source: http://www.careercup.com/question?id=83756
  * 		   http://www.geeksforgeeks.org/turn-an-image-by-90-degree/
  * 
+ * 
+ * VERY IMP POINTS:
+ * 1. Square matrix CAN be rotated in place
+ * 2. Rectangular matrix CANNOT be rotated in place BECAUSE WE CANNOT CHANGE DIMENSIONS
+ * Example: If original is 2x3 matrix then the rotated with also be 2x3 which is INCORRECT
+ * In order to make it correct we need 3x2 matrix with values swapped. Since we are NOT ALLOWED
+ * to change the dimensions of original matrix in case of IN PLACE rotation hence we cannot
+ * ACHIEVE the correct result of IN PLACE rotateion in case of RECTANGULAR MATRIX 
+ * 3. BOTH square and rectangular matrix can be rotated using extra memory (i.e. aux[][] matrix)
+ * 
+ * 
  * Solution Source: 
  * BEST EXPLANATION SOURCE: http://stackoverflow.com/questions/25882480/rotating-a-nxn-matrix-in-java
  * http://stackoverflow.com/questions/20773692/rotate-matrix-in-place
@@ -102,12 +113,17 @@ public static void main(String[] args) {
 		for(int i=0;i<rows;i++)
 			for(int j=0;j<cols;j++)
 				image[i][j]=in.nextInt();
+		int[][] copyImage = image;
+		System.out.println("Original Matrix: ");
 		printImage(image);
 		System.out.println();
 		rotateMatrixUsingAuxArray(image);
 		System.out.println();
-		rotateMatrixInPlace(image, image.length);
-		printImage(image);
+		System.out.println("Original Matrix: ");
+		printImage(copyImage);
+		rotateMatrixInPlace(copyImage, copyImage.length);
+		System.out.println("Rotated Matrix in place: ");
+		printImage(copyImage);
 
 	}
 	finally{
@@ -162,7 +178,7 @@ public static void rotateMatrixInPlace(int[][] matrix, int n){
 	for(int i=0;i<image.length;i++)
 		for(int j=0;j<image[0].length;j++)
 			aux[j][image.length-i-1] = image[i][j];  // row and columns are swapped in aux matrix
-	
+	System.out.println("Rotated Matrix using AUX matrix: ");
 	printImage(aux);
 		
 }
