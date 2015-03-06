@@ -95,17 +95,17 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	    swap(arr,i, r);
 	 
 	    // Standard partition algorithm
-	    i = l;
+	    int storage = l;                                  // store the left
 	    for (int j = l; j <= r - 1; j++)
 	    {
 	        if (arr[j] <= x)
 	        {
-	            swap(arr,i, j);
-	            i++;
+	            swap(arr,storage, j);
+	            storage++;
 	        }
 	    }
-	    swap(arr,i, r);
-	    return i;
+	    swap(arr,storage, r);
+	    return storage;
 	}
 	 
 	// Driver program to test above methods
