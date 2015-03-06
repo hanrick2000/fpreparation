@@ -42,12 +42,15 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        int[] median=new int[(n+4)/5]; // There will be floor((n+4)/5) groups;
 	        for (i=0; i<n/5; i++)
 	            median[i] = findMedian(arr, l+i*5,5);
-	        if (i*5 < n) //For last group with less than 5 elements
+	        if (i*5 < n) //For last group with less than 5 elements. 
+	       // Thus even the last part is sorted and median is taken from even the last part.
+	       // If even number of elements in the last part Example 4 elements then 4/2 = 2nd index is taken in median array (RIGHTMOST index)
+	       // If odd number of elements in the last part Example 3 elements then 3/2 = 1st index is taken in the median array (No issue in selecting median since odd number of elements)
 	        {
 	            median[i] = findMedian(arr,l+i*5,n%5); 
 	            i++;     
 	        }    
-	 
+	        
 	        // Find median of all medians using recursive call.
 	        // If median[] has only one element, then no need
 	        // of recursive call
