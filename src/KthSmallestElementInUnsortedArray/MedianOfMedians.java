@@ -33,7 +33,7 @@ public class MedianOfMedians {
 		System.out.println("Using median of medians: "+res);
 		Arrays.sort(a);
 		System.out.println("Using sorting: "+a[k-1]);
-		System.out.println("Sorted array usig sorting: "+Arrays.toString(a));
+		System.out.println("Sorted array using sorting: "+Arrays.toString(a));
 		}
 		finally{
 			in.close();

@@ -45,7 +45,7 @@ public class GeeksMedianOfMedians {
 	        if (i*5 < n) //For last group with less than 5 elements
 	        {
 	            median[i] = findMedian(arr,l+i*5,n%5); 
-	            i++;
+	            i++;     
 	        }    
 	 
 	        // Find median of all medians using recursive call.
@@ -53,7 +53,8 @@ public class GeeksMedianOfMedians {
 	        // of recursive call
 	        int medOfMed = (i == 1)? median[i-1]:
 	                                 kthSmallest(median, 0, i-1, i/2);
-	 
+	        
+	        
 	        // Partition the array around a random element and
 	        // get position of pivot element in sorted array
 	        int pos = partition(arr, l, r, medOfMed);
@@ -124,7 +125,7 @@ public class GeeksMedianOfMedians {
 		System.out.println("Using median of medians: "+res);
 		Arrays.sort(a);
 		System.out.println("Using sorting: "+a[k-1]);
-		System.out.println("Sorted array usig sorting: "+Arrays.toString(a));
+		System.out.println("Sorted array using sorting: "+Arrays.toString(a));
 		}
 		finally{
 			in.close();
