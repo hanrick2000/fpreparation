@@ -58,6 +58,11 @@ public class EvaluateStringToFloat {
 	
 
 	private float makeInt(String s) throws Exception{
+		/*
+		Question: Convert an ASCII representation of a positive integer to it's numeric value
+		Question Source: http://www.careercup.com/question?id=6964830 
+		*/
+		
 		if(s.length() == 0)
 			return 0;
 		float res = 0f;
@@ -70,7 +75,9 @@ public class EvaluateStringToFloat {
 	
 	public static void main(String[] args) throws Exception {
 		EvaluateStringToFloat a = new EvaluateStringToFloat("3.2");
+		EvaluateStringToFloat a1 = new EvaluateStringToFloat("32");
 		System.out.println(a.result); //Output: 3.2
+		System.out.println(a1.result); // Output: 32
 		EvaluateStringToFloat b = new EvaluateStringToFloat("342.18E-10");
 		System.out.println(b.result);  //Output: 3.4218E-8
 		// Example of float
