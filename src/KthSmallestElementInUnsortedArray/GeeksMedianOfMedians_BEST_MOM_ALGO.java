@@ -104,7 +104,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	            storage++;
 	        }
 	    }
-	    swap(arr,storage, r);
+	    swap(arr,storage, r);                             // swap storage and right
 	    return storage;
 	}
 	 
