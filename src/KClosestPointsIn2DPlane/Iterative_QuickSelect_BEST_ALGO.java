@@ -143,7 +143,6 @@ public class Iterative_QuickSelect_BEST_ALGO {
 	    	//dont work if the list isnt there or if they want a k that doesnt exist
 	    	if(x == null || k>=x.length || k<0)
 	    		throw new Error();
-	 
 	    	
 	    	int left = 0;
 	    	int right = x.length-1;
