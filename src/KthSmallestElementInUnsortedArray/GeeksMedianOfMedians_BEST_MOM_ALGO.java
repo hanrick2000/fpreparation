@@ -69,7 +69,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	            return kthSmallest(arr, l, pos-1, k);
 	 
 	        // Else recur for right subarray
-	        return kthSmallest(arr, pos+1, r, k-(pos+l-1));
+	        return kthSmallest(arr, pos+1, r, k-pos+l-1);
 	    }
 	 
 	    // If k is more than number of elements in array
