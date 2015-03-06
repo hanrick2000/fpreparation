@@ -28,7 +28,7 @@ public class MedianOfMedians {
 			a[i]=in.nextInt();
 		System.out.println("Enter the value of k");
 		int k = in.nextInt();
-		System.out.println("The kth largest element in the array is: "+find(a,0,a.length,k));
+		System.out.println("The kth smallest element in the array is: "+find(a,0,a.length,k));
 		}
 		finally{
 			in.close();
@@ -42,7 +42,7 @@ public class MedianOfMedians {
 	     
 	    int m = (n+4) /5;
 	    int[] mid = new int[m]; // array to store the median elements
-	     
+	    
 	    for (int i=0; i<m; i++) {
 	        int t = s+i*5;      // 5-elements block pointer
 	        if ( n-t > 4 ) {
