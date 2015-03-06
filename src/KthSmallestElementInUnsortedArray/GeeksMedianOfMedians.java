@@ -12,11 +12,16 @@ package KthSmallestElementInUnsortedArray;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class GeeksMedians {
+public class GeeksMedianOfMedians {
 	// A simple function to find median of arr[].  This is called
 	// only for an array of size 5 in this program.
 	public static int findMedian(int[] arr, int left, int totalElements)
 	{
+		/* Arrays.sort method description
+		public static void sort(int[] a,
+        int fromIndex,    // inclusive index
+        int toIndex)      // exclusive index
+		 */
 	    Arrays.sort(arr, left, left+totalElements);  // Sort the array
 	    int medianIndex = left+totalElements/2;
 	    return arr[medianIndex];   // Return middle element
@@ -27,9 +32,9 @@ public class GeeksMedians {
 	public static int kthSmallest(int arr[], int l, int r, int k)
 	{
 	    // If k is smaller than number of elements in array
-	    if (k > 0 && k <= r - l + 1)
+	    if (k > 0 && k <= r - l + 1)                          // (r-l+1) = number of elements within the range arr[l...r]. NOTE: DONOT REPLACE (r-l+1) with a.length
 	    {
-	        int n = r-l+1; // Number of elements in arr[l..r]
+	        int n = r-l+1; // Number of elements to be considered within the range arr[l..r]
 	 
 	        // Divide arr[] in groups of size 5, calculate median
 	        // of every group and store it in median[] array.
