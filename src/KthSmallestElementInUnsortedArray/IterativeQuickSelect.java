@@ -23,16 +23,62 @@ public class IterativeQuickSelect {
 				a[i]=in.nextInt();
 			System.out.println("Enter the kth element");
 			int k = in.nextInt();
-			System.out.println("The kth smallest element in the array is: "+usingIterativeQuickSelect(a,0,a.length-1,k));
+			System.out.println("The kth smallest element in the array is: "+usingIterativeQuickSelect(a,k));
 		}
 		finally{
 			in.close();
 		}
 	}
 
-	private static String usingIterativeQuickSelect(int[] a, int i, int j, int k) {
-		// TODO Auto-generated method stub
-		return null;
+	private static int usingIterativeQuickSelect(int[] x, int k) {
+		if(x==null||x.length==0)
+			return -1;
+		
+		
+		int left = 0;
+    	int right = x.length-1;
+ 
+    	//we stop when our indices have crossed
+    	while (left < right){
+    		/*
+    		 * Swap right <-> pivotValue
+    		 * store the left index
+    		 */
+    		int pivot = left+((right - left)/2); //this can be whatever
+    		
+    		int pivotValue = x[pivot]; // Move pivot to end
+    		x[pivot] = x[right];
+    		x[right]=pivotValue;
+    		
+    		// Now the pivot is the element which is at right index
+    		
+    		int storage=left; // store the left index
+    		
+    		// from (left) to (right-1)
+    		for(int i =left; i < right; i++){
+    	// for each number i, if i is less than the pivot, swap i and storage and increment storage
+    			if(x[i] < pivotValue){
+    				int temp =x[storage];
+    				x[storage] = x[i];
+    				x[i]=temp;
+    				// increment the stored value of left
+    				storage++;
+    			}
+    		}
+    		// swap the storage and right
+    		x[right]=x[storage];
+    		x[storage]=pivotValue;//move the pivot to its correct absolute location in the list
+ 
+    	//pick the correct half of the list you need to parse through to find your K, and ignore the other half
+    		if(storage < k)
+    			left = storage+1;
+    		else//storage>= k
+    			right = storage;
+ 
+    	}
+    	
+    	return k;
+ 
 	}
 
 
