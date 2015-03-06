@@ -40,9 +40,16 @@ public class IterativeQuickSelect {
  
     	//we stop when our indices have crossed
     	while (left < right){
-    		/*
+    		/* get pivot and pivotValue
     		 * Swap right <-> pivotValue
     		 * store the left index
+    		 * 
+    		 * start loop from left to right-1
+    		 * if -> i<pivotValue, swap i and storage. Then storage++
+    		 * at the end of loop, swap right with storage
+    		 * 
+    		 * if(storage<k) -> LEFT = storage+1
+    		 *     else      -> RIGHT = storage
     		 */
     		int pivot = left+((right - left)/2); //this can be whatever
     		
@@ -77,7 +84,7 @@ public class IterativeQuickSelect {
  
     	}
     	
-    	return k;
+    	return x[k];
  
 	}
 
