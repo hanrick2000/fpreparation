@@ -25,8 +25,8 @@ public class IterativeAndRecursiveSolution {
             return 0;
         }
  
-        Queue<Node> nodes = new LinkedList<Node>();
-        Queue<Integer> counts = new LinkedList<Integer>();
+        Queue<Node> nodes = new LinkedList<Node>();        // We can also use List since List and Queue are one and the same (FIFO operations)
+        Queue<Integer> counts = new LinkedList<Integer>(); // We can also use List since List and Queue are one and the same (FIFO operations)
         
         nodes.add(root);
         counts.add(1);
