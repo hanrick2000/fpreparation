@@ -93,7 +93,7 @@ public class IterativeQuickSelect {
 /*
 Analysis:
 (Analysis Source: http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-2-expected-linear-time/)
-Worst Case Time Complexity = O(n^2)
-Best and Average Case Time Complexity = O(n)
+Worst Case Time Complexity = O(n^2). VERY IMP NOTE: THIS IS WOST CASE COMPLEXITY HENCE "O" is used.
+Best and Average Case Time Complexity = THETA(n)
 Space Complexity = O(1)
 */

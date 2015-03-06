@@ -9,6 +9,7 @@ Expected output: 1
 Question Source: http://www.careercup.com/question?id=15435963
 	
 Answer Source: https://yiqi2.wordpress.com/2013/07/03/median-of-medians-selection-algorithm/
+http://javatroops.blogspot.com/2012/10/median-of-medians-to-find-kth-smallest.html
 */
 package Array.MedianKthSmallestKthLargestElementInUnsortedArray;
 
@@ -23,12 +24,15 @@ public class MedianOfMedians {
 		System.out.println("Enter the number of elements in the array");
 		int n = in.nextInt();
 		System.out.println("Enter the elements of the array");
+		int[] a = new int[]{88, 30, 11, 17, 22, 16, 39, 8, 31, 55, 29, 63, 77, 69, 99, 90, 81, 2, 20, 53, 62, 5, 88, 33, 44, 6, 1};
+		/*
 		int[] a= new int[n];
 		for(int i=0;i<n;i++)
 			a[i]=in.nextInt();
+		*/
 		System.out.println("Enter the value of k");
 		int k = in.nextInt();
-		System.out.println("The kth smallest element in the array is: "+find(a,0,a.length,k));
+		System.out.println("The kth smallest element in the array is: "+find(a,0,a.length-1,k));
 		}
 		finally{
 			in.close();
@@ -40,7 +44,7 @@ public class MedianOfMedians {
 	    if ( n == 1 && k == 1 )
 	        return a[s];
 	     
-	    int m = (n+4) /5;
+	    int m = (n+4)/5;
 	    int[] mid = new int[m]; // array to store the median elements
 	    
 	    for (int i=0; i<m; i++) {
@@ -75,9 +79,9 @@ public class MedianOfMedians {
 	    }
 	    swap(a, s+pos, s+n-1);
 	     
-	    if ( pos == k-1 )
+	    if ( pos == (k-1) )
 	        return pivot;
-	    else if ( pos > k-1 )
+	    else if ( pos > (k-1))
 	        return find(a, s, pos, k);
 	    else
 	        return find(a, s+pos+1, n-pos-1, k-pos-1);
