@@ -28,7 +28,8 @@ public class MedianOfMedians {
 		System.out.println("Array elements are: "+Arrays.toString(a));
 		System.out.println("Enter k to search for kth smallest number. Starts from 1 to "+a.length);
 		int k = in.nextInt();   // Starts from 1 to a.length
-		int res = select(a, k);	
+		int res = select(a, k);   // To find the kth SMALLEST element
+		// int res = select(a, a.length-k+1);	 // To find the kth LARGEST element
 		System.out.println("Array elemnts using median of medians: "+Arrays.toString(a));
 		System.out.println("Using median of medians: "+res);
 		Arrays.sort(a);
