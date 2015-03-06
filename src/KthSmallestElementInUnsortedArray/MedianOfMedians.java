@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Scanner;
  
 /**
- * Calculate Kth biggest element in an unsorted array using Median of Medians. Worst case is O(N)
- *
+ * Calculate Kth smallest element in an unsorted array using Median of Medians. Worst case is O(N)
+ * Question Source: 
+ * Solution Source: http://javatroops.blogspot.com/2012/10/median-of-medians-to-find-kth-smallest.html
+ * VERY VERY IMP SOURCE OF MIT EXPLAINING THIS ALGORITHM:
+ * http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2012/lecture-notes/MIT6_046JS12_lec01.pdf
  */
 public class MedianOfMedians {
  
@@ -68,13 +71,14 @@ public class MedianOfMedians {
 		for (int i = 0; i< noOfArraySets; i++ ) {
 			medians[i] = list.get(i)[2];
 		}
- 
+        
+		// take a pivot element
 		int v = medians[0];
 		if(medians.length > 2) {
 			v = (medians.length%2 == 0)? medians[medians.length/2-1]: medians[medians.length/2];
 		}
  
-		//    partition L into L1<M, L2=M, L3>M
+		//partition L into L1<M, L2=M, L3>M
 		Integer[] l = partition_l( a, v );
 		Integer[] r = partition_r( a, v );
 		
