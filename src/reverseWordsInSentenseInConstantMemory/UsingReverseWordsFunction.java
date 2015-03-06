@@ -64,7 +64,7 @@ public static void reverseWord(char[] s,int start, int end){
 	    s[start] = (char)(s[start]^s[end]);
 	}
 }
-public static char[] reverseSentence(char[] s){
+public static char[] reverseSentence(char[] s){ // VERY IMP: char array
 	int start = 0;
 	int end = 0;
 	for(int i=0;i<s.length;i++){
