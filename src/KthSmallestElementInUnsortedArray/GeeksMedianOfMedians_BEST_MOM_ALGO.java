@@ -12,7 +12,7 @@ package KthSmallestElementInUnsortedArray;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class GeeksMedianOfMedians_BEST {
+public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	// A simple function to find median of arr[].  This is called
 	// only for an array of size 5 in this program.
 	public static int findMedian(int[] arr, int left, int totalElements)
