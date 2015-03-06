@@ -7,6 +7,7 @@ Recursive Solution Source: https://oj.leetcode.com/discuss/9792/my-solution-to-m
 package BST.minDepth;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 
 public class IterativeAndRecursiveSolution {
@@ -24,8 +25,8 @@ public class IterativeAndRecursiveSolution {
             return 0;
         }
  
-        LinkedList<Node> nodes = new LinkedList<Node>();
-        LinkedList<Integer> counts = new LinkedList<Integer>();
+        Queue<Node> nodes = new LinkedList<Node>();
+        Queue<Integer> counts = new LinkedList<Integer>();
         
         nodes.add(root);
         counts.add(1);
