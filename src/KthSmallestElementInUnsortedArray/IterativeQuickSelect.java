@@ -4,10 +4,17 @@ Question: Use a quickselect algorithm to find the kth smallest element in the ar
 
 Question Source: 	http://www.careercup.com/question?id=15435963
 	http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/
+	
+  Solution Source: http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/
+	
+  Sample Input to test the below implementation
+  88        30        11        17        22        16        39        8        31        55        29        63        77        69        99        90        81        2        20        53        62        5        88        33        44        6
+ 
 */
 
 package KthSmallestElementInUnsortedArray;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class IterativeQuickSelect {
@@ -21,9 +28,15 @@ public class IterativeQuickSelect {
 			System.out.println("Enter the elements of the array");
 			for(int i=0;i<n;i++)
 				a[i]=in.nextInt();
-			System.out.println("Enter the kth element");  // STARTS FROM 0th index to (a.length-1)
+			System.out.println("Array elements are: "+Arrays.toString(a));
+			System.out.println("Enter the kth element. k should START FROM 0 TO "+(a.length-1)+ " BOTH INCLUSIVE");  // STARTS FROM 0th index to (a.length-1)
 			int k = in.nextInt();
-			System.out.println("The kth smallest element in the array is: "+usingIterativeQuickSelect(a,k));
+			int res = usingIterativeQuickSelect(a,k);
+			System.out.println("Array elemnts using median of medians: "+Arrays.toString(a));
+			System.out.println("Using median of medians: "+res);
+			Arrays.sort(a);
+			System.out.println("Using sorting: "+a[k]);
+			System.out.println("Sorted array using sorting: "+Arrays.toString(a));
 		}
 		finally{
 			in.close();
