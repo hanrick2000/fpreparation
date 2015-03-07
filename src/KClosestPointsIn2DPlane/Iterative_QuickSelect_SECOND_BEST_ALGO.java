@@ -176,7 +176,6 @@ public class Iterative_QuickSelect_SECOND_BEST_ALGO {
 	    			left = pos+1;
 	    		else//pos>= k
 	    			right = pos;
-	 
 	    	}
 	    	
 	    	return k;

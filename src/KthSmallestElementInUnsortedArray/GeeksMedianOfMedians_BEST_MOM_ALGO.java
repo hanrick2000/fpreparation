@@ -8,6 +8,13 @@
  *
  * Sample Input to test the below implementation: 
  * 88        30        11        17        22        16        39        8        31        55        29        63        77        69        99        90        81        2        20        53        62        5        88        33        44        6
+ * 
+ * 
+ * IMP NOTE:
+ * Both MOM and QuickSelect can be used to find answers for BOTH questions:
+ * 1. Find the kth smallest element    (Find single element)
+ * 2. Find all the k smallest elements (Find k elements)
+ * 
  */
 
 package KthSmallestElementInUnsortedArray;
@@ -129,9 +136,18 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 		int res = kthSmallest(a,0, a.length-1, k);	
 		System.out.println("Array elemnts using median of medians: "+Arrays.toString(a));
 		System.out.println("Using median of medians: "+res);
+		System.out.println("All k smallest elements using MOM algorithm are: ");
+		for(int i=0;i<k;i++)
+			System.out.print(a[i]+" ");
+		System.out.println();
+		System.out.println("<----SORTING TO VERIFY THE ANSWERS---->");
 		Arrays.sort(a);
-		System.out.println("Using sorting: "+a[k-1]);
 		System.out.println("Sorted array using sorting: "+Arrays.toString(a));
+		System.out.println("Using sorting: "+a[k-1]);
+		System.out.println("All k smallest elements using SORTING are: ");
+		for(int i=0;i<k;i++)
+			System.out.print(a[i]+" ");
+		System.out.println();
 		}
 		finally{
 			in.close();
