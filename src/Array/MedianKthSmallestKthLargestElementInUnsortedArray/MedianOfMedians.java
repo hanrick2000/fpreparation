@@ -25,7 +25,7 @@ public class MedianOfMedians {
 		int n = in.nextInt();
 		System.out.println("Enter the elements of the array");
 		int[] a = new int[n];
-	
+		
 		for(int i=0;i<n;i++)
 			a[i]=in.nextInt();
 		

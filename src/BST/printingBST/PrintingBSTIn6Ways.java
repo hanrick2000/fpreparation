@@ -1,10 +1,15 @@
 package BST.printingBST;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import java.util.Stack;
 
-	public class PrintingBSTIn5Ways {
+	public class PrintingBSTIn6Ways {
 	public static void main(String[] args) {
 
 			BST bst = BinSearchTree.makeTree();
@@ -12,11 +17,18 @@ import java.util.Stack;
 			System.out.println("Recursively LCA of 20 and 85 is: "+recursiveLCA(bst.root,new Node(20),new Node(85)));
 			System.out.println("Iteratively LCA of 20 and 85 is: "+iterativeLCA(bst.root,new Node(20),new Node(85)));
 			
+			// Pretty Print BST
 			System.out.println("Pretty Printing a BST");
 			prettyPrint(bst.root,3);
 			System.out.println();
 			
-
+			
+			// Print BST in VERTICAL ORDER
+			System.out.println("Printing BST in Vertical Order");
+			printBSTInVerticalOrder(bst.root);
+			System.out.println();
+			
+			
 			System.out.println("Printing nodes of the tree at every level");
 			printNodesOnEveryLevel(bst);
 			System.out.println();
@@ -44,7 +56,61 @@ import java.util.Stack;
 		}
 	
 
-	
+	// Print BST in VERTICAL ORDER
+	private static void printBSTInVerticalOrder(Node root) {
+		
+		if(root==null)
+			return;
+		
+		HashMap<Integer,ArrayList<Integer>> map = new HashMap<Integer,ArrayList<Integer>>();
+		int hd = 0;  // the horizontal distance of root is 0
+		getVerticalOrder(root,hd,map);
+		
+		
+		// Printing the HashMap
+		Set<Map.Entry<Integer,ArrayList<Integer>>> set = map.entrySet();
+		Iterator<Map.Entry<Integer, ArrayList<Integer>>> itr = set.iterator();
+		while(itr.hasNext()){
+			Map.Entry<Integer, ArrayList<Integer>> entry = itr.next();
+			Integer key = entry.getKey();
+			System.out.println(map.get(key).toString());
+		}
+		
+	}
+/*
+ * Analysis:
+ * Time Complexity = O(n)
+ * Space Complexity = O(n)
+ */
+
+
+	private static void getVerticalOrder(Node root, int hd, HashMap<Integer, ArrayList<Integer>> map) {
+
+		// Base case
+	    if (root == null)
+	        return;
+	    
+	    // store the hd of the node
+	    if(map.get(hd)==null){
+	    	ArrayList<Integer> list = new ArrayList<Integer>();
+	    	list.add(root.data);
+	    	map.put(hd, list);
+	    }
+	    else{
+	    	ArrayList<Integer> list = map.get(hd);
+	    	list.add(root.data);
+	    	map.put(hd, list);
+	    }
+	    
+	    // Store nodes in left subtree
+	    getVerticalOrder(root.lchild,hd-1,map);
+	    
+	    // Store nodes in right subtree
+	    getVerticalOrder(root.rchild, hd+1, map);
+	}
+
+
+
 	private static void prettyPrint(Node root, int spaceSize) {
 		
 		if(root==null)
