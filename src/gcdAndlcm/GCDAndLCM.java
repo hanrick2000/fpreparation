@@ -40,10 +40,11 @@ public class GCDAndLCM {
 		 */
 		
 		public static int lcmOfArray(int[] arr, int start, int end){
-		    if ((end-start)==1)  // if only two elements present in the array
+		    if ((end-start+1)==2)  // if only two elements present in the array
 		    	return lcm(arr[start],arr[end-1]);
-		    else 
+		    else // if more than 2 elements in the array
 		    	return (lcm (arr[start], lcmOfArray(arr, start+1, end))); // if more than two elements present in the array
+		    	// NOTE: (start+1) element becomes (start) element during every iteration
 		}
 	
 	
