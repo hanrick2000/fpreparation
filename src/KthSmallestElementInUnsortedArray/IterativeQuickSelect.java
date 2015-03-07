@@ -7,7 +7,7 @@ Question Source: 	http://www.careercup.com/question?id=15435963
 	
   Solution Source: http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/
 	
-  Sample Input to test the below implementation
+  Sample Input to test the below implementation: 
   88        30        11        17        22        16        39        8        31        55        29        63        77        69        99        90        81        2        20        53        62        5        88        33        44        6
  
 */
@@ -83,12 +83,12 @@ public class IterativeQuickSelect {
     		}
     		// swap the storage and right (i.e. move the pivot to its correct absolute location in the list)
     		swap(arr,storage,right);
- 
+    		int pos = storage;
     	//pick the correct half of the list you need to parse through to find your K, and ignore the other half
-    		if(storage < k)
-    			left = storage+1;
-    		else//storage>= k
-    			right = storage;
+    		if(pos < k)
+    			left = pos+1;
+    		else//pos>= k
+    			right = pos;
  
     	}
     	
