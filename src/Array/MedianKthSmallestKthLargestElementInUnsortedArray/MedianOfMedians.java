@@ -24,12 +24,11 @@ public class MedianOfMedians {
 		System.out.println("Enter the number of elements in the array");
 		int n = in.nextInt();
 		System.out.println("Enter the elements of the array");
-		int[] a = new int[]{88, 30, 11, 17, 22, 16, 39, 8, 31, 55, 29, 63, 77, 69, 99, 90, 81, 2, 20, 53, 62, 5, 88, 33, 44, 6, 1};
-		/*
-		int[] a= new int[n];
+		int[] a = new int[n];
+	
 		for(int i=0;i<n;i++)
 			a[i]=in.nextInt();
-		*/
+		
 		System.out.println("Enter the value of k");
 		int k = in.nextInt();
 		System.out.println("The kth smallest element in the array is: "+find(a,0,a.length-1,k));
