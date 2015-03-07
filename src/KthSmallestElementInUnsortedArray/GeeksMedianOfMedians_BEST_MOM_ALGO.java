@@ -133,6 +133,14 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 		System.out.println("Array elements are: "+Arrays.toString(a));
 		System.out.println("Enter k to search for kth smallest number. Starts from 1 to "+a.length+" BOTH INCLUSIVE");
 		int k = in.nextInt();   // Starts from 1 to a.length
+		
+		
+		System.out.println(" * IMP NOTE: \n "+
+				 " * Both MOM and QuickSelect can be used to find answers for BOTH questions: \n "+
+				 " * 1. Find the kth smallest element    (Find single element) \n "+
+				 " * 2. Find all the k smallest elements (Find k elements)");
+		
+		System.out.println("<----MOM ALGORITHM ANSWERS---->");
 		int res = kthSmallest(a,0, a.length-1, k);	
 		System.out.println("Array elemnts using median of medians: "+Arrays.toString(a));
 		System.out.println("Using median of medians: "+res);

@@ -63,15 +63,22 @@ public class MedianOfMedians_BEST_MOM_ALGO {
 		  
 		  System.out.println("Enter k");
 		  int k = in.nextInt();
+		  
+		  System.out.println(" * IMP NOTE: \n "+
+			 " * Both MOM and QuickSelect can be used to find answers for BOTH questions: \n "+
+			 " * 1. Find the kth smallest element    (Find single element) \n "+
+			 " * 2. Find all the k smallest elements (Find k elements)");
+		  
+		  
 		  Point res=kthSmallest(pointsArray,0,pointsArray.length-1,k);  // k can start from lowest value of 1 to highest value of pointsArray.length
 		  System.out.println("The kth smallest point USING MOM is: "+res.toString());
-		 /* System.out.println("After Algo");
+		  	System.out.println("After Algo");
 		  print(pointsArray);
 		  
 		  System.out.println(k+" closest point/points are: ");
 		  for(int i=0;i<k;i++)
 			  System.out.println(pointsArray[i].toString());
-		  */
+		  
 		  System.out.println("----------------------");
 		  System.out.println("Points after sorting: ");
 		  Arrays.sort(pointsArray,new Comparator<Point>(){
