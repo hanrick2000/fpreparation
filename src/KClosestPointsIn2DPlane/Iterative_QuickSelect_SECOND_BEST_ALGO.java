@@ -36,7 +36,7 @@ package KClosestPointsIn2DPlane;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Iterative_QuickSelect_BEST_ALGO {
+public class Iterative_QuickSelect_SECOND_BEST_ALGO {
 	  public static class Point
       {
               private int xCoord;
@@ -152,9 +152,8 @@ public class Iterative_QuickSelect_BEST_ALGO {
 	 
 	    		int pivot = left+((right - left)/2); //this can be whatever
 	    		
-	    		Point pivotValue = x[pivot]; // Move pivot to end
-	    		x[pivot] = x[right];
-	    		x[right]=pivotValue;
+	    		Point pivotValue = x[pivot]; // Move pivot to end(i.e. right)
+	    		swap(x,pivot,right);
 	    		
 	    		// Now the pivot is the element which is at right index
 	    		
@@ -164,30 +163,31 @@ public class Iterative_QuickSelect_BEST_ALGO {
 	    		for(int i =left; i < right; i++){
 	 //for each number i, if i is less than the pivot, swap i and storage and increment storage
 	    			if(x[i].distance < pivotValue.distance){
-	    				Point temp =x[storage];
-	    				x[storage] = x[i];
-	    				x[i]=temp;
-	    				// increment the stored value of left
-	    				storage++;
-	    			}
+	    				swap(x,i,storage);
+	    				storage++;     // increment the stored value of left
+	    			} 
 	    		}
-	    		// swap the storage and right
-	    		x[right]=x[storage];
-	    		x[storage]=pivotValue;//move the pivot to its correct absolute location in the list
-	 
+	    		// swap the storage and right (i.e. move the pivot to its correct absolute location in the list)
+	    		swap(x,storage,right);
+	    		int pos = storage;
+	    		
 	    		//pick the correct half of the list you need to parse through to find your K, and ignore the other half
-	    		if(storage < k)
-	    			left = storage+1;
-	    		else//storage>= k
-	    			right = storage;
+	    		if(pos < k)
+	    			left = pos+1;
+	    		else//pos>= k
+	    			right = pos;
 	 
 	    	}
 	    	
 	    	return k;
 	 
 	    }
-
-	  
+		public static void swap(Point[] arr, int index1, int index2)
+		{
+		    Point temp = arr[index1];
+		    arr[index1] = arr[index2];
+		    arr[index2] = temp;
+		} 
 }
 /*
  * EXTRA READING:

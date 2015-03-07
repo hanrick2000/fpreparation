@@ -58,12 +58,12 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        // If median[] has only one element, then no need
 	        // of recursive call
 	        int medOfMed = (i == 1)? median[i-1]:
-	                                 kthSmallest(median, 0, i-1, i/2);
+	                                 kthSmallest(median, 0, i-1, i/2);  // find med of MEDIANS array
 	        
 	        
 	        // Partition the array around a random element and
 	        // get position of pivot element in sorted array
-	        int pos = partition(arr, l, r, medOfMed);
+	        int pos = partition(arr, l, r, medOfMed);                   // partition on ORIGINAL array
 	 
 	        // If position is same as k
 	        if (pos-l == k-1)
