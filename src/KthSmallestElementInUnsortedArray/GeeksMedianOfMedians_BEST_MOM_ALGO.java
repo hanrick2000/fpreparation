@@ -124,7 +124,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 			a[i]=in.nextInt();
 		System.out.println("Length of the array: "+a.length);
 		System.out.println("Array elements are: "+Arrays.toString(a));
-		System.out.println("Enter k to search for kth smallest number. Starts from 1 to "+a.length);
+		System.out.println("Enter k to search for kth smallest number. Starts from 1 to "+a.length+" BOTH INCLUSIVE");
 		int k = in.nextInt();   // Starts from 1 to a.length
 		int res = kthSmallest(a,0, a.length-1, k);	
 		System.out.println("Array elemnts using median of medians: "+Arrays.toString(a));
