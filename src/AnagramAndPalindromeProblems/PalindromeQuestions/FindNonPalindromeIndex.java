@@ -19,17 +19,14 @@ public static void main(String[] args) {
 public static int NonPalindromeIndex(String s){
 	int start =0;
 	int end = s.length()-1;
-	while(start<end){
-		if(s.charAt(start)==s.charAt(end)){
+		while((start<end) && (s.charAt(start)==s.charAt(end))){
 			start++;
 			end--;
-			continue;
 		}
 		if(isPalindrome(s.substring(start, end)))
 			return end;
 		if(isPalindrome(s.substring(start+1, end+1)))
 			return start;
-	}
 	return -1;
 }
 public static boolean isPalindrome(String s){

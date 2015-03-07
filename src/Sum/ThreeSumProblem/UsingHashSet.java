@@ -22,12 +22,12 @@ Given an array of integers, return one set of 3 elements such that the 3 numbers
  */
 
 
-package ThreeSumProblem;
+package Sum.ThreeSumProblem;
 
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class UsingHashSet_SECOND_BEST_ALGO {
+public class UsingHashSet {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{

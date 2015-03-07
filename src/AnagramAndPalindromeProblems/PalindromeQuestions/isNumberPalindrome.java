@@ -18,7 +18,7 @@ public static boolean isPalindrome(int number){
 public static void main(String[] args) {
 	int no=121;
 	System.out.println(isPalindrome(no));
-}
+	}
 }
 
 /*

@@ -39,9 +39,11 @@ public class isAnyAnagramAPalindrome{
     System.out.println("Check whether any anagram of this string is palindrome: "+checkIfAnyAnagramPalindrome("aac"));    
     }
     public static boolean checkIfAnyAnagramPalindrome(String s){
+    	s = s.toLowerCase();
+    	
         int[] count = new int[26]; // assume that all the characters are lowercase. 'a' starts from 97 in ASCII table
         for(int i=0;i<s.length();i++){
-            count[s.charAt(i)-97]++;
+            count[s.charAt(i)-(int)'a']++;
         }
         int oddCount=0;
         for(int i=0;i<count.length;i++){

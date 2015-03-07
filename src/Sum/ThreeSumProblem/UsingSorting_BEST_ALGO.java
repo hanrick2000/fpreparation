@@ -5,7 +5,8 @@ Given an array of integers, return one set of 3 elements such that the 3 numbers
 {10, -2, -1, 3} -> true 
 {10, -2, 1} -> true -2 + 1 +1 =0
  *
- * Source: http://www.geeksforgeeks.org/find-a-triplet-that-sum-to-a-given-value/
+ * Question and Answer Source: http://www.programcreek.com/2012/12/leetcode-3sum/ 
+ * http://www.geeksforgeeks.org/find-a-triplet-that-sum-to-a-given-value/
  * 
  * Algorithm : This is a THREE SUM PROBLEM:
  *             Sort the array and then apply the Two Sum Logic
@@ -22,7 +23,7 @@ Given an array of integers, return one set of 3 elements such that the 3 numbers
  */
 
 
-package ThreeSumProblem;
+package Sum.ThreeSumProblem;
 
 import java.util.Arrays;
 import java.util.Scanner;

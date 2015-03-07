@@ -39,7 +39,7 @@ Algorithm:
         for (l = 0, h = gap; h < n; ++l, ++h)
             table[l][h] = (str[l] == str[h])? table[l+1][h-1] :
                           (min(table[l][h-1], table[l+1][h]) + 1);
- 
+ 	
     // Return minimum number of insertions for str[0..n-1]
     return table[0][n-1];
 		
@@ -144,6 +144,7 @@ public class MinInsertionsReqToFormPalindrome {
 		
 		int low = 0;
 		int high = 0;
+
 		
 		int gap = 0;
 		

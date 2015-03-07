@@ -17,7 +17,7 @@ Given an array of integers, return one set of 3 elements such that the 3 numbers
  */
 
 
-package ThreeSumProblem;
+package Sum.ThreeSumProblem;
 
 import java.util.Scanner;
 
