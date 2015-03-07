@@ -64,7 +64,7 @@ public class MedianOfMedians_BEST_MOM_ALGO {
 		  System.out.println("Enter k");
 		  int k = in.nextInt();
 		  
-		  System.out.println(" * IMP NOTE: \n "+
+		  System.out.println(" * IMP NOTE: \n"+
 			 " * Both MOM and QuickSelect can be used to find answers for BOTH questions: \n "+
 			 " * 1. Find the kth smallest element    (Find single element) \n "+
 			 " * 2. Find all the k smallest elements (Find k elements)");
