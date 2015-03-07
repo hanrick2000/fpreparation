@@ -21,7 +21,7 @@ public class IterativeQuickSelect {
 			System.out.println("Enter the elements of the array");
 			for(int i=0;i<n;i++)
 				a[i]=in.nextInt();
-			System.out.println("Enter the kth element");
+			System.out.println("Enter the kth element");  // STARTS FROM 0th index to (a.length-1)
 			int k = in.nextInt();
 			System.out.println("The kth smallest element in the array is: "+usingIterativeQuickSelect(a,k));
 		}
@@ -30,13 +30,13 @@ public class IterativeQuickSelect {
 		}
 	}
 
-	private static int usingIterativeQuickSelect(int[] x, int k) {
-		if(x==null||x.length==0)
+	private static int usingIterativeQuickSelect(int[] arr, int k) {
+		if(arr==null||arr.length==0)
 			return -1;
 		
 		
 		int left = 0;
-    	int right = x.length-1;
+    	int right = arr.length-1;
  
     	//we stop when our indices have crossed
     	while (left < right){
@@ -53,9 +53,8 @@ public class IterativeQuickSelect {
     		 */
     		int pivot = left+((right - left)/2); //this can be whatever
     		
-    		int pivotValue = x[pivot]; // Move pivot to end
-    		x[pivot] = x[right];
-    		x[right]=pivotValue;
+    		int pivotValue = arr[pivot]; // store the pivot value
+    		swap(arr,pivot,right); // Swap the pivot with the right OR move the pivot to the right
     		
     		// Now the pivot is the element which is at right index
     		
@@ -64,17 +63,13 @@ public class IterativeQuickSelect {
     		// from (left) to (right-1)
     		for(int i =left; i < right; i++){
     	// for each number i, if i is less than the pivot, swap i and storage and increment storage
-    			if(x[i] < pivotValue){
-    				int temp =x[storage];
-    				x[storage] = x[i];
-    				x[i]=temp;
-    				// increment the stored value of left
-    				storage++;
+    			if(arr[i] < pivotValue){
+    				swap(arr,i,storage); // swap i with storage
+    				storage++;           // increment the stored value of left
     			}
     		}
-    		// swap the storage and right
-    		x[right]=x[storage];
-    		x[storage]=pivotValue;//move the pivot to its correct absolute location in the list
+    		// swap the storage and right (i.e. move the pivot to its correct absolute location in the list)
+    		swap(arr,storage,right);
  
     	//pick the correct half of the list you need to parse through to find your K, and ignore the other half
     		if(storage < k)
@@ -84,11 +79,15 @@ public class IterativeQuickSelect {
  
     	}
     	
-    	return x[k];
+    	return arr[k];
  
 	}
-
-
+	public static void swap(int[] arr, int index1, int index2)
+	{
+	    int temp = arr[index1];
+	    arr[index1] = arr[index2];
+	    arr[index2] = temp;
+	}
 }
 /*
 Analysis:
