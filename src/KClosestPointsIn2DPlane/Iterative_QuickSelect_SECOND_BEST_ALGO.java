@@ -187,6 +187,16 @@ public class Iterative_QuickSelect_SECOND_BEST_ALGO {
 		    arr[index1] = arr[index2];
 		    arr[index2] = temp;
 		} 
+		
+		/*
+		Analysis:
+		(Analysis Source: http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-2-expected-linear-time/)
+		Worst Case Time Complexity = O(n^2). VERY IMP NOTE: THIS IS WOST CASE COMPLEXITY HENCE "O" is used.
+		Best and Average Case Time Complexity = THETA(n)
+		Space Complexity = O(1)
+		*/
+		
+		
 }
 /*
  * EXTRA READING:
