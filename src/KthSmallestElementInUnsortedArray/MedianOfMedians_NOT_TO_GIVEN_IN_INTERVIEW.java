@@ -12,7 +12,7 @@ import java.util.Scanner;
  * VERY VERY IMP SOURCE OF MIT EXPLAINING THIS ALGORITHM:
  * http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2012/lecture-notes/MIT6_046JS12_lec01.pdf
  */
-public class MedianOfMedians {
+public class MedianOfMedians_NOT_TO_GIVEN_IN_INTERVIEW {
  
 	public static void main(String[] args) {
  
