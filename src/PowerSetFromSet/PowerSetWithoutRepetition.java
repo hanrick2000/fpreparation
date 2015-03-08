@@ -50,7 +50,7 @@ public class PowerSetWithoutRepetition {
 		
 		ArrayList<ArrayList<Integer>> powerSet = new ArrayList<ArrayList<Integer>>();
 		
-		ArrayList<Integer> set = new ArrayList<Integer>();
+		ArrayList<Integer> set = new ArrayList<Integer>();  // create a NULL set
 		
 		powerSet.add(set);   // add the NULL set to the powerSet
 		
