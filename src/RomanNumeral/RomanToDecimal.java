@@ -18,7 +18,7 @@ public static void romanToDecimal(String romanNumber) {
  * TR: 
  * 1. count("DECIMAL") = 7. Hence TO GET DECIMAL from ROMAN we need 7 mappings
  * 2. 15 - XLCDM             Total Conditions = 7     Mention 15-XLCDM from BOTTOM TO TOP    
- * 3. for loop from last to first
+ * 3. for loop from right to left
  * 4. lastNumberValue = 0, currentNumberValue, total = 0   (LCT where C is variable others are initialized to 0) TR: LCT
  */
         switch (convertToDecimal) {
@@ -56,8 +56,8 @@ public static void romanToDecimal(String romanNumber) {
             	total = processNumber(lastNumberValue, 1, total);
             	lastNumberValue = 1;
                 break;
-        }
-    }
+        } // end of switch
+    } // end of for
     System.out.println(total);
 }
 
