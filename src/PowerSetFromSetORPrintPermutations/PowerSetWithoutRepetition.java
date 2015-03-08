@@ -66,27 +66,78 @@ public class PowerSetWithoutRepetition {
 			System.out.println("Enter the number of elements in the array list");
 			int n = in.nextInt();
 			int[] a= new int[n];
-			//ArrayList<Integer> list = new ArrayList<Integer>();
-			
 			System.out.println("Enter the integers with duplicates");
-			
-			for(int i=0;i<n;i++){
-				//list.add(in.nextInt());
+			for(int i=0;i<n;i++)
 				a[i] = in.nextInt();
-			}
-			//powerSet(list);
 			
-			ArrayList<ArrayList<Integer>> pSet=subsetsWithDup(a);
-			Iterator<ArrayList<Integer>> itr = pSet.iterator();
-			while(itr.hasNext()){
-				System.out.println(itr.next());
-			}
+			// ITERATIVE SOLUTION
+			ArrayList<ArrayList<Integer>> itrerativePSet=iterativeSubsetsWithDup(a);
+			Iterator<ArrayList<Integer>> itr1 = itrerativePSet.iterator();
+			while(itr1.hasNext())
+				System.out.println(itr1.next());
+			
+			// RECURSIVE SOLUTION
+			ArrayList<ArrayList<Integer>> recursivePSet=iterativeSubsetsWithDup(a);
+			Iterator<ArrayList<Integer>> itr2 = recursivePSet.iterator();
+			while(itr2.hasNext())
+				System.out.println(itr2.next());
+			
 		}
 		finally{
 			in.close();
 		}
 	}
-public static ArrayList<ArrayList<Integer>> subsetsWithDup (int[] num) {
+	
+	
+	
+	// ------------------------  ITERATIVE SOLUTION  --------------------------------
+	public static ArrayList<ArrayList<Integer>> iterativeSubsetsWithDup(int[] num) {
+		if (num == null)
+			return null;
+	 
+		Arrays.sort(num);
+	 
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> prev = new ArrayList<ArrayList<Integer>>();
+	 
+		for (int i = num.length-1; i >= 0; i--) {
+	 
+			//get existing sets
+			if (i == num.length - 1 || num[i] != num[i + 1] || prev.size() == 0) {
+				prev = new ArrayList<ArrayList<Integer>>();
+				for (int j = 0; j < result.size(); j++) {
+					prev.add(new ArrayList<Integer>(result.get(j)));
+				}
+			}
+	 
+			//add current number to each element of the set
+			for (ArrayList<Integer> temp : prev) {
+				temp.add(0, num[i]);
+			}
+	 
+			//add each single number as a set, only if current element is different with previous
+			if (i == num.length - 1 || num[i] != num[i + 1]) {
+				ArrayList<Integer> temp = new ArrayList<Integer>();
+				temp.add(num[i]);
+				prev.add(temp);
+			}
+	 
+			//add all set created in this iteration
+			for (ArrayList<Integer> temp : prev) {
+				result.add(new ArrayList<Integer>(temp));
+			}
+		}
+	 
+		//add empty set
+		result.add(new ArrayList<Integer>());
+	 
+		return result;
+	}
+	
+	
+	
+	// ----------------------   RECURSIVE SOLUTION  ----------------------------------
+	public static ArrayList<ArrayList<Integer>> recursiveSubsetsWithDup (int[] num) {
 		
 		Arrays.sort(num);
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
@@ -112,75 +163,6 @@ public static ArrayList<ArrayList<Integer>> subsetsWithDup (int[] num) {
 			list.remove(list.size() - 1);
 		}
 	}
-	
-	
-	/*
-	
-	
-	@SuppressWarnings("unchecked")
-	public static void powerSet(ArrayList<Integer> input) {
-		
-		ArrayList<ArrayList<Integer>> powerSet = new ArrayList<ArrayList<Integer>>();
-		
-		ArrayList<Integer> set = new ArrayList<Integer>();  // create a NULL set
-		
-		powerSet.add(set);   // add the NULL set to the powerSet
-		
-		// HashMap is used to keep the VISIT COUNT of each element in the input
-		HashMap<Integer, Integer> hm = new HashMap<>(); 
-		
-		int focoused;
-		int counter=0,dupCounter;
-		
-		
-		if (input.isEmpty())
-			System.out.println("null");
-		else {
-			while (!input.isEmpty()) {
-				// remove the element under consideration
-				focoused = input.remove(0);    // remove the integer from input array list
-				
-				int psize = powerSet.size();     // get the size of the powerSet
-				
-				counter=0;
-				dupCounter=0;
-				{
-					if(hm.containsKey(focoused))     // if the input element is ALREADY VISITED
-					{
-						hm.put(focoused, hm.get(focoused)+1); // increment the VISIT COUNT
-						dupCounter = hm.get(focoused);  // get the VISIT COUNT indicating how many times the input element is visited
-						for (int i = 0; i < psize; i++) {
-							// get only those ArrayList element of the powerSet which contains single element
-							for(Integer ii : powerSet.get(i)) // if get(i) returns object of ArrayList then Integer ii would be null
-								if(ii==focoused)
-									counter++;
-							if(counter==dupCounter-1)
-							{// clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
-								set = (ArrayList<Integer>) powerSet.get(i).clone(); // get EACH element(and type cast it to ArrayList) of the powerSet and clone it
-								set.add(focoused); // add the current input element to this new cloned ArrayList
-								powerSet.add(set); // add this new cloned ArrayList element as a NEW ARRAYLIST element to the powerSet
-							}
-							// make the counter 0
-							counter=0;
-						}
-					} 
-					
-					else{  // if the input element is NOT VISITED BEFORE
-						hm.put(focoused, 1);   // mark it as visited in the HashMap
-						for (int i = 0; i < psize; i++) {   // iterate through all the elements of the powerSet							
-			// clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet			
-							set = (ArrayList<Integer>) powerSet.get(i).clone(); // get EACH element(and type cast it to ArrayList) of the powerSet and clone it
-							set.add(focoused); // add the current input element to this new cloned ArrayList
-							powerSet.add(set); // add this new cloned ArrayList element as a NEW ARRAYLIST element to the powerSet
-						}
-					}
-				}
-			}
-			System.out.println(powerSet.toString());
-		}
-	}
-*/
-	
 }
 /*
  * Analysis:
