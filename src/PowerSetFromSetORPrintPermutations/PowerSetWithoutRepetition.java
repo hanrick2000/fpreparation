@@ -9,8 +9,11 @@ So, as per the question requirements, we need to print
 {NULL, {1}, {2}, {1,2}, {2,2}, {1,2,2}}
 
 Question And Answer Source: http://www.careercup.com/question?id=6189585818189824
-http://www.programcreek.com/2013/02/leetcode-permutations-ii-java/
-https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8&client=ubuntu#q=permutations%20ii%20leetcode
+
+NOTE: powerset and permutation are different things
+For Example: input = [1,2,3]
+Then Powerset = [null,1,2,3,12,23,13,123]
+and Permutation = [123,132,312,321,213,231]
 
 Algorithm:
 for each element of input : 
@@ -28,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class PowerSetORPermutationIIWithoutRepetition {
+public class PowerSetWithoutRepetition {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{

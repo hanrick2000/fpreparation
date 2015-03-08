@@ -2,7 +2,7 @@ package PowerSetFromSetORPrintPermutations;
 
 import java.util.Scanner;
 
-public class PowerSetORPermutationIOfChracterArrayUsingBitIncrement {
+public class PowerSetOfChracterArrayUsingBitIncrement {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
