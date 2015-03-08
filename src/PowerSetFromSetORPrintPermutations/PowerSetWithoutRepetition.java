@@ -9,7 +9,8 @@ So, as per the question requirements, we need to print
 {NULL, {1}, {2}, {1,2}, {2,2}, {1,2,2}}
 
 Question And Answer Source: http://www.careercup.com/question?id=6189585818189824
-http://fisherlei.blogspot.com/2013/01/leetcode-subsets-ii.html
+http://shanjiaxin.blogspot.com/2014/02/subsets-ii-leetcode.html
+http://www.programcreek.com/2013/01/leetcode-subsets-ii-java/
 https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8&client=ubuntu#q=subset%20ii%20leetcode
 
 ---------------------------------------------------------------------------------------
@@ -52,7 +53,8 @@ VERY IMP NOTE: Debug this program to understand it
 package PowerSetFromSetORPrintPermutations;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class PowerSetWithoutRepetition {
@@ -63,17 +65,58 @@ public class PowerSetWithoutRepetition {
 					+ "repeat repetitions in the powerset");
 			System.out.println("Enter the number of elements in the array list");
 			int n = in.nextInt();
+			int[] a= new int[n];
+			//ArrayList<Integer> list = new ArrayList<Integer>();
+			
 			System.out.println("Enter the integers with duplicates");
-			ArrayList<Integer> list = new ArrayList<Integer>();
-			for(int i=0;i<n;i++)
-				list.add(in.nextInt());
-			powerSet(list);
+			
+			for(int i=0;i<n;i++){
+				//list.add(in.nextInt());
+				a[i] = in.nextInt();
+			}
+			//powerSet(list);
+			
+			ArrayList<ArrayList<Integer>> pSet=subsetsWithDup(a);
+			Iterator<ArrayList<Integer>> itr = pSet.iterator();
+			while(itr.hasNext()){
+				System.out.println(itr.next());
+			}
 		}
 		finally{
 			in.close();
 		}
 	}
-
+public static ArrayList<ArrayList<Integer>> subsetsWithDup (int[] num) {
+		
+		Arrays.sort(num);
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> list = new ArrayList<Integer>();
+ 
+		subsetsWithDupHelper(result, list, num, 0);
+ 
+		return result;
+	}
+ 
+ 
+	private static void subsetsWithDupHelper(ArrayList<ArrayList<Integer>> result,
+			ArrayList<Integer> list, int[] num, int position) {
+		result.add(new ArrayList<Integer>(list));
+ 
+		for (int i = position; i < num.length; i++) {
+			if (i != position && num[i] == num[i-1]){
+				continue;
+			}
+			
+			list.add(num[i]);
+			subsetsWithDupHelper(result, list, num, i+1);
+			list.remove(list.size() - 1);
+		}
+	}
+	
+	
+	/*
+	
+	
 	@SuppressWarnings("unchecked")
 	public static void powerSet(ArrayList<Integer> input) {
 		
@@ -136,6 +179,8 @@ public class PowerSetWithoutRepetition {
 			System.out.println(powerSet.toString());
 		}
 	}
+*/
+	
 }
 /*
  * Analysis:
