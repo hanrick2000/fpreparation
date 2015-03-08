@@ -139,7 +139,7 @@ Efficient Celebrity Algorithm
 			if (knows(candidate, newCandidate)) {  // Does 1 know 4? Yes. Eliminate 1. That is eliminate candidate
 				return findCelebrity(newCandidate,totalPeople); // candidate now becomes newCandidate
 			}
-			else { }// Does 1 know 2? No. Eliminate 2. That is increment newCandidate variable
+			else { }// Does 1 know 4? No. Eliminate 4. That is increment newCandidate variable
 			
 		}
 		return checkCandidate(candidate,totalPeople);
