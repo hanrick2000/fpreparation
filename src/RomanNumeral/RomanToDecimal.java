@@ -12,12 +12,15 @@ public static void romanToDecimal(String romanNumber) {
     String romanNumeral = romanNumber.toUpperCase();  // convert to upper case
 
     
-/* operation to be performed on upper cases even if user enters roman values in lower case chars */
+/* operation to be performed on upper cases even if user enters ROMAN values in lower case chars */
     
     for (int x = romanNumeral.length() - 1; x >= 0 ; x--) {
         char convertToDecimal = romanNumeral.charAt(x);
 /*
- * TR: 15 - XLCDM             Total Conditions = 7
+ * TR: 
+ * 1. 15 - XLCDM             Total Conditions = 7        
+ * 2. for loop from last to first
+ * 3. count("DECIMAL") = 7. Hence TO GET DECIMAL from ROMAN we need 7 mappings
  */
         switch (convertToDecimal) {
             case 'M':

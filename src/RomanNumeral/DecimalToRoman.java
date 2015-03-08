@@ -9,7 +9,9 @@ public class DecimalToRoman {
 	    LinkedHashMap<String, Integer> roman_numerals = new LinkedHashMap<String, Integer>();
 	    
 	    /*
-	     * TR: 1,4,5,9   -    XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13      LinkedHashMap<String,Integer>
+	     * TR:
+	     * 1. 1,4,5,9   -    XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13      
+	     * 2. LinkedHashMap<String,Integer>
 	     */
 	    
 	    roman_numerals.put("M", 1000);
