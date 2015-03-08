@@ -1,5 +1,5 @@
 /*
- * ANSWER Source: http://courses.cs.vt.edu/~cs5114/spring2010/notes.pdf   . USE Ctrl+F and search for 'Celebrity' string
+ * ANSWER Source: http://courses.cs.vt.edu/~cs5114/spring2010/notes.pdf. USE Ctrl+F and search for 'Celebrity' string
  * 
 Question: Given a set of n people, find the celebrity. 
 Celebrity is a person who: 
