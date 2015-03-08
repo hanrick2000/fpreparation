@@ -13,6 +13,7 @@ import java.util.Stack;
 	public static void main(String[] args) {
 
 			BST bst = BinSearchTree.makeTree();
+			
 			// print LCA between 2 nodes
 			System.out.println("Recursively LCA of 20 and 85 is: "+recursiveLCA(bst.root,new Node(20),new Node(85)));
 			System.out.println("Iteratively LCA of 20 and 85 is: "+iterativeLCA(bst.root,new Node(20),new Node(85)));
@@ -28,19 +29,27 @@ import java.util.Stack;
 			printBSTInVerticalOrder(bst.root);
 			System.out.println();
 			
-			
+			// Print Nodes at Every Level
 			System.out.println("Printing nodes of the tree at every level");
 			printNodesOnEveryLevel(bst);
 			System.out.println();
-			System.out.println("Printing Node Paths from root to leaf");
-			printNodesFromRootToLeaf(bst);
-			System.out.println();
-			System.out.println("Printing the BST in SPIRAL OR ZIGZAG ORDER");
-			printTreeInSpiralOrder(bst.root);
-			System.out.println();
+			
+			// Print BST LEVEL ORDER WITH EACH LEVEL IN DIFFERENT LINE
 			System.out.println("Function to print the rows of a binary tree, terminating each row with a carriage return");
 			printRowsTerminatingEachRowWithCarriageReturn(bst);
 			System.out.println();
+			
+			// Print Nodes from root to leaf
+			System.out.println("Printing Node Paths from root to leaf");
+			printNodesFromRootToLeaf(bst);
+			System.out.println();
+			
+			// Print BST in Spiral Order
+			System.out.println("Printing the BST in SPIRAL OR ZIGZAG ORDER");
+			printTreeInSpiralOrder(bst.root);
+			System.out.println();
+			
+			// MaxDepth of BST
 			System.out.println("Max depth of the tree is: ");
 			System.out.println(bst.maxDepth(bst.root));
 			System.out.println("Tree is balanced?");
