@@ -39,7 +39,7 @@ public class IterativeAndRecursiveSolution {
             if(curr.left == null && curr.right == null){        // VERY IMP CONDITION
                 return count;
             }
-            
+            // Since we are using Queue hence First LEFT then RIGHT
             if(curr.left != null){
                 nodes.add(curr.left);
                 counts.add(count+1);
