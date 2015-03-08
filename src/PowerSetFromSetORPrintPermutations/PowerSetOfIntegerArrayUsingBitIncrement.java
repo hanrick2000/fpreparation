@@ -26,6 +26,9 @@ VERY IMP SUMMARY:
 */
 package PowerSetFromSetORPrintPermutations;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class PowerSetOfIntegerArrayUsingBitIncrement {
@@ -39,6 +42,13 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 			for(int i=0;i<n;i++)
 				 set[i] = in.nextInt();
 			printPowerSet(set);
+			
+			// Using ArrayList
+			ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+			list = subsets(set);
+			Iterator<ArrayList<Integer>> itr=list.iterator();
+			while(itr.hasNext())
+				System.out.println(itr.next());
 		}
 		finally{
 			in.close();
@@ -65,8 +75,42 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 			System.out.println();
 		}
 	}
+	/*
+	Analysis:
+		Time Complexity = O(n*2^n)
+		Space Complexity = O(1)*/
+	public static ArrayList<ArrayList<Integer>> subsets(int[] S) {
+		if (S == null)
+			return null;
+	 
+		Arrays.sort(S);  // NOTE: NOT Sorting the input does not change the result. Sorting is only done for the output to look pretty
+	 
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+	 
+		for (int i = 0; i < S.length; i++) {
+			ArrayList<ArrayList<Integer>> temp = new ArrayList<ArrayList<Integer>>();
+	 
+			//get sets that are already in result
+			for (ArrayList<Integer> a : result) {
+				temp.add(new ArrayList<Integer>(a));
+			}
+	 
+			//add S[i] to existing sets
+			for (ArrayList<Integer> a : temp) {
+				a.add(S[i]);
+			}
+	 
+			//add S[i] only as a set
+			ArrayList<Integer> single = new ArrayList<Integer>();
+			single.add(S[i]);
+			temp.add(single);
+	 
+			result.addAll(temp);
+		}
+	 
+		//add empty set
+		result.add(new ArrayList<Integer>());
+	 
+		return result;
+	}
 }
-/*
-Analysis:
-	Time Complexity = O(n*2^n)
-	Space Complexity = O(1)*/

@@ -27,6 +27,9 @@ VERY IMP SUMMARY:
 
 package PowerSetFromSetORPrintPermutations;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class PowerSetOfChracterArrayUsingBitIncrement {
@@ -37,6 +40,13 @@ public static void main(String[] args) {
 		String s = in.nextLine();
 		char[] set = s.toCharArray();
 		printPowerSet(set);
+		
+		// Using ArrayList
+		ArrayList<ArrayList<Character>> list = new ArrayList<ArrayList<Character>>();
+		list = subsets(s.toCharArray());
+		Iterator<ArrayList<Character>> itr=list.iterator();
+		while(itr.hasNext())
+			System.out.println(itr.next());
 	}
 	finally{
 		in.close();
@@ -62,8 +72,44 @@ private static void printPowerSet(char[] set) {
 		System.out.println();
 		}
 	}
-}
 /*
 Analysis:
 	Time Complexity = O(n*2^n)
 	Space Complexity = O(1)*/
+
+public static ArrayList<ArrayList<Character>> subsets(char[] S) {
+	if (S == null)
+		return null;
+ 
+	Arrays.sort(S); // NOTE: NOT Sorting the input does not change the result. Sorting is only done for the output to look pretty
+ 
+	ArrayList<ArrayList<Character>> result = new ArrayList<ArrayList<Character>>();
+ 
+	for (int i = 0; i < S.length; i++) {
+		ArrayList<ArrayList<Character>> temp = new ArrayList<ArrayList<Character>>();
+ 
+		//get sets that are already in result
+		for (ArrayList<Character> a : result) {
+			temp.add(new ArrayList<Character>(a));
+		}
+ 
+		//add S[i] to existing sets
+		for (ArrayList<Character> a : temp) {
+			a.add(S[i]);
+		}
+ 
+		//add S[i] only as a set
+		ArrayList<Character> single = new ArrayList<Character>();
+		single.add(S[i]);
+		temp.add(single);
+ 
+		result.addAll(temp);
+	}
+ 
+	//add empty set
+	result.add(new ArrayList<Character>());
+ 
+	return result;
+}
+
+}
