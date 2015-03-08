@@ -282,31 +282,39 @@ import java.util.Stack;
 	}
 
 	private static void printNodesFromRootToLeaf(BST bst) {
-		int[] path = new int[1000];
-		printNodesFromRootToLeafAlgorithm(bst.root,0,path);
+		printNodesFromRootToLeafAlgorithm(bst.root,new ArrayList<Integer>());
 	}
 
-	private static void printNodesFromRootToLeafAlgorithm(Node node, int pathLength,	int[] path) {
+	private static void printNodesFromRootToLeafAlgorithm(Node node, ArrayList<Integer> list) {
+		/*
+		 * Source: http://codereview.stackexchange.com/questions/63921/print-all-nodes-from-root-to-leaves
+		 */
+		if(node==null)
+			return;
 		
-		path[pathLength] = node.data;
-		pathLength++;
+		list.add(node.data);
 		
-		if(node.lchild==null && node.rchild==null)
-			printPaths(path,pathLength);
-		else{
-			if(node.lchild!=null)
-			printNodesFromRootToLeafAlgorithm(node.lchild, pathLength, path);
-			if(node.rchild!=null)
-			printNodesFromRootToLeafAlgorithm(node.rchild, pathLength, path);
+		if (node.lchild == null && node.rchild == null) {
+		    System.out.println(list);
+		} 
+		else {   // Since we are using List and not Stack, hence we should go first LEFT and then RIGHT
+			
+			/*
+			 * MOST IMP is "new ArrayList<Integer>(list)" the constructor used is "ArrayList<Integer>(list)"
+			 * which is a parameterized constructor and we have NOT USED default constructor
+			 * This parameterized constructor constructs a list containing the elements of the specified collection,
+			 * in the order they are returned by the collection's iterator.
+			 */
+			printNodesFromRootToLeafAlgorithm(node.lchild, new ArrayList<Integer>(list)); 
+			printNodesFromRootToLeafAlgorithm(node.rchild, new ArrayList<Integer>(list));
 		}
-		
-	}
 
-	private static void printPaths(int[] path, int pathLength) {
-		for(int i=0;i<pathLength;i++)
-			System.out.print(path[i]+" ");
-		System.out.println();
 	}
+/*
+ * Analysis:
+ * Time Complexity = O(n)
+ * Space Complexity = O(lgn) where lgn is the longest possible path in the BST
+ */
 	
 	private static void printNodesOnEveryLevel(BST bst) {
 		Queue<Node> queue = new LinkedList<Node>();
