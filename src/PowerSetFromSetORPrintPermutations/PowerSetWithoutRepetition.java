@@ -10,10 +10,33 @@ So, as per the question requirements, we need to print
 
 Question And Answer Source: http://www.careercup.com/question?id=6189585818189824
 
-NOTE: powerset and permutation are different things
+
+---------------------------------------------------------------------------------------
+NOTE: POWERSET and PERMUTATION are DIFFERENT things
 For Example: input = [1,2,3]
 Then Powerset = [null,1,2,3,12,23,13,123]
 and Permutation = [123,132,312,321,213,231]
+
+BUT POWERSET and SUBSETS are one and the SAME
+
+1. For Example: input = [1,2,3]     <----- UNIQUE elements
+Then Powerset = [[],1,2,3,12,23,13,123]
+Then Subsets = [[],1,2,3,12,23,13,123]   
+
+NOTE: This question is know as subsets I question in leetcode
+
+1. For Example: input = [1,2,2]     <----- DUPLICATE elements
+Then Powerset = [[],1,2,12,22,122]
+Then Subsets = [[],1,2,12,22,122]
+
+NOTE: This question is know as subsets II question in leetcode
+
+VERY IMP SUMMARY:
+1. Powerset and subsets ARE SAME
+2. Powerset and Permutations ARE DIFFERENT
+3. Powerset with UNIQUE input is known as Subsets I question in leetcode
+4. Powerset with DUPLICATE input is known as Subsets II question in leetcode
+-------------------------------------------------------------------------------------
 
 Algorithm:
 for each element of input : 
