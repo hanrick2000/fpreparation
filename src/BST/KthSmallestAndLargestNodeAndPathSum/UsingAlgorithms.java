@@ -10,10 +10,12 @@ Algorithm:
 
 package BST.KthSmallestAndLargestNodeAndPathSum;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 
-public class UsingRecursion { 
+public class UsingAlgorithms { 
 	
 	private static int index=0;
 	public static void main(String[] args) {
@@ -39,24 +41,66 @@ public class UsingRecursion {
 		// PathSum
 		System.out.println("Enter the path sum to be checked in the BST");
 		int sum = in.nextInt();
-		System.out.println("The BST has be pathSum ? "+hasPathSum(root, sum));
+		System.out.println("The BST has the pathSum ? by recursive solution "+recursiveHasPathSum(root, sum));
+		System.out.println("The BST has the pathSum ? by iterative solution "+recursiveHasPathSum(root, sum));
 		}
 		finally{
 			in.close();
 		}
 	}
 	
-	public static boolean hasPathSum(Node root, int sum){
+	public static boolean recursiveHasPathSum(Node root, int sum){
 		if(root==null)
 			return (sum==0);
 		else{
 			int subSum = sum - root.value;
-			boolean left = hasPathSum(root.left, subSum);
-			boolean right = hasPathSum(root.right, subSum);
+			boolean left = recursiveHasPathSum(root.left, subSum);
+			boolean right = recursiveHasPathSum(root.right, subSum);
 			return (left||right);
 		}
 	}
 	
+	public static boolean iterativeHasPathSum(Node root, int sum) {
+		
+		/* This is a BFS traversal. The while loop is a BFS traversal
+		 * Source: http://www.programcreek.com/2013/01/leetcode-path-sum/
+		 */
+		
+        if(root == null) 
+        	return false;
+ 
+        Queue<Node> nodes = new LinkedList<Node>();
+        Queue<Integer> values = new LinkedList<Integer>();
+ 
+        nodes.add(root);
+        values.add(root.value);
+ 
+        while(!nodes.isEmpty()){
+            Node curr = nodes.remove();
+            int sumValue = values.remove();
+ 
+            if(curr.left == null && curr.right == null && sumValue==sum){  // VERY IMP CONDITION
+                return true;
+            }
+ 
+            if(curr.left != null){
+                nodes.add(curr.left);
+                values.add(sumValue+curr.left.value);
+            }
+ 
+            if(curr.right != null){
+                nodes.add(curr.right);
+                values.add(sumValue+curr.right.value);
+            }
+        }
+ 
+        return false;
+    }
+/*
+ * Analysis:
+ * Time Complexity = O(n)
+ * Space Complexity = O(2n)
+ */
 	
 private static void findKthLargestNode(Node root,int k) { 
 

@@ -35,6 +35,11 @@ public class IterativeAndRecursiveSolution {
             Node curr = nodes.remove();
             int count = counts.remove();
             
+            
+            if(curr.left == null && curr.right == null){        // VERY IMP CONDITION
+                return count;
+            }
+            
             if(curr.left != null){
                 nodes.add(curr.left);
                 counts.add(count+1);
@@ -45,9 +50,7 @@ public class IterativeAndRecursiveSolution {
                 counts.add(count+1);
             }
  
-            if(curr.left == null && curr.right == null){        // VERY IMP CONDITION
-                return count;
-            }
+            
         }
  
         return 0;
