@@ -8,7 +8,7 @@ Algorithm:
 2. For Smallest element -> Do a PREORDER traversal
 */
 
-package BST.KthSmallestAndLargestNode;
+package BST.KthSmallestAndLargestNodeAndPathSum;
 
 import java.util.Scanner;
 
@@ -36,11 +36,28 @@ public class UsingRecursion {
 		index=0;
 		System.out.println("The kth largest element in the tree is: ");
 		findKthLargestNode(root,k);
+		// PathSum
+		System.out.println("Enter the path sum to be checked in the BST");
+		int sum = in.nextInt();
+		System.out.println("The BST has be pathSum ? "+hasPathSum(root, sum));
 		}
 		finally{
 			in.close();
 		}
 	}
+	
+	public static boolean hasPathSum(Node root, int sum){
+		if(root==null)
+			return (sum==0);
+		else{
+			int subSum = sum - root.value;
+			boolean left = hasPathSum(root.left, subSum);
+			boolean right = hasPathSum(root.right, subSum);
+			return (left||right);
+		}
+	}
+	
+	
 private static void findKthLargestNode(Node root,int k) { 
 
 	
