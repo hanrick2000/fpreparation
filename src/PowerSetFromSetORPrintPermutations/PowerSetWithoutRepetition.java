@@ -40,16 +40,6 @@ VERY IMP SUMMARY:
 3. Powerset with UNIQUE input is known as Subsets I question in leetcode
 4. Powerset with DUPLICATE input is known as Subsets II question in leetcode
 -------------------------------------------------------------------------------------
-
-Algorithm:
-for each element of input : 
-If it is visited for the first time, just add it to all sets that has been added to powerset. 
-
-else check hashmap to find number of this element that has been visited, then add new element to 
-set(s) that has exactly this number of duplication.
-
-
-VERY IMP NOTE: Debug this program to understand it
 */
 package PowerSetFromSetORPrintPermutations;
 
