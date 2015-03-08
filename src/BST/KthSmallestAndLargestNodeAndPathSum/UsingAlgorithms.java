@@ -48,7 +48,6 @@ public class UsingAlgorithms {
 			in.close();
 		}
 	}
-	
 	public static boolean recursiveHasPathSum(Node root, int sum){
 		// Source: https://github.com/nkatre/Operations-on-Trees/blob/master/printPaths%20from%20Root%20to%20Leaf
 		
@@ -84,7 +83,7 @@ public class UsingAlgorithms {
             if(curr.left == null && curr.right == null && sumValue==sum){  // VERY IMP CONDITION
                 return true;
             }
- 
+            // Since we are using Queue hence First LEFT then RIGHT
             if(curr.left != null){
                 nodes.add(curr.left);
                 values.add(sumValue+curr.left.value);
