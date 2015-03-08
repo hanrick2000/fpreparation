@@ -10,7 +10,7 @@ public class DecimalToRoman {
 	    
 	    /*
 	     * TR:
-	     * 1. 1,4,5,9   -    XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13   Mention 1459-XLCDM from BOTTOM TO TOP        
+	     * 1. 1,4,5,9-XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13   Mention 1459-XLCDM from BOTTOM TO TOP        
 	     * 2. LinkedHashMap<String,Integer>
 	     */
 	    
@@ -31,7 +31,7 @@ public class DecimalToRoman {
 	    
 	    StringBuilder res=new StringBuilder();
 	    
-	    for(Map.Entry<String, Integer> entry : roman_numerals.entrySet()){
+	    for(Map.Entry<String, Integer> entry : roman_numerals.entrySet()){  // return value of entry.Set() is Set<Map.Entry<I,E>>
 	      // get the key and value
 	      String s = entry.getKey();
 	      int v = entry.getValue();
@@ -45,12 +45,13 @@ public class DecimalToRoman {
 	    return res.toString();
 	  }
 	  public static String repeatChar(String s, int repeat) {
-	    if(s == null) {
+	    if(s == null)
 	        return null;
-	    }
+	    
 	    StringBuilder sb = new StringBuilder();
 	    for(int i = 0; i < repeat; i++)
 	        sb.append(s);
+	    
 	    return sb.toString();
 	  }
 	  
