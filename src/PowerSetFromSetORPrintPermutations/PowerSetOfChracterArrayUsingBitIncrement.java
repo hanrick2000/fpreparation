@@ -90,7 +90,7 @@ public static ArrayList<ArrayList<Character>> subsets(char[] S) {
  
 		//get sets that are already in result
 		for (ArrayList<Character> a : result) {
-			temp.add(new ArrayList<Character>(a));
+			temp.add(new ArrayList<Character>(a)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Character>(a)]
 		}
  
 		//add S[i] to existing sets

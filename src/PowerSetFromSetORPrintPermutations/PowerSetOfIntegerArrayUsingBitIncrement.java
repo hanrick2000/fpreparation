@@ -92,7 +92,7 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 	 
 			//get sets that are already in result
 			for (ArrayList<Integer> a : result) {
-				temp.add(new ArrayList<Integer>(a));
+				temp.add(new ArrayList<Integer>(a)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
 			}
 	 
 			//add S[i] to existing sets
