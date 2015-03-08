@@ -9,7 +9,8 @@ So, as per the question requirements, we need to print
 {NULL, {1}, {2}, {1,2}, {2,2}, {1,2,2}}
 
 Question And Answer Source: http://www.careercup.com/question?id=6189585818189824
-
+http://fisherlei.blogspot.com/2013/01/leetcode-subsets-ii.html
+https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8&client=ubuntu#q=subset%20ii%20leetcode
 
 ---------------------------------------------------------------------------------------
 NOTE: POWERSET and PERMUTATION are DIFFERENT things
