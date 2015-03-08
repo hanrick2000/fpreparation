@@ -22,7 +22,7 @@ Now, the Heaify function can be written RECURSIVELY as:
 		int leftIndex = Left(index);
 		int rightIndex = Right(index);
 		int smallest = index;          // ASSUME THAT THE SMALLEST IS PRESENT AT INDEX
-		if(leftIndex <= (A.length-1) && (A[leftIndex] < A[index]))    // compare the index and the array element
+		if(leftIndex <= (A.length-1) && (A[leftIndex] < A[smallest]))    // compare the index and the array element
 			smallest = leftIndex;       
 		if(rightIndex <= (A.length-1) && (A[rightIndex] < A[smallest])) // compare the index and the smallest array element
 			smallest = rightIndex;
@@ -52,7 +52,7 @@ public static void MaxHeapify(int[] A, int index){    // this is for min heap
 	int leftIndex = Left(index);
 	int rightIndex = Right(index);
 	int largest = index;          // ASSUME THAT THE LARGEST IS PRESENT AT INDEX
-	if(leftIndex <= (A.length-1) && (A[leftIndex] > A[index]))    // compare the index and the array element
+	if(leftIndex <= (A.length-1) && (A[leftIndex] > A[largest]))    // compare the index and the array element
     	largest = leftIndex;       
 	if(rightIndex <= (A.length-1) && (A[rightIndex] > A[largest])) // compare the index and the largest array element
 		largest = rightIndex;
@@ -63,8 +63,8 @@ public static void MaxHeapify(int[] A, int index){    // this is for min heap
 }
 
 /* Analysis:
+Time Compexity of BuildHeap is O(n), (CLRS Book Page number 159 mentions buildHeap is a linear time operation)
 Time Complexity of Heapify funtion is O(Lg(n)), where n is the total elements in the array.
-Time Compexity of BuildHeap is O(nLg(n)), since BuildHeap calls Heapify function on n/2 elements of the array. 
-Hence in totality the time complexity of buildHeap method is O(nLg(n)).
+Hence total time complexity = O(n+lgn)
 */
 }
