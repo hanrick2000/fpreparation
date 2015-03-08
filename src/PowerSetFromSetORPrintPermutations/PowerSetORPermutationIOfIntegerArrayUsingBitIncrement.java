@@ -1,8 +1,8 @@
-package PowerSetFromSet;
+package PowerSetFromSetORPrintPermutations;
 
 import java.util.Scanner;
 
-public class PowerSetOfIntegerArrayUsingBitIncrement {
+public class PowerSetORPermutationIOfIntegerArrayUsingBitIncrement {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
