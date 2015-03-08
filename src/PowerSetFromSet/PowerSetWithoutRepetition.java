@@ -66,50 +66,37 @@ public class PowerSetWithoutRepetition {
 		else {
 			while (!input.isEmpty()) {
 				// remove the element under consideration
-				focoused = input.remove(0);   
+				focoused = input.remove(0);    // remove the integer from input array list
 				
 				int psize = powerSet.size();     // get the size of the powerSet
 				
 				counter=0;
-				dupCounter=0;  
+				dupCounter=0;
 				{
 					if(hm.containsKey(focoused))     // if the input element is ALREADY VISITED
 					{
 						hm.put(focoused, hm.get(focoused)+1); // increment the VISIT COUNT
 						dupCounter = hm.get(focoused);  // get the VISIT COUNT indicating how many times the input element is visited
-						
 						for (int i = 0; i < psize; i++) {
-							
-							
 							// get only those ArrayList element of the powerSet which contains single element
-							for(Integer ii : powerSet.get(i))
+							for(Integer ii : powerSet.get(i)) // if get(i) returns object of ArrayList then Integer ii would be null
 								if(ii==focoused)
 									counter++;
-							
-							
 							if(counter==dupCounter-1)
-							{
-
-		    // clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
-								
+							{// clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
 								set = (ArrayList<Integer>) powerSet.get(i).clone(); // get EACH element(and type cast it to ArrayList) of the powerSet and clone it
 								set.add(focoused); // add the current input element to this new cloned ArrayList
 								powerSet.add(set); // add this new cloned ArrayList element as a NEW ARRAYLIST element to the powerSet
 							}
-							
 							// make the counter 0
 							counter=0;
-						
 						}
 					} 
 					
 					else{  // if the input element is NOT VISITED BEFORE
 						hm.put(focoused, 1);   // mark it as visited in the HashMap
-						
-						for (int i = 0; i < psize; i++) {   // iterate through all the elements of the powerSet
-							
-			// clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet
-							
+						for (int i = 0; i < psize; i++) {   // iterate through all the elements of the powerSet							
+			// clone each element of powerSet, add the current input element and add this new ArrayList element to the powerSet			
 							set = (ArrayList<Integer>) powerSet.get(i).clone(); // get EACH element(and type cast it to ArrayList) of the powerSet and clone it
 							set.add(focoused); // add the current input element to this new cloned ArrayList
 							powerSet.add(set); // add this new cloned ArrayList element as a NEW ARRAYLIST element to the powerSet
