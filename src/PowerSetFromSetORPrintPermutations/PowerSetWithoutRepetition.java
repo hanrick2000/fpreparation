@@ -116,7 +116,7 @@ public class PowerSetWithoutRepetition {
 				temp.add(0, num[i]);       // add to the 0th index
 			}
 	 
-			//add each single number as a set, only if current element is different with previous
+			//add each single number as a single set, only if current element is different with previous
 			if (i == num.length - 1 || num[i] != num[i + 1]) {
 				ArrayList<Integer> temp = new ArrayList<Integer>();
 				temp.add(num[i]);
