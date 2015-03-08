@@ -13,6 +13,7 @@ package BST.KthSmallestAndLargestNodeAndPathSum;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 
 public class UsingAlgorithms { 
@@ -33,6 +34,10 @@ public class UsingAlgorithms {
 		Node root = createTree(a,0,a.length-1);
 		System.out.println("Enter the kth largest element to be found in the tree");
 		int k = in.nextInt();
+		
+		System.out.println("Iterative kth smallest is: "+iterativeKthSmallest(root,k));
+		System.out.println("Iterative kth largest is: "+iterativeKthLargest(root,k));
+		
 		System.out.println("The kth smallest element in the tree is: ");
 		findKthSmallestNode(root,k);
 		index=0;
@@ -103,6 +108,54 @@ public class UsingAlgorithms {
  * Space Complexity = O(2n)
  */
 	
+	private static int iterativeKthSmallest(Node root, int k){
+		Node temp = root;
+		if(temp==null)
+			return -1;
+		
+		// The reason why we use Stack is because Stack can resemble recursive calls
+		Stack<Node> s = new Stack<Node>();
+		while(!s.isEmpty() || temp!=null){
+			
+			if(temp!=null){
+				s.push(temp);
+				temp=temp.left;
+			}
+			else{
+				temp=s.pop();  // trace the previous node
+				if(--k==0)
+					break;
+				temp=temp.right;
+			}
+			
+		}
+		return temp.value;
+	}
+
+	private static int iterativeKthLargest(Node root, int k){
+		Node temp = root;
+		if(temp==null)
+			return -1;
+		
+		// The reason why we use Stack is because Stack can resemble recursive calls
+		Stack<Node> s = new Stack<Node>();
+		while(!s.isEmpty() || temp!=null){
+			
+			if(temp!=null){
+				s.push(temp);
+				temp=temp.right;
+			}
+			else{
+				temp=s.pop();  // trace the previous node
+				if(--k==0)
+					break;
+				temp=temp.left;
+			}
+			
+		}
+		return temp.value;
+	}
+
 private static void findKthLargestNode(Node root,int k) { 
 
 	
@@ -124,6 +177,7 @@ private static void findKthLargestNode(Node root,int k) {
  * Time Complexity = O(n)
  * Space Complexity = O(1)
  */
+
 private static void findKthSmallestNode(Node root, int k) {
 	
 	/*
