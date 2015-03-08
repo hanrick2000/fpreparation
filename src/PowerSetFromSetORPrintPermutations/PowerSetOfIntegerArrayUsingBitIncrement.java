@@ -100,7 +100,7 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 				a.add(S[i]);
 			}
 	 
-			//add S[i] only as a set
+			//add S[i] only as a single set
 			ArrayList<Integer> single = new ArrayList<Integer>();
 			single.add(S[i]);
 			temp.add(single);

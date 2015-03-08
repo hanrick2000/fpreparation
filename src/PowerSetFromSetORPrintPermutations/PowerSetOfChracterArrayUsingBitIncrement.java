@@ -98,7 +98,7 @@ public static ArrayList<ArrayList<Character>> subsets(char[] S) {
 			a.add(S[i]);
 		}
  
-		//add S[i] only as a set
+		//add S[i] only as a single set
 		ArrayList<Character> single = new ArrayList<Character>();
 		single.add(S[i]);
 		temp.add(single);
