@@ -36,11 +36,11 @@ public class DecimalToRoman {
 	      String s = entry.getKey();
 	      int v = entry.getValue();
 	      // get the repeat chars
-	      int repeat = givenNumber/v;                          // Divide
+	      int repeat = givenNumber/v;                          // Divide  EXAMPLE: number = 2001 then REPEAT = 2001/1000 = 2
 	      // append the repeated chars
 	      res.append(repeatChar(s, repeat));
 	      // modify the input number
-	      givenNumber = givenNumber % v;                       // Modulus
+	      givenNumber = givenNumber % v;                       // Modulus EXAMPLE: number = 2001 then NUMBER = 2001%1000 = 1
 	    } 
 	    return res.toString();
 	  }
