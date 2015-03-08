@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class DecimalToRoman {
 	public static String RomanNumerals(int givenNumber) {
-	    LinkedHashMap<String, Integer> roman_numerals = new LinkedHashMap<String, Integer>();
+	    LinkedHashMap<String, Integer> romanNumerals = new LinkedHashMap<String, Integer>();
 	    
 	    /*
 	     * TR:
@@ -14,24 +14,24 @@ public class DecimalToRoman {
 	     * 2. LinkedHashMap<String,Integer>
 	     */
 	    
-	    roman_numerals.put("M", 1000);
-	    roman_numerals.put("CM", 900);
-	    roman_numerals.put("D", 500);
-	    roman_numerals.put("CD", 400);
-	    roman_numerals.put("C", 100);
-	    roman_numerals.put("XC", 90);
-	    roman_numerals.put("L", 50);
-	    roman_numerals.put("XL", 40);
-	    roman_numerals.put("X", 10);
-	    roman_numerals.put("IX", 9);
-	    roman_numerals.put("V", 5);
-	    roman_numerals.put("IV", 4);
-	    roman_numerals.put("I", 1);
+	    romanNumerals.put("M", 1000);
+	    romanNumerals.put("CM", 900);
+	    romanNumerals.put("D", 500);
+	    romanNumerals.put("CD", 400);
+	    romanNumerals.put("C", 100);
+	    romanNumerals.put("XC", 90);
+	    romanNumerals.put("L", 50);
+	    romanNumerals.put("XL", 40);
+	    romanNumerals.put("X", 10);
+	    romanNumerals.put("IX", 9);
+	    romanNumerals.put("V", 5);
+	    romanNumerals.put("IV", 4);
+	    romanNumerals.put("I", 1);
 	    
 	    
 	    StringBuilder res=new StringBuilder();
 	    
-	    for(Map.Entry<String, Integer> entry : roman_numerals.entrySet()){  // return value of entry.Set() is Set<Map.Entry<I,E>>
+	    for(Map.Entry<String, Integer> entry : romanNumerals.entrySet()){  // return value of entry.Set() is Set<Map.Entry<I,E>>
 	      // get the key and value
 	      String s = entry.getKey();
 	      int v = entry.getValue();
