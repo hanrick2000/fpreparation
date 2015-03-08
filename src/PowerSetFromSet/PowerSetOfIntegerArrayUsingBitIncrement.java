@@ -20,7 +20,15 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 	}
 
 	private static void printPowerSet(int[] set) {
-	
+		/*
+		 * VERY IMP NOTE: If interviewer says that the input set contains duplicates and
+		 * that we need to only print powerset elements which are NOT DUPLICATES,
+		 * then in this case first call a REMOVE_DUPLICATES method which removes the 
+		 * duplicate set elements from the input set and after the removal of duplicates when
+		 * we get ALL UNIQUE elements in the set, then at that time we need to call 
+		 * this pringPowerSet function with the UniqueElementSet passed as parameter
+		 */
+		
 		for(int i=0;i<(int)Math.pow(2,set.length);i++){
 			for(int j=0;j<set.length;j++){ // loop which checks which bit is set in integer i
 				if(((i)&(1<<j))!=0) // HandRun this to understand how to check for set bits in an integer
