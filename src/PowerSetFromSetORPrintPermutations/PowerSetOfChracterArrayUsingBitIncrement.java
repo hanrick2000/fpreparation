@@ -1,3 +1,13 @@
+
+
+
+/*
+NOTE: powerset and permutation are different things
+For Example: input = [1,2,3]
+Then Powerset = [null,1,2,3,12,23,13,123]
+and Permutation = [123,132,312,321,213,231]
+*/
+
 package PowerSetFromSetORPrintPermutations;
 
 import java.util.Scanner;
