@@ -137,7 +137,7 @@ Efficient Celebrity Algorithm
 		for (int newCandidate = candidate + 1; newCandidate < totalPeople; newCandidate++) {
 
 			if (knows(candidate, newCandidate)) {  // Does 1 know 4? Yes. Eliminate 1. That is eliminate candidate
-				return findCelebrity(newCandidate,totalPeople); // candidate now becomes newCandidate
+				return findCelebrity(newCandidate,totalPeople); // newCandidate now becomes candidate. Check whether newCandidate is a celebrity
 			}
 			else { }// Does 1 know 4? No. Eliminate 4. That is increment newCandidate variable
 			
