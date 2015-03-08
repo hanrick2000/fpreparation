@@ -7,72 +7,71 @@ public static void romanToDecimal(String romanNumber) {
 	if(romanNumber == null || romanNumber.length()==0)
 		System.out.println("Invalid Number");
 	
-    int decimal = 0;
-    int lastNumber = 0;
+    int total = 0;
+    int lastNumberValue = 0;
     String romanNumeral = romanNumber.toUpperCase();  // convert to upper case
 
-    
-/* operation to be performed on upper cases even if user enters ROMAN values in lower case chars */
     
     for (int x = romanNumeral.length() - 1; x >= 0 ; x--) {
         char convertToDecimal = romanNumeral.charAt(x);
 /*
  * TR: 
- * 1. 15 - XLCDM             Total Conditions = 7        
- * 2. for loop from last to first
- * 3. count("DECIMAL") = 7. Hence TO GET DECIMAL from ROMAN we need 7 mappings
+ * 1. count("DECIMAL") = 7. Hence TO GET DECIMAL from ROMAN we need 7 mappings
+ * 2. 15 - XLCDM             Total Conditions = 7     Mention 15-XLCDM from BOTTOM TO TOP    
+ * 3. for loop from last to first
+ * 4. lastNumber = 0, currentNumber, total = 0   (LVD where V is variable others are initialized to 0) TR: LSD
  */
         switch (convertToDecimal) {
             case 'M':
-                decimal = processDecimal(lastNumber, 1000, decimal);
-                lastNumber = 1000;
+            	total = processNumber(lastNumberValue, 1000, total);
+            	lastNumberValue = 1000;
                 break;
 
             case 'D':
-                decimal = processDecimal(lastNumber, 500, decimal);
-                lastNumber = 500;
+            	total = processNumber(lastNumberValue, 500, total);
+            	lastNumberValue = 500;
                 break;
 
             case 'C':
-                decimal = processDecimal(lastNumber, 100, decimal);
-                lastNumber = 100;
+            	total = processNumber(lastNumberValue, 100, total);
+            	lastNumberValue = 100;
                 break;
 
             case 'L':
-                decimal = processDecimal(lastNumber, 50, decimal);
-                lastNumber = 50;
+            	total = processNumber(lastNumberValue, 50, total);
+            	lastNumberValue = 50;
                 break;
 
             case 'X':
-                decimal = processDecimal(lastNumber, 10, decimal);
-                lastNumber = 10;
+            	total = processNumber(lastNumberValue, 10, total);
+            	lastNumberValue = 10;
                 break;
 
             case 'V':
-                decimal = processDecimal(lastNumber, 5, decimal);
-                lastNumber = 5;
+            	total = processNumber(lastNumberValue, 5, total);
+            	lastNumberValue = 5;
                 break;
 
             case 'I':
-                decimal = processDecimal(lastNumber, 1, decimal);
-                lastNumber = 1;
+            	total = processNumber(lastNumberValue, 1, total);
+            	lastNumberValue = 1;
                 break;
         }
     }
-    System.out.println(decimal);
+    System.out.println(total);
 }
 
-public static int processDecimal(int lastNumber, int value, int decimal) {
-    if (lastNumber > value)
-        return decimal - value;
+public static int processNumber(int lastNumberValue, int currentNumberValue, int total) {
+    if (lastNumberValue > currentNumberValue)       //  TR: Roman Number = IV , lastNumberValue = V (since we start from R to L) and currentNumberValue = I
+        return total - currentNumberValue;
     else
-        return decimal + value;
+        return total + currentNumberValue;   //  TR: Roman Number = VI , lastNumberValue = I (since we start from R to L) and currentNumberValue = V
 }
 
 public static void main(java.lang.String args[]) {
     romanToDecimal("XIV");
 }
- }
+}
 /*
 Analaysis:
 Time Complexity: O(n)

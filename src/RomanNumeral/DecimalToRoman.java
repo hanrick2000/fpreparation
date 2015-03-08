@@ -10,7 +10,7 @@ public class DecimalToRoman {
 	    
 	    /*
 	     * TR:
-	     * 1. 1,4,5,9   -    XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13      
+	     * 1. 1,4,5,9   -    XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13   Mention 1459-XLCDM from BOTTOM TO TOP        
 	     * 2. LinkedHashMap<String,Integer>
 	     */
 	    
