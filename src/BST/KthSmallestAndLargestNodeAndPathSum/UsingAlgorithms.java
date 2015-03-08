@@ -50,6 +50,8 @@ public class UsingAlgorithms {
 	}
 	
 	public static boolean recursiveHasPathSum(Node root, int sum){
+		// Source: https://github.com/nkatre/Operations-on-Trees/blob/master/printPaths%20from%20Root%20to%20Leaf
+		
 		if(root==null)
 			return (sum==0);
 		else{
