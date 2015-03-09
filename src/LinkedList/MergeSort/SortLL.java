@@ -29,6 +29,7 @@ public class SortLL {
 		n5.next = n6;
  
 		n1 = mergeSortList(n1);
+		System.out.println("Result of MergeSort: ");
 		printList(n1);
 	}
  

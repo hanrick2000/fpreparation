@@ -36,9 +36,11 @@ public class InterLeaveLL {
 		n31.next = n41;
  
 		ListNode result= interleaveLL(n1,n11);
+		System.out.println("Interleave LL WITH ExtraSpace");
 		printList(result);
 		
 		ListNode resultHead = interleaveLLWithoutExtraSpace(n1,n11);
+		System.out.println("Interleave LL WITHOUT ExtraSpace");
 		printList(resultHead);
 		
 	}
@@ -56,24 +58,27 @@ public class InterLeaveLL {
 			ListNode fakeNode = new ListNode(0);
 			ListNode actualNode = fakeNode;
 			
-			while(first!=null && second!=null){
-				fakeNode.next = new ListNode(first.val);
-				first=first.next;
+			ListNode firstItr = first;
+			ListNode secondItr = second;
+			
+			while(firstItr!=null && secondItr!=null){
+				fakeNode.next = new ListNode(firstItr.val);
+				firstItr=firstItr.next;
 				fakeNode=fakeNode.next;
-				fakeNode.next=new ListNode(second.val);
-				second=second.next;
+				fakeNode.next=new ListNode(secondItr.val);
+				secondItr=secondItr.next;
 				fakeNode=fakeNode.next;
 			}
 			
-			while(first!=null){
-				fakeNode.next = new ListNode(first.val);
-				first=first.next;
+			while(firstItr!=null){
+				fakeNode.next = new ListNode(firstItr.val);
+				firstItr=firstItr.next;
 				fakeNode=fakeNode.next;
 			}
 			
-			while(second!=null){
-				fakeNode.next=new ListNode(second.val);
-				second=second.next;
+			while(secondItr!=null){
+				fakeNode.next=new ListNode(secondItr.val);
+				secondItr=secondItr.next;
 				fakeNode=fakeNode.next;
 			}
 			
