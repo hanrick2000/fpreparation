@@ -142,12 +142,11 @@ public class UsingNodeLevels {
 			b=b.parent;
 		}
 		
-		// if a and b belong to different trees
-		if(a==null || b==null)
-			return null;
 		
-		// if a and b belong to same trees then either return a.data OR b.data
-		return a.data;  // OR return b.data;
+		if(a==b) // if a and b belong to same trees then either return a.data OR b.data
+			return a.data;
+		else //if a and b belong to different trees
+		return null;
 		
 		
 	}
