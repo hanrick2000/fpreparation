@@ -296,7 +296,8 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 			if (curr.start <= prev.end) {   // CAN BE MERGED
 				Meeting merged = new Meeting(prev.start, Math.max(prev.end, curr.end));
 				prev = merged;          // UPDATE prev
-			} else {
+			}
+			else {
 				result.add(prev);        
 				prev = curr;            // add AND UPDATE prev
 			}
