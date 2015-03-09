@@ -33,16 +33,23 @@ public class EvaluateStringToFloat {
 	}
 	
 
-	private float withoutE(String s) throws Exception{
+	private float withoutE(String s) throws Exception{         // CHECK FOR (.) and (-) 
 		if(s.charAt(0) == '-'){
 			return -withoutE(s.substring(1));
 		}
+		
 		int indexOfPeriod = s.indexOf('.');
+		
 		if(indexOfPeriod == -1){
 			return makeInt(s);
-		}else{
+		}
+		else{
+			
 			float beforePeriod = makeInt(s.substring(0,indexOfPeriod));
 			float afterPeriod = makeInt(s.substring(indexOfPeriod+1));
+			
+			
+			
 			float temp = afterPeriod;
 			int countDigit = 0;
 			while(temp > 10){
@@ -51,7 +58,10 @@ public class EvaluateStringToFloat {
 			}
 			countDigit++;
 			
-			return (float)(beforePeriod + Math.pow(10, -countDigit)*afterPeriod);
+			return (float)(
+					beforePeriod + 
+					(Math.pow(10, -countDigit)*afterPeriod)
+					);
 		}
 		
 	}
@@ -60,12 +70,12 @@ public class EvaluateStringToFloat {
 	private float makeInt(String s) throws Exception{
 		if(s.length() == 0)
 			return 0;
-		float res = 0f;
+		float value = 0f;
 		for (int i = 0; i < s.length(); i++) {
 			// for example 234 = ((2*10)+3)*10+4;
-			res = res*10 + (s.charAt(i)-'0');     // use the ASCII table. For Example: '3'-'0' gives numeric 3
+			value = value*10 + (s.charAt(i)-'0');     // use the ASCII table. For Example: '3'-'0' gives numeric 3
 		}
-		return res;
+		return value;
 	}
 	
 	public static void main(String[] args) throws Exception {
