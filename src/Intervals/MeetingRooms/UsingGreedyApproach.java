@@ -33,6 +33,17 @@ public class UsingGreedyApproach {
 			secondProgram();
 			thirdProgram();
 			fourthProgram();
+			
+			
+			/*
+			 * VERY VERY IMP NOTE:
+			 * 
+			 * Collections.sort(userDefinedClass, new Comparator)    v.s    Arrays.sort(list, new Comparator)
+			 * 
+			 * Always remember that, 
+			 * 1. To sort USERDEFINED class use Arrays  -> http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort(T[],%20java.util.Comparator)
+			 * 2. To sort LIST use Collections  -> http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#sort(java.util.List,%20java.util.Comparator)
+			 */
 		}
 		finally{
 			in.close();
