@@ -31,6 +31,7 @@ public class DecodeToString {
 			String num = in.nextLine();
 			Set<String> result = decode("",num);
 			System.out.println(result.toString());
+			System.out.println("Number of ways to decode the String: "+numDecodings(num));
 		}
 		finally{
 			in.close();
@@ -71,10 +72,37 @@ public class DecodeToString {
 		
 		return set;
 }
+	
+	/*
+	Analysis:
+	Time Complexity = O(n)
+	Space Complexity = O()
+	*/
+	
+	
+	
+	// Number of ways to decode the String is given by DP solution mentioned below
+	public static int numDecodings(String s) {
+		if (s == null || s.length() == 0) {
+			return 0;
+		}
+		
+		int[] nums = new int[s.length() + 1];
+		nums[0] = 1;
+		nums[1] = s.charAt(0) != '0' ? 1 : 0;
+		
+		for (int i = 2; i <= s.length(); i++) {
+			if (s.charAt(i - 1) != '0') {
+				nums[i] = nums[i - 1];
+			}
+			
+			int twoDigits = (s.charAt(i - 2) - '0') * 10 + s.charAt(i - 1) - '0'; 
+			if (twoDigits >= 10 && twoDigits <= 26) {
+				nums[i] += nums[i - 2];
+			}
+		}
+		
+		return nums[s.length()];
+    }
 
 }
-/*
-Analysis:
-Time Complexity = O()
-Space Complexity = O()
-*/
