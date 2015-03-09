@@ -77,8 +77,8 @@ private static void evaluatePostfixExpression(String postfix) {
 			continue;
 		}
 		else{
-			int secondOperand = evalStack.pop();
-			int firstOperand = evalStack.pop();
+			int secondOperand = evalStack.pop();                   // 1st POP is 2nd number	
+			int firstOperand = evalStack.pop();                    // 2nd POP is 1st number
 			int result=operation(c[i],firstOperand,secondOperand);
 			evalStack.push(Integer.valueOf(result));
 		}
