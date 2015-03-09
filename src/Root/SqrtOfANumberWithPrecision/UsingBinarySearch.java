@@ -49,9 +49,9 @@ public class UsingBinarySearch {
 		while((left+PRECISION) < right){
 			mid = left+(right-left)/2.0;
 			if(n<mid*mid)                            // There is no equal to condition in this Binary Search
-				right = mid;
+				right = mid;                         // NOTHING IS ADDED
 			else
-				left = mid;
+				left = mid;                          // NOTHING IS REDUCED
 		}
 		return left;                                 // RETURN LEFT
 	}
