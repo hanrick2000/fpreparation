@@ -8,13 +8,17 @@ Question Source: http://www.careercup.com/question?id=5184156424208384
 Algorithm: Convert infix to postfix and then evaluate postfix expression
 
 Youtube Link: https://www.youtube.com/watch?v=vq-nUF0G4fI
+
+
+ALERT:
+	1. Conversion from char to int and visa-versa which pushing into and poppinh from stack
 */
 
-package EvaluateMathematicalExpression;
+package MathematicalOperations;
 
 import java.util.Stack;
 
-public class InfixToPostfix {
+public class EvaluateMathematicalExpression {
 	public static Stack<Character> stack = new Stack<Character>();
 	
 public static void main(String[] args) {
@@ -41,11 +45,13 @@ public static void main(String[] args) {
 		}
 	}
 	while(!stack.isEmpty()){
-			postfix.append(stack.pop());
+		postfix.append(stack.pop());
 	}
 		System.out.println(postfix.toString());
+	evaluatePostfixExpression(postfix.toString());
 		
 }
+
 private static int getPrecedence(char c) {
 	int precedence=0;
 	if(c=='*'||c=='/')
@@ -60,7 +66,39 @@ private static boolean isOperator(char c){
 	return (c=='+'||c=='-'||c=='/'||c=='*');
 }
 
+private static void evaluatePostfixExpression(String postfix) {
+	char[] c = postfix.toCharArray();
+	Stack<Integer> evalStack = new Stack<Integer>();
+	for(int i=0;i<c.length;i++){
+		if(!isOperator(c[i])){
+			evalStack.push((int) c[i]-'0');
+			continue;
+		}
+		else{
+			int secondOperand = evalStack.pop();
+			int firstOperand = evalStack.pop();
+			int result=operation(c[i],firstOperand,secondOperand);
+			evalStack.push(Integer.valueOf(result));
+		}
+	}
+	int finalResult = (int)evalStack.pop();
+	System.out.println("Result of the expression is: "+finalResult);
 }
+
+private static int operation(char c, int firstOperand, int secondOperand) {
+	if(c=='+')
+		return firstOperand+secondOperand;
+	else if(c=='-')
+		return firstOperand-secondOperand;
+	else if(c=='*')
+		return firstOperand*secondOperand;
+	else /*if(c=='/')*/
+		return firstOperand/secondOperand;
+}
+
+
+}
+
 /*
 Analysis:
 	Time Complexity = O(n)
