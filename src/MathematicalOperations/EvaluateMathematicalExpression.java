@@ -25,7 +25,7 @@ public static void main(String[] args) {
 	String s  =  "3+2*3-4/7";
 	char[] a = s.toCharArray();
 	StringBuilder postfix = new StringBuilder();
-	for(int i=0;i<a.length;i++){
+	for(int i=0;i<a.length;i++){                               // Left to Right Traversal
 		if(!isOperator(a[i])){
 			postfix.append(a[i]);
 			continue;
@@ -71,7 +71,7 @@ private static boolean isOperator(char c){
 private static void evaluatePostfixExpression(String postfix) {
 	char[] c = postfix.toCharArray();
 	Stack<Integer> evalStack = new Stack<Integer>();
-	for(int i=0;i<c.length;i++){
+	for(int i=0;i<c.length;i++){                                     // Left to Right Traversal
 		if(!isOperator(c[i])){
 			evalStack.push((int) c[i]-'0');
 			continue;
