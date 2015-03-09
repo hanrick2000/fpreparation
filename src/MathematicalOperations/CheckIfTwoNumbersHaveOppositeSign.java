@@ -4,11 +4,11 @@ Question: Detect if two integers have opposite signs
 Source: http://www.geeksforgeeks.org/detect-if-two-integers-have-opposite-signs/
 
 */
-package areTwoNumbersOppositeInSign;
+package MathematicalOperations;
 
 import java.util.Scanner;
 
-public class UsingComparisonOperatornsBitwiseOperator {
+public class CheckIfTwoNumbersHaveOppositeSign {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
@@ -39,7 +39,7 @@ private static boolean usingBitwiseOperator(int a, int b) {
 	*/
 	
 	int result = (a^b);
-	return (result>>31!=0);     // Check whether the sign bit is set or not
+	return ((result)&(1<<31))!=0;     // Check whether the sign bit is set or not
 }
 }
 /*
