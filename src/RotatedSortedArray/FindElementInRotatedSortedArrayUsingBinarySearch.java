@@ -79,7 +79,6 @@ public static int usingModifiedBS(int[] a, int find){
                 high = mid-1;
             else
                 low = mid+1;
-       
         }
         
         else{ //(a[mid] < a[high])  // then the upper half is a sorted array & Now search for find in sorted array

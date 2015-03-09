@@ -62,14 +62,7 @@ public class NumberOfTimesSortedArrayIsRotated {
 			if((low==high-1) && (a[low] > a[high]))
 				return high;
 					
-			
-			
-			
-			
-			
-			
-			
-			
+
 			
 			// MORE than two numbers present in the array
 			
@@ -81,8 +74,8 @@ public class NumberOfTimesSortedArrayIsRotated {
 				return low;
 			
 			// find the next and the previous index which are required by the REMAINING CASES
-			int prev = (mid-1+a.length)%a.length;       // VERY IMP
-			int next = (mid+1+a.length)%a.length;       // VERY IMP
+			int prev = (mid-1+   a.length)%a.length;       // VERY IMP
+			int next = (mid+1+   a.length)%a.length;       // VERY IMP
 			
 			
 			// case 2: the mid is the pivot
