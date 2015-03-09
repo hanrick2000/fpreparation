@@ -48,12 +48,12 @@ public class UsingBinarySearch {
 		double mid = 0.0;
 		while((left+PRECISION) < right){
 			mid = left+(right-left)/2.0;
-			if(n<mid*mid)                            // There is no equal to condition in this Binary Search
-				right = mid;                         // NOTHING IS ADDED
+			if(n<mid*mid)                            // 1. There is no equal to condition in this Binary Search
+				right = mid;                         // 2. NOTHING IS ADDED
 			else
-				left = mid;                          // NOTHING IS REDUCED
+				left = mid;                          // 3. NOTHING IS REDUCED
 		}
-		return left;                                 // RETURN LEFT
+		return left;                                 // 4. RETURN LEFT
 	}
 	
 }
