@@ -46,7 +46,7 @@ public class UsingRecursion {
 	{
 	    return IsMatch(regex, s, regex.length() - 1, s.length() - 1);
 	}
-
+	// regIndex and strIndex start from RIGHT to LEFT
 	static boolean IsMatch(String regex, String s, int regIndex, int strIndex)
 	{
 	    if (regIndex < 0) // If the regex is over
@@ -59,7 +59,7 @@ public class UsingRecursion {
 	    if (strIndex >= 0) // if the string exists
 	    {
 	        if (regex.charAt(regIndex) == '.' || regex.charAt(regIndex) == s.charAt(strIndex) ) 
-	        	result = IsMatch(regex, s, regIndex - 1, strIndex - 1);
+	        	result = IsMatch(regex, s, regIndex - 1, strIndex - 1);   // regex-1 and string-1
 	    }
 
 	    if (regex.charAt(regIndex)  == '*')
