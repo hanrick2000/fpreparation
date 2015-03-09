@@ -3,11 +3,11 @@ Question: You are given two numbers A and B. Write a program to count number
 		  of bits needed to be flipped to convert A to B.
 Source: http://www.geeksforgeeks.org/count-number-of-bits-to-be-flipped-to-convert-a-to-b/
 */
-package CountNumberOfBitsToBeFlippedToConvertAToB;
+package MathematicalOperations;
 
 import java.util.Scanner;
 
-public class UsingXOR {
+public class CountNumberOfSetBitsToConvertAToB {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
@@ -39,8 +39,9 @@ private static int countSetBits(int n) {
 }
 /*
 Analysis:
-	Time Complexity = 
+	Time Complexity :
 	Time complexity of usingXOR() method is O(1) and
 	Time complexity of countSetBits() method is O(lgn)
 	Hence the total time complexity is = O(lgn)
 	Space Complexity = O(1)*/
+
