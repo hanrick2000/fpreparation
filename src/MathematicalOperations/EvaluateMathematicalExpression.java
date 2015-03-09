@@ -31,7 +31,9 @@ public static void main(String[] args) {
 			continue;
 		}
 		if(isOperator(a[i])){
-			if(stack.isEmpty()|| ((getPrecedence(a[i])>getPrecedence(stack.peek())))){
+			int prevPrecedence = getPrecedence(stack.peek());
+			int currPrecedence = getPrecedence(a[i]);
+			if(stack.isEmpty()||(currPrecedence>prevPrecedence)){
 				stack.push(a[i]);
 				continue;
 				}
