@@ -62,9 +62,9 @@ public static String numToStr(int n) {
   
     String columnName = "";
     while(n>0){
-    	int val = (n-1)%26; // Example if n=1 then value =0
-    	columnName = (char)(val+65) + columnName;// value+65 = 0+65=A
-    	n = (n-val)/26;
+    	int temp = (n-1)%26; // Example if n=1 then value =0
+    	columnName = (char)(temp+65) + columnName;// value+65 = 0+65=A
+    	n = (n-temp)/26;
     }
     return columnName;
 	}
