@@ -44,7 +44,7 @@ public class MinStepsToReachTheEnd {
 		        int step = 0, prevMax = 0, currMax = 0;
 		        
 		        for (int i=0; i<a.length; i++){
-		            if (i>prevMax){
+		            if (i>prevMax){                              // i > PREVMAX
 		                prevMax = currMax;
 		                step++;
 		            }
