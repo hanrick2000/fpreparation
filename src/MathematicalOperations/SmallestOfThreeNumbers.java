@@ -63,7 +63,7 @@ private static int min(int b, int c) {
 	return c+((b-c)&((b-c)>>31));                    // MIN then c+
 }
 private static int max(int b, int c) {
-	return b-((b-c)&((b-c)>>31));                   // MAX then b-
+	return b-((b-c)&((b-c)>>31));                    // MAX then b-
 }
 
 /*
