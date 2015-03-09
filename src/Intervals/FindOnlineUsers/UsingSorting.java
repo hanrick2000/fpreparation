@@ -112,26 +112,36 @@ public class UsingSorting {
 	}
 
 	private static List<Integer> sortLogins(List<User> users) {
+		
 		Collections.sort(users, new Comparator<User>(){
 			public int compare(User a, User b){
 				return (a.loginTime-b.loginTime);
 			}
 		});
+		
 		List<Integer> sortedLogins = new ArrayList<Integer>();
+		
 		for(int i=0;i<users.size();i++)
 			sortedLogins.add(users.get(i).loginTime);
+		
 		return sortedLogins;
+		
 	}
 	private static List<Integer> sortLogouts(List<User> users) {
+		
 		Collections.sort(users, new Comparator<User>(){
 			public int compare(User a, User b){
 				return (a.logoutTime-b.logoutTime);
 			}
 		});
+		
 		List<Integer> sortedLogouts = new ArrayList<Integer>();
+		
 		for(int i=0;i<users.size();i++)
 			sortedLogouts.add(users.get(i).logoutTime);
+		
 		return sortedLogouts;
+		
 	}
 }
 
