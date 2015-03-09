@@ -29,8 +29,31 @@ package ExcelNumbers;
 public class UsingLogic {
 public static void main(String[] args) {
 	System.out.println(numToStr(702));
-	System.out.println(strToNum("A"));
+	System.out.println(strToNum("AA"));
 }
+
+
+
+public static int strToNum(String str){  // If str=A
+	
+	// Extreme Case
+	if(str==null || str.length()==0)
+		return -1;
+	
+	int sum=0;
+	int position=0;
+	for(int i =str.length()-1;i>=0;i--)  
+		// TR: (CHAR-64) * 26^(POSITION)
+		sum = sum + (int)(str.charAt(i) - 64) * (int)Math.pow(26, position++); // Math.pow returns double, hence we typecast it to int
+	  // we do -64 because we need 1 for A, so that multiplication would be VALID
+	return sum;
+	}
+
+/*
+Time Complexity = O(n) where n = length of string
+Space Complexity = O(1)
+*/
+
 
 public static String numToStr(int n) {
 	// Extreme Case
@@ -44,27 +67,10 @@ public static String numToStr(int n) {
     	n = (n-val)/26;
     }
     return columnName;
+	}
 }
 /*
 Time Complexity = O(n/26) where n = numeric number
 Space Complexity = O(1)
 */
 
-
-public static int strToNum(String str){  // If str=A
-	
-	// Extreme Case
-	if(str==null || str.length()==0)
-		return -1;
-	
-	int sum=0;
-	for(int i =str.length()-1;i>=0;i--)  
-		sum = sum + (int)(str.charAt(i) - 64) * (int)Math.pow(26, str.length()-1-i); // Math.pow returns double, hence we typecast it to int
-	  // we do -64 because we need 1 for A, so that multiplication would be VALID
-	return sum;
-	}
-}
-/*
-Time Complexity = O(n) where n = length of string
-Space Complexity = O(1)
-*/

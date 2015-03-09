@@ -12,8 +12,9 @@ public class DecimalToRoman {
 	     * TR:
 	     * 1. 1,4,5,9-XLCDM = 10,50,100,500,1000    TOTAL MAPPINGS = 13   Mention 1459-XLCDM from BOTTOM TO TOP        
 	     * 2. LinkedHashMap<String,Integer>
+	     * 3. get Map.Entry from entry.Set()
+	     * 4. calculate “repeat”
 	     */
-	    
 	    romanNumerals.put("M", 1000);
 	    romanNumerals.put("CM", 900);
 	    romanNumerals.put("D", 500);
