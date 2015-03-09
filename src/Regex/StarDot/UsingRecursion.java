@@ -33,12 +33,12 @@ public class UsingRecursion {
 	public static void main(String[] args) {
 		
 		// REGEX, STRING
-		System.out.println(isMatch("a*", ""));
+		System.out.println(isMatch(".*", "ab"));
 		System.out.println(isMatch(".", ""));
 		System.out.println(isMatch("ab*", "a"));
 		System.out.println(isMatch("a.", "ab"));
 		System.out.println(isMatch("a", "a"));
-		System.out.println(isMatch("aaaa*a.", "aaaab"));
+		System.out.println(isMatch("aaaa*a.", "aaab"));
 		System.out.println(isMatch("ab*", "ab"));
 		System.out.println(isMatch("F.c.bo*k","Facebk"));
 	}
@@ -48,6 +48,8 @@ public class UsingRecursion {
 	}
 	// regIndex and strIndex start from RIGHT to LEFT
 	static boolean IsMatch(String regex, String s, int regIndex, int strIndex)
+
+	
 	{
 	    if (regIndex < 0) // If the regex is over
 	    {

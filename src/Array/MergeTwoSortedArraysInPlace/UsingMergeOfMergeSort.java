@@ -14,7 +14,7 @@ Algorithm:
 	
 */	
 	
-package MergeTwoSortedArraysInPlace;
+package Array.MergeTwoSortedArraysInPlace;
 
 public class UsingMergeOfMergeSort {
 	public static void main(String[] args) {
@@ -28,17 +28,29 @@ public class UsingMergeOfMergeSort {
 		Algorithm:
 		int i_a = a.size() - 1;
 		int i_b = b.size() - 1;
-		int i_ab = a.size() + b.size() - 1;
+		int i_AB = a.size() + b.size() - 1;
 			
-		for ( ; i_a >= 0 && i_b >=0; )
-		    if (a[i_a] > b[i_b])  b[i_ab--] = a[i_a--];
-		    else b[i_ab--] = b[i_b--];	
-			
-		if (i_a > 0) {
-		    for (;i_a >=0;)
-		        b[i_ab--] = a[i_a--]; 
-		} else  { // There is nothing to do if i_b > 0 as we merge onto b
-		}*/
+		while(i_a >= 0 && i_b >=0)
+		{
+		    if (a[i_a] > b[i_b])  
+		    		b[i_AB--] = a[i_a--];
+		    else 
+		    		b[i_AB--] = b[i_b--];	
+		}
+		
+		
+		if (i_a > 0) 
+		{
+		    while(i_a >=0)
+		        b[i_AB--] = a[i_a--]; 
+		} 
+		
+		else  
+		{ 
+			// There is nothing to do if i_b > 0 as we merge onto b
+		}
+		
+		*/
 		return null;
 	}
 	/*

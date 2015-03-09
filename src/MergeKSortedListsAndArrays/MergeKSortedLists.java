@@ -78,7 +78,7 @@ class ListNode{
 }
 /*
 Analysis:
-Time Complexity = O(n*k*lgk)
+Time Complexity = O(n*lgk) // Source: http://www.programcreek.com/2013/02/leetcode-merge-k-sorted-lists-java/
 where n = average number of elements in each array
 k = total number of arrays
 
