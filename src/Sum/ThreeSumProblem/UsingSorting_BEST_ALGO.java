@@ -49,6 +49,10 @@ public static void main(String[] args) {
 }
 
 private static void usingSorting(int[] array, int sum) {
+	// EXTREME CASE
+	if(array.length<3 || array==null)
+		System.out.println("Three sum cannot be found as MIN 3 numbers are required in the array");
+	
 	int low=0;
 	int high=0;
 	/* Sort the elements */

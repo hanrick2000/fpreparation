@@ -33,7 +33,7 @@ public class UsingHashMap {
 	}
 
 	 public static int[] twoSum(int[] numbers, int target) {
-
+		 
 	        if(numbers.length>=2)    // Minimum two numbers should be present in the array
 	        {
 	            HashMap<Integer,Integer> h = new HashMap<Integer,Integer>();
@@ -50,7 +50,7 @@ public class UsingHashMap {
 	            }
 	        }
 
-	        int[] k = {-1,-1};
+	        int[] k = {-1,-1};       // EXTREME CASE
 	        return k;
 	    }
 }
