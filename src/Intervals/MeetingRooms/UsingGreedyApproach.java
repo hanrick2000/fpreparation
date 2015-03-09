@@ -9,12 +9,15 @@ package Intervals.MeetingRooms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
 /*
- * REASON WHY WE HAVE NOT USED INTERVAL SEARCH TREES.
+ * VERY IMP EXPLANATION:
+ * 
+ * Reason why we have NOT USED interval search trees.
  * 
  * QUESTION FROM INTERVIEWER: Why not use interval search trees, since searching in interval search trees
  * in O(lgn) time.
@@ -33,7 +36,7 @@ public class UsingGreedyApproach {
 			secondProgram();
 			thirdProgram();
 			fourthProgram();
-			
+			fifthProgram();
 			
 			/*
 			 * VERY VERY IMP NOTE:
@@ -216,6 +219,34 @@ private static int solveFourthProgram(List<Meeting> meetings) {
  * Time Complexity = O(nlgn) where n = number of meetings
  * Space Complexity = O(2n) where n = number of meetings. Every meeting will have start and end time hence 2n
  */
+	private static void solveFifthProgram(List<Meeting> meetings, Meeting newMeeting){
+		ArrayList<Meeting> result = new ArrayList<Meeting>();
+		 
+        for(Meeting m: meetings){
+            if(m.end < newMeeting.start){
+                result.add(m);
+            }
+            else if(m.start > newMeeting.end){
+                result.add(newMeeting);
+                newMeeting = m;        
+            }
+            else if(m.end >= newMeeting.start || m.start <= newMeeting.end){  // VERY IMP: OR condition
+            	newMeeting = new Meeting(Math.min(m.start, newMeeting.start), Math.max(newMeeting.end, m.end));
+            }
+        }
+ 
+        result.add(newMeeting); 
+ 
+        // printResult
+        Iterator<Meeting> itr=meetings.iterator();
+        while(itr.hasNext())
+        	System.out.println(itr.next());
+	}
+	/*
+	 * Analysis:
+	 * Time Complexity = NO SORTING involved, hence the time complexity = O(n)
+	 * Space Complexity = O(1)
+	 */
 	
 	private static void firstProgram() {
 		/*
@@ -286,7 +317,30 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 		System.out.println("Program IV");
 		System.out.println("The maximum overlaps are: "+solveFourthProgram(meetings));
 	}
-	
+	private static void fifthProgram(){
+		// Question: Given a set of non-overlapping & sorted intervals, insert a new interval into the intervals (merge if necessary).
+		// Question Source: http://www.programcreek.com/2012/12/leetcode-insert-interval/
+		
+		List<Meeting> meetings= Meeting.createNonOverLappingMeetings();
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Program V");
+		System.out.println("INSERT/MERGE INTERVALS QUESTION: Given a set of non-overlapping & sorted intervals, insert a new interval into the intervals (merge if necessary).");
+		System.out.println("Enter the new meeting which you wish to INSERT/MERGE");
+		
+		Scanner in = new Scanner(System.in);
+		try{
+		System.out.println("Enter the START time");
+		int start = in.nextInt();
+		System.out.println("Enter the end time");
+		int end = in.nextInt();
+		Meeting newMeeting = new Meeting(start,end);
+		System.out.println("Answer is: ");
+		solveFifthProgram(meetings,newMeeting);
+		}
+		finally{
+			in.close();
+		}
+	}
 }
 class Meeting{
 	int start;
@@ -294,6 +348,9 @@ class Meeting{
 	public Meeting(int start, int end){
 		this.start=start;
 		this.end = end;
+	}
+	public String toString(){
+		return "["+start+","+end+"]";
 	}
 	public static List<Meeting> createMeetings(){
 		List<Meeting> meetings = new ArrayList<Meeting>();
@@ -309,6 +366,16 @@ class Meeting{
 		meetings.add(new Meeting(8,9));
 		meetings.add(new Meeting(8,10));
 		meetings.add(new Meeting(8,11));
+		return meetings;
+	}
+	public static List<Meeting> createNonOverLappingMeetings(){
+		List<Meeting> meetings = new ArrayList<Meeting>();
+		meetings.add(new Meeting(1,3));
+		meetings.add(new Meeting(4,8));
+		meetings.add(new Meeting(10,15));
+		meetings.add(new Meeting(20,28));
+		meetings.add(new Meeting(32,36));
+		meetings.add(new Meeting(56,68));
 		return meetings;
 	}
 }
