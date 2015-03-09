@@ -24,9 +24,9 @@ AAA-ZZZ (26*26*26 of them)
 So it's relatively easy once we figure out which "level" we are in.
 We do that with several variables:
 */
-package ExcelNumbers;
+package RomanAndExcelNumbers;
 
-public class UsingLogic {
+public class ExcelNumbers {
 public static void main(String[] args) {
 	System.out.println(numToStr(702));
 	System.out.println(strToNum("AA"));

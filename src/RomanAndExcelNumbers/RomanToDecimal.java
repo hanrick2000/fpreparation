@@ -1,4 +1,4 @@
-package RomanNumeral;
+package RomanAndExcelNumbers;
 
 public class RomanToDecimal {
 	
