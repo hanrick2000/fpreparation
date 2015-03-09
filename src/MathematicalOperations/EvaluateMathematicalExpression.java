@@ -23,35 +23,9 @@ public class EvaluateMathematicalExpression {
 	
 public static void main(String[] args) {
 	String s  =  "3+2*3-4/7";
-	char[] a = s.toCharArray();
-	StringBuilder postfix = new StringBuilder();
-	for(int i=0;i<a.length;i++){                               // Left to Right Traversal
-		if(!isOperator(a[i])){
-			postfix.append(a[i]);
-			continue;
-		}
-		if(isOperator(a[i])){
-			int prevPrecedence = getPrecedence(stack.peek());
-			int currPrecedence = getPrecedence(a[i]);
-			if(stack.isEmpty()||(currPrecedence>prevPrecedence)){
-				stack.push(a[i]);
-				continue;
-				}
-			else{
-				while(!stack.isEmpty()){
-						postfix.append(stack.pop());
-				}
-				stack.push(a[i]);
-				continue;
-				}
-		}
-	}
-	while(!stack.isEmpty()){
-		postfix.append(stack.pop());
-	}
-		System.out.println(postfix.toString());
-	evaluatePostfixExpression(postfix.toString());
-		
+	String postfix = getPostfix(s);
+	int finalResult=evaluatePostfixExpression(postfix);
+	System.out.println("Result of the expression is: "+finalResult);
 }
 
 private static int getPrecedence(char c) {
@@ -67,8 +41,35 @@ private static int getPrecedence(char c) {
 private static boolean isOperator(char c){
 	return (c=='+'||c=='-'||c=='/'||c=='*');
 }
+private static String getPostfix(String s){
+	char[] a = s.toCharArray();
+	StringBuilder postfix = new StringBuilder();
+	for(int i=0;i<a.length;i++){                               // Left to Right Traversal
+		if(!isOperator(a[i])){
+			postfix.append(a[i]);
+			continue;
+		}
+		if(isOperator(a[i])){
+			if(stack.isEmpty()||(getPrecedence(a[i]) > getPrecedence(stack.peek()))){
+				stack.push(a[i]);
+				continue;
+				}
+			else{
+				while(!stack.isEmpty()){
+						postfix.append(stack.pop());
+				}
+				stack.push(a[i]);
+				continue;
+				}
+		}
+	}
+	while(!stack.isEmpty()){
+		postfix.append(stack.pop());
+	}
+		return postfix.toString();
+}
 
-private static void evaluatePostfixExpression(String postfix) {
+private static int evaluatePostfixExpression(String postfix) {
 	char[] c = postfix.toCharArray();
 	Stack<Integer> evalStack = new Stack<Integer>();
 	for(int i=0;i<c.length;i++){                                     // Left to Right Traversal
@@ -84,7 +85,8 @@ private static void evaluatePostfixExpression(String postfix) {
 		}
 	}
 	int finalResult = (int)evalStack.pop();
-	System.out.println("Result of the expression is: "+finalResult);
+	return finalResult;
+	
 }
 
 private static int operation(char c, int firstOperand, int secondOperand) {
