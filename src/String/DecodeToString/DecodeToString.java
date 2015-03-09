@@ -40,7 +40,9 @@ public class DecodeToString {
 	
 	// Using recursion we can find this
 	public static Set<String> decode(String prefix, String code) {
+	
 		Set<String> set = new HashSet<String>();
+		
 		if (code.length() == 0 || code==null) {
 			set.add(prefix);
 			return set;
