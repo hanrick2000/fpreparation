@@ -75,13 +75,14 @@ public class DecodeToString {
 	
 	/*
 	Analysis:
-	Time Complexity = O(n)
+	Time Complexity = O()
 	Space Complexity = O()
 	*/
 	
 	
 	
 	// Number of ways to decode the String is given by DP solution mentioned below
+	// Preferred method to calculate number of ways because the Time Complexity = O(n)
 	public static int numDecodings(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;
@@ -104,5 +105,9 @@ public class DecodeToString {
 		
 		return nums[s.length()];
     }
-
+	/*
+	Analysis:
+	Time Complexity = O(n)
+	Space Complexity = O()
+	*/
 }
