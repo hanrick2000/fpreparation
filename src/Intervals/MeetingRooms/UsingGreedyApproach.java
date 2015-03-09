@@ -37,6 +37,7 @@ public class UsingGreedyApproach {
 			thirdProgram();
 			fourthProgram();
 			fifthProgram();
+			sixthProgram();
 			
 			/*
 			 * VERY VERY IMP NOTE:
@@ -222,31 +223,92 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 	private static void solveFifthProgram(List<Meeting> meetings, Meeting newMeeting){
 		ArrayList<Meeting> result = new ArrayList<Meeting>();
 		 
-        for(Meeting m: meetings){
-            if(m.end < newMeeting.start){
-                result.add(m);
+		
+		/*
+		 * Algorithm:  (VERY VERY IMP)
+		 * Whichever meeting(interval) ENDS FIRST AND DOES NOT OVERLAP, that meeting is added to the result
+		 */
+		
+        for(Meeting currentMeeting: meetings){
+            if( currentMeeting.end  < newMeeting.start){ 
+            	/*
+            	currentMeeting ENDS FIRST since newMeeting starts after currentMeeting.end hence 
+            	currentMeeting will obviously end after newMeeting ends. THUS currentMeeting ends first
+            	So add currentMeeting to result and NOW WE SHOULD CHECK for the next meeting which is newMeeting
+                */
+                result.add(currentMeeting);
             }
-            else if(m.start > newMeeting.end){
+            else if(newMeeting.end < currentMeeting.start){ 
+            	/*
+            	1. newMeeting ENDS FIRST since currentMeeting starts after newMeeting.end hence 
+            	newMeeting will obviously end after currentMeeting ends. THUS newMeeting ends first
+            	
+            	2. So add newMeeting to result and NOW WE SHOULD CHECK for the next meeting which is
+            	currentMeeting, hence currentMeeting becomes newMeeting
+                */
                 result.add(newMeeting);
-                newMeeting = m;        
+                newMeeting = currentMeeting;        
             }
-            else if(m.end >= newMeeting.start || m.start <= newMeeting.end){  // VERY IMP: OR condition
-            	newMeeting = new Meeting(Math.min(m.start, newMeeting.start), Math.max(newMeeting.end, m.end));
+            else if(newMeeting.start <= currentMeeting.end|| newMeeting.end >= currentMeeting.start){  // VERY IMP: OR condition
+            	/*
+            	 * Here newMeeting and currentMeeting overlap hence, newMeeting will have
+            	 * start = Math.min
+            	 * end = Math.max
+            	 * 
+            	 * WE DONOT ADD any meetings to the result since there is OVERLAP and in result
+            	 * we only store meetings which do not overlap
+            	 */
+            	
+            	newMeeting = new Meeting(Math.min(currentMeeting.start, newMeeting.start), Math.max(newMeeting.end, currentMeeting.end));
             }
         }
  
-        result.add(newMeeting); 
+        result.add(newMeeting);     // In the end, add the newMeeting
  
         // printResult
-        Iterator<Meeting> itr=meetings.iterator();
+        Iterator<Meeting> itr=result.iterator();
         while(itr.hasNext())
         	System.out.println(itr.next());
 	}
 	/*
 	 * Analysis:
 	 * Time Complexity = NO SORTING involved, hence the time complexity = O(n)
-	 * Space Complexity = O(1)
+	 * Space Complexity = O(n) used by result list
 	 */
+	
+	public static void solveSixthProgram(List<Meeting> list){
+		if (list == null || list.size() <= 1)
+			return;
+ 
+		// sort intervals by start time
+		Collections.sort(list, new Comparator<Meeting>(){
+			public int compare(Meeting a, Meeting b){
+				return a.start-b.start;
+			}
+		});
+ 
+		ArrayList<Meeting> result = new ArrayList<Meeting>();
+ 
+		Meeting prev = list.get(0);
+		for (int i = 1; i < list.size(); i++) {
+			Meeting curr = list.get(i);
+ 
+			if (curr.start <= prev.end) {   // CAN BE MERGED
+				Meeting merged = new Meeting(prev.start, Math.max(prev.end, curr.end));
+				prev = merged;          // UPDATE prev
+			} else {
+				result.add(prev);        
+				prev = curr;            // add AND UPDATE prev
+			}
+		}
+ 
+		result.add(prev);
+ 
+		// printResult
+        Iterator<Meeting> itr=result.iterator();
+        while(itr.hasNext())
+        	System.out.println(itr.next());
+	}
 	
 	private static void firstProgram() {
 		/*
@@ -340,6 +402,17 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 		finally{
 			in.close();
 		}
+	}
+	private static void sixthProgram()
+	{
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Program VI");
+		System.out.println("Given a collection of intervals, merge all overlapping intervals.");
+		System.out.println("Source: http://www.programcreek.com/2012/12/leetcode-merge-intervals/");
+		System.out.println("Solve from the above mentioned source");
+		List<Meeting> meetings= Meeting.createMeetings();
+		System.out.println("Result of merging overlapping intervals are: ");
+		solveSixthProgram(meetings);
 	}
 }
 class Meeting{
