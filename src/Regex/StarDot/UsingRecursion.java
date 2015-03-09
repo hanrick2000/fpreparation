@@ -3,7 +3,7 @@ Question:
 	Given a regular expression with characters a-z, ' * ', ' . ' 
 	the task was to find if that string could match another string with characters from: a-z 
 	where ' * ' may or may not delete the character before it, 
-	and ' . ' could match whatever character. 
+	and ' . ' could match any character except empty character. 
 	' * ' always appear after a a-z character. 
 	Example: 
 		isMatch("a*", "") = true; 
@@ -31,6 +31,8 @@ package Regex.StarDot;
 
 public class UsingRecursion {
 	public static void main(String[] args) {
+		
+		// REGEX, STRING
 		System.out.println(isMatch("a*", ""));
 		System.out.println(isMatch(".", ""));
 		System.out.println(isMatch("ab*", "a"));
