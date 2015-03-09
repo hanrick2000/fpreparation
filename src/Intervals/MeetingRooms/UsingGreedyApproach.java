@@ -107,13 +107,11 @@ public class UsingGreedyApproach {
 		int cur=0;
 		int maxOverlaps=0;
 		for(Integer i:list){
-			if(i>=0){  // if it is a start point then increment
+			if(i>=0)  // if it is a start point then increment
 				cur++;
-				maxOverlaps=Math.max(maxOverlaps, cur);   // update the maxOverlaps
-			}
 			else
 				cur--; // if it is a end point then decrement
-			
+			maxOverlaps=Math.max(maxOverlaps, cur);   // update the maxOverlaps
 		}
 		
 		return maxOverlaps;  // the maxOverlaps gives the number of meetings rooms required
@@ -165,7 +163,7 @@ public class UsingGreedyApproach {
 			Meeting prev = stack.peek();
 			Meeting cur = meetings.get(i);
 			if(cur.start < prev.end){ // overlap
-				if(prev.end > cur.end){
+				if(cur.end < prev.end){      // current interval ends first
 					stack.pop();
 					stack.push(cur);
 				}
@@ -199,35 +197,25 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 	});
 	
 	
-	int current = 0;
-    int maxOverlaps = 0;
-    int final_begin = 0;
-    int res = 0;
-	
-	for(Integer i: al){
-		if(i>=0){
-			current++;
-			if(maxOverlaps < current) {
-					maxOverlaps = current;
-	                final_begin = i;
-	            }
-		}
-		else{
-			if(current == maxOverlaps)  // gist to pass Example 2
-                res = (i + final_begin)/2;
-			current--;
-		
-		}
+
+	int cur=0;
+	int maxOverlaps=0;
+	for(Integer i:al){
+		if(i>=0)  // if it is a start point then increment
+			cur++;
+		else
+			cur--; // if it is a end point then decrement
+		maxOverlaps=Math.max(maxOverlaps, cur);   // update the maxOverlaps
 	}
 	
-	return res;
+	return maxOverlaps;  // the maxOverlaps gives the number of meetings rooms required
 	
 }
-	/*
-	 * Analysis:
-	 * Time Complexity = O(nlgn) where n = number of meetings
-	 * Space Complexity = O(n) where n = number of meetings because we have used Stack
-	 */
+/*
+ * Analysis:
+ * Time Complexity = O(nlgn) where n = number of meetings
+ * Space Complexity = O(2n) where n = number of meetings. Every meeting will have start and end time hence 2n
+ */
 	
 	private static void firstProgram() {
 		/*
