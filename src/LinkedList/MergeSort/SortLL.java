@@ -52,18 +52,19 @@ public class SortLL {
 			ListNode left = head;
 			ListNode right = null;
 			
-			ListNode headItr = head;
-			int countHalf = 0;
-			while (headItr != null) {
-				countHalf++;
-				ListNode next = headItr.next;
+			ListNode current = head;
+			int countNodes = 0;
+			while (current != null) {
+				countNodes++;
+				ListNode next = current.next;   // Store the nextNode
 	 
-				if (countHalf == middle) {
-					headItr.next = null;
-					right = next;
-					break;
+				if (countNodes == middle) {
+					current.next = null;       // Make the current.next null
+					right = next;              // The right end of the partitioned LL will point to next
+					break;                     // break since the partition is COMPLETE
 				}
-				headItr = next;
+				
+				current = next;
 			}
 	 
 			// now we have two parts l and r, recursively sort them
