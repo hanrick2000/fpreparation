@@ -2,11 +2,11 @@
 Question: Count set bits in an integer
 Source: http://www.geeksforgeeks.org/count-set-bits-in-an-integer/
 */
-package countSetBitsInAnInteger;
+package MathematicalOperations;
 
 import java.util.Scanner;
 
-public class UsingLoop {
+public class CountSetBitsInInteger {
 
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
