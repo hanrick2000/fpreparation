@@ -77,32 +77,29 @@ public class UsingArrayList {
 	    }
 	
 		public static void getMutation(String str, HashMap<Character, char[]> map, ArrayList<String> result, char[] mutation, int index){
-			// BASE CASE: If the index==string.length() then add to result and return. 
-			// NOTE: index is compared with string.length() AND NOT (string.length()-1)
-	    	if(index == str.length()){
+			
+			// BASE CASE
+	    	if(index == str.length()){                    // NOTE: index is compared with string.length() AND NOT (string.length()-1)                                
 	            String newItem = new String(mutation);
 	            result.add(newItem);
 	            return;
 	        }
-	    	// RECURSIVE CASE : get the current char, check for its mutation choices and get the mutated string
-	        char current = str.charAt(index);
-	        // if the char mutation is present in HashMap
-	        if(map.containsKey(current)){
-	        	char[] choice = map.get(current);   // get the mutation choices for this character
-	            for(int i = 0; i <= choice.length;i++){ // for m+1 mutation choices since 0th mutation is 
-	            	                                    // keeping the haracter itself
-	                if(i == 0){ // 0th mutation is keeping the character itself      
+	    	// RECURSIVE CASE
+	        char current = str.charAt(index);              // get the current char of the string 
+	        if(map.containsKey(current)){                                        // if the char mutation is present in HashMap
+	        	char[] choice = map.get(current); 
+	            for(int i = 0; i <= choice.length;i++){
+	                if(i == 0){                                                  // 0th mutation is keeping the character itself      
 	                    mutation[index] = current;
 	                    getMutation(str, map,result, mutation, index+1);
 	                }
-	                else{  // recursively get each mutation choice and call the getMutation method
+	                else{
 	                    mutation[index] = choice[i-1];
 	                    getMutation(str, map, result, mutation, index+1);
 	                }  
 	            }
 	        }
-	        // else if the char mutation is NOT PRESENT in HashMap then append the char and continue to next index
-	        else{
+	        else{                                                                // else if the mutation is NOT PRESENT in HashMap then append the char and continue to next index
 	            mutation[index] = current;
 	            getMutation(str, map, result, mutation, index+1);
 	        }

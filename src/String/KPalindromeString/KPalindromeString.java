@@ -41,17 +41,6 @@ public static void main(String[] args) {
 			System.out.println("YES");
 		else
 			System.out.println("NO");
-		
-		
-	
-		
-		/*if(dynamicProgrammingSolution(s,rev.toString(),k) <=2*k)
-			System.out.println("YES");
-		else
-			System.out.println("NO");
-		*/
-		
-		
 	}
 	finally{
 		in.close();
