@@ -40,7 +40,11 @@ public class DecodeToString {
 	
 	// Using recursion we can find this
 	public static Set<String> decode(String prefix, String s) {
-	
+	/*
+	 * TR: Decode = Prefix and String
+	 * 1. HashSet
+	 * 2. set.addAll(RECURSE)
+	 */
 		Set<String> set = new HashSet<String>();
 		
 		// 1. BASE CASE
