@@ -69,7 +69,7 @@ public class UsingArrayList {
 	            return result;
 	        }
 	        
-// Check whether Mutation is present for ALL CHARACTERS of the string. Hence mutation array is of string.length()
+	        // Check whether Mutation is present for ALL CHARACTERS of the string. Hence mutation array is of string.length()
 	        char[] mutation = new char[str.length()];
 	        getMutation(str, map, result, mutation, 0);
 	        
@@ -90,8 +90,7 @@ public static void getMutation(String str, HashMap<Character, char[]> map,
 	            result.add(newItem);
 	            return;
 	        }
-	  
-	    	
+
 	    	// RECURSIVE CASE : get the current char, check for its mutation choices and get the mutated string
 	        char current = str.charAt(index);
 	        
