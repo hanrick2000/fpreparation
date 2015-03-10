@@ -55,7 +55,7 @@ http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=stringSearching
 */
 
 
-package PatternMatchingORFindWhetherOneStringIsSubstringOfOther;
+package String.PatternMatchingORFindWhetherOneStringIsSubstringOfOther;
 
 import java.util.Scanner;
 

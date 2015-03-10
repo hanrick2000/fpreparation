@@ -54,7 +54,7 @@ http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-
 http://www.geeksforgeeks.org/searching-for-ps-set-2-kmp-algorithm/
 */
 
-package PatternMatchingORFindWhetherOneStringIsSubstringOfOther;
+package String.PatternMatchingORFindWhetherOneStringIsSubstringOfOther;
 
 import java.util.Scanner;
 
