@@ -64,7 +64,7 @@ public static void main(String[] args) {
 	
 	for(Rectangle r: rectangles){
 		for(Point p: randomPoints){
-			if(p.containsPoint(r.bottomLeft, r.topRight))
+			if(p.insideRectangle(r.bottomLeft, r.topRight))
 				System.out.println("Rectangle: "+r+" contains point: "+p);
 		}
 	}
@@ -87,7 +87,7 @@ class Point{
 	public String toString(){
 		return ("x-coordinate:"+x+" "+"y-coordinate:"+y);
 	}
-	public boolean containsPoint(Point bottomLeft, Point topRight){
+	public boolean insideRectangle(Point bottomLeft, Point topRight){
 		if(this.x <= topRight.x &&
 		   this.x>=bottomLeft.x &&
 		   this.y >= bottomLeft.y &&
