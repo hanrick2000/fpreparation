@@ -63,7 +63,6 @@ public class UsingStack {
                 
                 usingStack(a,targetSum, currentIndex+1, endIndex);
                 sumInStack -= (Integer)stack.pop();
-            
             }
         }
         
