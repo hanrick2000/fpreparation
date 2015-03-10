@@ -10,7 +10,6 @@ and an input string S, return an array of all possible mutations of S
 
 What is the time complexity? What is the space complexity? Can you optimize either?
 
-
 Example input:
 	M = { f: [F, 4], b: [B, 8] }
 	S = fab
