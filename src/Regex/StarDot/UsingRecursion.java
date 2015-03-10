@@ -101,12 +101,14 @@ public class UsingRecursion {
 		// case 2: when the second char of p is '*', complex case.
 		else {
 			//case 2.1: single previous character & '*' can stand for 0 element
+			// character repeated 0 times
 			if (isMatch(s, p.substring(2))) {
 				return true;
 			}
 	 
 			//case 2.2: single previous character & '*' can stand for 1 or more preceding element, 
 			//so try every sub string
+			// character repeated 1 time
 			int i = 0;
 			while (i<s.length() && (s.charAt(i)==p.charAt(0) || p.charAt(0)=='.')){
 				if (isMatch(s.substring(i + 1), p.substring(2))) {
