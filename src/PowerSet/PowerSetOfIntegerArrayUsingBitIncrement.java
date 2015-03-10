@@ -69,7 +69,7 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 			for(int j=0;j<set.length;j++){ // loop which checks which bit is set in integer i
 				if(((i)&(1<<j))!=0) // HandRun this to understand how to check for set bits in an integer
 // For each bit of integer i, check which of the bits are set.// HandRun the above statement in if condition, to understand how to check for set bits in an integer
-				System.out.print(set[j]);  // If bit is set, then print the corresponding character
+				System.out.print(set[j]);  // If bit is set, then print the corresponding set
 			}
 			
 			System.out.println();
