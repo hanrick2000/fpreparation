@@ -94,27 +94,25 @@ public class DecodeToString {
 		if (s == null || s.length() == 0) {
 			return 0;
 		}
-		
 		int[] nums = new int[s.length() + 1];
 		nums[0] = 1;
-		nums[1] = s.charAt(0) != '0' ? 1 : 0;
+		nums[1] = s.charAt(0) != '0' ? 1 : 0;           
+		// character is Not '0' then 1 
+		// that means any other character present from '1' to '9' can be decoded in 1 way 
+		// because mappings are present for all numbers from '1' to '9' 
 		
 		for (int i = 2; i <= s.length(); i++) {
-			if (s.charAt(i - 1) != '0') {
-				nums[i] = nums[i - 1];
-			}
-			
-			int twoDigits = (s.charAt(i - 2) - '0') * 10 + s.charAt(i - 1) - '0'; 
-			if (twoDigits >= 10 && twoDigits <= 26) {
-				nums[i] += nums[i - 2];
-			}
+			if (s.charAt(i - 1) != '0') 
+				nums[i] = nums[i - 1];                            // Current = Previous
+			int twoDigits = (s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0'); 
+			if (twoDigits >= 10 && twoDigits <= 26) 
+				nums[i] = nums[i] + nums[i - 2];                  // Current = Current + Previous(Previous)
 		}
-		
 		return nums[s.length()];
     }
 	/*
 	Analysis:
-	Time Complexity = O(n)
-	Space Complexity = O()
+	Time Complexity = O(n) where n = length of the string
+	Space Complexity = O(n)
 	*/
 }
