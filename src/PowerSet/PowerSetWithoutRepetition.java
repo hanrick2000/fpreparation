@@ -96,9 +96,8 @@ public class PowerSetWithoutRepetition {
 			// 1. get all result sets to prev
 			if (i == num.length - 1 || num[i] != num[i + 1] || prev.size() == 0) {
 				prev = new ArrayList<ArrayList<Integer>>();
-				for (int j = 0; j < result.size(); j++) {
+				for (int j = 0; j < result.size(); j++)
 					prev.add(new ArrayList<Integer>(result.get(j)));
-				}
 			}
 	 
 			// 2. add each single number (AT POISITION 0) to each of the previous sets 
