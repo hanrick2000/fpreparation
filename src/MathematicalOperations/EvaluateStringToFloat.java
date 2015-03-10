@@ -26,7 +26,8 @@ public class EvaluateStringToFloat {
 			indexOfE= str.indexOf('e');
 		if(indexOfE == -1){
 			return withoutE(str);
-		}else{
+		}
+		else{
 			return (float) (withoutE(str.substring(0, indexOfE))*
 					Math.pow(10, withoutE(str.substring(indexOfE+1))));
 		}
@@ -79,12 +80,12 @@ public class EvaluateStringToFloat {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		EvaluateStringToFloat a = new EvaluateStringToFloat("3.2");
+		EvaluateStringToFloat a = new EvaluateStringToFloat("3.14");
 		System.out.println(a.result);
-		EvaluateStringToFloat b = new EvaluateStringToFloat("342.18E-10");
+		EvaluateStringToFloat b = new EvaluateStringToFloat("314.212E-10");
 		System.out.println(b.result);
 		// Example of float
-		float f=(float) 342.18E-10;
+		float f=(float) 314.212E-10;
 		System.out.println(f);
 	}
 }

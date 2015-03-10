@@ -39,36 +39,41 @@ public class DecodeToString {
 	}
 	
 	// Using recursion we can find this
-	public static Set<String> decode(String prefix, String code) {
+	public static Set<String> decode(String prefix, String s) {
 	
 		Set<String> set = new HashSet<String>();
 		
-		if (code.length() == 0 || code==null) {
-			set.add(prefix);
+		// 1. BASE CASE
+		if (s.length() == 0 || s==null) {    
+			set.add(prefix);                 // add and return
 			return set;
 		}
-
-		if (code.charAt(0) == '0')
+		
+		// 2. EXTREME CASE
+		if (s.charAt(0) == '0')              // '0' is not a valid encoding, hence return set
 			return set;
 
 		
-		set.addAll(decode(
-				prefix + (char) (code.charAt(0) - '1' + 'a'), 
-				code.substring(1))
+		
+		// 3. Number from 1 t 9
+		set.addAll(decode(  
+				prefix + (char) (s.charAt(0) - '1' + 'a'),  // add first character of the string to the prefix
+				s.substring(1))
 				);
 
-		
-		if (code.length() >= 2 && code.charAt(0) == '1') {   // from 10 to 19
+		// 4. Number from 10 to 19
+		if (s.length() >= 2 && s.charAt(0) == '1') {   // from 10 to 19
 			set.addAll(decode(
-					prefix + (char) (10 + code.charAt(1) - '1' + 'a'),
-					code.substring(2))
+					prefix + (char) (10 + s.charAt(1) - '1' + 'a'),
+					s.substring(2))
 					);
 		}
 		
-		if (code.length() >= 2 && code.charAt(0) == '2' && code.charAt(1) <= '6') {   // from 20 to 26
+		// 5. Number from 20 to 26
+		if (s.length() >= 2 && s.charAt(0) == '2' && s.charAt(1) <= '6') {   // from 20 to 26
 			set.addAll(decode(
-					prefix + (char) (20 + code.charAt(1) - '1' + 'a'),
-					code.substring(2))
+					prefix + (char) (20 + s.charAt(1) - '1' + 'a'),
+					s.substring(2))
 					);
 		}
 		
