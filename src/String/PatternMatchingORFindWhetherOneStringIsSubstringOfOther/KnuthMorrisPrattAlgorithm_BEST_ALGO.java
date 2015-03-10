@@ -67,9 +67,9 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 			String p = in.nextLine();  // pattern
 			int result = usingKMPAlgorithm(t,p); // Returns the index if p lies in t OR else returns NOTHING
 			if(result==-1)
-				System.out.println("pattern NOT PRESENT in text");
+				System.out.println("Pattern NOT PRESENT in Text");
 			else
-				System.out.println("pattern PRESENT in text at index: "+result);
+				System.out.println("Pattern PRESENT in Text at INDEX: "+result);
 			/*
 			// Understand how substring and subsequence methods are implemented in String class
 			String substring = t.substring(0,3);
@@ -106,7 +106,7 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 		table = populateTable(p,table);
 		
 		int tI = 0;  // iterator for t
-		int pI=0; // iterator for p
+		int pI=0; 	 // iterator for p
 		
 		while(tI<t.length()){
 			
@@ -142,8 +142,8 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 		I. When there is a match between characters
 			Update table, i and previousLength
 		II. When there is NO MATCH between characters
-			a. Check if peviousLength==0
-			b. Check if previousLength!=0
+			a. Check if peviousLength==0   --> fill table, increment i
+			b. Check if previousLength!=0  --> update previousLength
 		*/
 		table[0] = 0; // table[0] is always 0
 		int i=1;  // index for iterating over the p string

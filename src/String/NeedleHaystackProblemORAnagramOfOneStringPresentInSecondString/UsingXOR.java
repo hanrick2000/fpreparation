@@ -20,7 +20,7 @@ Algorithm: 1. Calculate XOR of s1
 
 
 
-package NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString;
+package String.NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString;
 
 import java.util.Scanner;
 

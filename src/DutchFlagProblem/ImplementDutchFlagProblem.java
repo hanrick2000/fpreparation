@@ -72,7 +72,7 @@ public static int[] implementation(int[] a){
 	/*
 	 * TO REMEMBER: "while" and "3 if's", all contain "MID" comparison
 	 */
-	while(mid<=high){ // VERY IMP: MID IS LESS THAN OR EQUAL TO HIGH
+	while(mid<=high){ // VERY IMP: MID IS LESS THAN OR EQUAL TO HIGH. Similar to Binary Search Condition
 		if(a[mid]==0){   // If the mid is 0, then swap the low with mid, increment BOTH low and mid
 			a=swap(a,mid,low);
 			mid++;

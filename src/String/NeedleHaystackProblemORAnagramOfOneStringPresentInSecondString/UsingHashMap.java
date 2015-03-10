@@ -35,7 +35,7 @@ It runs in O(n) time because we iterate over the haystack only once and at every
  * 
  */
 
-package NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString;
+package String.NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString;
 
 import java.util.HashMap;
 import java.util.Map;

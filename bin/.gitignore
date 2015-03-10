@@ -16,7 +16,6 @@
 /DutchFlagProblem/
 /EditDistance/
 /EvaluateMathematicalExpression/
-/ExcelNumbers/
 /FibonacciNumber/
 /Find1RepeatingNumber/
 /Find2RepeatingNumbers/
@@ -29,6 +28,7 @@
 /Heap/
 /Histogram/
 /Intervals/
+/Jump/
 /KClosestPointsIn2DPlane/
 /Knapsack01ByDP/
 /KthSmallestElementInUnsortedArray/
@@ -44,15 +44,12 @@
 /MedianBetween2SortedArraysOfUnequalLength/
 /MedianOfTwoSortedArraysEachOfEqualLength/
 /MergeKSortedListsAndArrays/
-/MergeTwoSortedArraysInPlace/
 /MostFreqWordsInTerabyteOfStrings/
 /MultiplyTwoNumbersUsingBitwiseOperators/
 /MultiplyTwoNumbersWithoutBitwiseMultiplcationAndDivision/
 /NeedleHaystackProblemORAnagramOfOneStringPresentInSecondString/
 /Number/
-/OneEditApart/
-/PatternMatchingORFindWhetherOneStringIsSubstringOfOther/
-/PowerSetFromSet/
+/PowerSet/
 /PowerWithMultiplication/
 /PowerWithoutUsingMultiplicationAndDivisionOperators/
 /QueueUsingStacks/
@@ -60,7 +57,7 @@
 /RectanglesAndPoints/
 /Regex/
 /RemoveDuplicatesButMaintainOrder/
-/RomanNumeral/
+/RomanAndExcelNumbers/
 /Root/
 /RotateMatrix90Degrees/
 /RotatedSortedArray/
@@ -69,12 +66,13 @@
 /String/
 /SubstractonOfTwoPositiveNumbers/
 /SubstringAndSubsequenceProblems/
+/Sum/
 /Testing/
-/ThreeSumProblem/
 /Trie/
 /TrueOrFalseWithProbablityOfGivenNumber/
 /ValidParanthesis/
 /WordBreak/
+/WordLadder/
 /anagramGroups/
 /areTwoNumbersOppositeInSign/
 /countSetBitsInAnInteger/
@@ -96,10 +94,3 @@
 /sortCharactersOfStringInASC/
 /sortingTwoSortedLists/
 /swapNibblesInAByte/
-/Sum/
-/Jump/
-/PowerSetFromSetORPrintPermutations/
-/RomanAndExcelNumbers/
-/WordLadder/
-/IMP_PROGRAMMING_RESOURCES
-/PowerSet/
