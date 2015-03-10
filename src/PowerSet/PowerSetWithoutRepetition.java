@@ -93,7 +93,7 @@ public class PowerSetWithoutRepetition {
 	 
 		for (int i = num.length-1; i >= 0; i--) {
 	 
-			// 1. get existing sets
+			// 1. get all result sets to prev
 			if (i == num.length - 1 || num[i] != num[i + 1] || prev.size() == 0) {
 				prev = new ArrayList<ArrayList<Integer>>();
 				for (int j = 0; j < result.size(); j++) {
@@ -101,7 +101,7 @@ public class PowerSetWithoutRepetition {
 				}
 			}
 	 
-			// 2. add each single number AT POISITION 0 to each of the previous sets 
+			// 2. add each single number (AT POISITION 0) to each of the previous sets 
 			for (ArrayList<Integer> temp : prev) {
 				temp.add(0, num[i]);       // add to the 0th index
 			}
