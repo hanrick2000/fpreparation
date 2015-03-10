@@ -67,6 +67,13 @@ public static void main(String[] args) {
 
 	public static List<Integer> LLDutchFlagImplementation(List<Integer> linkedList){
 		
+		
+		/*
+		 * Can be solved using HashMap where,
+		 * key = listNode.data
+		 * value = count of nodes with same data value
+		 */
+		
 		Iterator<Integer> iter = linkedList.iterator();
 		HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
 		while(iter.hasNext()){
