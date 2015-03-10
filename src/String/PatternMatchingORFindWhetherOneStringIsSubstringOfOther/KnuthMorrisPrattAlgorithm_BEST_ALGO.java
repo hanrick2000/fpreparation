@@ -84,8 +84,6 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 	}
 
 	private static int usingKMPAlgorithm(String t, String p) {   // t = text and p = pattern
-		
-		
 		/*
 		NOTE: THREE IMP THINGS TO REMEMBER ABOUT THIS FUNCTION
 		
