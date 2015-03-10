@@ -44,7 +44,7 @@ For the 2nd case, if the first char of pattern is "." or first char of pattern =
 continue to match the left.
 
 */
-package Regex.StarDot;
+package String.Regex.StarDot;
 
 
 public class UsingRecursion {
