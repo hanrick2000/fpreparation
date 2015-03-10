@@ -49,8 +49,8 @@ public class DecodeToString {
 			return set;
 		}
 		
-		// 2. EXTREME CASE
-		if (s.charAt(0) == '0')              // '0' is not a valid encoding, hence return set
+		// 2. EXTREME CASE  ('0' is not a valid encoding, hence return set)
+		if (s.charAt(0) == '0')             
 			return set;
 
 		
