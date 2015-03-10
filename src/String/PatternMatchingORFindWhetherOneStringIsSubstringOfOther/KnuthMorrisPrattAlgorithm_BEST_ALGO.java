@@ -1,4 +1,3 @@
-
 /*
 Question: Check whether a p string lies in the t string ?
 		
