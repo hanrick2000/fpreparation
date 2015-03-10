@@ -108,7 +108,7 @@ public class UsingBinarySearch {
 	    	int low=0;
 	    	int high=a.length-1;
 	    	
-	    	while(low<high){
+	    	while(low<=high){
 	    		
 	    		
 	    		// if there is exactly one element in the array
