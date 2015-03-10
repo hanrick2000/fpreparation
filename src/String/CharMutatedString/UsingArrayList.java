@@ -79,7 +79,8 @@ public class UsingArrayList {
 		public static void getMutation(String str, HashMap<Character, char[]> map,
 	    		ArrayList<String> result, char[] mutation, int index){
 	        
-			// BASE CASE: If the index==string.length() then add to result and return. NOTE: index is compared with string.length() AND NOT (string.length()-1)
+			// BASE CASE: If the index==string.length() then add to result and return. 
+			// NOTE: index is compared with string.length() AND NOT (string.length()-1)
 	    	if(index == str.length()){
 	            String newItem = new String(mutation);
 	            result.add(newItem);
