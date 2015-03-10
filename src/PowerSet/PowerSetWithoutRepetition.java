@@ -101,7 +101,6 @@ public class PowerSetWithoutRepetition {
 			 * conditions are only applied for 1st and 3rd case
 			 */
 			
-			
 			// 1. add all result sets to prev
 			if (i == num.length - 1 || num[i] != num[i + 1] || prev.size() == 0) {
 				prev = new ArrayList<ArrayList<Integer>>();                          // initialize prev
