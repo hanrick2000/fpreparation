@@ -42,6 +42,7 @@ public static void main(String[] args) {
 		printPowerSet(set);
 		
 		// Using ArrayList
+		System.out.println("Solution using Array List: ");
 		ArrayList<ArrayList<Character>> list = new ArrayList<ArrayList<Character>>();
 		list = subsets(s.toCharArray());
 		Iterator<ArrayList<Character>> itr=list.iterator();
@@ -81,35 +82,37 @@ public static ArrayList<ArrayList<Character>> subsets(char[] S) {
 	if (S == null)
 		return null;
  
-	Arrays.sort(S); // NOTE: NOT Sorting the input does not change the result. Sorting is only done for the output to look pretty
+	Arrays.sort(S);  // NOTE: NOT Sorting the input does not change the result. Sorting is only done for the output to look pretty
  
 	ArrayList<ArrayList<Character>> result = new ArrayList<ArrayList<Character>>();
- 
-	for (int i = 0; i < S.length; i++) {
-		ArrayList<ArrayList<Character>> temp = new ArrayList<ArrayList<Character>>();
- 
-		//get sets that are already in result
+	ArrayList<ArrayList<Character>> prev = new ArrayList<ArrayList<Character>>();
+	
+	for (int i = S.length-1; i >=0; i--) {
+		
+		// 1. add all result sets to prev
+		prev = new ArrayList<ArrayList<Character>>();
 		for (ArrayList<Character> a : result) {
-			temp.add(new ArrayList<Character>(a)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Character>(a)]
+			prev.add(new ArrayList<Character>(a)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
 		}
  
-		//add S[i] to existing sets
-		for (ArrayList<Character> a : temp) {
-			a.add(S[i]);
+		// 2. add each single number to each of the previous sets 
+		for (ArrayList<Character> temp : prev) {
+			temp.add(S[i]);
 		}
  
-		//add S[i] only as a single set
+		// 3. add each single number as a single set
 		ArrayList<Character> single = new ArrayList<Character>();
 		single.add(S[i]);
-		temp.add(single);
- 
-		result.addAll(temp);
+		prev.add(single);
+		
+		// 4. add all prev sets to result
+		for (ArrayList<Character> temp : prev) {
+			result.add(new ArrayList<Character>(temp));
+		}
 	}
- 
 	//add empty set
 	result.add(new ArrayList<Character>());
  
 	return result;
 }
-
 }

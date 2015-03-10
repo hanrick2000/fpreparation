@@ -54,7 +54,7 @@ public class PowerSetWithoutRepetition {
 		try{
 			System.out.println("Program which prints the power set of a set which contains REPEATED elements BUT does not "
 					+ "repeat repetitions in the powerset");
-			System.out.println("Enter the number of elements in the array list");
+			System.out.println("Enter the number of elements in the array");
 			int n = in.nextInt();
 			int[] a= new int[n];
 			System.out.println("Enter the integers with duplicates");
@@ -62,12 +62,16 @@ public class PowerSetWithoutRepetition {
 				a[i] = in.nextInt();
 			
 			// ITERATIVE SOLUTION
+			System.out.println("Iterative Solution: ");
 			ArrayList<ArrayList<Integer>> itrerativePSet=iterativeSubsetsWithDup(a);
 			Iterator<ArrayList<Integer>> itr1 = itrerativePSet.iterator();
 			while(itr1.hasNext())
 				System.out.println(itr1.next());
+			System.out.println();
 			
 			// RECURSIVE SOLUTION
+			System.out.println();
+			System.out.println("Recursive Solution: ");
 			ArrayList<ArrayList<Integer>> recursivePSet=iterativeSubsetsWithDup(a);
 			Iterator<ArrayList<Integer>> itr2 = recursivePSet.iterator();
 			while(itr2.hasNext())
@@ -86,23 +90,22 @@ public class PowerSetWithoutRepetition {
 		if (num == null)
 			return null;
 	 
-		Arrays.sort(num);
-	 
-		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		ArrayList<ArrayList<Integer>> prev = new ArrayList<ArrayList<Integer>>();
+		Arrays.sort(num);                                                            // 1.
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();  // 2.
+		ArrayList<ArrayList<Integer>> prev = new ArrayList<ArrayList<Integer>>();    // 3.
 	 
 		for (int i = num.length-1; i >= 0; i--) {
 	 
-			// 1. get all result sets to prev
+			// 1. add all result sets to prev
 			if (i == num.length - 1 || num[i] != num[i + 1] || prev.size() == 0) {
 				prev = new ArrayList<ArrayList<Integer>>();                          // initialize prev
-				for (int j = 0; j < result.size(); j++)                              // add result to prev
-					prev.add(new ArrayList<Integer>(result.get(j)));
+				for (ArrayList<Integer> temp : result)
+					prev.add(new ArrayList<Integer>(temp));
 			}
 	 
-			// 2. add each single number (AT POISITION 0) to each of the previous sets 
+			// 2. add each single number to each of the previous sets 
 			for (ArrayList<Integer> temp : prev) {
-				temp.add(0, num[i]);                                                 // add to the 0th index
+				temp.add(num[i]);                                                 
 			}
 	 
 			// 3. add each single number as a single set, only if current element is different with previous
@@ -112,7 +115,7 @@ public class PowerSetWithoutRepetition {
 				prev.add(temp);
 			}
 	 
-			// 4. add all set created in this iteration
+			// 4. add all prev sets to result
 			for (ArrayList<Integer> temp : prev) {
 				result.add(new ArrayList<Integer>(temp));
 			}
@@ -141,6 +144,7 @@ public class PowerSetWithoutRepetition {
  
 	private static void subsetsWithDupHelper(ArrayList<ArrayList<Integer>> result,
 			ArrayList<Integer> list, int[] num, int position) {
+		
 		result.add(new ArrayList<Integer>(list));
  
 		for (int i = position; i < num.length; i++) {

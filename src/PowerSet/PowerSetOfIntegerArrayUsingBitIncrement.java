@@ -44,6 +44,7 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 			printPowerSet(set);
 			
 			// Using ArrayList
+			System.out.println("Solution using Array List: ");
 			ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 			list = subsets(set);
 			Iterator<ArrayList<Integer>> itr=list.iterator();
@@ -86,28 +87,31 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 		Arrays.sort(S);  // NOTE: NOT Sorting the input does not change the result. Sorting is only done for the output to look pretty
 	 
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-	 
-		for (int i = 0; i < S.length; i++) {
-			ArrayList<ArrayList<Integer>> temp = new ArrayList<ArrayList<Integer>>();
-	 
-			//get sets that are already in result
+		ArrayList<ArrayList<Integer>> prev = new ArrayList<ArrayList<Integer>>();
+		
+		for (int i = S.length-1; i >=0; i--) {
+			
+			// 1. add all result sets to prev
+			prev = new ArrayList<ArrayList<Integer>>();
 			for (ArrayList<Integer> a : result) {
-				temp.add(new ArrayList<Integer>(a)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
+				prev.add(new ArrayList<Integer>(a)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
 			}
 	 
-			//add S[i] to existing sets
-			for (ArrayList<Integer> a : temp) {
-				a.add(S[i]);
+			// 2. add each single number to each of the previous sets 
+			for (ArrayList<Integer> temp : prev) {
+				temp.add(S[i]);
 			}
 	 
-			//add S[i] only as a single set
+			// 3. add each single number as a single set
 			ArrayList<Integer> single = new ArrayList<Integer>();
 			single.add(S[i]);
-			temp.add(single);
-	 
-			result.addAll(temp);
+			prev.add(single);
+			
+			// 4. add all prev sets to result
+			for (ArrayList<Integer> temp : prev) {
+				result.add(new ArrayList<Integer>(temp));
+			}
 		}
-	 
 		//add empty set
 		result.add(new ArrayList<Integer>());
 	 
