@@ -41,7 +41,7 @@ Hence we need to create a HashMap for the data given to us
 				dictionary[i]=in.next();
 			HashMap<String,Boolean> map = new HashMap<String,Boolean>();
 			hasDictionaryWithStar(map,dictionary);
-			System.out.println("How many queried do you want to run? ");
+			System.out.println("How many queries do you want to run? ");
 			int m = in.nextInt();
 			String[] queries = new String[m];
 			System.out.println("Enter your queries");
