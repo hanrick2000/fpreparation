@@ -89,9 +89,8 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 		
 		I. When there is a match between characters
 			tI++ && pI++
-	    II. When the match is found
-	    	index = tI-pI
-	    	pI=table[pI-1]
+	    II. When pattern completely visited
+	    	return tI-pI
 		II. When there is NO MATCH between characters
 			a. Check if pI==0 then INCREMENT tI
 			b. Check if pI!=0 then UPDATE pI using the table
@@ -115,9 +114,8 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 				tI++;
 			}
 			
-			if(pI==p.length()){     // if p is fully visited
-				return (tI-pI);
-				// pI=table[pI-1];   // skip these many locations
+			if(pI==p.length()){     // if p is COMPLETELY VISITED
+				return (tI-pI);     // index where the pattern is present in the text
 			}
 			
 			// mismatch after pI matches
@@ -138,7 +136,7 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 	private static int[] populateTable(String p, int[] table) {
 		/*
 		NOTE: TWO IMP THINGS TO REMEMBER ABOUT THIS FUNCTION
-		
+		table[0]=0   ,   i=1   ,   previousLength=0   
 		I. When there is a match between characters
 			Update table, i and previousLength
 		II. When there is NO MATCH between characters
@@ -154,9 +152,9 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 			if(p.charAt(i)==p.charAt(previousLength)){
 				table[i]=previousLength+1;
 				previousLength++;    // increment the previous Length
-				i++;   // increment the iterator
+				i++;   				 // increment the iterator
 			}
-			else{   // if(p.charAt(i)!=p.charAt(previousLength))
+			else{   				 // if(p.charAt(i)!=p.charAt(previousLength))
 				
 				if(previousLength==0) {  
 					table[i]=0;
