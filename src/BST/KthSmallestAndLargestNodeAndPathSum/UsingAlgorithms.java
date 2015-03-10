@@ -46,7 +46,7 @@ public class UsingAlgorithms {
 		// PathSum
 		System.out.println("Enter the path sum to be checked in the BST");
 		int sum = in.nextInt();
-		System.out.println("The BST has the pathSum ? by recursive solution "+recursiveHasPathSum(root, sum));
+		System.out.println("The BST has the pathSum ? by recursive solution "+iterativeHasPathSum(root, sum));
 		System.out.println("The BST has the pathSum ? by iterative solution "+recursiveHasPathSum(root, sum));
 		}
 		finally{

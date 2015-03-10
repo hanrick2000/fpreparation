@@ -93,7 +93,7 @@ public class PowerSetWithoutRepetition {
 	 
 		for (int i = num.length-1; i >= 0; i--) {
 	 
-			//get existing sets
+			// get existing sets
 			if (i == num.length - 1 || num[i] != num[i + 1] || prev.size() == 0) {
 				prev = new ArrayList<ArrayList<Integer>>();
 				for (int j = 0; j < result.size(); j++) {
@@ -101,13 +101,13 @@ public class PowerSetWithoutRepetition {
 				}
 			}
 	 
-			//add current number to each element of the set
+			// add each single number AT POISITION 0 to each of the previous sets 
 			for (ArrayList<Integer> temp : prev) {
 				temp.add(0, num[i]);       // add to the 0th index
 			}
 	 
 			//add each single number as a single set, only if current element is different with previous
-			if (i == num.length - 1 || num[i] != num[i + 1]) {
+			if (i == num.length - 1 || num[i] != num[i + 1]) {     // This is the reason why we sort the input array (Arrays.sort(num))
 				ArrayList<Integer> temp = new ArrayList<Integer>();
 				temp.add(num[i]);
 				prev.add(temp);
