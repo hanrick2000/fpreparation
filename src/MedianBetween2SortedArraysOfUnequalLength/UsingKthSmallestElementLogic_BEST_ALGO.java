@@ -1,7 +1,8 @@
 /*
 Question: http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
-Source: http://algorithmsandme.blogspot.com/2014/12/find-median-of-two-sorted-arrays-of.html#.VLNiR5_0_VN
+Source: 
 		http://algorithmsandme.blogspot.in/2014/12/fins-kth-smallest-element-in-two-sorted.html#.VLNiz5_0_VN
+		http://algorithmsandme.blogspot.com/2014/12/find-median-of-two-sorted-arrays-of.html#.VLNiR5_0_VN
 	    http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 	    http://www.programcreek.com/2012/12/leetcode-median-of-two-sorted-arrays-java/
 */
