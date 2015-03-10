@@ -24,7 +24,7 @@ public class MoveZeroToRightUsingTwoPointers {
 	private static int[] moveZeroToRightUsingTwoPointers(int[] a) {
 		
 		// If we have to move 0 to the right then we have to start from left
-		// Both the pointers start from the first element in the array
+		// Both the source and dest pointers start from left
 		int source = 0;
 		int dest = 0; 
 		
@@ -32,9 +32,9 @@ public class MoveZeroToRightUsingTwoPointers {
 			
 			if(a[source]!=0){ 
 				
-				if(a[source]!=a[dest]) // if both the elements are different then copy source to dest and increment both the pointers
+				if(a[source]!=a[dest]) // if both the elements are DIFFERENT then COPY SOURCE TO DEST and increment both the pointers
 					a[dest++]=a[source++];
-				else{ // if the elements are the same then dont copy but increment both source and dest
+				else{ // if the elements are the SAME then DONT COPY BUT INCREMENT both source and dest
 					source++;
 					dest++;
 				}

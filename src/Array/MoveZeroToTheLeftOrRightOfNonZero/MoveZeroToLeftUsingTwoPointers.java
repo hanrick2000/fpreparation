@@ -25,7 +25,7 @@ public class MoveZeroToLeftUsingTwoPointers {
 	private static int[] moveZeroToLeftUsingTwoPointers(int[] a) {
 		
 		// If we have to move 0 to the left then we have to start from right
-		// Both the pointers start from the last element in the array
+		// Both source and dest pointers start from right
 		
 		int source = a.length-1;  
 		int dest = a.length-1;     
@@ -33,9 +33,9 @@ public class MoveZeroToLeftUsingTwoPointers {
 		while(source>=0){
 			
 			if(a[source]!=0){  
-				if(a[source]!=a[dest])  // if both the elements are different then copy source to dest and decrement both the pointers
+				if(a[source]!=a[dest]) // if both the elements are DIFFERENT then COPY SOURCE TO DEST AND DECREMENT both the pointers
 					a[dest--]=a[source--];
-				else{ // if the elements are the same then dont copy but decrement both source and dest
+				else{ // if the elements are the SAME then DONT COPY BUT DECREMENT both source and dest
 					dest--;
 					source--;
 				}
