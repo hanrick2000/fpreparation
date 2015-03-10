@@ -40,6 +40,7 @@ public class DecodeToString {
 	
 	// Using recursion we can find this
 	public static Set<String> decode(String prefix, String s) {
+		
 	/*
 	 * TR: Decode = Prefix and String
 	 * 1. HashSet
@@ -53,11 +54,9 @@ public class DecodeToString {
 			return set;
 		}
 		
-		// 2. EXTREME CASE  ('0' is not a valid encoding, hence return set)
+		// 2. EXTREME CASE  ('0' is not a valid encoding, hence return set which returns the recursive call without updating anything)
 		if (s.charAt(0) == '0')             
-			return set;
-
-		
+			return set;		
 		
 		// 3. Add without condition
 		set.addAll(decode(  
@@ -80,7 +79,6 @@ public class DecodeToString {
 					s.substring(2))
 					);
 		}
-		
 		return set;
 }
 	

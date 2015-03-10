@@ -76,12 +76,7 @@ public class UsingArrayList {
 	        return result;  // return the ArrayList
 	    }
 	
-	
-	
-	
-	
-	    
-public static void getMutation(String str, HashMap<Character, char[]> map,
+		public static void getMutation(String str, HashMap<Character, char[]> map,
 	    		ArrayList<String> result, char[] mutation, int index){
 	        
 			// BASE CASE: If the index==string.length() then add to result and return. NOTE: index is compared with string.length() AND NOT (string.length()-1)
