@@ -77,7 +77,7 @@ private static boolean areOneEditApart(String s1, String s2) {
 					return false;
 			} // end of inner if
 		}	// end of for
-	} // end of outer if
+	} // end of else if
 	else{ // small and large strings are different by length = 1
 		
 	
