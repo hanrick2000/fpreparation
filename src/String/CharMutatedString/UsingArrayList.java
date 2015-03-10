@@ -49,6 +49,10 @@ public class UsingArrayList {
 		}
 	}
 
+	
+	
+	
+	
 	private static ArrayList<String> getMutation(String str, HashMap<Character, char[]> map) {
 		 
 		    // Declare a ArrayList of String to store mutated strings
@@ -71,12 +75,16 @@ public class UsingArrayList {
 	        
 	        return result;  // return the ArrayList
 	    }
+	
+	
+	
+	
+	
 	    
 public static void getMutation(String str, HashMap<Character, char[]> map,
 	    		ArrayList<String> result, char[] mutation, int index){
 	        
-	// BASE CASE: If the index==string.length() then form the string, add to result and return
-	// NOTE: index is compared with string.length() AND NOT (string.length()-1)
+			// BASE CASE: If the index==string.length() then add to result and return. NOTE: index is compared with string.length() AND NOT (string.length()-1)
 	    	if(index == str.length()){
 	            String newItem = new String(mutation);
 	            result.add(newItem);
@@ -84,9 +92,8 @@ public static void getMutation(String str, HashMap<Character, char[]> map,
 	        }
 	  
 	    	
-   // RECURSIVE CASE : get the current char, check for its mutation choices and get the mutated string
+	    	// RECURSIVE CASE : get the current char, check for its mutation choices and get the mutated string
 	        char current = str.charAt(index);
-	        
 	        
 	        // if the char mutation is present in HashMap
 	        if(map.containsKey(current)){
@@ -107,7 +114,7 @@ public static void getMutation(String str, HashMap<Character, char[]> map,
 	                
 	            }
 	        }
-// else if the char mutation is NOT PRESENT in HashMap then append the char and continue to next index
+	        // else if the char mutation is NOT PRESENT in HashMap then append the char and continue to next index
 	        else{
 	            mutation[index] = current;
 	            getMutation(str, map, result, mutation, index+1);
