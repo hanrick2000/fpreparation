@@ -56,20 +56,20 @@ public static void main(String[] args) {
 }
 
 
-private static String giveLookAndSaySequence(String s) {
+private static String giveLookAndSaySequence(String s) {   // (Similar to Run Length Encoding)
 	if(s==null || s.isEmpty())
 		return "";
 	StringBuilder sb = new StringBuilder();
-	int index = 0;
-	int firstCharacterIndex = 0;
-	while(index<s.length()){
-		if(s.charAt(firstCharacterIndex)!=s.charAt(index)){
-			sb.append(s.substring(firstCharacterIndex, index).length()).append(s.charAt(firstCharacterIndex));
-			firstCharacterIndex = index;
+	int i = 0;        // index
+	int f = 0;        // first (first character index)
+	while(i<s.length()){
+		if(s.charAt(f)!=s.charAt(i)){
+			sb.append(s.substring(f, i).length()).append(s.charAt(f));
+			f = i;
 			}
-		index++;
+		i++;
 		}
-	sb.append(s.substring(firstCharacterIndex, s.length()).length()).append(s.charAt(firstCharacterIndex));
+	sb.append(s.substring(f, s.length()).length()).append(s.charAt(f));
 	return sb.toString();	
 	}
 }
