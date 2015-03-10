@@ -102,7 +102,7 @@ public class PowerSetWithoutRepetition {
 	 
 			// 2. add each single number (AT POISITION 0) to each of the previous sets 
 			for (ArrayList<Integer> temp : prev) {
-				temp.add(0, num[i]);       // add to the 0th index
+				temp.add(0, num[i]);                                                 // add to the 0th index
 			}
 	 
 			// 3. add each single number as a single set, only if current element is different with previous
