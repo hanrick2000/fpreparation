@@ -65,9 +65,6 @@ public class UsingStack {
                 sumInStack -= (Integer)stack.pop();
             }
         }
-        
-    
-    
     }
     public static void print(Stack<Integer> stack){
         StringBuilder sb = new StringBuilder();
