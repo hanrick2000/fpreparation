@@ -108,7 +108,7 @@ public class UsingRecursion {
 	 
 			//case 2.2: single previous character & '*' can stand for 1 or more preceding element, 
 			//so try every sub string
-			// character repeated 1 time
+			// character repeated 1 or more times OR (.) present
 			int i = 0;
 			while (i<s.length() && (s.charAt(i)==p.charAt(0) || p.charAt(0)=='.')){
 				if (isMatch(s.substring(i + 1), p.substring(2))) {
