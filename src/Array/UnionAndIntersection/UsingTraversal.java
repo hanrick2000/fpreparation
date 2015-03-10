@@ -12,7 +12,7 @@ public class UsingTraversal {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
-			System.out.println("Proagram to print the UNION and INTERSECTION elements of two SORTED arrays");
+			System.out.println("Program to print the UNION and INTERSECTION elements of two SORTED arrays");
 			System.out.println("Enter the number of elements in the first SORTED array");
 			int m = in.nextInt();
 			int[] a1= new int[m];
@@ -37,6 +37,9 @@ public class UsingTraversal {
 	}
 
 	private static void intersection(int[] a1, int[] a2) {
+		/*
+		 * INTERSECTION = Using MERGE of merge sort
+		 */
 		int i=0;  // iterator for a1
 		int j=0;  // iterator for a2
 		while(i<a1.length && j<a2.length){
@@ -58,6 +61,10 @@ public class UsingTraversal {
 	 * Space Complexity = O(1)
 	 */
 	private static void union(int[] a1, int[] a2) {
+		/*
+		 * UNION = Using MERGE of merge sort
+		 */
+		
 		int i=0;  // iterator for a1
 		int j=0;  // iterator for a2
 		while(i<a1.length && j<a2.length){
@@ -73,9 +80,9 @@ public class UsingTraversal {
 			}
 		}
 		
-		if(i<a1.length)
+		while(i<a1.length)
 			System.out.print(a1[i++]);
-		if(j<a2.length)
+		while(j<a2.length)
 			System.out.print(a2[j++]);
 	}
 	/*
