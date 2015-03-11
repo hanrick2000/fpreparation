@@ -74,13 +74,13 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        int pos = partition(arr, l, r, medOfMed);                   // VERY IMP: partition on ORIGINAL array
 	 
 	        // If position is same as k
-	        if (pos-l == k-1)
+	        if (pos-l == k-1)                                          // VERY IMP: pos-l and k-1 comparisons
 	            return arr[pos];
 	        if (pos-l > k-1)  // If position is more, recur for left
 	            return kthSmallest(arr, l, pos-1, k);
 	 
 	        // Else recur for right subarray
-	        return kthSmallest(arr, pos+1, r, k-pos+l-1);
+	        return kthSmallest(arr, pos+1, r, k-pos+l-1);    // TR: kpl1 i.e. (plus,mius,plus,minus = Kevin Peiterson left field on 1)
 	    }
 	 
 	    // If k is more than number of elements in array
@@ -96,12 +96,12 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	 
 	// It searches for x in arr[l..r], and partitions the array 
 	// around x.
-	public static int partition(int arr[], int l, int r, int x)
+	public static int partition(int arr[], int l, int r, int pivotElement)
 	{
 	    // Search for x in arr[l..r] and move it to end
 	    int i;
 	    for (i=l; i<r; i++)
-	        if (arr[i] == x)
+	        if (arr[i] == pivotElement)
 	           break;
 	    swap(arr,i, r);
 	 
@@ -109,7 +109,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	    int storage = l;                                  // store the left
 	    for (int j = l; j <= r - 1; j++)
 	    {
-	        if (arr[j] <= x)
+	        if (arr[j] <= pivotElement)
 	        {
 	            swap(arr,storage, j);
 	            storage++;
