@@ -37,7 +37,7 @@ public static void main(String[] args) {
 		for(int i=s.length()-1;i>=0;i--)
 			rev.append(s.charAt(i));
 	
-		if(isKPalindrome(s,k))
+		if(editDistance(s,k))
 			System.out.println("YES");
 		else
 			System.out.println("NO");
@@ -46,13 +46,7 @@ public static void main(String[] args) {
 		in.close();
 	}
 }
-
-
-public static boolean isKPalindrome(String source, int k){
-    return k == editDistance(source)/2;
-}
- 
-public static int editDistance(String source){
+public static boolean editDistance(String source, int k){
     int n= source.length();
     int[][] distance=new int[n+1][n+1];   // Row and column are the SAME
     for(int i=0;i<=n;i++)
@@ -63,22 +57,25 @@ public static int editDistance(String source){
     
     /*
      * TR: 
-     * 1. First j
-     * 2. Second i
-     * 3. (i-1) == (n-j) Comparison
+     * (i-1) == (n-j) Comparison
      */
     
-    for(int j=1;j<=n;j++){      // FIRST j
-      for(int i=1;i<=n;i++){    // SECOND i
-        if(source.charAt(i-1)==source.charAt(n-j)) // TR: (india -1 == newzealand - j) Compare the FIRST and LAST characters
+    for(int i=1;i<=n;i++){ 
+      for(int j=1;j<=n;j++){ 
+    	  // Substitution
+        if(source.charAt(i-1)==source.charAt(n-j)) // TR: Compare the FIRST and LAST character   i.e.(i-1 == n-j)
             distance[i][j]=distance[i-1][j-1];
-        else
+        else // Insertion and Deletion
             distance[i][j]= Math.min((distance[i-1][j]+1),(distance[i][j-1]+1));
       }
     }
-    return(distance[n][n]);
+    return(k==distance[n][n]/2);   // returns boolean value
   }
-
+/*
+ * Analysis:
+ * Time Complexity = O(n^2)
+ * Space Complexity = O(n^2)
+ */
 
 public static boolean usingRecursion(String s, int k){
 	/*
