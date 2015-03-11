@@ -62,12 +62,11 @@ private static String giveLookAndSaySequence(String s) {   // (Similar to Run Le
 	StringBuilder sb = new StringBuilder();
 	int i = 0;        // index
 	int f = 0;        // first (first character index)
-	while(i<s.length()){
+	for(i=0;i<s.length();i++){
 		if(s.charAt(f)!=s.charAt(i)){
 			sb.append(s.substring(f, i).length()).append(s.charAt(f));
 			f = i;
 			}
-		i++;
 		}
 	sb.append(s.substring(f, s.length()).length()).append(s.charAt(f));
 	return sb.toString();	
