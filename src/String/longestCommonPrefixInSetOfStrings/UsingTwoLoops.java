@@ -6,7 +6,7 @@ Question and Answer Source: http://codereview.stackexchange.com/questions/46965/
 Other Sources: https://miafish.wordpress.com/2015/02/17/leetcode-oj-c-longest-common-prefix/
 http://www.programcreek.com/2014/02/leetcode-longest-common-prefix-java/ 
 */
-package longestCommonPrefixInSetOfStrings;
+package String.longestCommonPrefixInSetOfStrings;
 
 import java.util.Scanner;
 
