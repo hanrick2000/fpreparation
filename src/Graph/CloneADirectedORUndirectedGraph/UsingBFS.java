@@ -37,7 +37,7 @@ public class UsingBFS {
         HashMap<UndirectedGraphNode, UndirectedGraphNode> map = 
                                    new HashMap<UndirectedGraphNode,UndirectedGraphNode>();
  
-        UndirectedGraphNode newHead = new UndirectedGraphNode(node.label);  // CLONE
+        UndirectedGraphNode newHead = new UndirectedGraphNode(node.label);              // CLONE
  
         queue.add(node);          // ADD
         map.put(node, newHead);   // MAP
