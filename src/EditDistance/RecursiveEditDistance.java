@@ -29,7 +29,8 @@ public class RecursiveEditDistance {
 		
 		int top = editDistanceCalculation(m-1, n, s1,s2)+1;   // Deletion
 		int left = editDistanceCalculation(m, n-1, s1,s2)+1;  // Insertion
-		int corner = editDistanceCalculation(m-1, n-1, s1,s2) + check(s1.charAt(m-1),s2.charAt(n-1));  // Substitution
+		int corner = editDistanceCalculation(m-1, n-1, s1,s2) + check(s1.charAt(m-1),s2.charAt(n-1));  
+		// Substitution
 		// It seems as if we are calling the check() method on
 		// the previous characters. This is not the case, the check method is called on the current characters. 
 		// Please hand run the recursive calls for small strings such as 'me', 'tu', to understand that the call
