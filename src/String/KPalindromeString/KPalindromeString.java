@@ -55,12 +55,12 @@ public static boolean isKPalindrome(String source, int k){
 public static int editDistance(String source){
     int n= source.length();
     int[][] distance=new int[n+1][n+1];
-    for(int i=0;i<=n;i++){
+    for(int i=0;i<=n;i++)
         distance[i][0]=i;
-    }
-    for(int j=0;j<=n;j++){
+    
+    for(int j=0;j<=n;j++)
         distance[0][j]=j;
-    }
+    
     for(int j=1;j<=n;j++){               // FIRST j
       for(int i=1;i<=n;i++){             // SECOND i
         if(source.charAt(i-1)==source.charAt(n-1-(j-1))){
