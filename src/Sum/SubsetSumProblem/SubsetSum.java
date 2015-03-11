@@ -54,7 +54,7 @@ public class SubsetSum {
 	public static void main(String[] args) {
 		int values[] = { 1,2,3,4,5,6};
 		System.out.println(Arrays.toString(values));
-		System.out.println(findSubsetSum(values, 10));  // Returns only one subset. Does not return all the subsets
+		System.out.println(findSubsetSum(values,12));  // Returns only one subset. Does not return all the subsets
 	}
 }
 /*

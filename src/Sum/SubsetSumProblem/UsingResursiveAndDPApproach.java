@@ -2,12 +2,7 @@
 Question: Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set 
 with sum equal to given sum.
 
-
-
-
 VERY VERY IMPORTANT NOTE: The Recursive & DP approach WON'T WORK for NEGATIVE Numbers present either in ARRAY ELEMENTS OR SUM
-
-
 
 Examples: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
 Output:  True  //There is a subset (4, 5) with sum 9.
@@ -93,8 +88,8 @@ private static boolean usingDP(int[] a, int sum) {
 	
 	// if the length of the array is variable (and sum is 0) then fill TRUE, since the SUM=0 
 	for(int row=0;row<dp.length;row++){
-		dp[row][0] = true;    // NOTE: dp[length=VARIABLE][sum=0], thus we satisfy the condition where length is VARIABLE
-		                      // and the SUM=0
+		dp[row][0] = true;    // NOTE: dp[length=VARIABLE][sum=0], thus we satisfy the condition 
+		                      // where length is VARIABLE and the SUM=0
 	}
 	
 	// if the SUM is variable and length is 0 then FALSE, since (sum=variable && length=0)
