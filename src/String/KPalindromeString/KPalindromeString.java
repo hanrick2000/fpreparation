@@ -104,7 +104,7 @@ public static boolean usingRecursion(String s, int k){
 	if(k==0)    // If there is a mismatch, then check if the k is already 0
 		return false;
 	
-	// 4. Remove the first OR Remove the last character
+	// 4. Remove the first OR Remove the last character and decrement k by 1
 	return usingRecursion(s.substring(0,s.length()-1), k-1) || usingRecursion(s.substring(1,s.length()), k-1);
 	// decrement the k and check for the remaining string leaving behind the character which led to the mis-matach
 	
