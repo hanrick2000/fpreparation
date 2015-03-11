@@ -94,7 +94,8 @@ public class FlattenIterator implements Iterator
             Object next = this.next;
             this.next = blank;
             return next;
-        }}
+        }
+    }
     
     /**
      * Returns if there are any objects left to iterate over. This method 

@@ -23,6 +23,14 @@ public class FlattenNestedList implements Iterator { // VERY VERY IMP: implement
 	private ArrayList result = new ArrayList();  // ArrayList of integers
 	private Iterator resultItr = null; 			 // Iterator for integers stored in the result
 	
+	public boolean hasNext() {
+		return resultItr.hasNext();
+	}
+
+	public Object next() {
+		return resultItr.next();
+	}
+	
 	public FlattenNestedList(Collection o) {
 		this.c = o;
 		if(!c.isEmpty()) {
@@ -105,13 +113,7 @@ public class FlattenNestedList implements Iterator { // VERY VERY IMP: implement
 		return l;
 	}
 	
-	public boolean hasNext() {
-		return resultItr.hasNext();
-	}
 
-	public Object next() {
-		return resultItr.next();
-	}
 
 	// Not overriden
 	public void remove() {
