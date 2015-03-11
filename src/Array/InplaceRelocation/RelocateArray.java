@@ -32,7 +32,8 @@ Example:
 arr[i] = arr[i] + arr[arr[i]]*size
 so arr[i]/size = arr[arr[i]]
 
-In the code you see the author has used % below; this is done just to make sure arr[i] and arr[arr[i]] is less than size as explained earlier.
+In the code you see the author has used % below; this is done just to make sure arr[i] and arr[arr[i]] 
+is less than size as explained earlier.
 arr[i] += (arr[arr[i]]%size)*size;
 
  */
