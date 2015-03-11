@@ -77,7 +77,13 @@ public static int editDistance(String source){
 
 public static boolean usingRecursion(String s, int k){
 	/*
-	 * Definition: A k-palindrome is a string which transforms into a palindrome on REMOVING AT MOST K characters. 
+	 * Definition: A k-palindrome is a string which transforms into a palindrome on REMOVING AT MOST K characters.
+	 * 
+	 *  WE NEED TO CHECK FOR 4 CONDITIONS:
+	 *  1. Extreme case
+	 *  2. while loop
+	 *  3. k==0
+	 *  4. Remove first/last character
 	 */
 	
 	// 1. Extreme Case
@@ -96,7 +102,7 @@ public static boolean usingRecursion(String s, int k){
 	if(k==0)    // If there is a mismatch, then check if the k is already 0
 		return false;
 	
-	// 4. Recurse
+	// 4. Remove the first OR Remove the last character
 	return usingRecursion(s.substring(0,s.length()-1), k-1) || usingRecursion(s.substring(1,s.length()), k-1);
 	// decrement the k and check for the remaining string leaving behind the character which led to the mis-matach
 	
