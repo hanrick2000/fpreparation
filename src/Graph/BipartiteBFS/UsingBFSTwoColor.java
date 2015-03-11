@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
  
-public class UsingTwoColorAlgorithm {
+public class UsingBFSTwoColor {
 	
 		private static int[][] adjacencyMatrix;	
 	    private int numberOfVertices;
@@ -21,7 +21,7 @@ public class UsingTwoColorAlgorithm {
 	    public static final int RED = 1;
 	    public static final int BLUE = 2;
 	 
-	    public UsingTwoColorAlgorithm(int numberOfVertices){
+	    public UsingBFSTwoColor(int numberOfVertices){
 	        this.numberOfVertices = numberOfVertices;
 	        queue = new LinkedList<Integer>();
 	    }
@@ -92,7 +92,7 @@ public class UsingTwoColorAlgorithm {
 	           System.out.println("Enter the source for the graph");
 	           source = scanner.nextInt();
 	 
-	           UsingTwoColorAlgorithm bipartiteBfs = new UsingTwoColorAlgorithm(number_of_nodes);
+	           UsingBFSTwoColor bipartiteBfs = new UsingBFSTwoColor(number_of_nodes);
 	           if (bipartiteBfs.isBipartite(source)) 
 	           {
 	               System.out.println("The given graph is BIPARTITE");
