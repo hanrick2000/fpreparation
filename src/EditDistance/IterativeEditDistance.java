@@ -40,11 +40,11 @@ private static int calculateCost(String s1, String s2) {
 	for(int i=1;i<=m;i++){
 		for(int j=1;j<=n;j++){
 			
-			left = table[i-1][j] + 1;
-			top = table[i][j-1] + 1;
+			top = table[i-1][j] + 1;
+			left = table[i][j-1] + 1;
 			corner = table[i-1][j-1] + (s1.charAt(i-1)==s2.charAt(j-1)?0:1);// It seems as if we are checking
-			// the previous characters. This is not the case, the checking is done on current characters. Please construct the 
-			// 'table' to understand that the call is on current characters and not previous characters. 
+			// the previous characters. This is not the case, the checking is done on current characters. 
+			// Please construct the 'table' to understand that the call is on current characters and not previous characters. 
 			// To make it easy, construct the table for small strings such as 'me','tu'.
 			
 			table[i][j] = Math.min(Math.min(left,top),corner);
