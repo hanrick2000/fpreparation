@@ -1,10 +1,7 @@
 /*
 Question: Clone a graph
-
 Question Source: http://leetcode.com/2012/05/clone-graph-part-i.html
-
 Answer Source: http://www.programcreek.com/2012/12/leetcode-clone-graph-java/
-	
 IMP Sources: http://leetcode.com/2012/05/clone-graph-part-i.html
 */
 package Graph.CloneADirectedORUndirectedGraph;
