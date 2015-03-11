@@ -74,11 +74,8 @@ public class UsingBFSTwoColor {
 	           System.out.println("Enter the number of nodes in the graph");
 	           scanner = new Scanner(System.in);
 	           number_of_nodes = scanner.nextInt();
-	 
 	           adjacencyMatrix = new int[number_of_nodes][number_of_nodes];
-	           
 	           System.out.println("Enter the adjacency matrix");
-	           
 	           // graph can be directed or undirected
 	           for (int i = 0; i < number_of_nodes; i++)
 	           {
@@ -87,8 +84,6 @@ public class UsingBFSTwoColor {
 	            	   adjacencyMatrix[i][j] = scanner.nextInt();
 	               }
 	           }
-
-	           
 	           System.out.println("Enter the source for the graph");
 	           source = scanner.nextInt();
 	 
