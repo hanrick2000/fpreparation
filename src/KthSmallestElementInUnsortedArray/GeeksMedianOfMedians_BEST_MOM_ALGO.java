@@ -41,10 +41,9 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	public static int kthSmallest(int arr[], int l, int r, int k)
 	{
 	    // If k is smaller than number of elements in array
-	    if (k > 0 && k <= r - l + 1)                          // (r-l+1) = number of elements within the range arr[l...r]. NOTE: DONOT REPLACE (r-l+1) with a.length
+		int n = (r-l+1);    // (r-l+1) = number of elements within the range arr[l...r]. NOTE: DONOT REPLACE (r-l+1) with a.length
+	    if (k >= 1 && k <=n)                         
 	    {
-	        int n = r-l+1; // Number of elements to be considered within the range arr[l..r]
-	 
 	        // Divide arr[] in groups of size 5, calculate median
 	        // of every group and store it in median[] array.
 	        int i=0; 
