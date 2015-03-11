@@ -58,26 +58,17 @@ public class DecodeToString {
 			return set;		
 		
 		// 3. Add without condition
-		set.addAll(decode(  
-				prefix + (char) (s.charAt(0) - '1' + 'a'),  // add first character of the string to the prefix
-				s.substring(1))
-				);
+		set.addAll(decode(prefix + (char) (s.charAt(0) - '1' + 'a'), s.substring(1))); // add first character of the string to the prefix
 
 		// 4. Number from 10 to 19
-		if (s.length() >= 2 && s.charAt(0) == '1') {   // from 10 to 19
-			set.addAll(decode(
-					prefix + (char) (10 + s.charAt(1) - '1' + 'a'),   // convert "12" to integer 12
-					s.substring(2))
-					);
-		}
+		if (s.length() >= 2 && s.charAt(0) == '1')
+			set.addAll(decode(prefix + (char) (10 + s.charAt(1) - '1' + 'a'), s.substring(2)));
+		
 		
 		// 5. Number from 20 to 26
-		if (s.length() >= 2 && s.charAt(0) == '2' && s.charAt(1) <= '6') {   // from 20 to 26
-			set.addAll(decode(
-					prefix + (char) (20 + s.charAt(1) - '1' + 'a'),   // convert "22" to integer 22
-					s.substring(2))
-					);
-		}
+		if (s.length() >= 2 && s.charAt(0) == '2' && s.charAt(1) <= '6')  // from 20 to 26
+			set.addAll(decode(prefix + (char) (20 + s.charAt(1) - '1' + 'a'), s.substring(2)));
+		
 		return set;
 }
 	
