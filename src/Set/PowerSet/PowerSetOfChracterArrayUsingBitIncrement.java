@@ -25,7 +25,7 @@ VERY IMP SUMMARY:
 4. Powerset with DUPLICATE input is known as Subsets II question in leetcode
 */
 
-package PowerSet;
+package Set.PowerSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,6 +72,8 @@ private static void printPowerSet(char[] set) {
 			}
 		System.out.println();
 		}
+	
+		// TR: (i&(1<<j))!=0
 	}
 /*
 Analysis:
