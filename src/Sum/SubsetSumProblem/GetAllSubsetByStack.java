@@ -51,7 +51,7 @@ public class GetAllSubsetByStack {
     /** Store the sum of current elements stored in stack */
     private int sumInStack = 0;                // global
 
-    public void populateSubset(int[] data, int fromIndex, int endIndex) {
+    public void populateSubset(int[] data, int left, int right) {
 
         /*
         * Check if sum of elements stored in Stack is equal to the expected
@@ -62,9 +62,13 @@ public class GetAllSubsetByStack {
     	
         if (sumInStack == TARGET_SUM) {
             print(stack);
+            /*
+             * If we need to print only ONE SUBSET instead of all subsets we can add a BREAK statement here 
+             * (Similar to next program which prints only one subset and NOT ALL SUBSETS)
+             */
         }
         else{
-        for (int currentIndex = fromIndex; currentIndex < endIndex; currentIndex++) {
+        for (int currentIndex = left; currentIndex <= right; currentIndex++) {
 
             if (sumInStack + data[currentIndex] <= TARGET_SUM) {
                 stack.push(data[currentIndex]);
@@ -74,7 +78,7 @@ public class GetAllSubsetByStack {
                 * Make the currentIndex +1, and then use recursion to proceed
                 * further.
                 */
-                populateSubset(data, currentIndex + 1, endIndex);
+                populateSubset(data, currentIndex + 1, right);
                 sumInStack -= (Integer) stack.pop(); // backtracking
             }
         }
@@ -99,7 +103,7 @@ public class GetAllSubsetByStack {
     	int[] DATA = { 10,5,1,-2,4,3};   // Negative Numbers are also accepted
 
         GetAllSubsetByStack get = new GetAllSubsetByStack();
-        get.populateSubset(DATA, 0, DATA.length);
+        get.populateSubset(DATA, 0, DATA.length-1);
         
     }
 }
