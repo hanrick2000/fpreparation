@@ -53,7 +53,6 @@ private static void bruteForce(int[] a, int[] b) {
 		}
 	}
 }
- // TODO LEFT
 
 }
 
