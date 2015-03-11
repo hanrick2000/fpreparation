@@ -69,7 +69,7 @@ public static boolean editDistance(String source, int k){
             distance[i][j]= Math.min((distance[i-1][j]+1),(distance[i][j-1]+1));
       }
     }
-    return(k==distance[n][n]/2);   // returns boolean value
+    return(k<=distance[n][n]/2);   // returns boolean value
   }
 /*
  * Analysis:
