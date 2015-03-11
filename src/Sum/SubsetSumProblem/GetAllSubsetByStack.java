@@ -68,17 +68,17 @@ public class GetAllSubsetByStack {
              */
         }
         else{
-        for (int currentIndex = left; currentIndex <= right; currentIndex++) {
+        for (int i = left; i <= right; i++) {
 
-            if (sumInStack + data[currentIndex] <= TARGET_SUM) {
-                stack.push(data[currentIndex]);
-                sumInStack += data[currentIndex];
+            if (sumInStack + data[i] <= TARGET_SUM) {
+                stack.push(data[i]);
+                sumInStack += data[i];
 
                 /*
-                * Make the currentIndex +1, and then use recursion to proceed
+                * Make the left as (i +1), and then use recursion to proceed
                 * further.
                 */
-                populateSubset(data, currentIndex + 1, right,TARGET_SUM,sumInStack);
+                populateSubset(data, (i + 1), right,TARGET_SUM,sumInStack);
                 sumInStack -= (Integer) stack.pop(); // backtracking
             }
         }
