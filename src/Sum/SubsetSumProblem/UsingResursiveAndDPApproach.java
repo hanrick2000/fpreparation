@@ -110,7 +110,7 @@ private static boolean usingDP(int[] a, int sum) {
 			// VERY VERY IMP: This is same as "excluding the last element" which is represented in DP 
 			dp[i][j] = dp[i-1][j]; // the current position[i][j] would be same as previous position.
 			                       // the previous position means that SUM is ACHIEVED OR NOT-ACHIEVED
-			                       // int the previous position then it will ofcourse be ACHIEVED or NOT-ACHIEVED
+			                       // in the previous position then it will ofcourse be ACHIEVED or NOT-ACHIEVED
 			                       // in the current position.
 			
 			
