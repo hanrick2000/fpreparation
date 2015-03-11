@@ -9,7 +9,6 @@ Array: 3 2 4 7 1 -2 8 0 -4 2 1 5 6 -1
  * 
  * Answer Source: http://stackoverflow.com/questions/2473114/how-to-find-sum-of-elements-from-given-index-interval-i-j-in-constant-time
  * http://www.careercup.com/question?id=14582042
- * 
  */
 
 package Array.RangeSumQuery;
