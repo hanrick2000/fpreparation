@@ -43,7 +43,7 @@ public class UsingTwoLoops {
 	    for (int prefixLen = 0; prefixLen < strArray[0].length(); prefixLen++) {
 	        char c = strArray[0].charAt(prefixLen);        // get each character of the smallest String
 	        for (int i = 1; i < strArray.length; i++) {    // loop from the second string to all the strings in the String array
-	            if ( prefixLen >= strArray[i].length() ||
+	            if (strArray[i].length() <= prefixLen ||
 	            		strArray[i].charAt(prefixLen) != c ) {  // match all the characters of the minLength string with characters 
 	            												// of all the strings present in the String array
 	                // Mismatch found
@@ -56,6 +56,6 @@ public class UsingTwoLoops {
 }
 /*
 Analysis:
-Worst-case time complexity: O(n m) to scan every character in every string
+Worst-case time complexity: O(n*m) to scan every character in every string
 Space complexity: O(1)
 */
