@@ -36,9 +36,7 @@ public class RecursiveEditDistance {
 		/*
 		 * m = s1.length()      and       n = s2.length()
 		 */
-		
-		
-		
+			
 		int top = editDistanceCalculation(m-1, n, s1,s2)+1;   // Deletion
 		int left = editDistanceCalculation(m, n-1, s1,s2)+1;  // Insertion
 		int corner = editDistanceCalculation(m-1, n-1, s1,s2) + check(s1.charAt(m-1),s2.charAt(n-1));  
