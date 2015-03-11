@@ -34,8 +34,7 @@ public class UsingBFS {
             return null;
  
         Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
-        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = 
-                                   new HashMap<UndirectedGraphNode,UndirectedGraphNode>();
+        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<UndirectedGraphNode,UndirectedGraphNode>();
         UndirectedGraphNode newHead = new UndirectedGraphNode(node.label);              // CLONE
         queue.add(node);          // ADD
         map.put(node, newHead);   // MAP
