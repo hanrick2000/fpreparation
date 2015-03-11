@@ -1,4 +1,3 @@
-
 /*
 Question: Clone a graph
 
@@ -20,9 +19,8 @@ import java.util.Queue;
  * VERY IMP NOTE: The same code can be used for DIRECTED OR UNDIRECTED Graphs WITH OR WITHOUT CYCLES
  * 1. Code works for DIRECTED AS WELL AS UNDIRECTED graphs
  * 2. Code works for graphs WITH CYCLES OR WITHOUT CYCLES
- * 
  */
-/**
+/**	
  * Definition for undirected graph.
  * class UndirectedGraphNode {
  *     int label;
