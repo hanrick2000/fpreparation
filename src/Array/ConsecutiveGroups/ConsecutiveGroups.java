@@ -38,9 +38,9 @@ public class ConsecutiveGroups {
 		  
 		  // parse the input array and mark off values seen
 		  int[] valueSeen=new int[n+1];
-		  for(int i=0; i<n; i++){
+		  for(int i=0; i<n; i++)
 		    valueSeen[a[i]] = i;
-		  }
+		  
 		  
 		  // parse valueSeen and figure out consecutive numbers
 		  // bucket the result into groups and output the result in original order
