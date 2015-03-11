@@ -63,7 +63,7 @@ public static int editDistance(String source){
     
     for(int j=1;j<=n;j++){               // FIRST j
       for(int i=1;i<=n;i++){             // SECOND i
-        if(source.charAt(i-1)==source.charAt(n-j))
+        if(source.charAt(i-1)==source.charAt(n-j))       // TR: (india -1 == newzealand - j)
             distance[i][j]=distance[i-1][j-1];
         else
             distance[i][j]= Math.min((distance[i-1][j]+1),(distance[i][j-1]+1));
