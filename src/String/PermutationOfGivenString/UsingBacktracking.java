@@ -58,7 +58,7 @@ public class UsingBacktracking {
 				for(int i=start;i<=end;i++){
 					swap(s,start,i);
 					permute(s,start+1,end);
-					swap(s,start,i);  // backtrack
+					swap(s,i,start);  // backtrack
 				}
 			}
 		}
