@@ -79,10 +79,12 @@ public static boolean usingRecursion(String s, int k){
 	/*
 	 * Definition: A k-palindrome is a string which transforms into a palindrome on REMOVING AT MOST K characters. 
 	 */
+	
+	// 1. Extreme Case
 	if(s.length()==0 || s.length() == 1)
 		return true;
 	
-	
+	// 2. WHILE LOOP of palindrome check
 	while(s.charAt(0)==s.charAt(s.length()-1)){  // since start and end chars are equal hence no need to decrement k
 		s=s.substring(1,s.length()-1);
 		
@@ -90,10 +92,13 @@ public static boolean usingRecursion(String s, int k){
 			return true;
 	}
 	 
+	// 3. Check on k
 	if(k==0)    // If there is a mismatch, then check if the k is already 0
 		return false;
 	
-	return usingRecursion(s.substring(0,s.length()-1), k-1) || usingRecursion(s.substring(1,s.length()), k-1); // decrement the k and check for the remaining string leaving behind the character which led to the mis-matach
+	// 4. Recurse
+	return usingRecursion(s.substring(0,s.length()-1), k-1) || usingRecursion(s.substring(1,s.length()), k-1);
+	// decrement the k and check for the remaining string leaving behind the character which led to the mis-matach
 	
 	}
 }
