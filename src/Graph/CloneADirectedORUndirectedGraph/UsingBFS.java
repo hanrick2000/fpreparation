@@ -42,18 +42,17 @@ public class UsingBFS {
         while(!queue.isEmpty()){
             UndirectedGraphNode curr = queue.poll();  // remove the node
             ArrayList<UndirectedGraphNode> currNeighbors = curr.neighbors; // get the neighbors 
- 
             for(UndirectedGraphNode aNeighbor: currNeighbors){
                 if(!map.containsKey(aNeighbor)){
                     UndirectedGraphNode copy = new UndirectedGraphNode(aNeighbor.label); // CLONE
                     queue.add(aNeighbor);         // ADD
                     map.put(aNeighbor,copy);      // MAP
                     map.get(curr).neighbors.add(copy);     // this is same as the below line "map.get(curr).neighbors.add(map.get(aNeighbor))"
-                }else{
+                }
+                else{
                     map.get(curr).neighbors.add(map.get(aNeighbor));
                 }
             }
- 
         }
         return newHead;
     }
