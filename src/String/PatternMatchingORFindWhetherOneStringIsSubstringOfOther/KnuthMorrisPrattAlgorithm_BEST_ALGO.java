@@ -86,7 +86,7 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 	private static int usingKMPAlgorithm(String t, String p) {   // t = text and p = pattern
 		/*
 		NOTE: THREE IMP THINGS TO REMEMBER ABOUT THIS FUNCTION
-		
+			WHILE LOOP FOR TEXT
 		I. When there is a match between characters
 			tI++ && pI++
 	    II. When pattern completely visited
@@ -124,11 +124,11 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 				// Do not match table[0..table[j-1]] characters,
 		        // they will match anyway
 				if(pI==0)
-					tI++;
+					tI++;                     // UPDATE tI
 				else
-					pI=table[pI-1];  // skip these many locations
-			}
+					pI=table[pI-1];           // UPDATE pI
 			
+			}
 		}
 		return -1;
 	}
@@ -136,29 +136,30 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 	private static int[] populateTable(String p, int[] table) {
 		/*
 		NOTE: TWO IMP THINGS TO REMEMBER ABOUT THIS FUNCTION
-		table[0]=0   ,   i=1   ,   previousLength=0   
+		table[0]=0   ,   i=1   ,  previousLength=0
+		   			WHILE LOOP FOR PATTERN
 		I. When there is a match between characters
-			Update table, i and previousLength
+			Update table, increment i and previousLength
 		II. When there is NO MATCH between characters
-			a. Check if peviousLength==0   --> fill table, increment i
+			a. Check if peviousLength==0   --> fill 0 in table, increment i
 			b. Check if previousLength!=0  --> update previousLength
 		*/
 		table[0] = 0; // table[0] is always 0
-		int i=1;  // index for iterating over the p string
+		int pI=1;  // index for iterating over the p string
 		int previousLength = 0; // length of the previous longest prefix suffix
 		
-		while(i<p.length()){    // the loop calculates table[i] for i = 1 to M-1
+		while(pI<p.length()){    // the loop calculates table[i] for i = 1 to M-1
 			
-			if(p.charAt(i)==p.charAt(previousLength)){
-				table[i]=previousLength+1;
+			if(p.charAt(pI)==p.charAt(previousLength)){
+				table[pI]=previousLength+1;
 				previousLength++;    // increment the previous Length
-				i++;   				 // increment the iterator
+				pI++;   				 // increment the iterator
 			}
 			else{   				 // if(p.charAt(i)!=p.charAt(previousLength))
 				
 				if(previousLength==0) {  
-					table[i]=0;
-					i++;
+					table[pI]=0;
+					pI++;
 				}
 				else{ //(previousLength!=0) VERY IMP, here we ONLY UPDATE the previousLength	
 					previousLength = table[previousLength-1];
