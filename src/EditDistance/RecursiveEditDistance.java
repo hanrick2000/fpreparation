@@ -18,8 +18,13 @@ public class RecursiveEditDistance {
 			in.close();
 		}
 	}
-
+	
 	private static int editDistanceCalculation(int m, int n, String s1, String s2) {
+		
+		/*
+		 * m = s1.length()      and       n = s2.length()
+		 */
+		
 		if(m==0 & n==0)
 			return 0;
 		if(m==0)
