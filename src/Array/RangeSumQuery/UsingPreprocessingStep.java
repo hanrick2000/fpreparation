@@ -1,4 +1,3 @@
-
 /*
 Question: How to find sum of elements from given index interval (i, j) in constant time?
 Given an array. How can we find sum of elements in index interval (i, j) in constant time. 
