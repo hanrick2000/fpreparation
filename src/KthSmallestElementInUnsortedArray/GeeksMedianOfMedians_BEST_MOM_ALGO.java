@@ -99,7 +99,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	public static int partition(int arr[], int l, int r, int pivotElement)
 	{
 	    // Search for x in arr[l..r] and move it to end
-	    int i;
+	    int i; 
 	    for (i=l; i<r; i++)
 	        if (arr[i] == pivotElement)
 	           break;
@@ -112,7 +112,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        if (arr[j] <= pivotElement)
 	        {
 	            swap(arr,storage, j);
-	            storage++;
+	            storage++;                               // VERY IMP: increment STORAGE
 	        }
 	    }
 	    swap(arr,storage, r);                             // swap storage and right
