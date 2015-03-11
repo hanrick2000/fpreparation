@@ -202,8 +202,7 @@ public class UsingNlogNAlgorithm {
 	 
 	    int[] tailTable   = new int[size];
 	    int len; // always points empty slot
-	
-	 
+
 	    tailTable[0] = A[0];
 	    len = 1;
 	    for( int i = 1; i < size; i++ ) {
