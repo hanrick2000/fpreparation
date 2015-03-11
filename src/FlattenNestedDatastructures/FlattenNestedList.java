@@ -3,7 +3,7 @@ Question:
 	Flatten an iterator of iterators in Java. If the input is [ [1,2], [3,[4,5]], 6], 
 	it should return [1,2,3,4,5,6]. Implement hasNext() and next().
 
-Question and Answr Source: http://www.careercup.com/question?id=5153954321137664
+Question and Answer Source: http://www.careercup.com/question?id=5153954321137664
 */
 package FlattenNestedDatastructures;
 
@@ -17,11 +17,11 @@ import java.util.Random;
 public class FlattenNestedList implements Iterator { // VERY VERY IMP: implements Iterator
 	
 	/*
-	 *  The generic types are REMOVED
+	 *  NOTE: The generic types are REMOVED
 	 */
 	private Collection c;
 	private ArrayList result = new ArrayList();  // ArrayList of integers
-	private Iterator resultItr = null;  // Iterator for integers stored in the result
+	private Iterator resultItr = null; 			 // Iterator for integers stored in the result
 	
 	public FlattenNestedList(Collection o) {
 		this.c = o;
@@ -32,7 +32,7 @@ public class FlattenNestedList implements Iterator { // VERY VERY IMP: implement
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void extractAll(Collection obj) {  // parameter is Collection
+	private void extractAll(Collection obj) {    // parameter is Collection
 		Iterator collectionItr = obj.iterator(); // iterator for the collection
 		while(collectionItr.hasNext()) {
 			Object o = collectionItr.next();
