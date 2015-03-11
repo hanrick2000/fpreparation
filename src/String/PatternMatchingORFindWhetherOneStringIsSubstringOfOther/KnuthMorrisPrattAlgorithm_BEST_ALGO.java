@@ -114,7 +114,7 @@ public class KnuthMorrisPrattAlgorithm_BEST_ALGO {
 				tI++;
 			}
 			
-			if(pI==p.length()){     // if p is COMPLETELY VISITED
+			if(pI==p.length()){     // NOTE: p.length() and NOT p.length()-1
 				return (tI-pI);     // index where the pattern is present in the text
 			}
 			
