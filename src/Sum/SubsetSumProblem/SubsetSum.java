@@ -1,4 +1,4 @@
-package String.SubsetSumProblem;
+package Sum.SubsetSumProblem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
