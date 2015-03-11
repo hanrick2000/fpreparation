@@ -54,7 +54,7 @@ public static boolean isKPalindrome(String source, int k){
  
 public static int editDistance(String source){
     int n= source.length();
-    int[][] distance=new int[n+1][n+1];
+    int[][] distance=new int[n+1][n+1];   // Row and column are the SAME
     for(int i=0;i<=n;i++)
         distance[i][0]=i;
     
