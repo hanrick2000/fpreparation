@@ -1,4 +1,3 @@
-
 /*
  * Question: Calculate the kth smallest element in the array
  * Solution Source: Java Implementation of http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-3-worst-case-linear-time/
@@ -64,9 +63,11 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        // Find median of all medians using recursive call.
 	        // If median[] has only one element, then no need
 	        // of recursive call
-	        int medOfMed = (i == 1)? median[i-1]:
-	                                 kthSmallest(median, 0, i-1, i/2);  // VERY IMP: find med of MEDIANS array
-	        
+	        int medOfMed=0;
+	        if(i==1)                                  // VERY IMP: find med of MEDIANS array
+	        	medOfMed = median[i-1];
+	        else
+	        	medOfMed = kthSmallest(median, 0, i-1, i/2);
 	        
 	        // Partition the array around a random element and
 	        // get position of pivot element in sorted array
