@@ -164,8 +164,7 @@ public class PowerSetWithoutRepetition {
 	}
 }
 /*
- * Analysis:
- * Time Complexity = O()
- * Space Complexity = O()
- * 
- */
+Analysis:
+Time Complexity = O(2^n * length of each string)
+Space Complexity = O(2^n * length of each string) where n = number of unique characters in the string
+*/

@@ -118,3 +118,8 @@ public static ArrayList<ArrayList<Character>> subsets(char[] S) {
 	return result;
 }
 }
+/*
+Analysis:
+Time Complexity = O(2^n * length of each string)
+Space Complexity = O(2^n * length of each string) where n = number of unique characters in the string
+*/
