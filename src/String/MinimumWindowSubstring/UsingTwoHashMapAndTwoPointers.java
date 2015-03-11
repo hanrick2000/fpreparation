@@ -24,74 +24,69 @@ package String.MinimumWindowSubstring;
 import java.util.Scanner;
 
 public class UsingTwoHashMapAndTwoPointers {
-	
-	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
-			System.out.println("Enter S");
-			String s = in.nextLine();
-			System.out.println("Enter T");
-			String t = in.nextLine();
-			System.out.println(minWindow(s, t));
+			System.out.println("Enter sentence");
+			String big = in.nextLine();
+			System.out.println("Enter text which is small than sentence");
+			String small = in.nextLine();
+			System.out.println(minWindow(big, small));
 		}
 		finally{
 			in.close();
 		}
 	}
-	public static String minWindow(String S, String T) {
+	/*
+	 * Notes:
+1. To count occurrence of characters, instead of using a hash map, can use an int array of 256
+2. Two pointer method with one point to end and one point to start.
+   Pointer advance condition: move end forward till finds one window, then move start forward till the
+   window no longer valid, then move end forward to find another valid window
+ */
+	public static String minWindow(String big, String small) {
 		
 		// EXTREME CASES
-		if (S==null||T==null){
+		if (small==null||big==null){
             return null;
         }
-        
-        if(S.length()==0 && T.length()==0){
+        if(small.length()==0 && small.length()==0){
             return "";
         }
-        if (S.length()<T.length()){
-            return"";
+        if (big.length()<small.length()){
+            return "";
         }
-		
-        // END OF EXTREME CASES
-        
-        
-	        int[] tArr = new int[256];
-	        for(int i = 0; i < T.length(); i++){
-	            tArr[T.charAt(i)]++;
+		// END OF EXTREME CASES
+   	        int[] smallArr = new int[256];
+	        for(int i = 0; i < small.length(); i++){
+	            smallArr[small.charAt(i)]++;
 	        }
-	        int [] sArr = new int[256];
+	        int [] bigArr = new int[256];
 	        int match = 0;   // initialize matches
 	        String min = "";
 	        int start = 0; // initialize start pointer
 	        int end =0; // initialize end pointer
-	        for(end = 0; end < S.length(); end++){
-	            if(tArr[S.charAt(end)] > sArr[S.charAt(end)]){       // ----> T > S. BELOW we have reverse of this
+	        for(end = 0; end < big.length(); end++){
+	            if(smallArr[big.charAt(end)] > bigArr[big.charAt(end)]){       // ----> Small > Big. BELOW we have reverse of this
 	                match++;
 	            }
-	            sArr[S.charAt(end)]++;  // -----> mark as VISITED (NECESSARY [i.e. matching characters] as well as UNNECESSARY VISITS[i.e. NOT matching characters])
-	            
-	            if(match==T.length()){
-	        
-	            	// Remember THREE conditions if the match == T.length()
-	            	
-	            	
-	            	// REMOVE THE UNNECESSARY NON-MATCHING VISITS UNTIL WE FIND A MATCHING VISIT
-	            	
-	            	// I. DECREMENT sArr, INCREMENT start IF AND ONLY IF no match found
-	            	while(sArr[S.charAt(start)] > tArr[S.charAt(start)]){    // ----> S > T. ABOVE we have reverse of this
-	                    sArr[S.charAt(start)]--;               // ------- > REPEAT BELOW 
+	            bigArr[big.charAt(end)]++;  // -----> mark as VISITED (NECESSARY [i.e. matching characters] as well as UNNECESSARY VISITS[i.e. NOT matching characters])
+	            if(match==small.length()){	        
+	            	// Remember THREE conditions if the match == Small.length()
+	   	        	// REMOVE THE UNNECESSARY NON-MATCHING VISITS UNTIL WE FIND A MATCHING VISIT
+	            	// I. DECREMENT smallArr, INCREMENT start IF AND ONLY IF no match found
+	            	while(bigArr[big.charAt(start)] > smallArr[big.charAt(start)]){    // ----> Big > Small. ABOVE we have reverse of this
+	                    bigArr[big.charAt(start)]--;               // ------- > REPEAT BELOW 
 	                    start++;                               // --------> REPEAT BELOW
 	                }
-                    
-	            	// II. CHECK which is valid min
+                    // II. CHECK which is valid min
 	                if(min.length()==0 ||  min.length() > end-start+1){
-	                    min = S.substring(start, end+1);
+	                    min = big.substring(start, end+1);
 	                }
 	                
 	                // SINCE WE HAVE ALREADY RECORDED THE MATCHING VISIT IN MIN, HENCE REMOVE THE MATCHING VISIT AS WELL
-	                // III. DECREMENT sArr, INCREMENT start, DECREMENT match
-	                sArr[S.charAt(start)]--;               // ----------> REPEATED
+	                // III. DECREMENT smallArr, INCREMENT start, DECREMENT match
+	                bigArr[big.charAt(start)]--;               // ----------> REPEATED
 	                start++;                               // ----------> REPEATED
 	                match--;
 	            }
@@ -102,6 +97,6 @@ public class UsingTwoHashMapAndTwoPointers {
 	}
 /*
 Analysis:
-Time Complexity = O(n) where n = length of sentence S   [O(n) considering substring() is O(1) in some languages but not in JAVA. In JAVA it is O(n)]
+Time Complexity = O(n) where n = length of big string   [O(n) considering substring() is O(1) in some languages but not in JAVA. In JAVA it is O(n)]
 Space Complexity = O(1) since we use set of 256 characters which is constant memory
 */
