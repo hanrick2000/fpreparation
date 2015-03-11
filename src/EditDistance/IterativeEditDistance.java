@@ -51,7 +51,6 @@ private static int calculateCost(String s1, String s2) {
 		}
 	}
 	printTable(table,table.length,table[0].length);
-	
 	return table[m][n];
 }
 
