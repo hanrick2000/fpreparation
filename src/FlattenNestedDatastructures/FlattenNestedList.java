@@ -92,7 +92,7 @@ public class FlattenNestedList implements Iterator { // VERY VERY IMP: implement
 		
 		
 		/*
-		 * Sample Input : 
+		Sample Input : 
 		[[90, 60, 35], [24, 59, 47]]
 		[[60, 68, 38, 17], []]
 		[[51, 96, 66, 44, 69], null]
