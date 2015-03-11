@@ -1,5 +1,5 @@
 /*
-Question: A k-palindrome is a string which transforms into a palindrome on removing at most k characters. 
+Question: A k-palindrome is a string which transforms into a palindrome on removing "AT MOST" k characters. 
 
 Given a string S, and an integer K, print "YES" if S is a k-palindrome; otherwise print "NO". 
 Constraints: 
@@ -69,7 +69,7 @@ public static boolean editDistance(String source, int k){
             distance[i][j]= Math.min((distance[i-1][j]+1),(distance[i][j-1]+1));
       }
     }
-    return(k==distance[n][n]/2);   // returns boolean value
+    return(distance[n][n]/2 <= k);   // returns boolean value. We check whether the changes made is less than or equal to k
   }
 /*
  * Analysis:
