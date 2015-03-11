@@ -80,7 +80,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	            return kthSmallest(arr, l, pos-1, k);
 	 
 	        // Else recur for right subarray
-	        return kthSmallest(arr, pos+1, r, k-pos+l-1);    // TR: kpl1 i.e. (plus,mius,plus,minus = Kevin Peiterson left field on 1)
+	        return kthSmallest(arr, pos+1, r, k-pos+l-1);    // TR: kpl1 i.e. (plus,mius,plus,minus = Kevin Pieterson left field on 1)
 	    }
 	 
 	    // If k is more than number of elements in array
