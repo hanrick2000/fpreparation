@@ -39,7 +39,7 @@ public class UsingPreprocessingStep {
 		if(i<0 || j>array.length-1)
 			return -1;
 		
-		return (aux[j+1]-aux[i]);   // return(J+1 - I)
+		return (aux[j+1]-aux[i]);   // return(J+1 - I)   [TR: (plus,plus,minus) Jadeja scored +1 and returned to India]
 	}
 
 	private static int[] preprocessing(int[] array) {
