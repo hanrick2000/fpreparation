@@ -9,6 +9,8 @@ import java.util.List;
  * up to a given number K. Assume that the set contains non-negative, unique
  * values.
  * 
+ * This program only prints the SINGLE SUBSET whereas the program using Stack prints ALL THE SUBSETS
+ * 
  * Source: http://www.careercup.com/forumpost?id=5355201013743616
  * 		   https://github.com/kowshik/big-o/blob/master/java/src/general/SubsetSum.java
  *         http://www.geeksforgeeks.org/backttracking-set-4-subset-sum/ <- DONOT FOLLOW THIS SOLUTION. FOLLOW THE SOLUTION MENTIONED BELOW
@@ -54,7 +56,7 @@ public class SubsetSum {
 	public static void main(String[] args) {
 		int values[] = { 1,2,3,4,5,6};
 		System.out.println(Arrays.toString(values));
-		System.out.println(findSubsetSum(values,12));  // Returns only one subset. Does not return all the subsets
+		System.out.println(findSubsetSum(values,3));  // Returns only one subset. Does not return all the subsets
 	}
 }
 /*
