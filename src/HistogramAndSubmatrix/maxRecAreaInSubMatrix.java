@@ -43,12 +43,17 @@ public class maxRecAreaInSubMatrix {
 
 	    public static int largestRectangleInHistogram(int[] a){
 	    
-	    int max = 0;
+	    
 	    Stack<Integer> stack = new Stack<Integer>();
 	   
-	    
+	    int max = 0;
 	    int i =0;
-	        while(i<a.length){
+	    
+	    /*
+	     * VERY VERY IMP:
+	     * In BOTH cases we only use WHILE LOOP
+	     */
+	        while(i<a.length){                      // Case1: WHILE loop
 	            
 	            if(stack.isEmpty() || a[i]>=a[stack.peek()]){ // VERY IMP: greater than = to (>=)
 	                stack.push(i++);
@@ -61,7 +66,7 @@ public class maxRecAreaInSubMatrix {
 	            }
 	        }    
 	        
-	        while(!stack.empty()){
+	        while(!stack.empty()){                 // Case2: WHILE loop
 	        		int height = a[stack.pop()];
 	                int width = stack.empty()? i : (i-stack.peek()-1);
 	                max = Math.max(height*width,max);
