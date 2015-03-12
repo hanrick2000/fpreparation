@@ -34,8 +34,7 @@ public static void main(String[] args) {
     
 		while(i<height.length){
 			if (stack.isEmpty()||height[i]>=height[stack.peek()]){ // VERY IMP: greater than = to (>=)
-				stack.push(i);
-				i++; 											   // Only increment i if we push to the stack
+				stack.push(i++); // Only increment i if we push to the stack
 			}
 			else{
 				int h=height[stack.pop()];
