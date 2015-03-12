@@ -23,6 +23,12 @@ public class UsingBFSTwoColor {
 	 
 
 	    public boolean isBipartite(int source){  // VERY IMP: parameter(argument) source
+	    	
+	    	
+	    	/*
+	    	 * This program would work for both directed and undirected graphs
+	    	 */
+	    	
 	    	Queue<Integer> queue = new LinkedList<Integer>();
 	        int[] colored = new int[numberOfVertices];
 	        
