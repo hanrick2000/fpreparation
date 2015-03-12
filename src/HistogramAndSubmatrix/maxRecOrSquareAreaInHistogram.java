@@ -41,7 +41,6 @@ public static void main(String[] args) {
 				int wid=stack.isEmpty()?i:i-stack.peek()-1;          // TR:IS1=plus,minus,minus
 				max=Math.max(h*wid, max);
 			}
-        
 		}
 		// pop the remaining elements from the stack
 		while (!stack.isEmpty()){
