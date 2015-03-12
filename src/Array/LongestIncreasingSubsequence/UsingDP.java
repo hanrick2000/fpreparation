@@ -14,6 +14,7 @@ http://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
 
 package Array.LongestIncreasingSubsequence;
 
+
 import java.util.Scanner;
 
 public class UsingDP {
@@ -24,6 +25,9 @@ public class UsingDP {
 		    System.out.println("Enter the number of elements of the array");
 		    int n = in.nextInt();
 		    int[] a = new int[n];
+		    System.out.println("BOTH DP and NlgN algorithm, only calculates the "+
+		    		"longest increasing subsequence LENGTH but does not give the ACTUAL "+
+		    		"ELEMENTS of longest increasing subsequence");
 		    System.out.println("Enter the elements of the array");
 		    for(int i=0;i<n;i++)
 		        a[i]= in.nextInt();
@@ -52,6 +56,7 @@ public class UsingDP {
 		        }
 		        
 		        
+		        // System.out.println(Arrays.toString(aux));
 		        
 		        int max = 0;
 		        for(int i=0;i<aux.length;i++)
