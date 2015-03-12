@@ -13,8 +13,7 @@ import java.util.Scanner;
  
 public class UsingBFSTwoColor {
 	
-		private static int[][] adjacencyMatrix;	
-	    private int numberOfVertices;
+		private static int[][] adjacencyMatrix;
 	    
 	 
 	    public static final int NO_COLOR = 0;
@@ -22,17 +21,20 @@ public class UsingBFSTwoColor {
 	    public static final int BLUE = 2;
 	 
 
-	    public boolean isBipartite(int source){  // VERY IMP: parameter(argument) source
+	    public boolean isBipartite(int source, int totalNodes){  // VERY IMP: parameter(argument) source
 	    	
 	    	
 	    	/*
-	    	 * This program would work for both directed and undirected graphs
+	    	 * This program WOULD WORK FOR BOTH directed and undirected graphs
+	    	 * VERY IMP: 
+	    	 * 1. Queue
+	    	 * 2. colored[] array
 	    	 */
 	    	
 	    	Queue<Integer> queue = new LinkedList<Integer>();
-	        int[] colored = new int[numberOfVertices];
+	        int[] colored = new int[totalNodes];
 	        
-	        for (int vertex = 0; vertex < numberOfVertices; vertex++)
+	        for (int vertex = 0; vertex < totalNodes; vertex++)
 	            colored[vertex] = NO_COLOR;
 	        
 	        colored[source] = RED;
@@ -47,7 +49,7 @@ public class UsingBFSTwoColor {
 	            // We have to exhaustively visit all the neighbors irrespective of whether it is visited previously or not
 	            // Hence we don't require visited[] array and thus we also don't require 
 	            // getUnvisitedChildNode(Node current) since we exhaustively visit all the neighbors
-	            while (neighbour < numberOfVertices)
+	            while (neighbour < totalNodes)
 	            { 	
 	            	if(neighbour!=element){ // don't consider edge from vertex to same vertex i.e. loop edge. [Example: edge from node 0 to node 0]
 	            		if (adjacencyMatrix[element][neighbour] == 1 && colored[element]== colored[neighbour])
@@ -92,7 +94,7 @@ public class UsingBFSTwoColor {
 	           source = scanner.nextInt();
 	 
 	           UsingBFSTwoColor bipartiteBfs = new UsingBFSTwoColor();
-	           if (bipartiteBfs.isBipartite(source)) 
+	           if (bipartiteBfs.isBipartite(source,number_of_nodes)) 
 	           {
 	               System.out.println("The given graph is BIPARTITE");
 	           } else
