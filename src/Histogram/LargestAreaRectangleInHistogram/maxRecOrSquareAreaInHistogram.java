@@ -38,7 +38,6 @@ public static void main(String[] args) {
 				i++; // Only increment i if we push to the stack
 			}
 			else{
-            
 				int h=height[stack.pop()];
 				int wid=stack.isEmpty()?i:i-stack.peek()-1;
 				max=Math.max(h*wid, max);
