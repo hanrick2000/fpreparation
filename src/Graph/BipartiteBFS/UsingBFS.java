@@ -56,6 +56,11 @@ public class UsingBFS {
 	        while(!queue.isEmpty()){
 	            currentNode = queue.remove();
 	            neighbour = 0;
+	            /*
+	             * VERY IMP Conditions:
+	             * 1. LOOP EDGE: if(neighbour!=currentNode)
+	             * 2. NEIGHBOR NO COLOR: else if (adjacencyMatrix[currentNode][neighbour] == 1 && colored[neighbour]== NO_COLOR)
+	             */
 	            while (neighbour < totalNodes)
 	            { 	
 	            	if(neighbour!=currentNode){ // LOOP EDGE: don't consider edge from vertex to same vertex 
