@@ -1,4 +1,4 @@
-package LetterCombinationsOfAPhoneNumber;
+package String.LetterCombinationsOfAPhoneNumber;
 
 import java.util.Iterator;
 import java.util.LinkedList;
