@@ -28,7 +28,12 @@ public class UsingDFS{
 							  };
 		System.out.println("The number of islands OR connected components in UNDIRECTED graph is: "+countIslands(M));
 	}
-
+	/*
+	 * We need three methods to solve this
+	 * 1. countIslands --> contains count variable
+	 * 2. DFS
+	 * 3. validNeighbor
+	 */
 	private static int countIslands(int[][] M) {
 		boolean[][] visited = new boolean[M.length][M[0].length];
 		int count=0;
