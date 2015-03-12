@@ -13,6 +13,46 @@ https://github.com/email4rohit/interview-java-algo/blob/master/MedianOfMedians.j
 */
 package Array.UniqueThreeMemberSubset;
 
-public class UsingAlgorithm {
+import java.util.Arrays;
+import java.util.Scanner;
 
+public class UsingAlgorithm {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		try{
+		System.out.println("Enter the number of elements in the array");
+		int n = in.nextInt();
+		int[] a = new int[n];
+		System.out.println("Enter the elements of the array");
+		for(int i=0;i<n;i++)
+			a[i]=in.nextInt();
+		solve(a);
+		}
+		finally{
+			in.close();
+		}
+	
+	}
+	public static void solve(int[] in){
+		  Arrays.sort(in);
+		  int N = in.length;
+		  int count =0;
+		  for(int i=0;i<N-2;i++){
+		     if (i>0 && in[i]==in[i-1]) continue;
+		     for(int j=i+1;j<N-1;j++){
+		        if (j>i+1 && in[j]==in[j-1]) continue;
+		        for(int k=j+1;k<N;k++){
+		           if (k>j+1 && in[k]==in[k-1]) continue;
+		           System.out.println(in[i]+","+in[j]+","+in[k]);
+		           count++;
+		        }
+		    }
+		  }
+		  System.out.println("Total counts are: "+count);
+		}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(n^3)
+	 * Space Complexity = O(1)
+	 */
 }
