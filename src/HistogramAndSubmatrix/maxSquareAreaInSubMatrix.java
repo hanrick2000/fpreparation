@@ -7,7 +7,9 @@ Algorithm:
 	3. Copy the 0th column as it is
 	4. iterate from 1st row and 1st column till the end
 		 if(original[i][j]==1)
-			change solution[i][j] to Math.min(Math.min(input[i][j-1],input[i-1][j],input[i-1][j-1])+1;
+			change solution[i][j] to Math.min(input[i][j-1],input[i-1][j],input[i-1][j-1])+1;
+		 else
+			solution[i][j]=0
 		 Math.max(solution[i][j],max)
     5. return max*max
 			
@@ -44,7 +46,7 @@ class maxSquareAreaInSubMatrix{
 	        for(int i=1;i<a.length;i++){
 	            for(int j=1;j<a[0].length;j++){
 	                if(a[i][j]==1)
-	                	aux[i][j] = Math.min(a[i-1][j-1],Math.min(a[i-1][j],a[i][j-1]))+1;
+	                	aux[i][j] = Math.min(a[i-1][j-1],Math.min(a[i-1][j],a[i][j-1]))+1; // Math.min(input[i][j-1],input[i-1][j],input[i-1][j-1])+1
 	                else
 	                	aux[i][j]=0;
 	                max=Math.max(aux[i][j], max);
