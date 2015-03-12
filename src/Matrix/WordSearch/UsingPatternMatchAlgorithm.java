@@ -35,7 +35,7 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	outerloop:               // label the outer for loop as outerloop:
 	for(int i=0;i<rowLength;i++)
 		for(int j=0;j<columnLength;j++){
-			if(findPattern(matrix, i, j, rowLength, columnLength, pattern, visited)){
+			if(findPattern(matrix, i, j, pattern, visited)){
 				found = true;
 				break outerloop;
 			}
@@ -43,12 +43,8 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	
 	return found;
 }
-	public static boolean findPattern(char[][] matrix, int currentRow, int currentColumn,
-			int rowLength, int columnLength, String pattern, boolean[][] visited){
-	
-	int[] rowDir =  new int[]{-1, -1, -1, 0, 1, 1, 1, 0};
-	int[] columnDir = new int[]{1, 0, -1, -1, -1, 0, 1, 1};
-	
+	public static boolean findPattern(char[][] matrix, int currentRow, int currentColumn,String pattern, boolean[][] visited){
+
 	/*
 	 FOUR conditions we have to check before making the current position as VISITED
 	  (TR: 0 O F V)    -> zero zero F V
@@ -61,7 +57,7 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	if(pattern.length()==0)
 		return true;
 	
-	if(currentRow<0||currentRow>(rowLength-1)||currentColumn<0||currentColumn>(columnLength-1))
+	if(currentRow<0||currentRow>(matrix.length-1)||currentColumn<0||currentColumn>(matrix[0].length-1))
 		return false;
 	
 	if(matrix[currentRow][currentColumn]!=pattern.charAt(0))
@@ -78,14 +74,18 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	
 	visited[currentRow][currentColumn]=true;
 	// move in all 8 directions
-	for(int k=0;k<8;k++){
-		if(findPattern(matrix, currentRow+rowDir[k], currentColumn+columnDir[k], rowLength, columnLength, pattern.substring(1), visited))
-			return true;
+	for(int Nrow = currentRow-1;Nrow<=currentRow+1;Nrow++){
+		for(int Ncol=currentColumn-1;Ncol<=currentColumn+1;Ncol++){
+			if(!(Nrow==currentRow && Ncol==currentColumn) && (findPattern(matrix, Nrow, Ncol, pattern.substring(1), visited)))
+				return true;
+		}
 	}
+	
+	
 	visited[currentRow][currentColumn]=false;  // for backtracking, make this again as false
 	
 
-	return visited[currentRow][currentColumn]; // return this false
+	return false; // return this false
 	}
 }
 /*

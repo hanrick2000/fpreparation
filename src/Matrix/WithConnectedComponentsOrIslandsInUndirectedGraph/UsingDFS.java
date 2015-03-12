@@ -54,12 +54,20 @@ public class UsingDFS{
 		for(int rowNeighbor = row-1;rowNeighbor<=row+1;rowNeighbor++)
 			for(int columnNeighbor = column-1;columnNeighbor<=column+1;columnNeighbor++)
 		// we are looking for neighbors hence exclude the node when rowNeighbor==row && columnNeighbor==column 
-				if((rowNeighbor!=row && columnNeighbor!=column) && (validNeighbor(M,rowNeighbor,columnNeighbor,visited)))
+				if(!(rowNeighbor==row && columnNeighbor==column) && (validNeighbor(M,rowNeighbor,columnNeighbor,visited)))
 					DFS(M,rowNeighbor,columnNeighbor,visited);    // Now check for the neighbors of this node			
 	}
 
 	private static boolean validNeighbor(int[][] M, int rowNeighbor, int columnNeighbor, boolean[][] visited) {
-	   if( (rowNeighbor>=0 && rowNeighbor<M.length)                // neighbor is within the boundary of rowMatrix
+	   /*
+	    * 4 IMP Conditions: (TR: O O 1 V)
+	    * 1. Out of Bounds = row             ---> O
+	    * 2. Out of Bounds = column          ---> O
+	    * 3. m[i][j] = 1                     ---> 1
+	    * 4. NOT visited                     ---> V
+	    */
+		
+		if( (rowNeighbor>=0 && rowNeighbor<M.length)                // neighbor is within the boundary of rowMatrix
 		&& (columnNeighbor>=0 && columnNeighbor<M[0].length)       // neighbor is within the boundary of columnMatrix
 		&& (M[rowNeighbor][columnNeighbor]==1)                     // neighbor has value 1
 		&& (!visited[rowNeighbor][columnNeighbor]))                // neighbor is NOT VISITED
