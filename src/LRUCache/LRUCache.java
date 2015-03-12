@@ -36,7 +36,7 @@ import java.util.HashMap;
 	    private int capacity;
 	    private int length;
 	    
-	    /*
+	    /**
 	    We define 4 operations for LRU cache
 	    1. getNode (NOTE: this method returns value of the node and NOT the node itself)
 	    2. removeNode
@@ -95,13 +95,15 @@ import java.util.HashMap;
 	        2. if the end is already null
 	        */
 	        
-	        curr.next = head;  // even if head is null at this point, it doesn't matter
+	        curr.next = null;  // even if head is null at this point, it doesn't matter
 	        curr.prev = null;
 	        
-	        if(head==null)
+	        if(head==null){
 	            head=curr;
+	        }
 	        else{
-	            head.prev = curr;
+	            head.prev = curr;         // head.next is already set when the head is not null
+	            curr.next = head;
 	            head = curr;
 	        }
 	        
@@ -126,7 +128,6 @@ import java.util.HashMap;
 	            2. length=capacity
 	            */
 	            if(length<capacity){
-	                
 	                length++;
 	            }
 	            else{
