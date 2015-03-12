@@ -41,6 +41,11 @@ public class isIsomorphic {
 				(isIsomorphicTrees(root1.left,root2.right)&&isIsomorphicTrees(root1.right,root2.left))
 				);
 	}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(m + n) where m and n are number of nodes in given trees.
+	 * Space Complexity = O(1)
+	 */
 }
 class Node {
 	Node left, right;
