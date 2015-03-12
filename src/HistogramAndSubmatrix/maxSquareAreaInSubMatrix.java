@@ -54,7 +54,7 @@ class maxSquareAreaInSubMatrix{
 	        }
 	       
 	        
-	        return max*max;
+	        return max*max;               // <----- VERY VERY IMP
 	        
 	    }
 	}
