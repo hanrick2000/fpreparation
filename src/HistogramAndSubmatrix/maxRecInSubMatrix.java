@@ -19,7 +19,7 @@ public class maxRecInSubMatrix {
 	                                  {1,1,1,0,0},
 	                                  {0,1,1,1,0},
 	                                  {0,1,1,0,0}};
-	   // copy the matrix to a new matrix
+	      // copy the matrix to a new matrix
 	      int[][] s = knows;
 	      
 	                                  
