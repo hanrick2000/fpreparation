@@ -62,7 +62,10 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	if(currentRow<0||currentRow>(rowLength-1)||currentColumn<0||currentColumn>(columnLength-1))
 		return false;
 	
-	if(matrix[currentRow][currentColumn]!=pattern.charAt(0)||visited[currentRow][currentColumn]==true)
+	if(matrix[currentRow][currentColumn]!=pattern.charAt(0))
+		return false;
+	
+	if(visited[currentRow][currentColumn]==true)
 		return false;
 	
 	// If we reach here, that means that the current position in the matrix MATCHES with the 0th position of the pattern
@@ -78,7 +81,7 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 			return true;
 	}
 	
-	visited[currentRow][currentColumn]=false; // for backtracking, make this again as false
+	visited[currentRow][currentColumn]=false;  // for backtracking, make this again as false
 	return visited[currentRow][currentColumn]; // return this false
 	}
 }
