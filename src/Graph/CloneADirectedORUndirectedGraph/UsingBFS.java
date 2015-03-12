@@ -46,7 +46,11 @@ public class UsingBFS {
             ArrayList<GraphNode> currNeighbors = curr.neighbors; // get the neighbors 
             
             for(GraphNode aNeighbor: currNeighbors){
-               
+               /*
+                * VERY IMP:
+                * 1. CAM
+                * 2. Add cloned neighbor to cloned node
+                */
             	
             	if(!map.containsKey(aNeighbor)){
             		// CAM = THREE IMP POINTS (Clone, Add, Map)
