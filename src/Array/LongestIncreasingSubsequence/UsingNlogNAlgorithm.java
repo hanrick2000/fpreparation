@@ -215,7 +215,7 @@ public class UsingNlogNAlgorithm {
 	            tailTable[0] = A[i];  // SO WE WILL START A NEW ACTIVE LIST
 	        
 	        else if( A[i] > tailTable[len-1] )// A[i] IS THE LARGEST AMONG ALL THE END CANDIDATES OF THE ACTIVE LISTS SO
-	            tailTable[len++] = A[i];	  // WE WILL CLONE THE LARGEST ACTIVE LIST, AND EXTEND IT BY A[i].
+	            tailTable[len++] = A[i];	  // WE WILL CLONE THE (LARGEST END ELEMENT) ACTIVE LIST, AND EXTEND IT BY A[i].
 	        
 	        else
 	        	/*
