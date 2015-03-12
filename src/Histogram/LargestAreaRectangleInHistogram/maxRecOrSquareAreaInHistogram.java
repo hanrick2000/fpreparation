@@ -39,7 +39,7 @@ public static void main(String[] args) {
 			}
 			else{
 				int h=height[stack.pop()];
-				int wid=stack.isEmpty()?i:i-stack.peek()-1;          // TR:IS1-plus,minus,minus
+				int wid=stack.isEmpty()?i:i-stack.peek()-1;          // TR:IS1=plus,minus,minus
 				max=Math.max(h*wid, max);
 			}
         
