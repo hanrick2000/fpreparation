@@ -70,6 +70,6 @@ public class UsingDFS{
 }
 /*
  * Analysis:
- * 			Time Complexity = O(mn) where m = number of rows and n = number of columns
- * 			Space Complexity = O(1) 
+ * 			Time Complexity = O(m*n) where m = number of rows and n = number of columns
+ * 			Space Complexity = O(m*n) used by the visited matrix
  */
