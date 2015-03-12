@@ -15,28 +15,26 @@ public class UsingBFSTwoColor {
 	
 		private static int[][] adjacencyMatrix;	
 	    private int numberOfVertices;
-	    private Queue<Integer> queue;
+	    
 	 
 	    public static final int NO_COLOR = 0;
 	    public static final int RED = 1;
 	    public static final int BLUE = 2;
 	 
-	    public UsingBFSTwoColor(int numberOfVertices){
-	        this.numberOfVertices = numberOfVertices;
-	        queue = new LinkedList<Integer>();
-	    }
-	 
-	    public boolean isBipartite(int source){
-	    
+
+	    public boolean isBipartite(int source){  // VERY IMP: parameter(argument) source
+	    	Queue<Integer> queue = new LinkedList<Integer>();
 	        int[] colored = new int[numberOfVertices];
+	        
 	        for (int vertex = 0; vertex < numberOfVertices; vertex++)
-	        {
 	            colored[vertex] = NO_COLOR;
-	        }
+	        
 	        colored[source] = RED;
 	        queue.add(source);
 	
-	        int element, neighbour;
+	        int element; 
+	        int neighbour;
+	        
 	        while(!queue.isEmpty()){
 	            element = queue.remove();
 	            neighbour = 0; 
@@ -87,7 +85,7 @@ public class UsingBFSTwoColor {
 	           System.out.println("Enter the source for the graph");
 	           source = scanner.nextInt();
 	 
-	           UsingBFSTwoColor bipartiteBfs = new UsingBFSTwoColor(number_of_nodes);
+	           UsingBFSTwoColor bipartiteBfs = new UsingBFSTwoColor();
 	           if (bipartiteBfs.isBipartite(source)) 
 	           {
 	               System.out.println("The given graph is BIPARTITE");
