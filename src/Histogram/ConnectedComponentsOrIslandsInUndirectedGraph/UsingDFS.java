@@ -17,7 +17,7 @@ A group of connected 1s forms an island. For example, the below matrix contains 
  */
 
 
-package ConnectedComponentsOrIslandsInUndirectedGraph;
+package Histogram.ConnectedComponentsOrIslandsInUndirectedGraph;
 
 public class UsingDFS{
 	public static void main(String[] args) {
