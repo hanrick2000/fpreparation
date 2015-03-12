@@ -29,6 +29,9 @@ public class UsingBFSTwoColor {
 	    	 * VERY IMP: 
 	    	 * 1. Queue
 	    	 * 2. colored[] array
+	    	 * Parameters Passed:
+	    	 * 1. Source
+	    	 * 2. totalNodes
 	    	 */
 	    	
 	    	Queue<Integer> queue = new LinkedList<Integer>();
