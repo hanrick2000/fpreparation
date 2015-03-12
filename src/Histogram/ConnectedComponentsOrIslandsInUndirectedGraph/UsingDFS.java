@@ -2,7 +2,7 @@
 /*
  * Question: Find the number of islands OR connected components in a undirected graph
  * 
- * Source: http://www.geeksforgeeks.org/find-number-of-islands/
+ * Question and Answer Source: http://www.geeksforgeeks.org/find-number-of-islands/
  * 
  * Algorithm: Using DFS we can find the connected components in a graph
 
