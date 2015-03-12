@@ -14,11 +14,6 @@ import java.util.Scanner;
 public class UsingBFSTwoColor {
 	
 		private static int[][] adjacencyMatrix;
-	    
-	 
-	    public static final int NO_COLOR = 0;
-	    public static final int RED = 1;
-	    public static final int BLUE = 2;
 	 
 
 	    public boolean isBipartite(int source, int totalNodes){  // VERY IMP: parameter(argument) source
@@ -34,34 +29,42 @@ public class UsingBFSTwoColor {
 	    	 * 2. totalNodes
 	    	 */
 	    	
-	    	Queue<Integer> queue = new LinkedList<Integer>();
+	    	
+	        
+	        final int NO_COLOR = 0;                                      // define colors
+		    final int RED = 1;
+		    final int BLUE = 2;
+	        
+		    Queue<Integer> queue = new LinkedList<Integer>();            // initialize Queue and colored array
 	        int[] colored = new int[totalNodes];
 	        
-	        for (int vertex = 0; vertex < totalNodes; vertex++)
+	        for (int vertex = 0; vertex < totalNodes; vertex++)          // color all nodes
 	            colored[vertex] = NO_COLOR;
 	        
-	        colored[source] = RED;
+	        colored[source] = RED;										 // color the source and add to queue
 	        queue.add(source);
 	
-	        int element; 
+	        int currentNode; 										     // initialize currentNode and neighbor
 	        int neighbour;
 	        
+	        
+	        
+	        
+	        // We have to exhaustively visit all the neighbors irrespective of whether it is visited previously or not
+            // Hence we don't require visited[] array and thus we also don't require 
+            // getUnvisitedChildNode(Node current) since we exhaustively visit all the neighbors
 	        while(!queue.isEmpty()){
-	            element = queue.remove();
-	            neighbour = 0; 
-	            // We have to exhaustively visit all the neighbors irrespective of whether it is visited previously or not
-	            // Hence we don't require visited[] array and thus we also don't require 
-	            // getUnvisitedChildNode(Node current) since we exhaustively visit all the neighbors
+	            currentNode = queue.remove();
+	            neighbour = 0;
 	            while (neighbour < totalNodes)
 	            { 	
-	            	if(neighbour!=element){ // don't consider edge from vertex to same vertex i.e. loop edge. [Example: edge from node 0 to node 0]
-	            		if (adjacencyMatrix[element][neighbour] == 1 && colored[element]== colored[neighbour])
-	                	{
+	            	if(neighbour!=currentNode){ // LOOP EDGE: don't consider edge from vertex to same vertex 
+	            		//i.e. loop edge. [Example: edge from node 0 to node 0]
+	            		if (adjacencyMatrix[currentNode][neighbour] == 1 && colored[currentNode]== colored[neighbour])
 	                    	return false;
-	                	}
-	            		else if (adjacencyMatrix[element][neighbour] == 1 && colored[neighbour]== NO_COLOR)
+	            		else if (adjacencyMatrix[currentNode][neighbour] == 1 && colored[neighbour]== NO_COLOR)
 	                	{
-	                		colored[neighbour] = (colored[element]==RED) ? BLUE:RED;
+	                		colored[neighbour] = (colored[currentNode]==RED) ? BLUE:RED;
 	                		queue.add(neighbour);
 	                	}
 	            		else{ // adjacencyMatrix[element][neighbour] == 1 && colored[element]!= colored[neighbour]
