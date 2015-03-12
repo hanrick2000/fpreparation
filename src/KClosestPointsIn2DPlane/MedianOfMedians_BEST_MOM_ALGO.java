@@ -146,9 +146,9 @@ Sorts the specified range of the specified array of objects according to the ord
 		        // If position is same as k
 		        if (pos-l == k-1)
 		            return arr[pos];
-		        if (pos-l > k-1)  // If position is more, recur for left
+		        else if (pos-l > k-1)  // If position is more, recur for left
 		            return kthSmallest(arr, l, pos-1, k);
-		 
+		        else
 		        // Else recur for right subarray
 		        return kthSmallest(arr, pos+1, r, k-pos+l-1);
 		    }

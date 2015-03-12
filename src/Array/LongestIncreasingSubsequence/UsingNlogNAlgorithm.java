@@ -174,7 +174,7 @@ public class UsingNlogNAlgorithm {
 		        a[i]= in.nextInt();
 		        
 		    System.out.println("The length of longest increasing subsequence of the array is: "
-		    +LongestIncreasingSubsequenceLength(a,a.length));
+		    +LongestIncreasingSubsequenceLength(a));
 		    
 		   }
 		   finally{
@@ -198,24 +198,24 @@ public class UsingNlogNAlgorithm {
 	 
 	    return r;
 	}
-	public static int LongestIncreasingSubsequenceLength(int A[], int size) {
+	public static int LongestIncreasingSubsequenceLength(int[] a) {
 		// EXTREME CASE
-		if(A==null || A.length==0)
+		if(a==null || a.length==0)
 			return -1;
 	 
-	    int[] tailTable   = new int[size];
-	    int len=0;
+	    int[] tailTable   = new int[a.length];
+	    
 
-	    tailTable[0] = A[0];    // THERE ARE NO ACTIVE LIST SO CREATE ONE
-	    len = 1;                // THE LENGTH OF THIS NEWLY CREATED ACTIVE LIST IS 1
+	    tailTable[0] = a[0];    // THERE ARE NO ACTIVE LIST SO CREATE ONE
+	    int len = 1;                // THE LENGTH OF THIS NEWLY CREATED ACTIVE LIST IS 1
 	    
 	    
-	    for( int i = 1; i < size; i++ ) {
-	        if( A[i] < tailTable[0] ) // A[i] IS THE SMALLEST AMONG ALL THE END CANDIDATES OF THE ACTIVE LISTS
-	            tailTable[0] = A[i];  // SO WE WILL START A NEW ACTIVE LIST
+	    for( int i = 1; i < a.length; i++ ) {
+	        if( a[i] < tailTable[0] ) // A[i] IS THE SMALLEST AMONG ALL THE END CANDIDATES OF THE ACTIVE LISTS
+	            tailTable[0] = a[i];  // SO WE WILL START A NEW ACTIVE LIST
 	        
-	        else if( A[i] > tailTable[len-1] )// A[i] IS THE LARGEST AMONG ALL THE END CANDIDATES OF THE ACTIVE LISTS SO
-	            tailTable[len++] = A[i];	  // WE WILL CLONE THE (LARGEST END ELEMENT) ACTIVE LIST, AND EXTEND IT BY A[i].
+	        else if( a[i] > tailTable[len-1] )// A[i] IS THE LARGEST AMONG ALL THE END CANDIDATES OF THE ACTIVE LISTS SO
+	            tailTable[len++] = a[i];	  // WE WILL CLONE THE (LARGEST END ELEMENT) ACTIVE LIST, AND EXTEND IT BY A[i].
 	        
 	        else
 	        	/*
@@ -223,7 +223,7 @@ public class UsingNlogNAlgorithm {
 	        	 *  CLONE AND EXTEND THIS LIST BY A[i]. WE WILL DISCARD ALL OTHER LISTS OF SAME LENGTH AS THAT OF THIS
 	        	 *  MODIFIED LIST.
 	        	 */
-	            tailTable[CeilIndex(tailTable, -1, len-1, A[i])] = A[i];       // TR: left = (-1) and right = (len-1)
+	            tailTable[CeilIndex(tailTable, -1, len-1, a[i])] = a[i];       // TR: left = (-1) and right = (len-1)
 	    }
 
 	 

@@ -75,9 +75,9 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        // If position is same as k
 	        if (pos-l == k-1)                                          // VERY IMP: pos-l and k-1 comparisons
 	            return arr[pos];
-	        if (pos-l > k-1)  // If position is more, recur for left
+	        else if (pos-l > k-1)  // If position is more, recur for left
 	            return kthSmallest(arr, l, pos-1, k);
-	 
+	        else
 	        // Else recur for right subarray
 	        return kthSmallest(arr, pos+1, r, k-pos+l-1);    // TR: kpl1 i.e. (plus,mius,plus,minus = Kevin Pieterson left field on 1)
 	    }
