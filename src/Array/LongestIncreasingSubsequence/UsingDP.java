@@ -47,8 +47,11 @@ public class UsingDP {
 		        int[] aux = new int[a.length];
 		        
 		        
+		        
+		        for(int i=0;i<a.length;i++)                                      //VERY VERY IMP
+		        	a[i]=1;   // The LIS would be atleast one for every individual array element
+		        
 		        for(int i=0;i<a.length;i++){
-		            aux[i]=1 ;    // initialize the aux with 1 since the length of longest subsequence would atleast be 1
 		            for(int j=0;j<i;j++){
 		                if(a[i]>a[j])
 		                    aux[i] = Math.max(aux[j]+1,aux[i]);        // current=max(previous+1,current)
