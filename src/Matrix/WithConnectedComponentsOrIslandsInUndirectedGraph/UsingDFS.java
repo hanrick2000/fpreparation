@@ -39,7 +39,7 @@ public class UsingDFS{
 		int count=0;
 		for(int row = 0;row<M.length;row++)
 			for(int column = 0;column<M[0].length;column++)
-				if(M[row][column]==1 && !visited[row][column]){
+				if(M[row][column]==1 && !visited[row][column]){      // TWO VERY IMP CONDITIONS IN if
 					DFS(M,row,column,visited);
 					count++;
 				}
