@@ -13,12 +13,35 @@ we will buy when stockPrice=10 and sell when stockPrice=45 to get maxProfit of 3
 Hence, this algorithm is same as finding maxDifference (b-a) between two elements in the array
 such that b occurs after a.
 
+
+
+---------------------------------------- SIMILAR ANOTHER QUESTION ---------------------------------
+
+
+ Question: Maximum difference between 2 elements in an array such that 2nd element occurs later after 1st ?
+ * Question Source: http://www.careercup.com/question?id=6051351341563904
+ * 
+ 
+ * 
+ * Examples: If array is [2, 3, 10, 6, 4, 8, 1] then returned value should be 8 (Diff between 10 and 2). 
+ * If array is [ 7, 9, 5, 6, 3, 2 ] then returned value should be 2 (Diff between 7 and 9)
+ * 
+ *Solution Source: http://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+ *
+ * Algorithm:
+ * 1. MIN = arr[0]
+ * 2. max_diff = arr[1] - MIN
+ * 3. FROM i=1 to n
+ * 		check for arr[i]-MIN > max_diff. If true then replace max_diff with arr[i]-MIN
+ * 		also check for min element in the array. if(arr[i]<MIN) then update MIN with value of arr[i]
+ * 
+
 */
 package Array.MaxDifferenceBetweenTwoElementsInArray;
 
 import java.util.Scanner;
 
-public class MaxStockProfit {
+public class MaxStockProfitOrMaxDifference {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
@@ -44,12 +67,13 @@ public class MaxStockProfit {
 		if(a.length<2)
 			return -1;
 		
-		int maxProfit = a[1]-a[0];
+		
 		int minStockPrice = a[0];
+		int maxProfit = a[1]-minStockPrice;
 		
 		for(int i=1;i<a.length;i++){
 			maxProfit = Math.max(a[i]-minStockPrice,maxProfit);
-			minStockPrice = Math.min(minStockPrice,a[i]);
+			minStockPrice = Math.min(a[i],minStockPrice);
 		}	
 		
 		return maxProfit;
