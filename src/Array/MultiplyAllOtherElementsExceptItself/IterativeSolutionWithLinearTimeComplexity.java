@@ -74,8 +74,6 @@ private static String multiplyUsingTwoArrays(int[] input) {
 	for(int i=(backward.length-2);i>=0;i--)
 		backward[i]=backward[i+1]*input[i+1];
 	
-	
-	
 	// store the result in output array
 	int[] output = new int[input.length];
 	for(int i=0;i<output.length;i++)
