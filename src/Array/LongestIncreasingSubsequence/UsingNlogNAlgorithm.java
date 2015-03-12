@@ -2,9 +2,10 @@
 /*
  * Question: Find the length of the longest INCREASING subsequence in an array
  * 
-Solution Source: http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
-https://www.youtube.com/watch?v=U-xOVWlcgmM
+Solution Source:
 http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
+http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
+https://www.youtube.com/watch?v=U-xOVWlcgmM
 http://robentan.blogspot.com/2011/11/more-efficient-algorithm-for-longest.html
 http://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
 
@@ -198,24 +199,31 @@ public class UsingNlogNAlgorithm {
 	    return r;
 	}
 	public static int LongestIncreasingSubsequenceLength(int A[], int size) {
-	    // Add boundary case, when array size is one
+		// Extreme Case
+		if(A==null || A.length==0)
+			return -1;
 	 
 	    int[] tailTable   = new int[size];
-	    int len; // always points empty slot
+	    int len=0;
 
-	    tailTable[0] = A[0];
-	    len = 1;
+	    tailTable[0] = A[0];    // THERE ARE NO ACTIVE LIST SO CREATE ONE
+	    len = 1;                // THE LENGTH OF THIS NEWLY CREATED ACTIVE LIST IS 1
+	    
+	    
 	    for( int i = 1; i < size; i++ ) {
-	        if( A[i] < tailTable[0] )
-	            // new smallest value
-	            tailTable[0] = A[i];
-	        else if( A[i] > tailTable[len-1] )
-	            // A[i] wants to extend largest subsequence
-	            tailTable[len++] = A[i];
+	        if( A[i] < tailTable[0] ) // A[i] IS THE SMALLEST AMONG ALL THE END CANDIDATES OF THE ACTIVE LISTS
+	            tailTable[0] = A[i];  // SO WE WILL START A NEW ACTIVE LIST
+	        
+	        else if( A[i] > tailTable[len-1] )// A[i] IS THE LARGEST AMONG ALL THE END CANDIDATES OF THE ACTIVE LISTS SO
+	            tailTable[len++] = A[i];	  // WE WILL CLONE THE LARGEST ACTIVE LIST, AND EXTEND IT BY A[i].
+	        
 	        else
-	            // A[i] wants to be current end candidate of an existing subsequence
-	            // It will replace ceil value in tailTable
-	            tailTable[CeilIndex(tailTable, -1, len-1, A[i])] = A[i];
+	        	/*
+	        	 *  IF A[i] IS IN BETWEEN, WE WILL FIND A LIST WITH LARGEST END ELEMENT THAT IS SMALLER THAN A[i]. 
+	        	 *  CLONE AND EXTEND THIS LIST BY A[i]. WE WILL DISCARD ALL OTHER LISTS OF SAME LENGTH AS THAT OF THIS
+	        	 *  MODIFIED LIST.
+	        	 */
+	            tailTable[CeilIndex(tailTable, -1, len-1, A[i])] = A[i];       // TR: left = (-1) and right = (len-1)
 	    }
 
 	 
