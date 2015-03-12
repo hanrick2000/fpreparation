@@ -21,38 +21,38 @@ public static void main(String[] args) {
 	}
 }
 
-public static int largestRectangleArea(int[] height) {
-    if ( height==null||height.length==0){
+	public static int largestRectangleArea(int[] height) {
+		if ( height==null||height.length==0){
         return 0;
     }
     
-    Stack<Integer> stack=new Stack<Integer>();
+		Stack<Integer> stack=new Stack<Integer>();
     
-    int max=0;
-    int i=0;
+		int max=0;
+		int i=0;
     
-    while(i<height.length){
+		while(i<height.length){
         
         
-        if (stack.isEmpty()||height[i]>=height[stack.peek()]){ // VERY IMP: greater than = to (>=)
-            stack.push(i);
-            i++; // Only increment i if we push to the stack
-        }
-        else{
+			if (stack.isEmpty()||height[i]>=height[stack.peek()]){ // VERY IMP: greater than = to (>=)
+				stack.push(i);
+				i++; // Only increment i if we push to the stack
+			}
+			else{
             
-            int h=height[stack.pop()];
-            int wid=stack.isEmpty()?i:i-stack.peek()-1;
-            max=Math.max(h*wid, max);
-        }
+				int h=height[stack.pop()];
+				int wid=stack.isEmpty()?i:i-stack.peek()-1;
+				max=Math.max(h*wid, max);
+			}
         
-    }
-    // pop the remaining elements from the stack
-    while (!stack.isEmpty()){
-        int h=height[stack.pop()];
-        int wid=stack.isEmpty()?i:i-stack.peek()-1;
-        max=Math.max(h*wid, max);
-    }
+		}
+		// pop the remaining elements from the stack
+		while (!stack.isEmpty()){
+			int h=height[stack.pop()];
+			int wid=stack.isEmpty()?i:i-stack.peek()-1;
+			max=Math.max(h*wid, max);
+		}
     
-    return max;
-}
+		return max;
+	}
 }
