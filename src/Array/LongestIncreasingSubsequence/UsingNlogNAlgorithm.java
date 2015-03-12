@@ -199,7 +199,7 @@ public class UsingNlogNAlgorithm {
 	    return r;
 	}
 	public static int LongestIncreasingSubsequenceLength(int A[], int size) {
-		// Extreme Case
+		// EXTREME CASE
 		if(A==null || A.length==0)
 			return -1;
 	 
