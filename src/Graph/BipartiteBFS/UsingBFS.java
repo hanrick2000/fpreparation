@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
  
-public class UsingBFSTwoColor {
+public class UsingBFS {
 	
 		private static int[][] adjacencyMatrix;
 	 
@@ -99,7 +99,7 @@ public class UsingBFSTwoColor {
 	           System.out.println("Enter the source for the graph");
 	           source = scanner.nextInt();
 	 
-	           UsingBFSTwoColor bipartiteBfs = new UsingBFSTwoColor();
+	           UsingBFS bipartiteBfs = new UsingBFS();
 	           if (bipartiteBfs.isBipartite(source,number_of_nodes)) 
 	           {
 	               System.out.println("The given graph is BIPARTITE");
