@@ -35,13 +35,13 @@ public class maxRecInSubMatrix {
 	      int max = 0;
 	      int area;
 	      for(int i=0;i<s.length;i++){
-	          area=largestRectangleInHistogckram(s[i]);
+	          area=largestRectangleInHistogram(s[i]);
 	          max = Math.max(max,area);
 	          }
 	      System.out.println("The max area of the rectangle is: "+max);
 	    }
 
-	    public static int largestRectangleInHistogckram(int[] a){
+	    public static int largestRectangleInHistogram(int[] a){
 	    
 	    int max = 0;
 	    Stack<Integer> stack = new Stack<Integer>();
