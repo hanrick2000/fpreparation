@@ -42,7 +42,7 @@ public class KthSmallestInSortedMatrix {
 	    if (k <= 0 || k > m.length*m[0].length)
 	       return Integer.MAX_VALUE;
 		
-	    // Create a min heap of elements from first row of 2D array
+	    // Create a min heap of elements FROM FIRST ROW of 2D array
 		HeapNode[] minHeap = new HeapNode[m[0].length];
 		
 		int nodeCount=0;
@@ -58,10 +58,10 @@ public class KthSmallestInSortedMatrix {
 			 // Get current heap root
 		     root = minHeap[0];
 			
-		     // Get the next VALUE from the matrix in the same column, next row
+		     // Get the next VALUE from the matrix in the NEXT ROW, SAME COLUMN
 		     int nextVal = (root.row < (m.length-1))? m[root.row + 1][root.column]: Integer.MAX_VALUE;
 		     
-		     // Update heap root with next value
+		     // Update heap array root with next value
 		     minHeap[0] = new HeapNode(nextVal, root.row+1, root.column);
 		     
 		     Heap.minHeapify(minHeap, 0);    // minHeapify from the replaced node index (Here root index)
