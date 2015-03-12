@@ -15,7 +15,7 @@ NOTE: This only works to find SQUARE SUB MATRIX
 */
 package HistogramAndSubmatrix;
 
-class maxSquareInSubMatrix{
+class maxSquareAreaInSubMatrix{
 
 	    public static void main(String[] args){
 	        

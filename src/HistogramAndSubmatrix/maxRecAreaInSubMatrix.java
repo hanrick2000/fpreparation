@@ -12,7 +12,7 @@ package HistogramAndSubmatrix;
 
 import java.util.Stack;
 
-public class maxRecInSubMatrix {
+public class maxRecAreaInSubMatrix {
 	    public static void main(String[] args){
 	      
 	      int[][] knows = new int[][]{{0,1,1,0,1},
