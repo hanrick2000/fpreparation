@@ -1,7 +1,7 @@
 /*
 Question: Dynamic programming problem: Coin change problem: 
 	Find the minimum number of coins required to make change 
-	for a given sum (given unlimited cumber of N different denominations coin)
+	for a given sum (given unlimited number of N different denominations coin)
 
 Question And Answer Source: Facebook Interview
 http://www.careercup.com/question?id=3753407
