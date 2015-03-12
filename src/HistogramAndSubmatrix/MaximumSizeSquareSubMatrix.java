@@ -13,7 +13,7 @@ Algorithm:
 			
 NOTE: This only works to find SQUARE SUB MATRIX
 */
-package Histogram.LargestAreaRectangleInHistogram;
+package HistogramAndSubmatrix;
 
 class MaximumSizeSquareSubMatrix{
 

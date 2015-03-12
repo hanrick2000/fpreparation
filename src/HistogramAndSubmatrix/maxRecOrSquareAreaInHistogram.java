@@ -1,4 +1,4 @@
-package Histogram.LargestAreaRectangleInHistogram;
+package HistogramAndSubmatrix;
 
 import java.util.Scanner;
 import java.util.Stack;

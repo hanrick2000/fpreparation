@@ -8,7 +8,7 @@ Source: http://tech-queries.blogspot.com/2011/03/maximum-area-rectangle-in-histo
 		3. max = Math.max(max,area)
 */	
 
-package Histogram.LargestAreaRectangleInHistogram;
+package HistogramAndSubmatrix;
 
 import java.util.Stack;
 
