@@ -95,7 +95,7 @@ import java.util.HashMap;
 	        2. if the end is already null
 	        */
 	        
-	        curr.next = null;  // even if head is null at this point, it doesn't matter
+	        curr.next = null;  
 	        curr.prev = null;
 	        
 	        if(head==null){
