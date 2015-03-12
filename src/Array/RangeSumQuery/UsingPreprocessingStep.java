@@ -13,6 +13,7 @@ Array: 3 2 4 7 1 -2 8 0 -4 2 1 5 6 -1
 
 package Array.RangeSumQuery;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UsingPreprocessingStep {
@@ -50,8 +51,9 @@ public class UsingPreprocessingStep {
 		aux[0]=0;
 		
 		for(int i=1;i<=array.length;i++)
-			aux[i]=aux[i-1]+array[i-1];
+			aux[i]=aux[i-1]+array[i-1];     // This loop calculates the SUM OF ALL PREVIOUS elements in the array
 		
+		System.out.println(Arrays.toString(aux));
 		return aux;
 	}
 }
