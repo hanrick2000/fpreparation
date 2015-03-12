@@ -51,7 +51,7 @@ public class UsingDP {
 		            aux[i]=1 ;    // initialize the aux with 1 since the length of longest subsequence would atleast be 1
 		            for(int j=0;j<i;j++){
 		                if(a[i]>a[j])
-		                    aux[i] = Math.max(aux[j]+1,aux[i]);                
+		                    aux[i] = Math.max(aux[j]+1,aux[i]);        // current=max(previous+1,current)
 		            }
 		        }
 		        
@@ -60,8 +60,7 @@ public class UsingDP {
 		        
 		        int max = 0;
 		        for(int i=0;i<aux.length;i++)
-		            if(aux[i]>max)
-		                max = aux[i];
+		            max = Math.max(aux[i], max);
 		        
 		        return max;       
 		    
