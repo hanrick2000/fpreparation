@@ -31,7 +31,7 @@ public static void main(String[] args) {
 public static boolean patternMatch(char[][] matrix,int rowLength,int columnLength,String pattern){
 	boolean found = false;
 	boolean[][] visited = new boolean[rowLength][columnLength];  // this will initialize visited matrix to false
-	
+		
 	outerloop:               // label the outer for loop as outerloop:
 	for(int i=0;i<rowLength;i++)
 		for(int j=0;j<columnLength;j++){
@@ -51,7 +51,7 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	
 	/*
 	 FOUR conditions we have to check before making the current position as VISITED
-	  (TR: 0 O F V)
+	  (TR: 0 O F V)    -> zero zero F V
 	 
 	 1. pattern length is 0                                    ----> 0
 	 2. search is OUT of bounds                                ----> O
