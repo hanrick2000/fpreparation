@@ -82,8 +82,7 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	}
 	visited[currentRow][currentColumn]=false;  // for backtracking, make this again as false
 	
-	
-	
+
 	return visited[currentRow][currentColumn]; // return this false
 	}
 }
