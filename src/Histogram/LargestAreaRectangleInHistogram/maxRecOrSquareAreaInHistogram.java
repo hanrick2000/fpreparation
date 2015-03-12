@@ -24,7 +24,7 @@ public static void main(String[] args) {
 	public static int largestRectangleArea(int[] height) {
 		if ( height==null||height.length==0){
         return 0;
-    }
+		}
     
 		Stack<Integer> stack=new Stack<Integer>();
     
