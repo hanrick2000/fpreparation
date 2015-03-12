@@ -16,7 +16,7 @@ A group of connected 1s forms an island. For example, the below matrix contains 
  */
 
 
-package Histogram.ConnectedComponentsOrIslandsInUndirectedGraph;
+package Matrix.ConnectedComponentsOrIslandsInUndirectedGraph;
 
 public class UsingDFS{
 	public static void main(String[] args) {
@@ -49,7 +49,7 @@ public class UsingDFS{
 		for(int rowNeighbor = row-1;rowNeighbor<=row+1;rowNeighbor++)
 			for(int columnNeighbor = column-1;columnNeighbor<=column+1;columnNeighbor++)
 		// we are looking for neighbors hence exclude the node when rowNeighbor==row && columnNeighbor==column 
-				if(!(rowNeighbor==row && columnNeighbor==column) && (validNeighbor(M,rowNeighbor,columnNeighbor,visited)))
+				if((rowNeighbor!=row && columnNeighbor!=column) && (validNeighbor(M,rowNeighbor,columnNeighbor,visited)))
 					DFS(M,rowNeighbor,columnNeighbor,visited);    // Now check for the neighbors of this node			
 	}
 
