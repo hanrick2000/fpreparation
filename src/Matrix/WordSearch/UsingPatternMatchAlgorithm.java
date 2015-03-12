@@ -72,16 +72,18 @@ public static boolean patternMatch(char[][] matrix,int rowLength,int columnLengt
 	// i.e. matrix[currentRow][currentColumn]==pattern.charAt(0) is true here since we 
 	// already checked previously that if this is not true then return false
 	
+	
+	
 	visited[currentRow][currentColumn]=true;
-	
-	
 	// move in all 8 directions
 	for(int k=0;k<8;k++){
 		if(findPattern(matrix, currentRow+rowDir[k], currentColumn+columnDir[k], rowLength, columnLength, pattern.substring(1), visited))
 			return true;
 	}
-	
 	visited[currentRow][currentColumn]=false;  // for backtracking, make this again as false
+	
+	
+	
 	return visited[currentRow][currentColumn]; // return this false
 	}
 }
