@@ -40,12 +40,12 @@ public class UsingBFSTwoColor {
 	        while(!queue.isEmpty()){
 	            element = queue.remove();
 	            neighbour = 0; 
-	            // We have to exhaustively visit all the neighbours irrespective of whether it is visited previously or not
-	            // Hence we dont require visited[] array and thus we also dont require 
-	            // getUnvisitedChildNode(Node current) since we exhaustively visit all the neighbours
+	            // We have to exhaustively visit all the neighbors irrespective of whether it is visited previously or not
+	            // Hence we don't require visited[] array and thus we also don't require 
+	            // getUnvisitedChildNode(Node current) since we exhaustively visit all the neighbors
 	            while (neighbour < numberOfVertices)
 	            { 	
-	            	if(neighbour!=element){  // dont consider edge from vertex to same vertex i.e. loop edge. [Example: edge from node 0 to node 0]
+	            	if(neighbour!=element){ // don't consider edge from vertex to same vertex i.e. loop edge. [Example: edge from node 0 to node 0]
 	            		if (adjacencyMatrix[element][neighbour] == 1 && colored[element]== colored[neighbour])
 	                	{
 	                    	return false;
