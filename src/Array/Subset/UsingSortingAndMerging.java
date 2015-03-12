@@ -18,7 +18,7 @@ Algoritm:
 	3) If all elements are present then return 1.
 			
 	III. Using Sorting and Merging
-	NOTE: BEST METHOD WHICH HANDLES DUPLICATES
+	(METHOD WHICH HANDLES DUPLICATES)
 	1) Sort both arrays: arr1[] and arr2[] O(mLogm + nLogn)
 	2) Use Merge type of process to see if all elements of sorted arr2[] are present in sorted arr1[]
 			
@@ -26,6 +26,17 @@ Algoritm:
 	For example, {1, 4, 4, 2} is not a subset of {1, 4, 2}, but these methods will print it as a subset.
 	
 	THUS, the third method should be used which handles DUPLICATES
+	
+	TODO:
+	IV. Using HashMap (BEST METHOD WHICH HANDLES DUPLICATES)
+	key = integer and value = count of repetition (used in case of duplicates)
+	Store the big array in HashMap
+	Iterate through the smallArray and for every element check whether map.get(small[i]) >=1
+	Also for every hit, decrement the value in map
+	If, map.get(small[i]) is NOT >=1 OR map does not contain small[i] then return false
+	
+	 NOTE: This handles duplicates and is O(n) time and O(n) space algorithm where n = length of big array
+	
 */
 package Array.Subset;
 
