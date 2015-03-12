@@ -54,7 +54,7 @@ public class UsingBFS {
                     queue.add(aNeighbor);         // ADD
                     map.put(aNeighbor,copy);      // MAP
                     // Add cloned neighbor to cloned node
-                    map.get(curr).neighbors.add(copy);     // this is same as the below line "map.get(curr).neighbors.add(map.get(aNeighbor))"
+                    map.get(curr).neighbors.add(copy); // this is same as the below line "map.get(curr).neighbors.add(map.get(aNeighbor))"
                 }
                 else{
                     map.get(curr).neighbors.add(map.get(aNeighbor));
