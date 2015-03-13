@@ -68,6 +68,8 @@ private static int usingSorting(Interval[] intervals) {
  */
 
 
+// Source: https://csjobinterview.wordpress.com/2012/04/02/the-section-which-intersects-with-the-largest-number-of-intervals/
+
 }
 /*
  * If natural ordering is specified means we have to use (java.lang package) i.e. Comparable<Object> interface
