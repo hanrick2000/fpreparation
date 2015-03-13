@@ -27,6 +27,7 @@ public class UsingBinarySearch {
 			System.out.println("Enter the number");
 			double n = in.nextDouble();
 			System.out.println("SQRT OF THE NUMBER WITH PRECISION is: "+findSqrtWithPrecision(n));		
+			System.out.println("SQRT OF THE NUMBER WITHOUT PRECISION is: "+sqrt(n));	
 		}
 		finally{
 			in.close();
@@ -56,9 +57,36 @@ public class UsingBinarySearch {
 		return left;                                 // 4. RETURN LEFT
 	}
 	
-}
+
 /*
  * Analysis:
  * Time Complexity = O(lgn)
  * Space Complexity = O(1)
  */
+	 public static double sqrt(double n) {
+         if (n<0){
+             return-1;
+         }
+         
+         // in case of x==1
+        double high=n/2+1;
+        double low=0;
+        
+        while(low<=high){
+            double mid=low+(high-low)/2;
+            
+            double sq=mid*mid;
+            
+            if (sq==(double)n){
+                return (int)mid;
+            }
+            else if (sq<(double)n){
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return high;
+    }
+}
