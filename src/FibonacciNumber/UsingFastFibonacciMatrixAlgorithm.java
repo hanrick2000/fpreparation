@@ -47,6 +47,13 @@ public class UsingFastFibonacciMatrixAlgorithm {
 
 	private static void power(int[][] F, int n) {
 	
+	/*
+	 * This another O(n) which relies on the fact that if we n times multiply the matrix M = {{1,1},{1,0}} to 
+	 * itself (in other words calculate power(M, n )), then we get the (n+1)th Fibonacci number as the element 
+	 * at row and column (0, 0) in the resultant matrix.
+	 */
+		
+		
 		// The 1st fibonacci number is 1, the 2nd fibonacci number is 1. Hence return, since
 		// this return will cause fibo(matrix,n) method to return F[0][0] which is 1
 		if(n==0||n==1)
