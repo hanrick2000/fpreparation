@@ -38,8 +38,6 @@ public class UsingStackAndQueue
 
         System.out.println("BFS");
         bfs(0);
-        
-        
     }
 
     // Step 1: Push the root node in the Stack.
