@@ -101,7 +101,6 @@ public class TotalSubstringPalindromes {
 					++high;
 				} // end of while
 				
-				
 				// Find the longest odd length palindrome with center 
 		        // point as i
 				
@@ -111,9 +110,7 @@ public class TotalSubstringPalindromes {
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ // check whether it is a palindrome
 			
 					totalPalindromes++;
-					
 					System.out.println(orig.substring(low, high+1));
-					
 					
 					if(high - low + 1 > maxLength){
 						start = low;
@@ -121,7 +118,6 @@ public class TotalSubstringPalindromes {
 					}
 					--low;
 					++high;
-					
 				} // end of while
 				
 				
