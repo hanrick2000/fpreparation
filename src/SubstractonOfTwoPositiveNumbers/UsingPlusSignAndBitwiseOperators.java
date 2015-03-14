@@ -36,11 +36,11 @@ private static int add(int i, int j) {
 	int carry = 0;
 	while(j!=0){
 		sum = i^j;
-		carry = (i&j)<<1;
+		carry = (i&j)<<1;     // Multiply by 2
 		i=sum;
 		j=carry;
 	} 
-	return i;
+	return sum;
 }
 private static int usingPlusSign(int a, int b) {
 	int twosComplementOfSecondNumber = (~b+1);

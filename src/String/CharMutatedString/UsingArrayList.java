@@ -67,7 +67,7 @@ public class UsingArrayList {
 	        
 	        // If there are NO MUTATIONS
 	        if(map.isEmpty()){
-	            result.add(str);
+	            result.add(str);     // if no mapping then the original string would be returned
 	            return result;
 	        }
 	        
