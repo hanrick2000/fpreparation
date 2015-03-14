@@ -51,7 +51,7 @@ public class IterativeSolution {
 	 
 			for (ArrayList<Integer> l : result) {
 				// # of locations to insert is largest index + 1
-				for (int j = 0; j < l.size()+1; j++) {
+				for (int j = 0; j < (l.size()+1); j++) {
 					// + add num[i] to different locations
 					l.add(j, num[i]);
 					ArrayList<Integer> temp = new ArrayList<Integer>(l);
@@ -76,11 +76,11 @@ public class IterativeSolution {
 	 
 		for (int i = 0; i < num.length; i++) {
 			Set<ArrayList<Integer>> currentSet = new HashSet<ArrayList<Integer>>();
-			for (List<Integer> l : returnList) {
-				for (int j = 0; j < l.size() + 1; j++) {
-					l.add(j, num[i]);
-					ArrayList<Integer> T = new ArrayList<Integer>(l);
-					l.remove(j);
+			for (List<Integer> list : returnList) {
+				for (int j = 0; j < (list.size() + 1); j++) {
+					list.add(j, num[i]);
+					ArrayList<Integer> T = new ArrayList<Integer>(list);
+					list.remove(j);
 					currentSet.add(T);
 				}
 			}
