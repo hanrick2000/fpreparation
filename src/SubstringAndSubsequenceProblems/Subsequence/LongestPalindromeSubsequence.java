@@ -90,16 +90,20 @@ This solution is also a O(n^2) solution.
 		
 		// if the length of the string is 2 to string.length then do the following
 		int end = 0;
-		for(int len=2;len<=s.length();len++){ // len is length of the substring
+		for(int length=2;length<=s.length();length++){ // len is length of the substring
 			
-			for(int start=0; start<s.length()-len+1;start++){
-				end = start+len-1;
-				if(s.charAt(start)==s.charAt(end) && len==2)
+			for(int start=0; start<s.length()-length+1;start++){
+
+				end = start+length-1;                             // VERY IMP
+				
+				if(s.charAt(start)==s.charAt(end) && length==2)
 					dp[start][end]=2;
 				else if(s.charAt(start)==s.charAt(end))
 					dp[start][end] = dp[start+1][end-1] + 2;
 				else
 					dp[start][end] = Math.max(dp[start][end-1],dp[start+1][end]);
+				
+				
 			}
 			
 		}
