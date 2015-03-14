@@ -50,7 +50,7 @@ public class UsingTwoHashMapAndTwoPointers {
 		if (small==null||big==null){
             return null;
         }
-        if(small.length()==0 && small.length()==0){
+        if(small.length()==0){
             return "";
         }
         if (big.length()<small.length()){

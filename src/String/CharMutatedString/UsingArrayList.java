@@ -1,8 +1,7 @@
 /*
 Question: Facebook Interview Question for Software Engineer / Developers
 facebook-interview-questions5
-of 5 votes
-29 
+
 Answers
 Given a hashmap M which is a mapping of characters to arrays of substitute characters,
 and an input string S, return an array of all possible mutations of S 
