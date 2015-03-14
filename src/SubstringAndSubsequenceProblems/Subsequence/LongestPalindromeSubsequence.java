@@ -82,7 +82,7 @@ This solution is also a O(n^2) solution.
 	 * Space Complexiy = O(n^2)
 	 */
 	private static int usingDP(String s) {
-		int[][] dp = new int[s.length()][s.length()];
+		int[][] dp = new int[s.length()][s.length()];    // VERY IMP: Exactly s.length() and NOT +1
 		
 		// if the length of the string is 1 then fill 1 in those boxes
 		for(int i=0;i<s.length();i++)
@@ -107,7 +107,7 @@ This solution is also a O(n^2) solution.
 			}
 			
 		}
-		return dp[0][s.length()-1];
+		return dp[0][s.length()-1];                      // VERY IMP: row = 0 and column = s.length()-1
 		
 	}
 /*
