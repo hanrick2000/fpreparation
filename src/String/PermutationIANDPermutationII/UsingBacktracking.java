@@ -33,10 +33,10 @@ public class UsingBacktracking {
 			System.out.println("Enter the string");
 			String s = in.nextLine();
 			System.out.println("Using BackTracking WITHOUT handling REPEATED characters:");
-			ArrayList<String> res = new ArrayList<String>();
-			permute(s.toCharArray(),0,s.length()-1,res);
-			for(String string: res)
-				System.out.println(string);
+			ArrayList<ArrayList<Character>> res = new ArrayList<ArrayList<Character>>();
+			res=permute(s.toCharArray());
+			for(ArrayList<Character> l: res)
+				System.out.println(l.toString());
 			System.out.println("Enter the size of integer array");
 			int n = in.nextInt();
 			int[] a=new int[n];
@@ -56,9 +56,18 @@ public class UsingBacktracking {
 	   1. String
 	   2. Starting index of the string
 	   3. Ending index of the string. */
-	private static void permute(char[] s, int start, int end, ArrayList<String> list) {
-			if(start>=end)
-				list.add(String.valueOf(s));
+	
+	public static ArrayList<ArrayList<Character>> permute(char[] c) {
+		ArrayList<ArrayList<Character>> result = new ArrayList<ArrayList<Character>>();
+		permute(c, 0, c.length-1, result);
+		return result;
+	}
+	 
+	private static void permute(char[] s, int start, int end, ArrayList<ArrayList<Character>> list) {
+			if(start>=end){
+				ArrayList<Character> l = convertToList(s);
+				list.add(l);
+			}
 			else{
 				for(int i=start;i<=end;i++){
 					swap(s,start,i);
@@ -67,6 +76,13 @@ public class UsingBacktracking {
 				}
 			}
 		}
+	private static ArrayList<Character> convertToList(char[] s) {
+		ArrayList<Character> list = new ArrayList<Character>();
+		for(char c: s)
+			list.add(c);
+		return list;
+	}
+
 	/* Algorithm Paradigm: Backtracking
 	 * Analysis:
 	 * Time Complexity = O(n*n!) where n = length of string

@@ -96,14 +96,14 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 			
 			
 			// 1. add all result sets to prev
-			for (ArrayList<Integer> temp : result) {
+			for (ArrayList<Integer> temp : result) 
 				prev.add(new ArrayList<Integer>(temp)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
-			}
+			
 	 
 			// 2. add each single number to each of the previous sets 
-			for (ArrayList<Integer> temp : prev) {
+			for (ArrayList<Integer> temp : prev) 
 				temp.add(S[i]);
-			}
+			
 	 
 			// 3. add each single number as a single set
 			ArrayList<Integer> single = new ArrayList<Integer>();
@@ -111,9 +111,9 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 			prev.add(single);
 			
 			// 4. add all prev sets to result
-			for (ArrayList<Integer> temp : prev) {
+			for (ArrayList<Integer> temp : prev) 
 				result.add(new ArrayList<Integer>(temp)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
-			}
+			
 		}
 		//add empty set
 		result.add(new ArrayList<Integer>());       //VERY IMP: Add the EMPTY SET
