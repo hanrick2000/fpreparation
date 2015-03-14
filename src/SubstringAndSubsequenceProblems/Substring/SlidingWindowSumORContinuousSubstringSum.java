@@ -83,7 +83,7 @@ public class SlidingWindowSumORContinuousSubstringSum {
 			}			
 			if (sum == T)
 				return true ;
-			sum -= A[i] ;
+			sum -= A[i] ;        // reduce the sliding window
 		}
 						
 		return false ;
