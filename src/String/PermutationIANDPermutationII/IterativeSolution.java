@@ -43,10 +43,10 @@ public class IterativeSolution {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 	 
 		//start from an empty list
-		result.add(new ArrayList<Integer>());
+		result.add(new ArrayList<Integer>());         // Add an empty ArrayList
 	 
 		for (int i = 0; i < num.length; i++) {
-			//list of list in current iteration of the array num
+
 			ArrayList<ArrayList<Integer>> current = new ArrayList<ArrayList<Integer>>();
 	 
 			for (ArrayList<Integer> l : result) {
