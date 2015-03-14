@@ -24,9 +24,8 @@ And Following is 4-bit sequence (n = 4)
 *
 */
 
-package Set.GrayCode;
+package String.GrayCode;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PrintNBitGrayCodes {
