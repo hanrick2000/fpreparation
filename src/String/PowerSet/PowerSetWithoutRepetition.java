@@ -94,7 +94,7 @@ public class PowerSetWithoutRepetition {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();  // 2.
 		ArrayList<ArrayList<Integer>> prev = new ArrayList<ArrayList<Integer>>();    // 3.
 	 
-		for (int i = num.length-1; i >= 0; i--) {
+		for (int i = 0; i <num.length; i++) {           // VERY IMP: Go from LEFT to RIGHT
 	 
 			/*
 			 * if (i == num.length - 1 || num[i] != num[i + 1])

@@ -89,12 +89,12 @@ public static ArrayList<ArrayList<Character>> subsets(char[] S) {
 	ArrayList<ArrayList<Character>> result = new ArrayList<ArrayList<Character>>();
 	ArrayList<ArrayList<Character>> prev = new ArrayList<ArrayList<Character>>();
 	
-	for (int i = S.length-1; i >=0; i--) {
+	for (int i = 0; i <S.length; i++) {           // VERY IMP: Go from LEFT to RIGHT
 		
 		// 1. add all result sets to prev
 		prev = new ArrayList<ArrayList<Character>>();
-		for (ArrayList<Character> a : result) {
-			prev.add(new ArrayList<Character>(a)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
+		for (ArrayList<Character> temp : result) {
+			prev.add(new ArrayList<Character>(temp)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
 		}
  
 		// 2. add each single number to each of the previous sets 
