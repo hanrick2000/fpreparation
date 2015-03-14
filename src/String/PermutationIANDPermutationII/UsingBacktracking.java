@@ -18,7 +18,7 @@ ABC, ACB, BAC, BCA, CAB, CBA
 
 Here is a solution using backtracking.
 */
-package String.PermutationOfGivenString;
+package String.PermutationIANDPermutationII;
 
 import java.util.ArrayList;
 import java.util.Scanner;
