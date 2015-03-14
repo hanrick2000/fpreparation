@@ -97,9 +97,9 @@ This solution is also a O(n^2) solution.
 				end = start+length-1;                             // VERY IMP
 				
 				if(s.charAt(start)==s.charAt(end) && length==2)
-					dp[start][end]=2;
+					dp[start][end]=2;                             //=2
 				else if(s.charAt(start)==s.charAt(end))
-					dp[start][end] = dp[start+1][end-1] + 2;
+					dp[start][end] = dp[start+1][end-1] + 2;      //=+2
 				else
 					dp[start][end] = Math.max(dp[start][end-1],dp[start+1][end]);
 				
