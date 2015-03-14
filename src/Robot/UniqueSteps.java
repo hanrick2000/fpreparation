@@ -22,6 +22,7 @@ package Robot;
 public class UniqueSteps {
 	public static void main(String[] args) {
 		System.out.println("The number of UNIQUE PATHS in which the robot can reach destination location (m,n)");
+		System.out.println(backtrack(1,1,5,8));
 		System.out.println(uniquePaths1(5, 8));
 		System.out.println(uniquePaths2(5, 8));
 	}
@@ -35,6 +36,17 @@ public class UniqueSteps {
 	 How many possible unique paths are there?
 	 */
 	  
+	
+	public static int backtrack(int r, int c, int m, int n) {
+		  if (r == m && c == n)
+		    return 1;
+		  if (r > m || c > n)
+		    return 0;
+		 
+		  return backtrack(r+1, c, m, n) + backtrack(r, c+1, m, n);
+		}
+	
+	
 	 // 1D DP
 	
 	     public static int uniquePaths1(int m, int n) {
