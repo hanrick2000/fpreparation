@@ -2,9 +2,10 @@
 /*
  * Question: Find the length of the longest INCREASING subsequence in an array
  * 
-Solution Source: http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
-https://www.youtube.com/watch?v=U-xOVWlcgmM
+Solution Source: 
 http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
+http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
+https://www.youtube.com/watch?v=U-xOVWlcgmM
 http://robentan.blogspot.com/2011/11/more-efficient-algorithm-for-longest.html
 http://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
 
@@ -185,7 +186,7 @@ public class LongestIncreasingSubsequence {
 	 
 	// Binary search (note boundaries in the caller)
 	// a[] is ceilIndex in the caller
-	public static int CeilIndex(int A[], int l, int r, int key) {
+	public static int CeilIndex(int A[], int l, int r, int key) {         // Time Complexity = O(lgn)
 	    int m=0;
 	 
 	    while( r - l > 1 ) {
@@ -198,33 +199,33 @@ public class LongestIncreasingSubsequence {
 	 
 	    return r;
 	}
-	public static int LongestIncreasingSubsequenceLength(int a[]) {
+	public static int LongestIncreasingSubsequenceLength(int a[]) { 
 	    // Add boundary case, when array size is one
 	 
 	    int[] tailTable   = new int[a.length];
-	    int len; // always points empty slot
+	    int length; // always points empty slot
 	 
 	    tailTable[0] = a[0];
-	    len = 1;
+	    length = 1;
 	    for( int i = 1; i < a.length; i++ ) {
 	        if( a[i] < tailTable[0] )
 	            // new smallest value
 	            tailTable[0] = a[i];
-	        else if( a[i] > tailTable[len-1] )
+	        else if( a[i] > tailTable[length-1] )
 	            // A[i] wants to extend largest subsequence
-	            tailTable[len++] = a[i];
+	            tailTable[length++] = a[i];
 	        else
 	            // A[i] wants to be current end candidate of an existing subsequence
 	            // It will replace ceil value in tailTable
-	            tailTable[CeilIndex(tailTable, -1, len-1, a[i])] = a[i];
+	            tailTable[CeilIndex(tailTable, -1, length-1, a[i])] = a[i];
 	    }
 
 	 
-	    return len;
+	    return length;
 	}
 /*
  * Analysis:
- * Time Complexity = O(nlgn)
+ * Time Complexity = O(nlgn) since ceilIndex is O(lgn) and LIS method is O(n) hence together they are O(lgn)
  * Space Complexity = O(n) used by tail table array
  */
 	
