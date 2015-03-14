@@ -174,7 +174,7 @@ public class LongestIncreasingSubsequence {
 		        a[i]= in.nextInt();
 		        
 		    System.out.println("The length of longest increasing subsequence of the array is: "
-		    +LongestIncreasingSubsequenceLength(a,a.length));
+		    +LongestIncreasingSubsequenceLength(a));
 		    
 		   }
 		   finally{
@@ -184,7 +184,7 @@ public class LongestIncreasingSubsequence {
 	 
 	 
 	// Binary search (note boundaries in the caller)
-	// A[] is ceilIndex in the caller
+	// a[] is ceilIndex in the caller
 	public static int CeilIndex(int A[], int l, int r, int key) {
 	    int m;
 	 
@@ -198,25 +198,25 @@ public class LongestIncreasingSubsequence {
 	 
 	    return r;
 	}
-	public static int LongestIncreasingSubsequenceLength(int A[], int size) {
+	public static int LongestIncreasingSubsequenceLength(int a[]) {
 	    // Add boundary case, when array size is one
 	 
-	    int[] tailTable   = new int[size];
+	    int[] tailTable   = new int[a.length];
 	    int len; // always points empty slot
 	 
-	    tailTable[0] = A[0];
+	    tailTable[0] = a[0];
 	    len = 1;
-	    for( int i = 1; i < size; i++ ) {
-	        if( A[i] < tailTable[0] )
+	    for( int i = 1; i < a.length; i++ ) {
+	        if( a[i] < tailTable[0] )
 	            // new smallest value
-	            tailTable[0] = A[i];
-	        else if( A[i] > tailTable[len-1] )
+	            tailTable[0] = a[i];
+	        else if( a[i] > tailTable[len-1] )
 	            // A[i] wants to extend largest subsequence
-	            tailTable[len++] = A[i];
+	            tailTable[len++] = a[i];
 	        else
 	            // A[i] wants to be current end candidate of an existing subsequence
 	            // It will replace ceil value in tailTable
-	            tailTable[CeilIndex(tailTable, -1, len-1, A[i])] = A[i];
+	            tailTable[CeilIndex(tailTable, -1, len-1, a[i])] = a[i];
 	    }
 
 	 
