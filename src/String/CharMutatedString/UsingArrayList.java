@@ -1,7 +1,10 @@
 /*
 Question: Facebook Interview Question for Software Engineer / Developers
 facebook-interview-questions5
-
+		OR
+ Implement a suggestion function that generates alternative  
+ strings for given password strings like "facebook" => "F@ceß00k" and "fæc€Bo0K" or sth. 
+ 
 Answers
 Given a hashmap M which is a mapping of characters to arrays of substitute characters,
 and an input string S, return an array of all possible mutations of S 
@@ -32,13 +35,13 @@ public class UsingArrayList {
 		try{
 			HashMap<Character,char[]> M = new HashMap<Character,char[]>();
 			char[] c1= new char[2];
-			c1[0]='F';
+			c1[0]='@';
 			c1[1]='4';
 			char[] c2=new char[2];
-			c2[0]='B';
-			c2[1]='8';
-			M.put('f', c1);
-			M.put('b', c2);
+			c2[0]='O';
+			c2[1]='0';
+			M.put('a', c1);
+			M.put('o', c2);
 			System.out.println("Enter the string to be mutated");
 			String S = in.nextLine();
 			System.out.println("The possible mutations are: "+getMutation(S,M).toString());
