@@ -74,10 +74,9 @@ public class LongestPalindromeSubstring {
 			
 			// This function prints the longest palindrome substring (LPSubstring)
 			// of str[]. It also returns the length of the longest palindrome substring
-			
-			int maxLength = 1; // The length of the LPSubstring is atleast 1
 			int start = 0;
-			
+			int maxLength = 1; // The length of the LPSubstring is atleast 1
+
 			int low = 0;
 			int high = 0;     // <- high is also 0
 						
