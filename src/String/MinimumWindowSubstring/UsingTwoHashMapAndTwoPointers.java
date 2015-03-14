@@ -11,7 +11,7 @@ Result: "cba"
 
 Question Source: http://www.careercup.com/question?id=5092414932910080
 
- * Answer Source: https://linchicoding.wordpress.com/2014/08/20/leetcode-minimum-window-substring/
+ * Answer Source: http://articles.leetcode.com/2010/11/finding-minimum-window-in-s-which.html
  * 
  * IMP Sources:
 https://linchicoding.wordpress.com/2014/08/20/leetcode-minimum-window-substring/
@@ -31,70 +31,59 @@ public class UsingTwoHashMapAndTwoPointers {
 			String big = in.nextLine();
 			System.out.println("Enter text which is small than sentence");
 			String small = in.nextLine();
-			System.out.println(minWindow(big, small));
+			System.out.println(minWindow(big.toCharArray(), small.toCharArray(), 0,0));
 		}
 		finally{
 			in.close();
 		}
 	}
-	/*
-	 * Notes:
-1. To count occurrence of characters, instead of using a hash map, can use an int array of 256
-2. Two pointer method with one point to end and one point to start.
-   Pointer advance condition: move end forward till finds one window, then move start forward till the
-   window no longer valid, then move end forward to find another valid window
- */
-	public static String minWindow(String big, String small) {
-		
-		// EXTREME CASES
-		if (small==null||big==null){
-            return null;
-        }
-        if(small.length()==0){
-            return "";
-        }
-        if (big.length()<small.length()){
-            return "";
-        }
-		// END OF EXTREME CASES
-   	        int[] smallArr = new int[256];
-	        for(int i = 0; i < small.length(); i++){
-	            smallArr[small.charAt(i)]++;
-	        }
-	        int [] bigArr = new int[256];
-	        int match = 0;   // initialize matches
-	        String min = "";
-	        int start = 0; // initialize start pointer
-	        int end =0; // initialize end pointer
-	        for(end = 0; end < big.length(); end++){
-	            if(smallArr[big.charAt(end)] > bigArr[big.charAt(end)]){       // ----> Small > Big. BELOW we have reverse of this
-	                match++;
-	            }
-	            bigArr[big.charAt(end)]++;  // -----> mark as VISITED (NECESSARY [i.e. matching characters] as well as UNNECESSARY VISITS[i.e. NOT matching characters])
-	            if(match==small.length()){	        
-	            	// Remember THREE conditions if the match == Small.length()
-	   	        	// REMOVE THE UNNECESSARY NON-MATCHING VISITS UNTIL WE FIND A MATCHING VISIT
-	            	// I. DECREMENT smallArr, INCREMENT start IF AND ONLY IF no match found
-	            	while(bigArr[big.charAt(start)] > smallArr[big.charAt(start)]){    // ----> Big > Small. ABOVE we have reverse of this
-	                    bigArr[big.charAt(start)]--;               // ------- > REPEAT BELOW 
-	                    start++;                               // --------> REPEAT BELOW
-	                }
-                    // II. CHECK which is valid min
-	                if(min.length()==0 ||  min.length() > end-start+1){
-	                    min = big.substring(start, end+1);
-	                }
-	                
-	                // SINCE WE HAVE ALREADY RECORDED THE MATCHING VISIT IN MIN, HENCE REMOVE THE MATCHING VISIT AS WELL
-	                // III. DECREMENT smallArr, INCREMENT start, DECREMENT match
-	                bigArr[big.charAt(start)]--;               // ----------> REPEATED
-	                start++;                               // ----------> REPEATED
-	                match--;
-	            }
-	             
-	        }
-	        return min;
-	    }  
+	
+	// Returns false if no valid window is found. Else returns 
+	// true and updates minWindowBegin and minWindowEnd with the 
+	// starting and ending position of the minimum window.
+	// Source: http://articles.leetcode.com/2010/11/finding-minimum-window-in-s-which.html
+	public static boolean minWindow(char[] S, char[] T, int minWindowBegin, int minWindowEnd) {
+	  int sLen = S.length;
+	  int tLen = T.length;
+	  int[] needToFind = new int[256];
+	 
+	  for (int i = 0; i < tLen; i++)
+	    needToFind[T[i]]++;
+	 
+	  int[] hasFound=new int[256];
+	  int minWindowLen = Integer.MAX_VALUE;
+	  int count = 0;
+	  for (int begin = 0, end = 0; end < sLen; end++) {        // FOR LOOP of begin and end pointers
+	    // skip characters not in T
+	    if (needToFind[S[end]] == 0) continue;
+	    hasFound[S[end]]++;
+	    if (hasFound[S[end]] <= needToFind[S[end]])
+	      count++;
+	 
+	    // if window constraint is satisfied
+	    if (count == tLen) {
+	      // advance begin index as far right as possible,
+	      // stop when advancing breaks window constraint.
+	      while (needToFind[S[begin]] == 0 ||
+	            hasFound[S[begin]] > needToFind[S[begin]]) {
+	        if (hasFound[S[begin]] > needToFind[S[begin]])
+	          hasFound[S[begin]]--;
+	        begin++;
+	      }
+	 
+	      // update minWindow if a minimum length is met
+	      int windowLen = end - begin + 1;
+	      if (windowLen < minWindowLen) {
+	        minWindowBegin = begin;
+	        minWindowEnd = end;
+	        minWindowLen = windowLen;
+	      } // end if
+	    } // end if
+	  } // end for
+	 
+	  return (count == tLen) ? true : false;
 	}
+}
 /*
 Analysis:
 Time Complexity = O(n) where n = length of big string   [O(n) considering substring() is O(1) in some languages but not in JAVA. In JAVA it is O(n)]
