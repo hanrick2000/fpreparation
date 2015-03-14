@@ -203,7 +203,6 @@ public class LongestIncreasingSubsequence {
 	 
 	    int[] tailTable   = new int[size];
 	    int len; // always points empty slot
-	
 	 
 	    tailTable[0] = A[0];
 	    len = 1;
