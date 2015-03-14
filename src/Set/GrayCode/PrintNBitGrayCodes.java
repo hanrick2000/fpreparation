@@ -48,10 +48,9 @@ public class PrintNBitGrayCodes {
 
 
 	private static void printNumbersUsingXOR(int n) {
-		
-		// USE THIS EFFICIENT METHOD IN INTERVIEWS
+
 		for(int i=0;i<(int)Math.pow(2, n);i++){
-			System.out.println(Integer.toBinaryString( (i>>1)^(i) )); // EXOR Operation between (value) and (value/2)    
+			System.out.println(Integer.toBinaryString( (i>>1)^(i) ));     
 		    // TR: toBinaryString(EXOR Operation between (value) and (value/2)) 
 		}	
 	}
