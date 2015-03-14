@@ -78,10 +78,10 @@ public class IterativeSolution {
 		ArrayList<ArrayList<Integer>> returnList = new ArrayList<ArrayList<Integer>>();
 		returnList.add(new ArrayList<Integer>());
 	 
-		for (int i = 0; i < num.length; i++) {
+		for (int i = 0; i < num.length; i++) {                                        // iterate through input
 			Set<ArrayList<Integer>> currentSet = new HashSet<ArrayList<Integer>>();
-			for (List<Integer> list : returnList) {
-				for (int j = 0; j < (list.size() + 1); j++) {
+			for (List<Integer> list : returnList) {                                   // iterate through result element
+				for (int j = 0; j < (list.size() + 1); j++) {						  // iterate though each element
 					list.add(j, num[i]);
 					ArrayList<Integer> T = new ArrayList<Integer>(list);
 					list.remove(j);
