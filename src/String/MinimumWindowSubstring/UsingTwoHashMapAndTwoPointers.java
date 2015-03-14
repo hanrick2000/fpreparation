@@ -55,7 +55,8 @@ public class UsingTwoHashMapAndTwoPointers {
 	  int count = 0;
 	  for (int begin = 0, end = 0; end < sLen; end++) {        // FOR LOOP of begin and end pointers
 	    // skip characters not in T
-	    if (needToFind[S[end]] == 0) continue;
+	    if (needToFind[S[end]] == 0) 
+	    	continue;
 	    hasFound[S[end]]++;
 	    if (hasFound[S[end]] <= needToFind[S[end]])
 	      count++;
@@ -64,10 +65,12 @@ public class UsingTwoHashMapAndTwoPointers {
 	    if (count == tLen) {
 	      // advance begin index as far right as possible,
 	      // stop when advancing breaks window constraint.
-	      while (needToFind[S[begin]] == 0 ||
-	            hasFound[S[begin]] > needToFind[S[begin]]) {
+	      // To understand this, refer here: http://articles.leetcode.com/2010/11/finding-minimum-window-in-s-which.html 
+	      while (needToFind[S[begin]] == 0 || hasFound[S[begin]] > needToFind[S[begin]]) {
+	    	  
 	        if (hasFound[S[begin]] > needToFind[S[begin]])
 	          hasFound[S[begin]]--;
+	        
 	        begin++;
 	      }
 	 
@@ -86,6 +89,6 @@ public class UsingTwoHashMapAndTwoPointers {
 }
 /*
 Analysis:
-Time Complexity = O(n) where n = length of big string   [O(n) considering substring() is O(1) in some languages but not in JAVA. In JAVA it is O(n)]
+Time Complexity = O(n) where n = length of big string(Sentence)   [O(n) considering substring() is O(1) in some languages but not in JAVA. In JAVA it is O(n)]
 Space Complexity = O(1) since we use set of 256 characters which is constant memory
 */
