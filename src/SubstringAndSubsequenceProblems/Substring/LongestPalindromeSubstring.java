@@ -76,14 +76,11 @@ public class LongestPalindromeSubstring {
 			// of str[]. It also returns the length of the longest palindrome substring
 			
 			int maxLength = 1; // The length of the LPSubstring is atleast 1
-			
 			int start = 0;
 			
 			int low = 0;
-			int high = 0;
-			
-			//int totalPalindromes = orig.length();  // each individual character is also a palindrome
-			
+			int high = 0;     // <- high is also 0
+						
 			for(int i=1;i < orig.length();i++){   // start from 1 to string.length()
 				
 				// Find the longest even length palindrome with center points
@@ -91,14 +88,13 @@ public class LongestPalindromeSubstring {
 				low = i-1;
 				high = i;
 				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ 
-					
-					
+
 					if(high - low + 1 > maxLength){
 						start = low;
 						maxLength=high-low+1;
 					}
-					--low;
-					++high;
+					low--;
+					high++;
 				}
 				
 				
@@ -107,18 +103,16 @@ public class LongestPalindromeSubstring {
 				low = i-1;
 				high = i+1;
 				
-				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ // check whether it is a palindrome
+				while(low >=0 && high < orig.length() && orig.charAt(low)==orig.charAt(high)){ 
+					// check whether it is a palindrome
 					
 					if(high - low + 1 > maxLength){
 						start = low;
 						maxLength=high-low+1;
 					}
-					--low;
-					++high;
-					
+					low--;
+					high++;
 				}
-				
-				
 			}
 			
 			
