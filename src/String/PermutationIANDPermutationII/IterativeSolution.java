@@ -40,9 +40,9 @@ public class IterativeSolution {
 	
 	// Source: http://www.programcreek.com/2013/02/leetcode-permutations-java/
 	public static ArrayList<ArrayList<Integer>> permute(int[] num) {
+		
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-	 
-		//start from an empty list
+		
 		result.add(new ArrayList<Integer>());         // Add an empty ArrayList
 	 
 		for (int i = 0; i < num.length; i++) {
