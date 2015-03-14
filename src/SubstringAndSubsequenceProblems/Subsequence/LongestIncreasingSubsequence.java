@@ -186,7 +186,7 @@ public class LongestIncreasingSubsequence {
 	// Binary search (note boundaries in the caller)
 	// a[] is ceilIndex in the caller
 	public static int CeilIndex(int A[], int l, int r, int key) {
-	    int m;
+	    int m=0;
 	 
 	    while( r - l > 1 ) {
 	        m = l + (r - l)/2;
