@@ -37,7 +37,8 @@ public class LongestCommonSubstring {
 
 	 private static int usingDP(String s1, String s2) {
 	        
-	        int[][] dp = new int[s1.length()+1][s2.length()+1];  // additional +1 to store the previous match result which is 0
+	        int[][] dp = new int[s1.length()+1][s2.length()+1];  
+	        // additional +1 to store the previous match result which is 0
 	        
 	        // fill the row with s1
 	        for(int i=0;i<(s1.length()+1);i++)
