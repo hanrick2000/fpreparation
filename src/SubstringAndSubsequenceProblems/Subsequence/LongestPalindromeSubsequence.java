@@ -40,9 +40,9 @@ public class LongestPalindromeSubsequence {
 		
 		/*
 		 * Algorithm:
-This problem is close to the Longest Common Subsequence (LCS) problem. In fact, we can use LCS as a subroutine to solve this problem. Following is the two step solution that uses LCS.
+This question is close to the Longest Common Subsequence (LCS) question. In fact, we can use LCS as a subroutine to solve this problem. Following is the two step solution that uses LCS.
 1) Reverse the given sequence and store the reverse in another array say rev[0..n-1]
-2) LCS of the given sequence and rev[] will be the longest palindromic sequence.
+2) LCS of the given sequence and rev[] will be the longest palindromic subsequence.
 This solution is also a O(n^2) solution.
 		 */
 		
@@ -89,7 +89,7 @@ This solution is also a O(n^2) solution.
 			dp[i][i] = 1;
 		
 		// if the length of the string is 2 to string.length then do the following
-		int end = 0; 
+		int end = 0;
 		for(int len=2;len<=s.length();len++){ // len is length of the substring
 			
 			for(int start=0; start<s.length()-len+1;start++){
