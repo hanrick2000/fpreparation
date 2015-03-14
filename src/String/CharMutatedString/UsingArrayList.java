@@ -84,7 +84,6 @@ public class UsingArrayList {
 	    	if(index == str.length()){                    // NOTE: index is compared with string.length() AND NOT (string.length()-1)                                
 	            String newItem = new String(mutation);
 	            result.add(newItem);
-	            return;
 	        }
 	    	// RECURSIVE CASE
 	        char current = str.charAt(index);              // get the current char of the string 
