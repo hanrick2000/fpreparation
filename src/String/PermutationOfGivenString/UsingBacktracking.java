@@ -67,7 +67,11 @@ public class UsingBacktracking {
 				}
 			}
 		}
-
+	/* Algorithm Paradigm: Backtracking
+	 * Analysis:
+	 * Time Complexity = O(n*n!) where n = length of string
+	 * Space Complexity = O(n!) where n = length of string
+	 */
 	private static void swap(char[] s, int from, int to) {
 		char temp = s[from];
 		s[from] = s[to];
@@ -89,13 +93,14 @@ public class UsingBacktracking {
 	
 	
 	
-	/* Algorithm Paradigm: Backtracking
-	 * Analysis:
-	 * Time Complexity = O(n*n!) where n = length of string
-	 * Space Complexity = O(n) where n = length of string
-	 * 
-	 * 
-	 * 
+	
+	
+	
+	
+	
+	
+	/* 
+	 * EXPLANATION:
 	 * 
 	 * If all characters in the string are distinct there are exactly 
 	 * n! permutations that must be stored and computed. The naive answer is 
@@ -120,7 +125,7 @@ public class UsingBacktracking {
 		}
 		else{
 			for (int i = start; i <= end; i++) {
-				if (hasUniqueElements(num, start, i)) {
+				if (isUnique(num, start, i)) {
 					swap(num, start, i);
 					permuteUnique(num, start + 1, end, result);
 					swap(num, start, i);
@@ -128,7 +133,11 @@ public class UsingBacktracking {
 		    }
 		}
 	}
-	 
+	/*
+	 * Analysis:
+	 * Time Complexity = O(n*n!)
+	 * Space Complexity = O(n!)
+	 */
 	private static ArrayList<Integer> convertArrayToList(int[] num) {
 		ArrayList<Integer> item = new ArrayList<Integer>();
 		for (int h = 0; h < num.length; h++) {
@@ -137,7 +146,7 @@ public class UsingBacktracking {
 		return item;
 	}
 	 
-	private static boolean hasUniqueElements(int[] arr, int start, int end) {
+	private static boolean isUnique(int[] arr, int start, int end) {
 		for (int i = start; i < end; i++) {          // check for every element in the array except LAST ELEMENT
 			if (arr[i] == arr[end]) {
 				return false;                        // does not have Unique Elements hence return false
