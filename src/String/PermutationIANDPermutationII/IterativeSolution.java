@@ -49,26 +49,30 @@ public class IterativeSolution {
 
 			ArrayList<ArrayList<Integer>> current = new ArrayList<ArrayList<Integer>>();
 	 
-			for (ArrayList<Integer> l : result) {
-				// # of locations to insert is largest index + 1
-				for (int j = 0; j < (l.size()+1); j++) {
+			for (ArrayList<Integer> list : result) {
+
+				for (int j = 0; j < (list.size()+1); j++) {
 					// + add num[i] to different locations
-					l.add(j, num[i]);
-					ArrayList<Integer> temp = new ArrayList<Integer>(l);
-					l.remove(j);
+					list.add(j, num[i]);
+					ArrayList<Integer> temp = new ArrayList<Integer>(list);
+					list.remove(j);
 					current.add(temp);
 				}
 			}
 	 
-			result = new ArrayList<ArrayList<Integer>>(current);
+			result = new ArrayList<ArrayList<Integer>>(current);                    // VERY IMP: Reinitialize Result
 		}
 	 
 		return result;
 	}
+	/* Analysis:
+		 * Time Complexity = O(n*n!) where n = length of string
+		 * Space Complexity = O(n!) where n = length of string
+		 */
+	
+	
 	
 	// Handling repetitions
-	
-	
 	// Source: http://www.programcreek.com/2013/02/leetcode-permutations-ii-java/
 	public static ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
 		ArrayList<ArrayList<Integer>> returnList = new ArrayList<ArrayList<Integer>>();
@@ -84,9 +88,14 @@ public class IterativeSolution {
 					currentSet.add(T);
 				}
 			}
-			returnList = new ArrayList<ArrayList<Integer>>(currentSet);
+			returnList = new ArrayList<ArrayList<Integer>>(currentSet);        // VERY IMP: Reinitialize Result
 		}
 	 
 		return returnList;
 	}
+	/* Analysis:
+	 * Time Complexity = O(n*n!) where n = length of string
+	 * Space Complexity = O(n!) where n = length of string
+	 */
 }
+
