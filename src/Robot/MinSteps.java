@@ -10,10 +10,9 @@ For instance to go from (1,1) to m=3 and n=2 it has to take (1, 1) -> (1, 2) -> 
 
 Question and Answer Source: http://www.careercup.com/question?id=5697293959299072
 
-Explanation Source: 
-http://rleetcode.blogspot.com/2014/06/unique-paths-java.html
-http://articles.leetcode.com/2010/11/unique-paths.html
-
+Algorithm:
+There is only one way to get to (m,n). If m>n, robot must come from (m-n,n).
+Otherwise comes from (m, n-m).
 */
 
 package Robot;
@@ -21,20 +20,7 @@ package Robot;
 public class MinSteps {
 	public static void main(String[] args) {
 		System.out.println(minSteps(5, 8));
-		System.out.println(uniquePaths(5, 8));
-		System.out.println(uniquePaths1(5, 8));
-		System.out.println(uniquePaths2(5, 8));
-
-		
-		System.out.println("--------------------");
-		
-		System.out.println(minSteps(2,3));
-		System.out.println(uniquePaths(2,3));
-		
-		
-		System.out.println(minSteps(5,8));
-		System.out.println(uniquePaths(5, 8));
-		
+		System.out.println(minSteps(3, 2));
 	}
 	public static int minSteps(int m, int n)
 	
@@ -46,7 +32,7 @@ public class MinSteps {
 		if(m<1 || n <1) 
 			return -1;
 		int count = 0;
-		while(Math.abs(m-n)>0 && m>=1 && n>=1)
+		while(Math.abs(m-n)>0 && m>=1 && n>=1)            // m>=1 AND n>=1 AND abs(m-n)>0
 		{
 			if(m>n)
 				m=m-n;
