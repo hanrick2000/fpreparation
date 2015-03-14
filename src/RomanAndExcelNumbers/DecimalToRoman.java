@@ -41,7 +41,7 @@ public class DecimalToRoman {
 	      // append the repeated chars
 	      res.append(repeatChar(s, repeat));
 	      // modify the input number
-	      givenNumber = givenNumber % v;                       // Modulus EXAMPLE: number = 2001 then NUMBER = 2001%1000 = 1
+	      givenNumber = givenNumber % v;                       // Modulus EXAMPLE: number = 6 then NUMBER = 6%5 = 1
 	    } 
 	    return res.toString();
 	  }
