@@ -20,14 +20,12 @@ Here is a solution using backtracking.
 */
 package String.PermutationOfGivenString;
 
-/*
-import java.util.HashSet;
-import java.util.Set;
-*/
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class UsingBacktracking {
-	//private static Set<Character> set;
+
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
@@ -35,12 +33,19 @@ public class UsingBacktracking {
 			System.out.println("Enter the string");
 			String s = in.nextLine();
 			System.out.println("Using BackTracking WITHOUT handling REPEATED characters:");
-			permute(s.toCharArray(),0,s.length()-1);
-			/*
-			System.out.println("Using BackTracking WITH handling REPEATED characters:");
-			printPermutations(s.toCharArray(), 0);
-			System.out.println(set.toString());
-			*/
+			ArrayList<String> res = new ArrayList<String>();
+			permute(s.toCharArray(),0,s.length()-1,res);
+			for(String string: res)
+				System.out.println(string);
+			System.out.println("Enter the size of integer array");
+			int n = in.nextInt();
+			int[] a=new int[n];
+			System.out.println("Enter the array elements with repetition");
+			for(int i=0;i<n;i++)
+				a[i]=in.nextInt();
+			ArrayList<ArrayList<Integer>> result = permuteUnique(a);
+			for(ArrayList<Integer> i: result)
+				System.out.println(i.toString());
 		}
 		finally{
 			in.close();
@@ -51,13 +56,13 @@ public class UsingBacktracking {
 	   1. String
 	   2. Starting index of the string
 	   3. Ending index of the string. */
-	private static void permute(char[] s, int start, int end) {
-			if(start==end)
-				System.out.println(String.valueOf(s));
+	private static void permute(char[] s, int start, int end, ArrayList<String> list) {
+			if(start>=end)
+				list.add(String.valueOf(s));
 			else{
 				for(int i=start;i<=end;i++){
 					swap(s,start,i);
-					permute(s,start+1,end);
+					permute(s,start+1,end,list);
 					swap(s,i,start);  // backtrack
 				}
 			}
@@ -101,22 +106,50 @@ public class UsingBacktracking {
 	 * 
 	 */
 	
-/* //Extending the solution to support repeating characters
- 
-   private static void printPermutations(char s[], int pos) {
-		if (pos == s.length) {
-			System.out.println(new String(s));
-			return;
+	public static ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		permuteUnique(num, 0, num.length-1, result);
+		return result;
+	}
+	 
+	private static void permuteUnique(int[] num, int start, int end, ArrayList<ArrayList<Integer>> result) {
+	 
+		if (start >= end) {
+			ArrayList<Integer> item = convertArrayToList(num);
+			result.add(item);
 		}
-		set = new HashSet<Character>();
-		for (int i = pos; i < s.length; ++i) {
-			if (set.contains(s[i])) {
-				continue;
+		else{
+			for (int i = start; i <= end; i++) {
+				if (hasUniqueElements(num, start, i)) {
+					swap(num, start, i);
+					permuteUnique(num, start + 1, end, result);
+					swap(num, start, i);
+				}
+		    }
+		}
+	}
+	 
+	private static ArrayList<Integer> convertArrayToList(int[] num) {
+		ArrayList<Integer> item = new ArrayList<Integer>();
+		for (int h = 0; h < num.length; h++) {
+			item.add(num[h]);
+		}
+		return item;
+	}
+	 
+	private static boolean hasUniqueElements(int[] arr, int start, int end) {
+		for (int i = start; i < end; i++) {          // check for every element in the array except LAST ELEMENT
+			if (arr[i] == arr[end]) {
+				return false;                        // does not have Unique Elements hence return false
 			}
-			swap(s, i, pos);
-			printPermutations(s, pos + 1);
-			swap(s, i, pos);
-			set.add(s[i]);
 		}
-	}*/
+		return true;
+	}
+	 
+	private static void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+
 }
