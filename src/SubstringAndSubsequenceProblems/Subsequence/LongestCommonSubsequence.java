@@ -93,10 +93,10 @@ public class LongestCommonSubsequence {
 	 private static String buildLCSubsequence(char[] LCSubSequence, String s1, String s2) {
 			
 		 
-		 	int i = s1.length();
-		 	int j = s2.length();
+		 	int i = s1.length();                           // i and j ARE string.length   (VERY IMP)
+		 	int j = s2.length(); 
 		 	
-		 	int index = LCSubSequence.length-1;
+		 	int index = LCSubSequence.length-1;            // index is -1    (VERY IMP)
 		 	
 		 	while(i>0 && j>0){ // greater than 0 because there is nothing at 0th row and 0th column in the match matrix
 		 	
