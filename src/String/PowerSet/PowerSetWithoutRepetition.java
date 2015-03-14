@@ -101,8 +101,9 @@ public class PowerSetWithoutRepetition {
 			 * conditions are only applied for 1st and 3rd case
 			 */
 			
-			// 1. add all result sets to prev
+			// 1. add all result sets to prev only if current element is different with previous
 			if (i == num.length - 1 || num[i] != num[i + 1] || prev.size() == 0) {
+				
 				prev = new ArrayList<ArrayList<Integer>>();                          // initialize prev
 				for (ArrayList<Integer> temp : result)
 					prev.add(new ArrayList<Integer>(temp));
@@ -127,7 +128,7 @@ public class PowerSetWithoutRepetition {
 		}
 	 
 		//add empty set
-		result.add(new ArrayList<Integer>());
+		result.add(new ArrayList<Integer>());       // add the EMPTY SET
 	 
 		return result;
 	}

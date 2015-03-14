@@ -112,11 +112,11 @@ public class PowerSetOfIntegerArrayUsingBitIncrement {
 			
 			// 4. add all prev sets to result
 			for (ArrayList<Integer> temp : prev) {
-				result.add(new ArrayList<Integer>(temp));
+				result.add(new ArrayList<Integer>(temp)); // VERY IMP: PARAMETRIZED CONSTRUCTOR OF ARRAYLIST[new ArrayList<Integer>(a)]
 			}
 		}
 		//add empty set
-		result.add(new ArrayList<Integer>());
+		result.add(new ArrayList<Integer>());       //VERY IMP: Add the EMPTY SET
 	 
 		return result;
 	}
