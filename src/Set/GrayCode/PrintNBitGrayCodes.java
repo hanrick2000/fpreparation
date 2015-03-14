@@ -38,8 +38,8 @@ public class PrintNBitGrayCodes {
 			int n = in.nextInt();
 			System.out.println("Using EXOR Algorithm: ");
 			printNumbersUsingXOR(n);
-			System.out.println("Using ArrayList: ");
-			printNumbersUsingArrayList(n);
+			//System.out.println("Using ArrayList: ");
+			//printNumbersUsingArrayList(n);
 		}
 		finally{
 			in.close();
@@ -60,11 +60,11 @@ public class PrintNBitGrayCodes {
 	 * Space Complexity = O(1)
 	 */
 	
-
+/*
 	private static void printNumbersUsingArrayList(int n) {
 		
 		
-		/*
+		
 		 * Algorithm Source: http://www.geeksforgeeks.org/given-a-number-n-generate-bit-patterns-from-0-to-2n-1-so-that-successive-patterns-differ-by-one-bit/
 		 * 
 		 *  ALGORITHM:
@@ -85,7 +85,7 @@ To generate n-bit Gray codes, we start from list of 1 bit Gray codes.
 The list of 1 bit Gray code is {0, 1}. We repeat above steps to generate 2 bit Gray codes
 from 1 bit Gray codes, then 3-bit Gray codes from 2-bit Gray codes till the number of bits
  becomes equal to n. Following is C++ implementation of this approach.
-*/
+
 		
 		// if n < = 0 then return
 		if(n<=0)
@@ -98,10 +98,10 @@ from 1 bit Gray codes, then 3-bit Gray codes from 2-bit Gray codes till the numb
 		al.add(1,"1");               // 1st number. This add() method will add to a new index location
 		
 		
-		/*
+		
 		 * Loop to generate 2i codes from the previously generated i codes
 		 * Start the loop from 2nd number to 2^(n)-1 
-		 */
+		 
 		
 		for(int i=2;i<=n;i++){
 			
@@ -122,7 +122,7 @@ from 1 bit Gray codes, then 3-bit Gray codes from 2-bit Gray codes till the numb
 		for(int i=0;i<al.size();i++)
 			System.out.println(al.get(i));
 	}
-	/*
+	
 	 * NOTE: DONOT USE ARRAYLIST method in Interview. THIS METHOD IS NOT WORKING CORRECTLY
 	 * Analysis:
 	 * Time Complexity = O(n^2)
