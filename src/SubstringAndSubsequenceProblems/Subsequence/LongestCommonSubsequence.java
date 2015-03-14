@@ -92,7 +92,11 @@ public class LongestCommonSubsequence {
 	
 	 private static String buildLCSubsequence(char[] LCSubSequence, String s1, String s2) {
 			
-		 
+		 /* TR:
+		  *  1. i and j are STRING.LENGTH and index is LCS.LENGTH-1
+		  *  2. WHILE LOOP (i>0 && j>0)
+		  *  3. within WHILE LOOP we have if(match), else if(table), else
+		  */
 		 	int i = s1.length();                           // i and j ARE string.length   (VERY IMP)
 		 	int j = s2.length(); 
 		 	
