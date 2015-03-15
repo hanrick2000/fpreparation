@@ -19,14 +19,11 @@ Algorithm:
 Breath First Search
 
 So we quickly realize that this looks like a tree searching problem for which breath first guarantees the optimal solution.
-
 Assuming we have some words in the dictionary, and the start is "hit" as shown in the diagram below.
-
 word-ladder
-
 We can use two queues to traverse the tree, one stores the nodes, the other stores the step numbers.
+*/
 
-*/	
 package WordLadder;
 
 import java.util.HashSet;
