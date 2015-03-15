@@ -33,16 +33,17 @@ public class UsingShiftOperators {
 		Scanner in = new Scanner(System.in);
 		try{
 			System.out.println("Enter the divident and divisor respectively");
+			System.out.println("Works for both negative and positive numbers of divident and divisor");
 			divident = in.nextInt();
 			divisor = in.nextInt();
-			int ans = getQuotient(divident,divisor);
+			int ans = divide(divident,divisor);
 			System.out.println(ans);
 		}
 		finally{
 			in.close();
 		}
 	}
-
+/*
 	private static int getQuotient(int tempDivident, int tempDivisor) {
 	
 		int quotient = 1;
@@ -57,25 +58,25 @@ public class UsingShiftOperators {
 		}
 		
 		while(tempDivident >= tempDivisor){
-			/* Here divisor <> divisor and quotient */
+			 Here divisor <> divisor and quotient 
 			tempDivisor=tempDivisor<<1;     // Multiply by 2
 			quotient=quotient<<1;           
 		}
 		
-		/* We have reached the point where divisor > dividend, therefore divide divisor and quotient by 2 */
+		 We have reached the point where divisor > dividend, therefore divide divisor and quotient by 2 
 		tempDivisor=tempDivisor>>1;         // Divide by 2
 		quotient=quotient>>1;
 
-		/* Call division recursively for the difference to get the exact quotient */
+		 Call division recursively for the difference to get the exact quotient 
 		return quotient+getQuotient(tempDivident-tempDivisor, divisor);
 		
 	}
-	/*Analysis:
+	Analysis:
     If n = dividend and m = divisor, then
 	Time Complexity = O(lgn) where n = dividend
 	Space Complexity = O(1)
-*/
-	
+
+	*/
 	/*
 	 * Analysis:
 We can keep subtract divisor from dividend until dividend is smaller than 0, than count the subtract numbers.

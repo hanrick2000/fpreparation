@@ -42,11 +42,10 @@ public class UsingOptimizedSolution {
 	 
 		double v = power(x, n / 2);
 	 
-		if (n % 2 == 0) {
+		if (n % 2 == 0) 
 			return v * v;
-		} else {
+		else 
 			return v * v * x;
-		}
 	}
 	 
 
