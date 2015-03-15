@@ -47,6 +47,10 @@ public class UsingShiftOperators {
 	}
 	private static int getQuotient(int tempDivident, int tempDivisor) {
 		
+		if(tempDivisor<0)
+			return -(getQuotient(tempDivident, -tempDivisor));
+		
+		
 		int quotient = 1;
 		
 		if(tempDivisor==tempDivident){

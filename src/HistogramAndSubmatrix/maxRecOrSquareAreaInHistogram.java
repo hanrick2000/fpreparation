@@ -52,3 +52,8 @@ public static void main(String[] args) {
 		return max;
 	}
 }
+/*
+ * Analysis:
+ * Time Complexity = O(n) where n = length of input array
+ * Space Complexity = O(n) where n = length of input array
+ */
