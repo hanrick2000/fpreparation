@@ -3,7 +3,6 @@ Question:
 	Multiply two integers without using multiplication, division and bitwise operators, and no loops
 	
 Source: http://www.geeksforgeeks.org/multiply-two-numbers-without-using-multiply-division-bitwise-operators-and-no-loops/
-
 */
 package MultiplyTwoNumbersWithoutBitwiseMultiplcationAndDivision;
 
@@ -36,7 +35,6 @@ private static int multiply(int m, int n) {
 	else  // n is a negative number
 		return (-(multiply(m, -n)));
 
-	
 	}
 }
 /*
