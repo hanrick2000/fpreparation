@@ -37,12 +37,12 @@ public class UsingBFS {
 		if (dict.size() == 0)
 			return 0;
 	 
-		dict.add(end);                                                 // VERY IMP to add the last step to the ladder
+		dict.add(end);                                           // VERY IMP to add the last step to the ladder
 	 
 		LinkedList<String> wordQueue = new LinkedList<String>();
 		LinkedList<Integer> distanceQueue = new LinkedList<Integer>();
 	 
-		wordQueue.add(start);
+		wordQueue.add(start);                                        
 		distanceQueue.add(1);
 	 
 		//track the shortest path
