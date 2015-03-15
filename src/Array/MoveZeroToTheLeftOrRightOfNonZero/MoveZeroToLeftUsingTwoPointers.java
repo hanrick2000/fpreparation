@@ -47,8 +47,7 @@ public class MoveZeroToLeftUsingTwoPointers {
 		}
 		while(dest>=0)  // fill the zeros
 			a[dest--]=0;
-		
-		
+
 		return a;
 	}
 }
