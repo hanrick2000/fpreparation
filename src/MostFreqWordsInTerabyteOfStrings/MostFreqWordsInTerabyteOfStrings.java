@@ -1,5 +1,5 @@
 /*
-Question: Determine the 10 most frequent words given a terabyte of strings.
+Question: Determine the 10 most frequent words given a tera byte of strings.
 
 Question Source: http://www.careercup.com/question?id=14548838
 	
@@ -17,7 +17,7 @@ Method I:
 
 [External Merge Sort in Detail:
 
-a. Read 100 MB of the data in main memory and sort by some conventional method, like quicksort.
+a. Read 100 MB of the data in main memory and sort by some conventional method, like quick sort.
 
 b. Write the sorted data to disk.
 
