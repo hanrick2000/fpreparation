@@ -18,7 +18,7 @@ public class UsingOptimizedSolution {
 	try{
 		System.out.println("lgn algorithm to calculate power");
 		System.out.println("Enter the two number to calculate the power in the form a^b repectively");
-		System.out.println("Only positive numbers should be entered");
+		System.out.println("Works for both positive and negative numbers of a and b");
 		int a = in.nextInt();
 		int b = in.nextInt();
 		System.out.println("The result is: "+pow(a,b));
@@ -26,22 +26,32 @@ public class UsingOptimizedSolution {
 	finally{
 		in.close();
 	}
+}
+	
+	
+	public static double pow(double x, int n) {
+		if (n < 0) 
+			return 1 / power(x, -n);
+		else 
+			return power(x, n);
 	}
-
-	private static int pow(int a, int b) {
-		
-		if(b==0)
+	
+	public static double power(double x, int n) {
+		if (n == 0)
 			return 1;
-		int temp = pow(a,b/2);
-		if(b%2==0)
-			return temp*temp;
-		else{
-			if(b>0)
-				return (a*temp*temp);
-			else
-				return (temp*temp)/a;
+	 
+		double v = power(x, n / 2);
+	 
+		if (n % 2 == 0) {
+			return v * v;
+		} else {
+			return v * v * x;
 		}
 	}
+	 
+
+
+
 	/*
 	 * Analysis:
 	 * Time Complexity = Since we divide b into 2 parts and discard one part,
