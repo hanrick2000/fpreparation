@@ -33,17 +33,15 @@ public class UsingMergeOfMergeSort {
 		while(i_a >= 0 && i_b >=0)
 		{
 		    if (a[i_a] > b[i_b])  
-		    		b[i_AB--] = a[i_a--];
+		    		b[i_AB--] = a[i_a--];             // GREATEST ELEMENT GETS APPENDED FIRST
 		    else 
 		    		b[i_AB--] = b[i_b--];	
 		}
 		
 		
-		if (i_a > 0) 
-		{
-		    while(i_a >=0)
+		while(i_a >=0)
 		        b[i_AB--] = a[i_a--]; 
-		} 
+		
 		
 		else  
 		{ 
