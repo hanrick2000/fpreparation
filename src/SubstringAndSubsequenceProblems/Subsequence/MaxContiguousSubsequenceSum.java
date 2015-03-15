@@ -65,8 +65,7 @@ private static int usingDynamicProgramming(int[] a) {
 	int max = 0;
 	for(int i=1;i<a.length;i++){
 		dp[i] = Math.max(dp[i-1]+a[i],a[i]);
-		if(dp[i]>max)
-			max = dp[i];
+		max = Math.max(dp[i], max);
 	}
 		return max;
 	}
