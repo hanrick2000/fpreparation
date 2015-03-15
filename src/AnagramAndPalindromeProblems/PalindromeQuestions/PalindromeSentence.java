@@ -93,15 +93,13 @@ public class PalindromeSentence {
 		}
 
 	private static boolean isAlphabet(char c) {
-		int value = (int)c;
-		if(value >=(int)'a' && value <=(int)'z')
+		if(c >='a' && c <='z')
 			return true;
 		else
 			return false;
 	}
 	private static boolean isLetter(char c) {
-		int value = (int)c;
-		if(value >=(int)'0' && value <=(int)'9')
+		if(c >='0' && c <='9')
 			return true;
 		else
 			return false;
