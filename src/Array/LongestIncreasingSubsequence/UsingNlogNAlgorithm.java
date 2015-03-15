@@ -206,7 +206,7 @@ public class UsingNlogNAlgorithm {
 	    int[] tailTable   = new int[a.length];
 	    
 
-	    tailTable[0] = a[0];    // THERE ARE NO ACTIVE LIST SO CREATE ONE
+	    tailTable[0] = a[0];    	// THERE ARE NO ACTIVE LIST SO CREATE ONE
 	    int len = 1;                // THE LENGTH OF THIS NEWLY CREATED ACTIVE LIST IS 1
 	    
 	    
