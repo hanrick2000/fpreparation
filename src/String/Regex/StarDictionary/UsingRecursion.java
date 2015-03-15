@@ -79,13 +79,13 @@ Hence we need to create a HashMap for the data given to us
 		}
 	}
 
-	private static void populateHashMap(HashMap<String, Boolean> map, String orig, String prefix, int curCharIndex) {
-		if(curCharIndex>=orig.length()){
+	private static void populateHashMap(HashMap<String, Boolean> map, String string, String prefix, int curCharIndex) {
+		if(curCharIndex>=string.length()){
 			map.put(prefix,true);
 			return;
 		}
-		populateHashMap(map, orig, prefix+orig.charAt(curCharIndex), curCharIndex+1);
-		populateHashMap(map, orig, prefix+"*", curCharIndex+1);
+		populateHashMap(map, string, prefix+string.charAt(curCharIndex), curCharIndex+1);
+		populateHashMap(map, string, prefix+"*", curCharIndex+1);
 	}
 }
 /*
