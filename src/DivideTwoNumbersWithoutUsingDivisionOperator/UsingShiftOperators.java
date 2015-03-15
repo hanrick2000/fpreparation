@@ -1,10 +1,9 @@
 /*
-Question: Given dividen and divisor, return the quotient without using / operator
+Question: Given dividend and divisor, return the quotient without using / operator
 Solution Source: 
-	http://www.prasannatech.net/2009/01/division-without-division-operator_24.html
 	http://www.careercup.com/question?id=5647672717344768
-	
-	
+	http://www.prasannatech.net/2009/01/division-without-division-operator_24.html
+		
 ALGORITHM:
 	For the sake of completeness, I would like to highlight the algorithm, which is quite simple. 
 	Before that one should understand some basics of bit shifting.
