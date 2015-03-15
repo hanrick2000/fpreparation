@@ -67,7 +67,7 @@ private static String giveLookAndSaySequence(String s) {   // (Similar to Run Le
 			sb.append(s.substring(f, i).length()).append(s.charAt(f));
 			f = i;
 			}
-		}
+	}
 	sb.append(s.substring(f, s.length()).length()).append(s.charAt(f));
 	return sb.toString();	
 	}
