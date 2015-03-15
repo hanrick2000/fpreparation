@@ -49,6 +49,6 @@ private static int multiplyUsingRussianPeasantAlgorithm(int a, int b) {
 }
 /*
 Analysis:
-	Time Complexity = O(nlgn) where n = 2nd number
+	Time Complexity = O(lgn) where n = 2nd number
 	Space Complexity = O(1)
 */
