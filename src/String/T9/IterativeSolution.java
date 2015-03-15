@@ -37,6 +37,12 @@ public class IterativeSolution {
         for (int i = 0; i < digits.length(); i++) {
         	 // Get the numeric number and size of the list
             int num = digits.charAt(i) - '2'; // -'2' because the digits in the phone number start from 2
+            
+            if(num<0){
+            	System.out.println("Invalid Number");
+            	System.exit(0);
+            }	
+            
             int size = result.size(); // get the size of the list
             
             for (int j = 0; j < size; j++) { // iterate through all the elements of the list
