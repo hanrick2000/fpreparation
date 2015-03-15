@@ -94,7 +94,7 @@ public class DecodeToString {
 			return 0;
 		}
 		int[] nums = new int[s.length() + 1];
-		nums[0] = 1;
+		nums[0] = 1;                                         // Initially '1' to '9' can be decoded in 1 way
 		nums[1] = s.charAt(0) != '0' ? 1 : 0;           
 		// character is Not '0' then 1 
 		// that means any other character present from '1' to '9' can be decoded in 1 way 
