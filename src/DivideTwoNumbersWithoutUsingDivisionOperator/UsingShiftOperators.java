@@ -64,18 +64,20 @@ value of Integer.MIN_VALUE will be quite strange.
 	 // Source: http://www.lifeincode.net/programming/leetcode-divide-two-integers-java/
 	
 	 public static int divide(int dividend, int divisor) {
-	        long p = Math.abs((long)dividend);
-	        long q = Math.abs((long)divisor);
+	        long tempDivident = Math.abs((long)dividend);
+	        long tempDivisor = Math.abs((long)divisor);
 	        
 	        int ret = 0;
-	        while (p >= q) {
+	        while (tempDivident >= tempDivisor) {
 	            int counter = 0;
-	            while (p >= (q << counter)) {
+	            while (tempDivident >= (tempDivisor << counter)) {
 	                counter++;
 	            }
 	            ret += 1 << (counter - 1);
-	            p -= q << (counter - 1);
+	            tempDivident -= tempDivisor << (counter - 1);
 	        }
+	        
+	        // compare the arguments passed in this method
 	        if (dividend == Integer.MIN_VALUE && divisor == -1)
 	            return Integer.MAX_VALUE;
 	            
