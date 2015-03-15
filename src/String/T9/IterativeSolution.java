@@ -57,7 +57,7 @@ public class IterativeSolution {
 Analysis:
 Time Complexity
 Assuming the average number of letters on every number is m, and the length of digits string is n, 
-then the complexity is O(m^n)     [lettersOnNumber^input]
+then the complexity is O(m^n)     [lettersOnNumber^inputStringLength]
 Space Complexity = O(m^n)
 where m = average number of letters on every number
 	  n = length of digits string
