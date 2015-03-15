@@ -11,7 +11,6 @@ public static boolean isPalindrome(int number){
 		remainder = number % 10;
 		rev = (rev*10) + remainder;  // Remember two things: 1. rev = 0 AND 2.  rev = rev*10 = remainder
 		number /=10;
-
 	}
 	return temp==rev;
 }

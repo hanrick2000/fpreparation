@@ -23,14 +23,14 @@ public class MathOperationAddUsingBitOperations {
 		// AND gives CARRY
 		int carry=0;
 		while(b!=0){
-			sum = a^b;
-			carry = a&b<<1;
+			sum = (a^b);
+			carry = (a&b)<<1;
 			// copy sum to X
 			a=sum;
 			// copy left shift carry by 1 to Y
 			b=carry;
 		}
-		return a;
+		return sum;
 	}
 	public static int usingRecursiveBitwiseShiftOperators(int a, int b){
 		if(b==0)
