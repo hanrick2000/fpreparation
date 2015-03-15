@@ -66,6 +66,7 @@ public class DecodeToString {
 		// 3. Add without condition
 		set.addAll(decode(prefix + (char) (s.charAt(0) - '1' + 'a'), s.substring(1))); // add first character of the string to the prefix
 
+		
 		// 4. Number from 10 to 19
 		if (s.length() >= 2 && s.charAt(0) == '1')
 			set.addAll(decode(prefix + (char) (10 + s.charAt(1) - '1' + 'a'), s.substring(2)));
