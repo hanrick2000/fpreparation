@@ -73,8 +73,8 @@ value of Integer.MIN_VALUE will be quite strange.
 	            while (tempDivident >= (tempDivisor << counter)) {
 	                counter++;
 	            }
-	            ret += 1 << (counter - 1);
-	            tempDivident -= tempDivisor << (counter - 1);
+	            ret += (1 << (counter - 1));
+	            tempDivident -= (tempDivisor << (counter - 1));
 	        }
 	        
 	        // compare the arguments passed in this method
