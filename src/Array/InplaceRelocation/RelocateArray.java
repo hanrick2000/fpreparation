@@ -22,7 +22,7 @@ Source: http://www.careercup.com/question?id=4909367207919616
 
 
 For General Understanding, understand this:
-(x + y*z)/z = y    provided x and y is less than z. (IN SHORT USE / TO DROP THE CURRENT VALUE GET THE OTHER VALUE)
+(x + y*z)/z = y    provided x and y is less than z. (IN SHORT USE / TO GET THE OTHER VALUE)
 (x + y*z)%z = x    provided x and y is less than z. (IN SHORT USE % TO GET THE CURRENT VALUE)
 This is the concept used here.
 Example:
