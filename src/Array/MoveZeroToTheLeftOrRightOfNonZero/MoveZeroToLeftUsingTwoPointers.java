@@ -33,7 +33,8 @@ public class MoveZeroToLeftUsingTwoPointers {
 		while(source>=0){
 			
 			if(a[source]!=0){  
-				if(a[source]!=a[dest]) // if both the elements are DIFFERENT then COPY SOURCE TO DEST AND DECREMENT both the pointers
+				if(a[source]!=a[dest]) 
+			    // if both the elements are DIFFERENT then COPY SOURCE TO DEST AND DECREMENT both the pointers
 					a[dest--]=a[source--];
 				else{ // if the elements are the SAME then DONT COPY BUT DECREMENT both source and dest
 					dest--;
