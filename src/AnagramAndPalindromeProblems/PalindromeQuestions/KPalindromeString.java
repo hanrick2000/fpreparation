@@ -99,7 +99,7 @@ public static boolean usingRecursion(String s, int k){
 	while(s.charAt(0)==s.charAt(s.length()-1)){  // since start and end chars are equal hence no need to decrement k
 		s=s.substring(1,s.length()-1);
 		
-		if(s.length()==0 || s.length() == 1) // If the substring is decremented till the point where the length is 0 or 1, then return true
+		if(s.length()==0 || s==null) // If the substring is decremented till the point where the length is 0 or 1, then return true
 			return true;
 	}
 	 
