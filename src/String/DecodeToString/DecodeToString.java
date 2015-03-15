@@ -28,7 +28,7 @@ public class DecodeToString {
 		try{
 			System.out.println("Enter the numeric string to be decoded");
 			String num = in.nextLine();
-			Set<String> result = decode("",num);
+			Set<String> result = decode(num);
 			System.out.println(result.toString());
 			System.out.println("Number of ways to decode the String: "+numDecodings(num));
 		}
@@ -38,13 +38,19 @@ public class DecodeToString {
 	}
 	
 	// Using recursion we can find this
+	
+	public static Set<String> decode(String s){
+		String prefix="";
+		return decode(prefix,s);
+	}
+	
+/*
+ * TR: Decode = Prefix and String
+ * 1. HashSet
+ * 2. set.addAll(RECURSE)
+ */
 	public static Set<String> decode(String prefix, String s) {
-		
-	/*
-	 * TR: Decode = Prefix and String
-	 * 1. HashSet
-	 * 2. set.addAll(RECURSE)
-	 */
+
 		Set<String> set = new HashSet<String>();
 		
 		// 1. BASE CASE
