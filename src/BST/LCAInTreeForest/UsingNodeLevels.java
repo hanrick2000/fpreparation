@@ -146,7 +146,7 @@ public class UsingNodeLevels {
 		if(a==b) // if a and b belong to same trees then either return a.data OR b.data
 			return a.data;
 		else //if a and b belong to different trees
-		return null;
+			return null;
 		
 		
 	}
