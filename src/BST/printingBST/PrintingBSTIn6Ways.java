@@ -142,6 +142,7 @@ import java.util.Stack;
 		
 		
 		// 1. space print
+		System.out.println();
 		int noOfSpaces = padding/2;
 		while(noOfSpaces>0){
 			System.out.print(" ");
@@ -190,10 +191,11 @@ import java.util.Stack;
 				level++; // we iterate to the next level of the total height
 				
 				padding = spaceSize*(int)(Math.pow(2,height-level)-1);
-				noOfSpaces = padding/2;
+				
 				
 				// 4. space print
 				System.out.println();
+				noOfSpaces = padding/2;
 				while(noOfSpaces>0){
 					System.out.print(" ");
 					noOfSpaces--;
