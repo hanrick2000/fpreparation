@@ -127,9 +127,8 @@ Returns an array containing all of the elements in this collection; the runtime 
         TrieNode node = root;
         for (char ch : word.toLowerCase().toCharArray()) {
             node = node.getChild(ch); // update the NODE(root)
-            if (node == null) {
+            if (node == null)
                 break;
-            }
         }
         return (node != null && node.isWord());
     }
