@@ -132,8 +132,8 @@ import java.util.Stack;
 		q.add(root);
 		
 		
-		int height = height(root);
-		int level=1;
+		int height = height(root);       // gives complete tree height
+		int level=1;                     // we not iterate through the height
 		
 		int curLevelNodes = 1;
 		int nextLevelNodes=0;
