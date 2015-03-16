@@ -139,10 +139,10 @@ import java.util.Stack;
 		int nextLevelNodes=0;
 		
 		int padding = spaceSize*(int)(Math.pow(2,height-level)-1);
-		int noOfSpaces = padding/2;
+		
 		
 		// 1. space print
-		System.out.println();
+		int noOfSpaces = padding/2;
 		while(noOfSpaces>0){
 			System.out.print(" ");
 			noOfSpaces--;
