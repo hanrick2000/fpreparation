@@ -119,8 +119,6 @@ import java.util.Stack;
 	    getVerticalOrder(root.rchild, hd+1, map);
 	}
 
-
-
 	private static void prettyPrint(Node root, int spaceSize) {
 		
 		if(root==null)
@@ -134,17 +132,26 @@ import java.util.Stack;
 		Queue<Node> q = new LinkedList<Node>();
 		q.add(root);
 		
+		
 		int height = height(root);
-		int curLevelNodes = 1, nextLevelNodes=0;
 		int level=1;
+		
+		int curLevelNodes = 1;
+		int nextLevelNodes=0;
 		
 		int padding = spaceSize*(int)(Math.pow(2,height-level)-1);
 		int noOfSpaces = padding/2;
+		
+		// 1. space print
+		System.out.println();
 		while(noOfSpaces>0){
 			System.out.print(" ");
 			noOfSpaces--;
 		}
+		
+		
 		while(level<=height){
+			// 2. space print
 			noOfSpaces = spaceSize;
 			while(noOfSpaces>0){
 				System.out.print(" ");
@@ -159,34 +166,40 @@ import java.util.Stack;
 			}
 			else{
 				System.out.print(" ");
-				q.add(null);
-				q.add(null);
+				q.add(null);              // for the left child
+				q.add(null);              // for the right child
 			}
 			
 			nextLevelNodes+=2;
+			
+			//3. space print
 			noOfSpaces = padding;
 			while(noOfSpaces>0){
 				System.out.print(" ");
 				noOfSpaces--;
 			}
+			
 			q.remove();
-		    // go to next level
+		    
+			//------- go to next level
 			if(--curLevelNodes==0){
 				curLevelNodes=nextLevelNodes;
 				nextLevelNodes=0;
-				level++;
-				padding = spaceSize*(int)(Math.pow(2,height-level)-1);
 				
+				level++;
+				
+				padding = spaceSize*(int)(Math.pow(2,height-level)-1);
 				noOfSpaces = padding/2;
+				
+				// 4. space print
 				System.out.println();
 				while(noOfSpaces>0){
 					System.out.print(" ");
 					noOfSpaces--;
 				}
-				
-				
-			}
-		}
+			}// end of (--curLevelNodes==0)
+			
+		}  // end of while (level<=height)
 		
 	}
 	private static int height(Node root){
