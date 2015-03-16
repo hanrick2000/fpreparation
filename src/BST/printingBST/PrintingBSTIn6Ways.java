@@ -169,7 +169,7 @@ import java.util.Stack;
 				q.add(null);              // for the right child
 			}
 			
-			nextLevelNodes+=2;
+			      
 			
 			//3. space print
 			noOfSpaces = padding;
@@ -178,6 +178,7 @@ import java.util.Stack;
 				noOfSpaces--;
 			}
 			
+			nextLevelNodes+=2;
 			q.remove();
 		    
 			//------- go to next level
