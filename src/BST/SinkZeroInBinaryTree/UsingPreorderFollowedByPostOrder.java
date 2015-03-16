@@ -1,4 +1,3 @@
-
 /*
  * 
  Question: Sink Zero in Binary Tree. Swap zero value of a node with non-zero value of one of its descendants 
@@ -21,7 +20,7 @@ package BST.SinkZeroInBinaryTree;
 
 public class UsingPreorderFollowedByPostOrder {
 	public static void main(String[] args) {
-		Node root = makeTree();
+		Node root = makeTree();        // make a small tree for hand running an example
 		printTree(root);
 		System.out.println();
 		sinkZeroByPreOrder(root);
@@ -57,6 +56,7 @@ public class UsingPreorderFollowedByPostOrder {
 	private static void printTree(Node n) {
 		if(n==null)
 			return;
+		
 		System.out.print(n.data+" ");
 		printTree(n.left);
 		printTree(n.right);
@@ -130,6 +130,31 @@ public class UsingPreorderFollowedByPostOrder {
 		return one;
 		
 	}
+	/*private static Node makeSmallTree() {
+		Node one = new Node(0);
+		Node two = new Node(3);
+		Node three = new Node(0);
+		Node four = new Node(1);
+		Node five = new Node(6);
+		Node six = new Node(44);
+		Node seven = new Node(0);
+		Node eight = new Node(0);
+		
+		
+		one.left=two;
+		one.right=three;
+		
+		two.left=four;
+		two.right=five;
+		
+		three.left=six;
+		three.right=seven;
+		
+		four.left=eight;
+		
+		return one;
+	}
+*/
 }
 class Node{
 	int data;

@@ -47,12 +47,14 @@ public class UsingPreorderAndQueue {
 		if(n.data==0) // current node.data==0 then add to the queue
 			q.add(n);
 		else{
-	// remove the front element, swap node.value of current with the removed and add current node to the queue
+			// remove the front element, swap node.value of current with the removed and add current node to the queue
 			Node element = q.remove();
+			
 			// swap the node.data values
 			int d = n.data;
 			n.data=element.data;
 			element.data=d;
+			
 			q.add(n);
 		}
 		sinkZeroUsingPreOderAndQueue(n.left,q);
@@ -116,6 +118,30 @@ public class UsingPreorderAndQueue {
 		return one;
 		
 	}
+/*	private static Node makeSmallTree() {
+		Node one = new Node(0);
+		Node two = new Node(3);
+		Node three = new Node(0);
+		Node four = new Node(1);
+		Node five = new Node(6);
+		Node six = new Node(44);
+		Node seven = new Node(0);
+		Node eight = new Node(0);
+		
+		
+		one.left=two;
+		one.right=three;
+		
+		two.left=four;
+		two.right=five;
+		
+		three.left=six;
+		three.right=seven;
+		
+		four.left=eight;
+		
+		return one;
+	}*/
 }
 /*
 Analysis: 
