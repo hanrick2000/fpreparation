@@ -42,18 +42,16 @@ public class UsingRecursion {
 			   root.left =  removeOutsideRange(root.left, min, max);
 			   root.right =  removeOutsideRange(root.right, min, max);
 			   
-			// Now fix the root.  There are 2 possible cases for toot
+			   // Now fix the root.  There are 2 possible cases for toot
 			   // 1.a) Root's key is smaller than min value (root is not in range)
 			   if (root.val < min)
 			   {
-			       Node rchild = root.right;
-			       return rchild;
+			       return root.right;
 			   }
 			   // 1.b) Root's key is greater than max value (root is not in range)
 			   if (root.val > max)
 			   {
-			       Node lchild = root.left;
-			       return lchild;
+			       return root.left;
 			   }
 			   // 2. Root is in range
 			   return root;
