@@ -63,7 +63,7 @@ private static Node iterativeBSTToSortedCircularLL(Node root) {
 	  }//while
 	 
 	  //make circular
-	  if (head != null) {
+	  if (head != null){
 	    tail.rchild = head;
 	    head.lchild = tail;
 	  }//if
