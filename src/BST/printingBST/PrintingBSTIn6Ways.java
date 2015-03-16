@@ -198,6 +198,7 @@ import java.util.Stack;
 					System.out.print(" ");
 					noOfSpaces--;
 				}
+				
 			}// end of (--curLevelNodes==0)
 			
 		}  // end of while (level<=height)
