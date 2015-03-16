@@ -61,7 +61,8 @@ Case 2.
 
 
 
-package BST.LCAInTreeForest;
+package BST.LCAInTreeForestAndSameTree;
+
 
 public class UsingNodeLevels {
 
@@ -110,6 +111,8 @@ public class UsingNodeLevels {
 		System.out.println("The LCA of d and c which are in DIFFERENT LEVEL SAME TREES is: "+getLCA(d, c));
 		System.out.println("The LCA of f and e which are in SAME LEVEL SAME TREES is: "+getLCA(f, e));
 		
+		System.out.println(iterativeLCA(a, c, b));
+		System.out.println(recursiveLCA(d, e, f));
 	}
 	
 	
@@ -159,6 +162,37 @@ public class UsingNodeLevels {
 		}
 		return level;
 	}
+	
+	
+	private static Node iterativeLCA(Node root, Node a, Node b) {
+		
+		if(root==null||a==null||b==null)
+			return null;
+		
+		while(root!=null){
+			if(a.data<root.data && b.data<root.data)
+				root=root.left;
+			else if(a.data>root.data && b.data>root.data)
+				root=root.right;
+			else break;
+		}
+		return root;
+	}
+
+	private static Node recursiveLCA(Node root, Node a, Node b) {
+		
+		// TR: THREE if, NO else
+		
+		
+		if(root==null||a==null||b==null)
+			return null;
+		if(a.data<root.data && b.data<root.data)
+			recursiveLCA(root.left,a,b);
+		if(a.data>root.data && b.data>root.data)
+			recursiveLCA(root.right,a,b);
+		return root;
+	}
+
 }
 
 class Node {
