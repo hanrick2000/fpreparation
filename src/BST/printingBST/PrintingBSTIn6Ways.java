@@ -52,6 +52,7 @@ import java.util.Stack;
 			// MaxDepth of BST
 			System.out.println("Max depth of the tree is: ");
 			System.out.println(bst.maxDepth(bst.root));
+			
 			System.out.println("Tree is balanced?");
 			System.out.println(bst.balTree(bst.root));
 			
@@ -261,7 +262,7 @@ import java.util.Stack;
 			if(a.data<root.data && b.data<root.data)
 				root=root.lchild;
 			else if(a.data>root.data && b.data>root.data)
-				root=root.lchild;
+				root=root.rchild;
 			else break;
 		}
 		return root;
@@ -295,7 +296,7 @@ import java.util.Stack;
 		list.add(node.data);
 		
 		if (node.lchild == null && node.rchild == null) {
-		    System.out.println(list);
+		    System.out.println(list.toString());
 		} 
 		else {   // Since we are using List and not Stack, hence we should go first LEFT and then RIGHT
 			
@@ -372,7 +373,7 @@ import java.util.Stack;
 			Node n = stack.pop();
 			System.out.print(n.data+" ");
 			if(n.rchild!=null)//First insert the RCHILD into STACK, reason being, the tree will be printed from LEFT TO RIGHT
-	// However, even if LCHILD into STACK is inserted first, it is NOT worng, just that the tree will be printed from RIGHT TO LEFT
+	// However, even if LCHILD into STACK is inserted first, it is NOT wrong, just that the tree will be printed from RIGHT TO LEFT
 				stack.push(n.rchild);
 			if(n.lchild!=null)  // Then insert LCHILD
 				stack.push(n.lchild);
