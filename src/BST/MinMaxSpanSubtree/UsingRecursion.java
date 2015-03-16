@@ -1,8 +1,6 @@
 /*
 Question: Remove BST keys outside the given range
-
 Question and Answer Source: http://www.geeksforgeeks.org/remove-bst-keys-outside-the-given-range/
-
 */
 
 	
