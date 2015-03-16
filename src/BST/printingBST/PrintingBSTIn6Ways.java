@@ -76,7 +76,6 @@ import java.util.Stack;
 		int hd = 0;  // the horizontal distance of root is 0
 		getVerticalOrder(root,hd,map);
 		
-		
 		// Printing the HashMap
 		Set<Map.Entry<Integer,ArrayList<Integer>>> set = map.entrySet();
 		Iterator<Map.Entry<Integer, ArrayList<Integer>>> itr = set.iterator();
