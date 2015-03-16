@@ -183,10 +183,11 @@ import java.util.Stack;
 		    
 			//------- go to next level
 			if(--curLevelNodes==0){
+				
 				curLevelNodes=nextLevelNodes;
 				nextLevelNodes=0;
 				
-				level++;
+				level++; // we iterate to the next level of the total height
 				
 				padding = spaceSize*(int)(Math.pow(2,height-level)-1);
 				noOfSpaces = padding/2;
