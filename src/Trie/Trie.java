@@ -112,7 +112,7 @@ Returns an array containing all of the elements in this collection; the runtime 
         TrieNode node = root; 
         int wdepth = 0;  // word depth is 0
         for (char ch : word.toLowerCase().toCharArray()) {  // add all the characters of the word
-            node = node.getOrSetChild(ch);  // update the NODE(root)
+            node = node.getOrSetChild(ch);    // update the NODE(root)
             wdepth++;                         // word depth is incremented till the last character of the word
         }
         if (!node.isWord()) { // after adding all the characters of the word, flag the last character of the word 
