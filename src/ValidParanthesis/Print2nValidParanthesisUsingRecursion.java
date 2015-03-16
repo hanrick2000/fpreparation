@@ -93,11 +93,11 @@ private static void printUsingAnotherAlgorithm(char[] str, int pos, int open, in
 	
 	else if(open<n){ // VERY IMP: This else if is very IMPORTANT. Please NOTE this is "else if" and NOT ONLY "if" . If "else if" is not used then the program output will be wrong
 		str[pos]='{'; 
-		printParanthesis(str, pos+1, open+1, close, n);
+		printUsingAnotherAlgorithm(str, pos+1, open+1, close, n);
 	}
 	else if(close<n){       // VERY IMP: This else if is very IMPORTANT. Please NOTE this is "else if" and NOT ONLY "if" . If "else if" is not used then the program output will be wrong
 		str[pos]='}';
-		printParanthesis(str, pos+1, open, close+1, n);
+		printUsingAnotherAlgorithm(str, pos+1, open, close+1, n);
 	}
 		
 }
