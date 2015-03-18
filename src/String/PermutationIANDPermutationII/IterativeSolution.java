@@ -76,6 +76,7 @@ public class IterativeSolution {
 	// Source: http://www.programcreek.com/2013/02/leetcode-permutations-ii-java/
 	
 	public static ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
+		
 		ArrayList<ArrayList<Integer>> returnList = new ArrayList<ArrayList<Integer>>();
 		returnList.add(new ArrayList<Integer>());
 	 
