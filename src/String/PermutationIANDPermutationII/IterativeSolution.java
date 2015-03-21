@@ -57,7 +57,6 @@ public class IterativeSolution {
 					ArrayList<Integer> temp = new ArrayList<Integer>(list);
 					list.remove(j);
 					current.add(temp);
-					
 				}
 			}
 	 
