@@ -46,7 +46,6 @@ public class IterativeSolution {
 		result.add(new ArrayList<Integer>());         // Add an empty ArrayList
 	 
 		for (int i = 0; i < num.length; i++) {
-
 			ArrayList<ArrayList<Integer>> current = new ArrayList<ArrayList<Integer>>();
 	 
 			for (ArrayList<Integer> list : result) {
