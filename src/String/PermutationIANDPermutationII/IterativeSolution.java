@@ -22,7 +22,6 @@ public class IterativeSolution {
 			for(ArrayList<Integer> i: result)
 				System.out.println(i.toString());
 			
-			
 			System.out.println("Enter the size of integer array");
 			int n1 = in.nextInt();
 			int[] a1=new int[n1];
