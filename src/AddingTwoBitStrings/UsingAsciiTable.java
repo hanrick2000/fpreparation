@@ -4,7 +4,7 @@ Question:
 	Add two bit strings
 Source: http://www.geeksforgeeks.org/add-two-bit-strings/
 
-Algorith,: 1. Make the two strings equal in length
+Algorithm: 1. Make the two strings equal in length
 		   2. Sum = XOR             // SUM = a ^ b ^ carry
 		   3. c = a&b|a&c|b&c;      // CARRY = (PREVIOUS CARRY & a) | (PREVIOUS CARRY & b) | (a & b)
 		   where a = bit of string a
