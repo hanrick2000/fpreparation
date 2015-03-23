@@ -10,7 +10,6 @@ Algorith,: 1. Make the two strings equal in length
 		   where a = bit of string a
 		   		 b = bit of string b
 		   		 c = carry
-
 */
 package AddingTwoBitStrings;
 
