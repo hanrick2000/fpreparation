@@ -9,8 +9,10 @@
  * Implement the object oriented design for Othello.
  * 
  *  
+ *  Question Source: http://www.cnblogs.com/xkfz007/archive/2012/11/23/2785272.html
+ *  
 SOLUTION 
-Othello has these major steps: 
+1. Othello has these major steps: 
 2.     Game () which would be the main function to manage all the activity in the game: 
 3.     Initialize the game which will be done by constructor 
 4.     Get first user input 
