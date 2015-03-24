@@ -32,7 +32,17 @@ package Othello;
 
 import java.io.*;
 import java.util.*;
-import java.awt.Point;
+
+// class to define the location of every move
+class Point{
+	int x;
+	int y;
+	
+	public Point(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+}
 
 public class Question {
     private final int white = 1;
