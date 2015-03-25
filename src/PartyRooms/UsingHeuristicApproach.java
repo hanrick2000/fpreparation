@@ -8,8 +8,8 @@ which room to enter. At any point of time each room has to maintain a percentage
  each room has to maintain is 
 A- 20% , B-30% , C- 50%. You can maintain total count of each room and keep on adding count to respective room 
 as the new guest enters each room. 
-How would you go about it. What formula would you use. 
-Give a generalise formula so that it works if no. of rooms increase.
+HOW WOULD YOU GO ABOUT IT. WHAT FORMULA WOULD YOU USE. 
+GIVE A GENERALISE FORMULA SO THAT IT WORKS IF NO OF ROOMS INCREASE.
 
 Question and Answer Source: http://www.careercup.com/question?id=5684841825697792
 
@@ -26,7 +26,7 @@ highest ideal percentage (in this case, room C).
 
 Now, we can see that the percentages of the rooms will be lower for A and B, but higher for C. Since we can't 
 take people out of rooms, we can only add people. Adding to C would be unwise, since it is already over the 
-ideal percentage, so we will look at A and B. whichever has a greater difference that is lower that the average, 
+ideal percentage, so we will look at A and B. whichever has a greater difference from ideal percentage, 
 we will add a person to the room. 
 
 We continue this heuristic to get the best case percentages at any given time... 
