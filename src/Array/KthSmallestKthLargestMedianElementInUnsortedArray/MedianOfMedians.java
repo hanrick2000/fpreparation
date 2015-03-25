@@ -11,7 +11,7 @@ Question Source: http://www.careercup.com/question?id=15435963
 Answer Source: https://yiqi2.wordpress.com/2013/07/03/median-of-medians-selection-algorithm/
 http://javatroops.blogspot.com/2012/10/median-of-medians-to-find-kth-smallest.html
 */
-package Array.MedianKthSmallestKthLargestElementInUnsortedArray;
+package Array.KthSmallestKthLargestMedianElementInUnsortedArray;
 
 import java.util.Arrays;
 import java.util.Scanner;

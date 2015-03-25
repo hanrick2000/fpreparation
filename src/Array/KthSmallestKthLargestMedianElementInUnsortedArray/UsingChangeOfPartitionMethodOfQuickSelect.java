@@ -37,7 +37,7 @@ private static int partition(int[] a, int low, int high) {
 
 
 
-package Array.MedianKthSmallestKthLargestElementInUnsortedArray;
+package Array.KthSmallestKthLargestMedianElementInUnsortedArray;
 
 import java.util.Scanner;
 

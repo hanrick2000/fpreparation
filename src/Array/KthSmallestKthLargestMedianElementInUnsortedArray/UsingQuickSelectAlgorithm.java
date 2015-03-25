@@ -36,7 +36,7 @@ http://www.algolist.net/Algorithms/Sorting/Quicksort
 
 
 */
-package Array.MedianKthSmallestKthLargestElementInUnsortedArray;
+package Array.KthSmallestKthLargestMedianElementInUnsortedArray;
 
 import java.util.Scanner;
 
