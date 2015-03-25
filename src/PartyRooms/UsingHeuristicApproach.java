@@ -23,6 +23,9 @@ Solution Heuristic:
 
 So we know that in the case that we have an ideal percentage, we should add a person to the room with the 
 highest ideal percentage (in this case, room C). 
+Since (2/11) * 100 = 18.18 %
+       (3/11) * 100 = 27.27 %
+This means that C has greater difference to its ideal percentage. Hence we will add 12th person to room C 
 
 Now, we can see that the percentages of the rooms will be lower for A and B, but higher for C. Since we can't 
 take people out of rooms, we can only add people. Adding to C would be unwise, since it is already over the 
