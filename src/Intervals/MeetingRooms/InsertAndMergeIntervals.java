@@ -62,7 +62,6 @@ public class InsertAndMergeIntervals {
             	/*
             	1. newMeeting ENDS FIRST since currentMeeting starts after newMeeting.end hence 
             	newMeeting will obviously end after currentMeeting ends. THUS newMeeting ends first
-            	
             	2. So add newMeeting to result and NOW WE SHOULD CHECK for the next meeting which is
             	currentMeeting, hence currentMeeting becomes newMeeting
                 */
