@@ -3,7 +3,11 @@ package Intervals.MeetingRooms;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
+/*
+ * Algorithm:
+ * 1. Sort according to start time
+ * 2. Check whether meetings overlap (i.e. compare START TIME OF CURRENT WITH END TIME OF PREV meeting)
+ */
 public class CanSinglePersonAttendAllMeetings {
 	public static void main(String[] args){
 		/*
