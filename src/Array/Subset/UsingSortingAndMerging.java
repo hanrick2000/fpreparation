@@ -3,21 +3,21 @@ Question: Find whether FIRST array is subset of SECOND array (Asked in Facebook 
 Question and Answer Source: http://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/
 
 Algoritm:
-	I. USING HASHSET
-	NOTE: DOES NOT HANDLE DUPLICATES
-	1) Create a Hash Table for all the elements of arr1[].
-	2) Traverse arr2[] and search for each element of arr2[] in the Hash Table. 
-	If element is not found then return 0.
-	3) If all elements are found then return 1.
-		
-	II. USING SORTING AND BINARY SEARCH
-	NOTE: DOES NOT HANDLE DUPLICATES
-	1) Sort arr1[] O(mLogm)
-	2) For each element of arr2[], do binary search for it in sorted arr1[].
-	         a) If the element is not found then return 0.
-	3) If all elements are present then return 1.
-			
-	III. Using Sorting and Merging
+    METHOD I. Using HashMap 
+    (BEST METHOD WHICH HANDLES DUPLICATES)
+	1. Program is to check whether FIRST array is subset of SECOND array so we will HashMap the second array
+	   where key = element and value = repetition count
+	2. Iterate through a1 array and check whether the element exists in map
+	   2.1. If the element is not present in map then return false
+	   2.2. If the element is present but is not repeated as it is repeated in the a1 array
+	   2.3. If the element is present and repeated then decrement its repetition count in HashMap
+	3. All checks are done so return true
+	 * Analysis:
+	 * Time Complexity = O(m+n) where m = length of FIRST ARRAY and n = length of SECOND ARRAY
+	 * Space Complexity = O(n) where n = length of SECOND ARRAY
+	 
+	
+	METHOD II. Using Sorting and Merging
 	(METHOD WHICH HANDLES DUPLICATES)
 	1) Sort both arrays: arr1[] and arr2[] O(mLogm + nLogn)
 	2) Use Merge type of process to see if all elements of sorted arr2[] are present in sorted arr1[]
@@ -26,15 +26,26 @@ Algoritm:
 	For example, {1, 4, 4, 2} is not a subset of {1, 4, 2}, but these methods will print it as a subset.
 	
 	THUS, the third method should be used which handles DUPLICATES
-	
-	IV. Using HashMap (BEST METHOD WHICH HANDLES DUPLICATES)
-	1. Program is to check whether FIRST array is subset of SECOND array so we will HashMap the second array
-	   where key = element and value = repetition count
-	2. Iterate through a1 array and check whether the element exists in map
-	   2.1. If the element is not present in map then return false
-	   2.2. If the element is present but is not repeated as it is repeated in the a1 array
-	   2.3. If the element is present and repeated then decrement its repetition count in HashMap
-	3. All checks are done so return true
+	 * Analysis:
+	 * Time Complexity = O(mlgm + nlgn) where m = length of FIRST ARRAY and n = length of SECOND ARRAY
+	 * Space Complexity = O(1)
+	 
+	 
+	 
+	METHOD III. USING HASHSET
+	NOTE: DOES NOT HANDLE DUPLICATES
+	1) Create a Hash Table for all the elements of arr1[].
+	2) Traverse arr2[] and search for each element of arr2[] in the Hash Table. 
+	If element is not found then return 0.
+	3) If all elements are found then return 1.
+		
+	METHOD IV. USING SORTING AND BINARY SEARCH
+	NOTE: DOES NOT HANDLE DUPLICATES
+	1) Sort arr1[] O(mLogm)
+	2) For each element of arr2[], do binary search for it in sorted arr1[].
+	         a) If the element is not found then return 0.
+	3) If all elements are present then return 1.
+
 */
 package Array.Subset;
 
@@ -89,8 +100,11 @@ public class UsingSortingAndMerging {
 		}
 		// 3. All checks are done so return true
 		return true;
-		
 	}
+	/* Analysis:
+	 * Time Complexity = O(m+n) where m = length of FIRST ARRAY and n = length of SECOND ARRAY
+	 * Space Complexity = O(n) where n = length of SECOND ARRAY
+	 */
 	private static boolean subset(int[] a1, int[] a2) {
 		
 		
@@ -132,7 +146,7 @@ public class UsingSortingAndMerging {
 	}
 	/*
 	 * Analysis:
-	 * Time Complexity = O(mlgm + nlgn) where m = length of FIRST array and n = length of SECOND array
+	 * Time Complexity = O(mlgm + nlgn) where m = length of FIRST ARRAY and n = length of SECOND ARRAY
 	 * Space Complexity = O(1)
 	 */
 }
