@@ -30,7 +30,7 @@ Output: 120
 
 
 */
-package Array.FindMaxInIncreasingDecreasingArray;
+package Array.MaxInIncreasingDecreasingArray;
 
 import java.util.Scanner;
 

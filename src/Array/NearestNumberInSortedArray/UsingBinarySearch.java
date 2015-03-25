@@ -6,7 +6,7 @@ Question Source: http://www.careercup.com/question?id=20982670
 	
 Answer Source: Facebook Question: https://sites.google.com/site/spaceofjameschen/home/search/find-a-number-in-the-array-having-least-difference-with-the-given-number-n----facebook
 */
-package Array.FindNearestNumberInSortedArray;
+package Array.NearestNumberInSortedArray;
 
 import java.util.Scanner;
 
