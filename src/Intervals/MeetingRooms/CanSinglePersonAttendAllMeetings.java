@@ -1,6 +1,5 @@
 package Intervals.MeetingRooms;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -45,20 +44,4 @@ private static boolean canSinglePersonAttendAllMeetings(List<Meeting> meetings) 
 	 * Time Complexity = O(nlgn) where n = number of meetings
 	 * Space Complexity = O(1)
 	 */
-	public static List<Meeting> createMeetings(){
-		List<Meeting> meetings = new ArrayList<Meeting>();
-		meetings.add(new Meeting(1,2));
-		meetings.add(new Meeting(2,5));
-		meetings.add(new Meeting(10,14));
-		meetings.add(new Meeting(4,8));
-		meetings.add(new Meeting(3,6));
-		meetings.add(new Meeting(7,9));
-		meetings.add(new Meeting(5,7));
-		meetings.add(new Meeting(6,10));
-		meetings.add(new Meeting(2,3));
-		meetings.add(new Meeting(8,9));
-		meetings.add(new Meeting(8,10));
-		meetings.add(new Meeting(8,11));
-		return meetings;
-	}
 }

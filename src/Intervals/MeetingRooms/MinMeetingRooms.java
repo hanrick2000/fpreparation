@@ -84,40 +84,4 @@ public class MinMeetingRooms {
 	 * Time Complexity = O(mlgm) where m = total number of start AND end times AND m = 2n where n = number of intervals
 	 * Space Complexity = O(m) where m = total start and end time AND m = 2n where n = number of intervals
 	 */
-	public static List<Meeting> createMeetings(){
-		List<Meeting> meetings = new ArrayList<Meeting>();
-		meetings.add(new Meeting(1,2));
-		meetings.add(new Meeting(2,5));
-		meetings.add(new Meeting(10,14));
-		meetings.add(new Meeting(4,8));
-		meetings.add(new Meeting(3,6));
-		meetings.add(new Meeting(7,9));
-		meetings.add(new Meeting(5,7));
-		meetings.add(new Meeting(6,10));
-		meetings.add(new Meeting(2,3));
-		meetings.add(new Meeting(8,9));
-		meetings.add(new Meeting(8,10));
-		meetings.add(new Meeting(8,11));
-		return meetings;
-	}
 }
-// NOTE 1: Arrays.sort, Collections.sort etc use quicksort which is inplace sorting algo. Hence these methods are void
-/*
- * Note 2: While iterating over Collection, if we are making modification to Collection
- * then we should use Iterator for iterating
- * 
- * If we are not making any modification, then we can use get(int index) method
- * Example: List<Meeting> meetings = new ArrayList<Meeting>();
- * int count=0;
- * Meeting curr=null;
- * Meeting prev = meetings.get(0);
- * for(int i=1;i<meetings.size();i++){
- * 	curr=meetings.get(i);
- * 	if(curr.start < prev.end)
- * 		count++;
- * 	prev=curr;
- * }
- * 
- Sources: http://stackoverflow.com/questions/5504570/iterator-vs-for-loop-and-why-iterator-was-introduced-as-we-had-for-loop
- http://stackoverflow.com/questions/2113216/which-is-more-efficient-a-for-each-loop-or-an-iterator
- */
