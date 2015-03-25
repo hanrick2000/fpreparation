@@ -27,20 +27,19 @@ Algoritm:
 	
 	THUS, the third method should be used which handles DUPLICATES
 	
-	TODO:
 	IV. Using HashMap (BEST METHOD WHICH HANDLES DUPLICATES)
-	key = integer and value = count of repetition (used in case of duplicates)
-	Store the big array in HashMap
-	Iterate through the smallArray and for every element check whether map.get(small[i]) >=1
-	Also for every hit, decrement the value in map
-	If, map.get(small[i]) is NOT >=1 OR map does not contain small[i] then return false
-	
-	 NOTE: This handles duplicates and is O(n) time and O(n) space algorithm where n = length of big array
-	
+	1. Program is to check whether FIRST array is subset of SECOND array so we will HashMap the second array
+	   where key = element and value = repetition count
+	2. Iterate through a1 array and check whether the element exists in map
+	   2.1. If the element is not present in map then return false
+	   2.2. If the element is present but is not repeated as it is repeated in the a1 array
+	   2.3. If the element is present and repeated then decrement its repetition count in HashMap
+	3. All checks are done so return true
 */
 package Array.Subset;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class UsingSortingAndMerging {
@@ -61,12 +60,37 @@ public class UsingSortingAndMerging {
 			for(int i=0;i<n;i++)
 				a2[i]=in.nextInt();
 			System.out.println("Is one of the array a subset of another ? "+subset(a1,a2));
+			System.out.println("Is one of the array a subset of another ? "+subsetCheckUsingHashMap(a1,a2));
 		}
 		finally{
 			in.close();
 		}
 	}
-
+	private static boolean subsetCheckUsingHashMap(int[] a1, int[] a2){
+		// 1. Program is to check whether FIRST array is subset of SECOND array so we will HashMap the second array
+		// where key = element and value = repetition count
+		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+		for(int i=0;i<a2.length;i++){
+			if(map.get(a2[i])!=null)
+				map.put(a2[i], map.get(a2[i])+1);
+			else
+				map.put(a2[i], 1);
+		}
+		
+		// 2. Iterate through a1 array and check whether the element exists in map
+		for(int i=0;i<a1.length;i++){
+			if(map.get(a1[i])==null)                 // If the element is not present in map then return false
+				return false;
+			if(map.get(a1[i])<=0)                    // If the element is present but is not repeated as it is repeated in the a1 array
+				return false;
+			else{
+				map.put(a1[i], (map.get(a1[i])-1)); // If the element is present and repeated then decrement its repetition count in HashMap
+			}
+		}
+		// 3. All checks are done so return true
+		return true;
+		
+	}
 	private static boolean subset(int[] a1, int[] a2) {
 		
 		
