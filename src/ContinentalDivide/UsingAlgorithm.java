@@ -29,6 +29,8 @@ The answer would be the list containing the coordinates of all circled cells:
  * 
  * Question and Answer Source: http://www.careercup.com/question?id=5162862051852288
  * 
+ * Difference between |(bitwise) and ||(logical) operators: http://stackoverflow.com/questions/7101992/why-do-we-usually-use-not-what-is-the-difference
+ * 
  * Algorithm:
  * Could probably be made a little bit more efficient but I verified that it works. 
  * Idea is to try dropping water on every square and let it flow to the square's neighbors

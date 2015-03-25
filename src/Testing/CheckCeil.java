@@ -32,6 +32,7 @@ public static void main(String[] args) {
 		System.out.println(o instanceof Collection);
 	
 	}
+	System.out.println(true|false);
 }
 
 private static boolean callfunction() {
