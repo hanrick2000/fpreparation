@@ -30,6 +30,16 @@ public class InsertAndMergeIntervals {
 			in.close();
 		}
 	}
+	public static List<Meeting> createNonOverLappingMeetings(){
+		List<Meeting> meetings = new ArrayList<Meeting>();
+		meetings.add(new Meeting(1,3));
+		meetings.add(new Meeting(4,8));
+		meetings.add(new Meeting(10,15));
+		meetings.add(new Meeting(20,28));
+		meetings.add(new Meeting(32,36));
+		meetings.add(new Meeting(56,68));
+		return meetings;
+	}
 	private static void insertAndMergeIntervals(List<Meeting> meetings, Meeting newMeeting){
 		ArrayList<Meeting> result = new ArrayList<Meeting>();
 		 
