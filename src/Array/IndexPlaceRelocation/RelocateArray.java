@@ -40,7 +40,7 @@ arr[i] += (arr[arr[i]]%size)*size;
 
 
 
-package Array.InplaceRelocation;
+package Array.IndexPlaceRelocation;
 
 import java.util.Scanner;
 
