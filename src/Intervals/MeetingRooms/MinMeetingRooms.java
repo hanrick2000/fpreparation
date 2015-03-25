@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class minMeetingRooms {
+public class MinMeetingRooms {
 	public static void main() {
 		/*
 		 * Answer Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
@@ -36,14 +36,18 @@ public class minMeetingRooms {
 		/*
 		 * Algorithm Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
 		 * Algorithm:
-		 * 1. Add the (startTime) and -(endTime) to an array
-		 * 2. Sort the array by ABSOLUTE VALUES
-		 * 3. Iterate through array
-		 * 		if(arrayElement >= 0)
-		 * 			right = max(right,++cur)
-		 * 		else
-		 * 			--cur;
-		 * 4. return cur;
+		 * 1. Add the (startTime) and -(endTime) to a list
+		 * 2. Sort the list by ABSOLUTE VALUES
+		 * 3. int cur=0;
+			  int maxOverlaps=0;
+		   4. for(Integer i:list){
+			     if(i>=0)  // if it is a start point then increment
+				    cur++;
+			     else
+				    cur--; // if it is a end point then decrement
+			     maxOverlaps=Math.max(maxOverlaps, cur);   // update the maxOverlaps
+		       }
+		   5. return maxOverlaps;
 		 */
 		
 		// Extreme case

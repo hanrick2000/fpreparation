@@ -28,17 +28,17 @@ import java.util.Stack;
  * But advantage of sorting is that it is inplace and does not require extra memory unlike interval search tree node
  * 
  */
-public class UsingGreedyApproach {
+public class AllInOne {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
-			firstProgram();
-			secondProgram();
-			thirdProgram();
-			fourthProgram();
-			fifthProgram();
-			sixthProgram();
-			seventhProgram();
+			minMeetingRooms();
+			canSinglePersonAttendAllMeetings();
+			maxNonOverlappingMeetings();
+			maxOverlappingMeetings();
+			insertAndMergeIntervals();
+			mergeAllOverlappingMeetings();
+			intervalWithMostOverlaps();
 			/*
 			 * VERY VERY IMP NOTE:
 			 * 
@@ -54,7 +54,7 @@ public class UsingGreedyApproach {
 		}
 	}
 
-	private static int solveFirstProgram(List<Meeting> meetings) {
+	private static int minMeetingRooms(List<Meeting> meetings) {
 	
 		 // NOTE 1: Arrays.sort, Collections.sort etc use quicksort which is inplace sorting algo. Hence these methods are void
 		 /*
@@ -81,14 +81,18 @@ public class UsingGreedyApproach {
 		/*
 		 * Algorithm Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
 		 * Algorithm:
-		 * 1. Add the (startTime) and -(endTime) to an array
-		 * 2. Sort the array by ABSOLUTE VALUES
-		 * 3. Iterate through array
-		 * 		if(arrayElement >= 0)
-		 * 			right = max(right,++cur)
-		 * 		else
-		 * 			--cur;
-		 * 4. return cur;
+		 * 1. Add the (startTime) and -(endTime) to a list
+		 * 2. Sort the list by ABSOLUTE VALUES
+		 * 3. int cur=0;
+			  int maxOverlaps=0;
+		   4. for(Integer i:list){
+			     if(i>=0)  // if it is a start point then increment
+				    cur++;
+			     else
+				    cur--; // if it is a end point then decrement
+			     maxOverlaps=Math.max(maxOverlaps, cur);   // update the maxOverlaps
+		       }
+		   5. return maxOverlaps;
 		 */
 		
 		// Extreme case
@@ -126,7 +130,7 @@ public class UsingGreedyApproach {
 	 * Space Complexity = O(2n) where n = number of meetings. Every meeting will have start and end time hence 2n
 	 */
 	
-	public static Meeting findIntervalWithMostOverlaps(List<Meeting> meetings){
+	public static Meeting intervalWithMostOverlaps(List<Meeting> meetings){
 		
 		if(meetings==null||meetings.size()==0)
 			return null;
@@ -196,7 +200,7 @@ public class UsingGreedyApproach {
  * Space Complexity = O(2n) where n = number of meetings. Every meeting will have start and end time hence 2n
  */
 	
-	private static boolean solveSecondProgram(List<Meeting> meetings) {
+	private static boolean canSinglePersonAttendAllMeetings(List<Meeting> meetings) {
 		
 		// Extreme case
 		if(meetings==null||meetings.size()==0)
@@ -219,7 +223,7 @@ public class UsingGreedyApproach {
 	 * Time Complexity = O(nlgn) where n = number of meetings
 	 * Space Complexity = O(1)
 	 */
-	private static int solveThirdProgram(List<Meeting> meetings) {
+	private static int maxNonOverlappingMeetings(List<Meeting> meetings) {
 		
 		// Extreme case
 		if(meetings==null||meetings.size()==0)
@@ -254,7 +258,7 @@ public class UsingGreedyApproach {
 	 * Space Complexity = O(n) where n = number of meetings because we have used Stack
 	 */
 	
-private static int solveFourthProgram(List<Meeting> meetings) {
+private static int maxOverlappingMeetings(List<Meeting> meetings) {
 		
 	if(meetings==null||meetings.size()==0)
 		return 0;
@@ -291,7 +295,7 @@ private static int solveFourthProgram(List<Meeting> meetings) {
  * Time Complexity = O(nlgn) where n = number of meetings
  * Space Complexity = O(2n) where n = number of meetings. Every meeting will have start and end time hence 2n
  */
-	private static void solveFifthProgram(List<Meeting> meetings, Meeting newMeeting){
+	private static void insertAndMergeIntervals(List<Meeting> meetings, Meeting newMeeting){
 		ArrayList<Meeting> result = new ArrayList<Meeting>();
 		 
 		
@@ -347,7 +351,7 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 	 * Space Complexity = O(n) used by result list
 	 */
 	
-	public static void solveSixthProgram(List<Meeting> list){
+	public static void mergeAllOverlappingMeetings(List<Meeting> list){
 		if (list == null || list.size() <= 1)
 			return;
  
@@ -382,7 +386,7 @@ private static int solveFourthProgram(List<Meeting> meetings) {
         	System.out.println(itr.next());
 	}
 	
-	private static void firstProgram() {
+	private static void minMeetingRooms() {
 		/*
 		 * Answer Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
 		 * 
@@ -405,9 +409,9 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 		"\t\t current--; \n"+
 		"\t maxOverlaps=Math.max(maxOverlaps,current)");
 		System.out.println("4. return cur;");
-		System.out.println("Answer is: "+solveFirstProgram(meetings));
+		System.out.println("Answer is: "+minMeetingRooms(meetings));
 	}
-	private static void secondProgram(){
+	private static void canSinglePersonAttendAllMeetings(){
 		/*
 		 * Answer Source: http://www.fgdsb.com/2015/01/30/meeting-rooms/
 		 */
@@ -421,10 +425,10 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 		System.out.println("2. for(int i=1;i<meetings.size(),i++)");
 		System.out.println("  \t if(meeting.get(i).startTime < meeting.get(i-1).endTime) \n\t\t return false;");
 		System.out.println("3. return true");
-		System.out.println("Answer: All meetings can be attended by a single person? "+solveSecondProgram(meetings));
+		System.out.println("Answer: All meetings can be attended by a single person? "+canSinglePersonAttendAllMeetings(meetings));
 	}
 
-	private static void thirdProgram() {
+	private static void maxNonOverlappingMeetings() {
 		/*
 		 * Answer Source: https://github.com/nkatre/geeksforgeeksANDcareercup/blob/master/src/Intervals/findNonOverlappingIntervals/UsingSortingOnStartDateUsingComparator.java
 		 */
@@ -440,18 +444,18 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 		"the meeting which ends first should be in the stack");
 		System.out.println(" \t else \n \t\t push the current meeting on the stack");
 		System.out.println("3. return stack.size()");
-		System.out.println("Answer is: "+solveThirdProgram(meetings));
+		System.out.println("Answer is: "+maxNonOverlappingMeetings(meetings));
 	}
 	
-	private static void fourthProgram() {
+	private static void maxOverlappingMeetings() {
 		// Source: https://haixiaoyang.wordpress.com/2012/03/19/find-the-point-intersect-with-most-intervals/
 		// Source: https://gist.github.com/sundeepblue/11291774
 		List<Meeting> meetings=Meeting.createMeetings();
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program IV");
-		System.out.println("The maximum overlaps are: "+solveFourthProgram(meetings));
+		System.out.println("The maximum overlaps are: "+maxOverlappingMeetings(meetings));
 	}
-	private static void fifthProgram(){
+	private static void insertAndMergeIntervals(){
 		// Question: Given a set of non-overlapping & sorted intervals, insert a new interval into the intervals (merge if necessary).
 		// Question Source: http://www.programcreek.com/2012/12/leetcode-insert-interval/
 		
@@ -469,13 +473,13 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 		int end = in.nextInt();
 		Meeting newMeeting = new Meeting(start,end);
 		System.out.println("Answer is: ");
-		solveFifthProgram(meetings,newMeeting);
+		insertAndMergeIntervals(meetings,newMeeting);
 		}
 		finally{
 			in.close();
 		}
 	}
-	private static void sixthProgram()
+	private static void mergeAllOverlappingMeetings()
 	{
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program VI");
@@ -484,16 +488,16 @@ private static int solveFourthProgram(List<Meeting> meetings) {
 		System.out.println("Solve from the above mentioned source");
 		List<Meeting> meetings= Meeting.createMeetings();
 		System.out.println("Result of merging overlapping intervals are: ");
-		solveSixthProgram(meetings);
+		mergeAllOverlappingMeetings(meetings);
 	}
-	private static void seventhProgram()
+	private static void intervalWithMostOverlaps()
 	{
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Program VII");
 		System.out.println("The section which intersects with the largest number of intervals.");
 		System.out.println("Source: https://csjobinterview.wordpress.com/2012/04/02/the-section-which-intersects-with-the-largest-number-of-intervals/");
 		List<Meeting> meetings= Meeting.createMaxOverlappingIntervals();	
-		System.out.println("Meeting interval with most overlaps: "+findIntervalWithMostOverlaps(meetings).toString());
+		System.out.println("Meeting interval with most overlaps: "+intervalWithMostOverlaps(meetings).toString());
 	}
 	
 	
