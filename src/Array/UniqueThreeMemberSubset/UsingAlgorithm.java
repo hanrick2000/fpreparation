@@ -1,6 +1,9 @@
 /*
-Question: Given an array, find all unique three-member subsets, 
-with unique being that [0,2,3] and [3,2,0] are the same set. Should run in faster than 2^n time
+Question: Given an array, find all UNIQUE THREE-MEMBER SUBSETS within the array
+For Example: If the array is:
+a = [4,8,2,8]
+then 4,8,2 is unique subset WITH UNIQUE meaning that, [8,4,2] and [4,2,8] are the same set. 
+Also the program should run faster than 2^n time
 
 Question and Answer Source: http://www.careercup.com/question?id=16760663
 
