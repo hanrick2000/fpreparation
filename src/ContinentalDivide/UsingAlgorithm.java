@@ -106,7 +106,7 @@ public class UsingAlgorithm {
 	        return divide;
 	    }
 
-	    // drop water on a square, let it flow to surrounding squares(up, down, left and right) if possible,
+	    // Drop water on a square, let it flow to surrounding squares(up, down, left and right) if possible,
 	    // and then update the current square's .canReachPacific and .canReachAtlantic
 	    // instance variables
 	    public static void dropWater(int row, int col, Square[][] grid, int[][] height) {
