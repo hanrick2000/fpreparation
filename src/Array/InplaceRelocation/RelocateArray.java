@@ -5,7 +5,7 @@ Question: WAP to modify the array such that arr[I] = arr[arr[I]].
 DO THIS IN PLACE i.e. with out using additional memory. 
 
 example : if a = {2,3,1,0} 
-o/p = a = {1,0,3,2} 
+o/p: a = {1,0,3,2} 
 
 NOTE : THE ARRAY CONTAINS 0 TO N-1 INTEGERS.
 
