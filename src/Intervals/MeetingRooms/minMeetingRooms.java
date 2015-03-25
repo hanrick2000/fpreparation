@@ -100,7 +100,7 @@ public class minMeetingRooms {
 // NOTE 1: Arrays.sort, Collections.sort etc use quicksort which is inplace sorting algo. Hence these methods are void
 /*
  * Note 2: While iterating over Collection, if we are making modification to Collection
- * then we sould use Iterator for iterating
+ * then we should use Iterator for iterating
  * 
  * If we are not making any modification, then we can use get(int index) method
  * Example: List<Meeting> meetings = new ArrayList<Meeting>();
