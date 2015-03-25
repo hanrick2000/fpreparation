@@ -2,7 +2,7 @@
 Question: Given an array, find all UNIQUE THREE-MEMBER SUBSETS within the array
 For Example: If the array is:
 a = [4,8,2,8]
-then [4,8,2] is unique subset WITH UNIQUE meaning that, [8,4,2] and [4,2,8] are the same set. 
+then [2,4,8], [2,8,8], [4,8,8] are unique subset WITH UNIQUE meaning that, [8,4,2] and [4,2,8] are the same set. 
 Also the program should run faster than 2^n time
 
 Question and Answer Source: http://www.careercup.com/question?id=16760663
@@ -39,7 +39,7 @@ public class UsingAlgorithm {
 	public static void solve(int[] in){
 		  Arrays.sort(in);
 		  int N = in.length;
-		  int count =0;
+		  int count =0;                          // count for unique subsets
 		  for(int i=0;i<N-2;i++){
 		     if (i>0 && in[i]==in[i-1]) continue;
 		     for(int j=i+1;j<N-1;j++){
@@ -51,7 +51,7 @@ public class UsingAlgorithm {
 		        }
 		    }
 		  }
-		  System.out.println("Total counts are: "+count);
+		  System.out.println("Total unique subsets are: "+count);
 		}
 	/*
 	 * Analysis:
