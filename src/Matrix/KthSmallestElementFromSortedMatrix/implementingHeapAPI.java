@@ -5,7 +5,7 @@ Question And Answer Source: http://www.geeksforgeeks.org/kth-smallest-element-in
 
 */
 
-package Matrix.KthSmallestElement;
+package Matrix.KthSmallestElementFromSortedMatrix;
 
 import java.util.Scanner;
 

@@ -11,7 +11,7 @@ Example:
 
 The 3rd smallest element is 20 and 8th smallest element is 32
 */
-package Matrix.KthSmallestElement;
+package Matrix.KthSmallestElementFromSortedMatrix;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
