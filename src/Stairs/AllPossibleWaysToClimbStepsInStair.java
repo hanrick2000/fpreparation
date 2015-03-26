@@ -16,6 +16,8 @@ Question and Answer Source: http://www.careercup.com/question?id=569679445124710
  */
 package Stairs;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class AllPossibleWaysToClimbStepsInStair {
@@ -27,6 +29,7 @@ public class AllPossibleWaysToClimbStepsInStair {
 		    	System.out.println("All unique paths are: ");
 		    	printAllPossibleSteps("", steps);
 		    	System.out.println("Total number of unique paths possible using DP: "+totalNumberOfUniquePathsPossible(steps));
+		    	System.out.println(allPathsUsingDP(steps).toString());
 		    }
 		    finally{
 		    	in.close();
@@ -68,4 +71,41 @@ public class AllPossibleWaysToClimbStepsInStair {
 	     * Time Complexity = O(n)
 	     * Space Complexity = O(n)
 	     */
+	    public static HashSet<String> allPathsUsingDP(int n) {
+
+			ArrayList<HashSet<String>> prevPaths = new ArrayList<HashSet<String>>();
+
+			HashSet<String> st1 = new HashSet<String>();
+			st1.add("1");
+			if(n == 1) 
+				return st1;
+			prevPaths.add(st1);
+
+			HashSet<String> st2 = new HashSet<String>();
+			st2.add("11");
+			st2.add("2");
+			if(n == 2) 
+				return st2;
+			prevPaths.add(st2);
+
+			for (int i = 3; i <= n; i++) {
+				HashSet<String> sti = new HashSet<String>();
+
+				HashSet<String> sti_1 = prevPaths.get(1);
+				for(String subPath : sti_1) {
+					sti.add("1" + subPath);
+					sti.add(subPath + "1");
+				}
+				HashSet<String> sti_2 = prevPaths.get(0);
+				for(String subPath : sti_2) {
+					sti.add("2" + subPath);
+					sti.add(subPath + "2");
+				}
+
+				prevPaths.add(0, prevPaths.get(1)); // add at 0th location of prevPaths
+				prevPaths.add(1, sti);              // add at 1st location of prevPaths
+			}
+
+			return prevPaths.get(1);
+		}
 }
