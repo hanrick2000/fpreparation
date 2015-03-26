@@ -5,6 +5,8 @@ You need to write function which will return final result of the given expressio
 Don't use Expression Tree and start scanning from left to write. 
 
 Question Source: http://www.careercup.com/question?id=5184156424208384
+
+Answer Source: http://www.geeksforgeeks.org/expression-evaluation/
 	
 Algorithm: 
 

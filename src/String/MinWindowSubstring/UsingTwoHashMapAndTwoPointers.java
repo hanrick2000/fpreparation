@@ -19,7 +19,7 @@ http://rleetcode.blogspot.com/2014/01/minimum-window-substring-java.html
 http://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
 http://mattcb.blogspot.com/2012/12/minimum-window-subs	tring.html
 */
-package String.MinimumWindowSubstring;
+package String.MinWindowSubstring;
 
 import java.util.Scanner;
 
@@ -42,13 +42,26 @@ public class UsingTwoHashMapAndTwoPointers {
 	// true and updates minWindowBegin and minWindowEnd with the 
 	// starting and ending position of the minimum window.
 	// Source: http://articles.leetcode.com/2010/11/finding-minimum-window-in-s-which.html
+	
+	/*
+	 * Algorithm:
+	 * 
+	 * Given: S = “acbbaca” and T = “aba“
+	 * 
+	 * The idea is to have two pointers (begin and end position of the window) 
+	 * and two arrays (needToFind and hasFound) while traversing S. needToFind stores the total count
+	 * of a character in T and hasFound stores the total count of a character met so far. We also 
+	 * use a count variable to store the total characters in T that’s matched so far (not counting characters 
+	 * where hasFound[x] exceeds needToFind[x]). When count equals T‘s length, we know a valid window is found.
+	 */
+	
 	public static boolean minWindow(char[] S, char[] T, int minWindowBegin, int minWindowEnd) {
 	  int sLen = S.length;
 	  int tLen = T.length;
 	  int[] needToFind = new int[256];
 	 
 	  for (int i = 0; i < tLen; i++)
-	    needToFind[T[i]]++;
+	    needToFind[T[i]]++;              // Given: S = “acbbaca” and T = “aba“
 	 
 	  int[] hasFound=new int[256];
 	  int minWindowLen = Integer.MAX_VALUE;
@@ -57,8 +70,9 @@ public class UsingTwoHashMapAndTwoPointers {
 	    // skip characters not in T
 	    if (needToFind[S[end]] == 0) 
 	    	continue;
+	    // since the character in T matches character in S, we increment hasFound
 	    hasFound[S[end]]++;
-	    if (hasFound[S[end]] <= needToFind[S[end]])
+	    if (hasFound[S[end]] <= needToFind[S[end]])   // checks whether character match is VALID 
 	      count++;
 	 
 	    // if window constraint is satisfied
