@@ -37,7 +37,7 @@ such that b occurs after a.
  * 
 
 */
-package Array.MaxDifferenceBetweenTwoElementsInArray;
+package Array.MaxStockProfitOrMaxDifference;
 
 import java.util.Scanner;
 
