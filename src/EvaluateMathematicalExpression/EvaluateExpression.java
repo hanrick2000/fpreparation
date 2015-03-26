@@ -27,10 +27,12 @@ public static void main(String[] args) {
 	char[] a = s.toCharArray();
 	StringBuilder postfix = new StringBuilder();
 	for(int i=0;i<a.length;i++){
-		if(!isOperator(a[i])){               // If not an operator then add to the postfix String
+		// If NOT an operator then add to the Postfix String
+		if(!isOperator(a[i])){               
 			postfix.append(a[i]);
 			continue;
 		}
+		// If operator then if the stack is empty or the current precedence is greater than the previous precedence then add to stack
 		if(isOperator(a[i])){
 			if(stack.isEmpty()|| ((getPrecedence(a[i])>getPrecedence(stack.peek())))){
 				stack.push(a[i]);
@@ -56,6 +58,7 @@ private static void evaluatePostfixExpression(String postfix) {
 	char[] c = postfix.toCharArray();
 	Stack<Integer> evalStack = new Stack<Integer>(); // This is an INTEGER STACK. PREVIOUS WAS CHARACTER STACK
 	for(int i=0;i<c.length;i++){
+		// If NOT an operator then push to INTEGER stack
 		if(!isOperator(c[i])){
 			evalStack.push((int) c[i]-'0');
 			continue;
@@ -64,6 +67,7 @@ private static void evaluatePostfixExpression(String postfix) {
 			int secondOperand = evalStack.pop(); // TR: FIRST POPPED IS THE SECOND OPERAND
 			int firstOperand = evalStack.pop();
 			int result=operation(c[i],firstOperand,secondOperand);
+			// push back the result
 			evalStack.push(Integer.valueOf(result));
 		}
 	}
