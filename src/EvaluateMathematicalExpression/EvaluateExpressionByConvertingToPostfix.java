@@ -10,6 +10,7 @@ Algorithm: Convert infix to postfix and then evaluate postfix expression
 
 Youtube Link: https://www.youtube.com/watch?v=vq-nUF0G4fI
 
+NOTE: Postfix Expression is also known as REVERSE POLISH notation
 
 ALERT:
 	1. Conversion from char to int and visa-versa which pushing into and popping from stack
@@ -19,7 +20,7 @@ package EvaluateMathematicalExpression;
 
 import java.util.Stack;
 
-public class EvaluateExpression {
+public class EvaluateExpressionByConvertingToPostfix {
 	public static Stack<Character> stack = new Stack<Character>();    // THIS IS A CHARACTER STACK
 	
 public static void main(String[] args) {
@@ -32,7 +33,9 @@ public static void main(String[] args) {
 			postfix.append(a[i]);
 			continue;
 		}
-		// If operator then if the stack is empty or the current precedence is greater than the previous precedence then add to stack
+		
+		// If operator then if the stack is empty or the current precedence is greater 
+		// than the previous precedence then add to stack
 		if(isOperator(a[i])){
 			if(stack.isEmpty()|| ((getPrecedence(a[i])>getPrecedence(stack.peek())))){
 				stack.push(a[i]);
@@ -105,5 +108,6 @@ private static int operation(char c, int firstOperand, int secondOperand) {
 
 /*
 Analysis:
-	Time Complexity = O(n)
+	Time Complexity = O(2n) since first we convert infix to postfix and then evaluate postfix.
+	Asymptotically the time complexity is O(n)
 	Space Complexity = O(n)*/

@@ -7,9 +7,9 @@ Question and Answer Source: http://www.careercup.com/question?id=15468738
 Algorithm:
 If there is only X i.e one degree expression,then we can use 2 stacks here, 
 Stack 1: for keeping all the operators 
-Stack 2: for keeping terms 
-keep pushing data to stacks,when you hit a left parenthesis ')' pop 1 element
-from stack 1 and 2 elements from stack 2,then apply the operator to the terms and push
+Stack 2: for keeping integer values and X(unknown variable) 
+keep pushing data to stacks,when you hit a left parenthesis ')' pop 1 element from
+stack 1 and 2 elements from stack 2,then apply the operator to the terms and push
 the result again on the stack..you will end up with a simple expression in X that can be solved easily
 */
 
@@ -18,22 +18,32 @@ package EvaluateMathematicalExpression;
 import java.util.Stack;
 
 public class ExpressionWithOneUnknown {
+	
 	public static void main(String[] args) {
 
 		String input = "4x+13(x-(4x+x/3)) = 99";
 		input = input.replace(" ", "");
 		System.out.println(" input " + input);
-		int resultOfEquation = getEquationResult(input);
-		System.out.println(" result is " + resultOfEquation);
+		int rhsOfEquation = getRHSOfEquation(input);
+		System.out.println(" result is " + rhsOfEquation);
 		double xCount = proccessCalculations(input);
 		System.out.println("x count is " + xCount);
-		double finalvalue = resultOfEquation/xCount;
+		double finalvalue = rhsOfEquation/xCount;
 		System.out.println("finalvalue is " + finalvalue);
 	}
+	
+	private static int getRHSOfEquation(String s) {
 
+		for (int j = s.length() - 1; j > 0; j--) {
+			if (s.charAt(j) == '=')
+				return Integer.valueOf(s.substring(j + 1, s.length()));
+		}
+		return 0;
+	}
+	
 	private static double proccessCalculations(String input) {
-		Stack<String> values = new Stack<>();
-		Stack<String> operations = new Stack<String>();
+		Stack<String> values = new Stack<>();                   // stack for integer values and X(unknown variable)
+		Stack<String> operations = new Stack<String>();         // stack for operators (+,-,/,*)
 		int start = 0;
 		for (int i = 0; i < input.length(); i++) {
 			char c = input.charAt(i);
@@ -50,16 +60,16 @@ public class ExpressionWithOneUnknown {
 				continue;
 			}
 			// If the character is '(' then push to values stack
-			if (isBeginSkobka(c)){
+			if (isOpeningBracket(c)){
 				if (start != i){
 					values.push(input.substring(start, i));
-					operations.push("*");
+					operations.push("*");                           // since '(' means multiplication
 				}
 				start = i + 1;
 				continue;
 			}
 			// If the character is ')' then push to values stack
-			if (isEndSkobka(c)) {
+			if (isClosingBracket(c)) {
 				if (start != i){
 					values.push(input.substring(start, i));
 				}
@@ -133,16 +143,15 @@ public class ExpressionWithOneUnknown {
 		return null;
 	}
 
-	private static boolean isEndSkobka(char c) {
+	private static boolean isOpeningBracket(char c) {
 		return c == ')';
 	}
 	
-	private static boolean isBeginSkobka(char c) {
+	private static boolean isClosingBracket(char c) {
 		return c == '(';
 	}
 
 	private static boolean isOperation(char c) {
-		// TODO Auto-generated method stub
 		return c == '+' || c == '/' || c == '-' || c == '*';
 	}
 
@@ -154,14 +163,6 @@ public class ExpressionWithOneUnknown {
 		return c - '0';
 	}
 */
-	private static int getEquationResult(String s) {
-
-		for (int j = s.length() - 1; j > 0; j--) {
-			if (s.charAt(j) == '=')
-				return Integer.valueOf(s.substring(j + 1, s.length()));
-		}
-		return 0;
-	}
 }
 /*
 Analysis:
