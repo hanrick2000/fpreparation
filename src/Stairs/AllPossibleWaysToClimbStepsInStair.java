@@ -89,21 +89,21 @@ public class AllPossibleWaysToClimbStepsInStair {
 			prevPaths.add(st2);
 
 			for (int i = 3; i <= n; i++) {
-				HashSet<String> sti = new HashSet<String>();
+				HashSet<String> mainSet = new HashSet<String>();
 
-				HashSet<String> sti_1 = prevPaths.get(1);
-				for(String subPath : sti_1) {
-					sti.add("1" + subPath);
-					sti.add(subPath + "1");
+				HashSet<String> firstSet = prevPaths.get(1);
+				for(String subPath : firstSet) {
+					mainSet.add("1" + subPath);
+					mainSet.add(subPath + "1");
 				}
-				HashSet<String> sti_2 = prevPaths.get(0);
-				for(String subPath : sti_2) {
-					sti.add("2" + subPath);
-					sti.add(subPath + "2");
+				HashSet<String> secondSet = prevPaths.get(0);
+				for(String subPath : secondSet) {
+					mainSet.add("2" + subPath);
+					mainSet.add(subPath + "2");
 				}
 
 				prevPaths.add(0, prevPaths.get(1)); // add at 0th location of prevPaths
-				prevPaths.add(1, sti);              // add at 1st location of prevPaths
+				prevPaths.add(1, mainSet);          // add at 1st location of prevPaths
 			}
 
 			return prevPaths.get(1);
