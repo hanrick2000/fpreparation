@@ -24,19 +24,48 @@ public class AllPossibleWaysToClimbStepsInStair {
 		    try{
 		    	System.out.println("Enter the number of steps in the stair");
 		    	int steps = in.nextInt();
-		    	printAllpossibleSteps("", steps);
+		    	System.out.println("All unique paths are: ");
+		    	printAllPossibleSteps("", steps);
+		    	System.out.println("Total number of unique paths possible using DP: "+totalNumberOfUniquePathsPossible(steps));
 		    }
 		    finally{
 		    	in.close();
 		    }
 	    }
-	 	// recursive solution
-	    public static void printAllpossibleSteps(String path, int steps) {
+	 	// recursive solution for find all unique paths
+	    public static void printAllPossibleSteps(String path, int steps) {
 	        if(steps > 0){
-	            printAllpossibleSteps(path+" 1",steps-1);
-	            printAllpossibleSteps(path+" 2",steps-2);
+	            printAllPossibleSteps(path+" 1",steps-1);
+	            printAllPossibleSteps(path+" 2",steps-2);
 	        }
 	        else if(steps == 0)
 	            System.out.println(path);
 	    }
+	    /*
+	     * Analysis:
+	     * Time Complexity = O(n)
+	     * Space Complexity = O(n)
+	     */
+	    public static int totalNumberOfUniquePathsPossible(int n) {
+			if (n == 1)
+				return 1;
+			
+			if (n == 2)
+				return 2;
+			
+			int[] count = new int[n];   // count the total unique paths possible
+			count[0] = 1; 
+			count[1] = 2;
+			
+			for (int i = 2; i < n; i++) {
+				count[i] = count[i - 1] + count[i - 2];
+			}
+			
+			return count[n - 1];
+		}
+	    /*
+	     * Analysis:
+	     * Time Complexity = O(n)
+	     * Space Complexity = O(n)
+	     */
 }
