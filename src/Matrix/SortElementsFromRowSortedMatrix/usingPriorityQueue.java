@@ -26,7 +26,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class SortElementsFromRowSortedMatrix {
+public class usingPriorityQueue {
 	public static void main(String[] args) {
 		int[][] matrix = new int[][]{{20, 40, 80}, {5, 60, 90}, {45, 50, 55}}; // row elements are already sorted
 		List<Integer> result = printSortedElements(matrix);		
