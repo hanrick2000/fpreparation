@@ -34,7 +34,7 @@ step 2 . Christmas merry a you wish I
 
 
 
-package reverseWordsInSentenseInConstantMemory;
+package ReverseWordsInSentenseInConstantMemory;
 
 import java.util.Scanner;
 
