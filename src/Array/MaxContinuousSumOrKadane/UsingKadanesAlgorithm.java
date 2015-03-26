@@ -17,7 +17,7 @@ Loop for each element of the array
 return max_so_far
  */
 
-package Array.MaxContinuousSumInArray;
+package Array.MaxContinuousSumOrKadane;
 
 import java.util.Scanner;
 
