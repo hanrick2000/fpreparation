@@ -33,6 +33,35 @@ public class SlidingWindowSumORContinuousSubstringSum {
 		}
 	}
 
+	
+	public static boolean findSum (int [] A ,int T){  // BEST SOLUTION
+		// Extreme Case
+		if(A==null||A.length==0)
+			return (T==0);
+		
+		
+		int sum = 0 ;
+		int j = 0;
+		for (int i = 0 ; i < A.length ; i++) {
+		// using while loop for sliding window
+			while (j < A.length &&  sum < T) { // code for sliding window. The sliding window is "sum" variable
+				sum += A[j] ;
+				j++;
+			}			
+			if (sum == T)
+				return true ;
+			sum -= A[i] ;        // reduce the sliding window
+		}
+						
+		return false ;
+	}
+	/*
+	Analysis:
+	Time Complexity = O(n)
+	Space Complexity = O(1)
+	*/
+	
+
 	private static boolean isContinuousSubseqSum(int[] a, int target) {
 		if(a==null||a.length==0)
 			return (target==0);
@@ -66,31 +95,4 @@ public class SlidingWindowSumORContinuousSubstringSum {
 	Space Complexity = O(1)
 	*/
 	
-	
-	public static boolean findSum (int [] A ,int T){  // BEST SOLUTION
-		// Extreme Case
-		if(A==null||A.length==0)
-			return (T==0);
-		
-		
-		int sum = 0 ;
-		int j = 0;
-		for (int i = 0 ; i < A.length ; i++) {
-		// using while loop for sliding window
-			while (j < A.length &&  sum < T) { // code for sliding window. The sliding window is "sum" variable
-				sum += A[j] ;
-				j++;
-			}			
-			if (sum == T)
-				return true ;
-			sum -= A[i] ;        // reduce the sliding window
-		}
-						
-		return false ;
-	}
-	/*
-	Analysis:
-	Time Complexity = O(n)
-	Space Complexity = O(1)
-	*/
 }
