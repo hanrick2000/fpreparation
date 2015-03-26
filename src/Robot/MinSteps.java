@@ -29,7 +29,7 @@ public class MinSteps {
 	
 	/*
 	 * There is only one way to get to (m,n). 
-	 * If m>n, robot must come from (m-n,n). Otherwise comes from (m, n-m). So Here is my code
+	 * If m>n, robot must come from (m-n,n). Otherwise comes from (m, n-m)
 	 */
 	{
 		if(m<1 || n <1) 
@@ -39,7 +39,8 @@ public class MinSteps {
 		{
 			if(m>n)
 				m=m-n;
-			else n = n-m;
+			else 
+				n = n-m;
 			count++;
 		}
 		if(m==1 && n==1)

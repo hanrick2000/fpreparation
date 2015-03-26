@@ -47,7 +47,7 @@ public class UniqueSteps {
 		}
 	
 	
-	 // 1D DP
+	 // 1 Dimensional DP
 	
 	     public static int uniquePaths1(int m, int n) {
 	         if (m<0||n<0){
@@ -66,7 +66,7 @@ public class UniqueSteps {
 
 	         return arr[n-1];
 	 }
-	 // 2D DP
+	 // 2 Dimensional DP
 	
 	     public static int uniquePaths2(int m, int n) {
 	         if (m<0||n<0){
