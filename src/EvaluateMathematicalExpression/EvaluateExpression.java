@@ -27,7 +27,7 @@ public static void main(String[] args) {
 	char[] a = s.toCharArray();
 	StringBuilder postfix = new StringBuilder();
 	for(int i=0;i<a.length;i++){
-		if(!isOperator(a[i])){
+		if(!isOperator(a[i])){               // If not an operator then add to the postfix String
 			postfix.append(a[i]);
 			continue;
 		}
