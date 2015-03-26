@@ -45,10 +45,8 @@ public class UniqueSteps {
 		 
 		  return recursiveBacktrack(r+1, c, m, n) + recursiveBacktrack(r, c+1, m, n);
 		}
-	
-	
-	 // 1 Dimensional DP
-	
+
+	 	 // 1 Dimensional DP
 	     public static int uniquePaths1(int m, int n) { // where m,n is the destination position
 	         if (m<0||n<0){
 	             return 0;
@@ -66,8 +64,13 @@ public class UniqueSteps {
 
 	         return arr[n-1];
 	 }
-	 // 2 Dimensional DP
-	
+	     /*
+	      * Analysis:
+	      * Time Complexity = O(m*n)
+	      * Space Complexity = O(n)
+	      */
+	     
+	     // 2 Dimensional DP
 	     public static int uniquePaths2(int m, int n) { // where m,n is the destination position
 	         if (m<0||n<0){
 	             return 0;
@@ -90,8 +93,12 @@ public class UniqueSteps {
 	             }
 	         }
 	         
-	         return matrix[m-1][n-1];
-	         
+	         return matrix[m-1][n-1];    
 	     }
+	     /*
+	      * Analysis:
+	      * Time Complexity = O(m*n)
+	      * Space Complexity = O(m*n)
+	      */
 	 
 }
