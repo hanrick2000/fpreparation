@@ -9,7 +9,7 @@ package Matrix.KthSmallestElement;
 
 import java.util.Scanner;
 
-public class KthSmallestInSortedMatrix {
+public class implementingHeapAPI {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);

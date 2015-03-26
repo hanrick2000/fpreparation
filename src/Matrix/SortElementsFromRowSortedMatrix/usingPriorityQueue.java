@@ -13,8 +13,8 @@ matrix = [
 
 Your function should print 5, 20, 40, 45, 50, 55, 60, 80, 90. 
 
-Add on: Assume that we are space-constrained such that we can only hold one column in memory at a time. 
-Optimize your function to work under such constraints as efficiently as possible.
+Add on: Assume that we are space-constrained such that we can only hold one column(i.e. total number of rows) 
+in memory at a time. Optimize your function to work under such constraints as efficiently as possible.
 
 Question and Answer Source: http://www.careercup.com/page?pid=facebook-interview-questions
 */
@@ -34,6 +34,8 @@ public class usingPriorityQueue {
 	}
 	public static List<Integer> printSortedElements(int[][] matrix){
 		
+		
+		// create a minHeap of number of rows
 		PriorityQueue<MatrixElement> minHeap = new PriorityQueue<MatrixElement>(matrix.length, new Comparator<MatrixElement>(){
 			public int compare(MatrixElement a, MatrixElement b){
 				return (a.value-b.value);
