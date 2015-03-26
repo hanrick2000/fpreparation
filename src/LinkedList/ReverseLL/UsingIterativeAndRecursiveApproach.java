@@ -12,7 +12,7 @@ THUS, NEXT can be found easily.
 
 
 //Iterative code
-public static Node reverseIterative(Node head)
+public static Node reverseIteratively(Node head)
 {
    if(head==null)
            return null;
@@ -38,7 +38,7 @@ public static Node reverseIterative(Node head)
  */
 
 //Recursive code
-Node Reverse(Node current, Node prev)
+public static Node reverseRecursively(Node current, Node prev)
 {
    if(current==null)
       return prev;
@@ -46,7 +46,7 @@ Node Reverse(Node current, Node prev)
    Node next = current.next;
    current.next = prev;
    
-   return Reverse(next,current);
+   return reverseRecursively(next,current);
       
 }
 
