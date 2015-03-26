@@ -72,14 +72,22 @@ public class UsingTwoHashMapAndTwoPointers {
 	    	continue;
 	    // since the character in T matches character in S, we increment hasFound
 	    hasFound[S[end]]++;
-	    if (hasFound[S[end]] <= needToFind[S[end]])   // checks whether character match is VALID 
+	    
+	    /*
+	     * use a count variable to store the total characters in T that’s met so far 
+	     * (NOTE: not counting characters where hasFound[x] exceeds needToFind[x])
+	     */
+	    if (hasFound[S[end]] <= needToFind[S[end]])
 	      count++;
 	 
-	    // if window constraint is satisfied
+	    // When count equals T‘s length, we know a valid window is found
 	    if (count == tLen) {
-	      // advance begin index as far right as possible,
-	      // stop when advancing breaks window constraint.
-	      // To understand this, refer here: http://articles.leetcode.com/2010/11/finding-minimum-window-in-s-which.html 
+	    // advance begin index as far right as possible,
+	    // stop when advancing breaks window constraint(window constraint means count should always equal to T.length)
+	    // Assume that begin points to an element x, we check if hasFound[x] is greater than needToFind[x]. 
+	    // If it is, we can decrement hasFound[x] by one and advancing begin pointer without breaking the constraint. 
+	    // On the other hand, if it is not, we stop immediately as advancing begin pointer breaks the window constraint.
+	    // To understand this, refer here: http://articles.leetcode.com/2010/11/finding-minimum-window-in-s-which.html 
 	      while (needToFind[S[begin]] == 0 || hasFound[S[begin]] > needToFind[S[begin]]) {
 	    	  
 	        if (hasFound[S[begin]] > needToFind[S[begin]])
