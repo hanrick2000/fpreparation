@@ -75,7 +75,11 @@ public class UsingAlgorithm {
 	                grid[row][col] = new Square();
 	            }
 	        }
-
+	        /*
+	         * Given that the "Pacific ocean" touches the LEFT AND TOP EDGES of the array and 
+	         * the "Atlantic ocean" touches the RIGHT AND BOTTOM edges. 
+	         */
+	        
 	        // mark .canReachPacific and .canReachAtlantic as true for edges
 	        // mark the square edge box points as true
 	        for (int row = 0; row < nrows; row++) {
