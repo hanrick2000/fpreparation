@@ -11,7 +11,7 @@ Solution Source:
 				https://github.com/nkatre/geeksforgeeksANDcareercup/tree/master/src/SubsetSumProblem
 */
 
-package printAllPossibleCombinationThatAddUpToN;
+package AllPossibleCombinationThatAddUpToN;
 
 import java.util.Scanner;
 import java.util.Stack;

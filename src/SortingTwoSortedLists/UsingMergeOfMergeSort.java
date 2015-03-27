@@ -2,7 +2,7 @@
 Question: Sort two sorted lists in ascending order
 Source: http://www.careercup.com/question?id=5674416807608320
 */
-package sortingTwoSortedLists;
+package SortingTwoSortedLists;
 
 import java.util.Iterator;
 import java.util.LinkedList;
