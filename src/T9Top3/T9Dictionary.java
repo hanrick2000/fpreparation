@@ -1,3 +1,30 @@
+/*
+Question: You have a list of words with ranking. 
+Now you need to create a function that will take this list as input and provide a way so that a
+T9 keyboard can provide three top results of probable words based on rankings for the numbers punched in.
+
+Question And Answer Source: http://www.careercup.com/question?id=5639512665358336
+
+Example: 
+1)
+Enter the numeric string to search: 
+22
+Searching for 22
+Suggestions: 
+aa	ca	ba	
+
+2)
+Enter the numeric string to search: 
+222
+Searching for 222
+Suggestions: 
+aba	cab	ba
+
+
+Explanation:
+Here is a full implementation. It expects a file containing list of words as command line argument. 
+The implementation uses Trie and PriorityQueue.
+*/
 package T9Top3;
 
 //Implement a T9 Dictionary
@@ -49,8 +76,8 @@ public class T9Dictionary {
 		Scanner s = new Scanner(System.in);
 		String numString = s.nextLine();
 
-		List<String> suggestions = t9Dict.getSuggestions(numString);
-		System.out.println("Suggestions: ");
+		List<String> suggestions = t9Dict.getSuggestions(numString);     // get all the suggestions
+		System.out.println("First THREE Suggestions: ");
 		if (suggestions != null) {
 			for (String word : suggestions) {
 				System.out.print(word + "\t");
@@ -83,26 +110,26 @@ public class T9Dictionary {
 }
 
 class Trie {
-	Node node;
+	TrieNode node;
 	Trie[] children;
 
 	// Create an empty trie
 	Trie() {
-		node = new Node();
-		children = new Trie[8];
+		node = new TrieNode();
+		children = new Trie[8];           // Numbers From 2 to 9 (i.e. Total Numbers = 8)
 	}
-
+	
 	void add(String str) {
 		char [] chrs = str.toCharArray();
 		Trie node = this;
 		for (int i = 0; i < chrs.length; i++) {
-			int index = getNodeIndexFromChar(chrs[i]);
-			if (node.children[index] == null) {
+			int index = getNodeIndexFromChar(chrs[i]);            // get the node number (i.e. from 0 to 7)
+			if (node.children[index] == null) {        // if the index of children is null add the character as a children
 				node.children[index] = new Trie();
 			}
-			node = node.children[index];
+			node = node.children[index];          // traverse to the children at this index
 		}
-		node.node.addWord(str);
+		node.node.addWord(str);                   // add the word
 	}
 
 	// The str passed should be a string with digits only between (2 to 9)
@@ -128,7 +155,7 @@ class Trie {
 			System.out.println("Node found but not a leaf node.");
 		}
 		else {
-			PriorityQueue<Word> pq = trie.node.pq;
+			PriorityQueue<Word> pq = trie.node.pq;                  
 			list = new ArrayList<String>();
 			List<Word> wordList = new ArrayList<Word>();
 			int size = pq.size();
@@ -143,46 +170,48 @@ class Trie {
 		}
 		return list;
 	}
+	 
+		public int getNodeIndexFromChar(char ch) {                      // get the node number
+			 	if (ch == 'a' || ch == 'b' || ch == 'c') {
+			 		return 0;
+			 	}
+			 	if (ch == 'd' || ch == 'e' || ch == 'f') {
+			 		return 1;
+			 	}
+			 	if (ch == 'g' || ch == 'h' || ch == 'i') {
+			 		return 2;
+			 	}
+			 	if (ch == 'j' || ch == 'k' || ch == 'l') {
+			 		return 3;
+			 	}
+			 	if (ch == 'm' || ch == 'n' || ch == 'o') {
+			 		return 4;
+			 	}
+			 	if (ch == 'p' || ch == 'q' || ch == 'r' || ch == 's') {
+			 		return 5;
+			 	}
+			 	if (ch == 't' || ch == 'u' || ch == 'v') {
+			 		return 6;
+			 	}
+			 	if (ch == 'w' || ch == 'x' || ch == 'y' || ch == 'z') {
+			 		return 7;
+			 	}
+			 	return -1;
+			 }
 
-	 int getNodeIndexFromChar(char ch) {
-	 	if (ch == 'a' || ch == 'b' || ch == 'c') {
-	 		return 0;
-	 	}
-	 	if (ch == 'd' || ch == 'e' || ch == 'f') {
-	 		return 1;
-	 	}
-	 	if (ch == 'g' || ch == 'h' || ch == 'i') {
-	 		return 2;
-	 	}
-	 	if (ch == 'j' || ch == 'k' || ch == 'l') {
-	 		return 3;
-	 	}
-	 	if (ch == 'm' || ch == 'n' || ch == 'o') {
-	 		return 4;
-	 	}
-	 	if (ch == 'p' || ch == 'q' || ch == 'r' || ch == 's') {
-	 		return 5;
-	 	}
-	 	if (ch == 't' || ch == 'u' || ch == 'v') {
-	 		return 6;
-	 	}
-	 	if (ch == 'w' || ch == 'x' || ch == 'y' || ch == 'z') {
-	 		return 7;
-	 	}
-	 	return -1;
-	 }
-
-	 int getNodeIndexFromNumChar(char chr) {
-	 	return chr - '0' - 2;
-	 }
+		public int getNodeIndexFromNumChar(char chr) {
+			 	return chr - '0' - 2;
+			 }
 }
 
-class Node {
-	public static WordComparator comp = new WordComparator();
-	private boolean isLeaf;
-	PriorityQueue<Word> pq;
+class TrieNode {
+	public static WordComparator comp = new WordComparator();    // To compare whether a word already exists 
+	                                                             //(word frequency is determined using this comparator) 
+	
+	private boolean isLeaf;                                      // indicates end of word
+	PriorityQueue<Word> pq;                                      // maintains words according to their frequency                                      
 
-	Node () {
+	TrieNode () {
 		isLeaf = false;
 	}
 
@@ -191,10 +220,11 @@ class Node {
 	}
 
 	public void addWord(String str) {
+		
 		if (this.isLeaf == false) {
 			this.isLeaf = true;
 			WordComparator comp = new WordComparator();
-			pq = new PriorityQueue<Word>(10, comp);
+			pq = new PriorityQueue<Word>(10, comp);              // top 10 words with highest frequency
 		}
 		// Check if the word is in the queue, if yes, increase its frequency
 		Word w = new Word(str, 1);
@@ -206,7 +236,7 @@ class Node {
 				break;
 			}
 		}
-		pq.offer(w);
+		pq.offer(w);    // Inserts the specified word into this priority queue.
 	}
 }
 
@@ -222,6 +252,11 @@ class Word{
 
 class WordComparator implements Comparator<Word>{
 	public int compare(Word w1, Word w2) {
-		return w2.frequency - w1.frequency;
+		return w2.frequency - w1.frequency;            // descending order
 	}
 }
+/*
+Analysis:
+Time Complexity = O(TotalWords * AverageWordLength)
+Space Complexity = O(TotalWords * AverageWordLength)
+*/
