@@ -15,8 +15,8 @@ import java.util.Stack;
 			BST bst = BinSearchTree.makeTree();
 			
 			// print LCA between 2 nodes
-			System.out.println("Recursively LCA of 20 and 85 is: "+recursiveLCA(bst.root,new Node(20),new Node(85)));
-			System.out.println("Iteratively LCA of 20 and 85 is: "+iterativeLCA(bst.root,new Node(20),new Node(85)));
+			System.out.println("Recursively LCA of 20 and 85 is: "+recursiveLCA(bst.root,new Node(20),new Node(85)).data);
+			System.out.println("Iteratively LCA of 20 and 85 is: "+iterativeLCA(bst.root,new Node(20),new Node(85)).data);
 			
 			// Pretty Print BST
 			System.out.println("Pretty Printing a BST");
