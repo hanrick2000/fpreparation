@@ -1,40 +1,31 @@
 package DutchFlagProblem;
 
 /*
-Question And Answer Source : http://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
+Question Source : http://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
+
+Answer Source: http://blog.csdn.net/feliciafay/article/details/19024897
 
 Algorithm:
 
 int low = 0;
 int mid = 0;
 int high = a.length-1;
-Examine a[mid]. 
-
-
-There are three possibilities: a[Mid] is (0) red, (1) white or (2) blue.
-Case (0) a[Mid] is red, swap a[Lo] and a[Mid]; Lo++; Mid++
-
-0 0 0 0 1 1 1 ? ? ? 2 2 2
-^     ^   ^
-|     |   |
-Lo    Mid Hi
-
-Case (1) a[Mid] is white, Mid++
-
-0 0 0 1 1 1 1 ? ? ? 2 2 2
-^       ^   ^
-|       |   |
-Lo      Mid Hi
-
-Case (2) a[Mid] is blue, swap a[Mid] and a[Hi]; Hi-- ;
-
-0 0 0 1 1 1 ? ? ? 2 2 2 2
-^     ^   ^
-|     |   |
-Lo    Mid Hi
-
-Continue until Mid>Hi.
-*
+    while (mid <= high) {  
+        switch(input[mid]) {                      // switch case is VERY IMP. DONOT use if condition instead of switch case
+            case  0:  
+                swap(input, low, mid);  
+                low ++;  
+                mid ++;  
+                break ;  
+            case  1:  
+                mid ++;  
+                break ;  
+            case  2:  
+                swap(input, mid, high);  
+                high--;  
+                break ;  
+        }  
+    }
 */
 
 import java.util.Scanner;
