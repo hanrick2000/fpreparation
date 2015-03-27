@@ -52,7 +52,7 @@ public class AgeCountFromSortedArray {
 		
 		if(input==null||input.length==0)
 			return null;
-		
+		// Use HashMap where key = unique age and value = repetition count of this age in the array
 		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
 		count (input, 0, input.length-1, map);
 		return map;
@@ -61,9 +61,9 @@ public class AgeCountFromSortedArray {
 	private static void count(int[] input, int begin, int end, HashMap<Integer,Integer> map) {
 		
 		if (input[begin] == input[end]) {
-			if(map.get(input[begin])==null)
+			if(map.get(input[begin])==null)        // if key not present in map
 				map.put(input[begin],end-begin+1);
-			else
+			else                                   // if key present in map then add to the previous value
 				map.put(input[begin],map.get(input[begin])+(end-begin+1));
 		}
 		else {
