@@ -128,12 +128,12 @@ import java.util.Stack;
 		 * IMP Source: http://billmill.org/pymag-trees/
 		 */
 		
-		Queue<Node> q = new LinkedList<Node>();
+		Queue<Node> q = new LinkedList<Node>();  // Queue is used to iterate through all the nodes of the tree
 		q.add(root);
 		
 		
 		int height = height(root);       // gives complete tree height
-		int level=1;                     // we not iterate through the height
+		int level=1;                     // we use 'level' to iterate through the complete tree height calculated above
 		
 		int curLevelNodes = 1;
 		int nextLevelNodes=0;
@@ -158,7 +158,8 @@ import java.util.Stack;
 				noOfSpaces--;
 			}
 			
-			Node n = q.peek();
+			Node n = q.peek(); // Retrieves, but DOES NOT REMOVE, the head of this queue
+			
 			if(n!=null){
 				System.out.print(n.data);
 				q.add(n.lchild);
@@ -179,8 +180,8 @@ import java.util.Stack;
 				noOfSpaces--;
 			}
 			
-			nextLevelNodes+=2;
-			q.remove();
+			nextLevelNodes+=2;          // Every next level will have 2 additional nodes
+			q.remove();                 // removes the head of the queue
 		    
 			//------- go to next level
 			if(--curLevelNodes==0){
