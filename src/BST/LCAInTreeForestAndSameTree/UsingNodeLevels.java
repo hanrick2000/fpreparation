@@ -57,10 +57,6 @@ Case 2.
 
 */
 
-
-
-
-
 package BST.LCAInTreeForestAndSameTree;
 
 
