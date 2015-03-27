@@ -12,6 +12,8 @@ should output something like:
 
 This should be done in less than O(n).
 
+Question and Answer Source: http://www.careercup.com/question?id=5129701993480192
+
 Example:
 8
 8
@@ -36,7 +38,7 @@ public class AgeCountFromSortedArray {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
-			System.out.println("Enter the number of elements of the sorted array");
+			System.out.println("Enter the number of elements of the SORTED array");
 			int n = in.nextInt();
 			int[] input = new int[n];
 			System.out.println("Enter the elements");
