@@ -123,6 +123,8 @@ Efficient Celebrity Algorithm
 1. ELIMINATE ONE PERSON IF HE IS A NON-CELEBRITY.
 2. STRIKE ONE ROW AND ONE COLUMN.
  */
+	
+	// Find Celebrity Iteratively
 	public static int iterativeFindCelebrity(int N) {
 		int celebrity = 0;                            // Assume that the first index is a celebrity
 		for (int i = 1;  i < N; i++) {
