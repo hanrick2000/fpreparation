@@ -1,4 +1,4 @@
-package sortCharactersOfStringInASC;
+package SortCharactersOfStringInASC;
 
 import java.util.Scanner;
 
