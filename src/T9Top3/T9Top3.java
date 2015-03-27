@@ -5,9 +5,13 @@ T9 keyboard can provide three top results of probable words based on rankings fo
 
 Question And Answer Source: http://www.careercup.com/question?id=5639512665358336
 
+Explanation:
+We have implemented the program below. It expects a file containing list of words as command line argument. 
+The implementation uses Trie and PriorityQueue.
+NOTE: Arguments passed is sample.txt which is the file name with some words in it
 
 Algorithm:
-this could be solved with a trie data structure. 
+This could be solved with a trie data structure. 
 1) Create a trie from dictionary 
 3) Having built trie, let's try all possible strings that can be formed with given digits.
 3) For every node in trie, find top 3 words based on ranking. 
@@ -33,10 +37,6 @@ Searching for 222
 Suggestions: 
 aba	cab	ba
 
-
-Explanation:
-Here is a full implementation. It expects a file containing list of words as command line argument. 
-The implementation uses Trie and PriorityQueue.
 */
 package T9Top3;
 
