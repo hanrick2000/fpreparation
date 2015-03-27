@@ -3,7 +3,7 @@ package AnagramGroups;
 
 import java.util.Arrays;
 import java.util.Scanner;
-public class SolutionNotUsingHashMap {
+public class UsingSorting {
 	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);

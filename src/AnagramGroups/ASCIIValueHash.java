@@ -26,7 +26,7 @@ import java.util.HashMap;
 //import java.util.Iterator;
 import java.util.Scanner;
 
-public class SolutionUsingHashMap {
+public class ASCIIValueHash {
 
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);

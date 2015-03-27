@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class SolutionUsingXORHash_USE_IN_INTERVIEW {
+public class XORHash_BEST_SOLUTION {
 
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
@@ -12,6 +12,7 @@ public static void main(String[] args) {
 	System.out.println("Enter the number of elements in the array");
 	int n = in.nextInt();
 	String[] strArray = new String[n];
+	System.out.println("Enter the strings");
 	for(int i=0;i<n;i++)
 		strArray[i] = in.next();
 	HashMap<Integer,ArrayList<String>> map = new HashMap<Integer,ArrayList<String>>();
