@@ -4,7 +4,7 @@ package AnagramAndPalindromeProblems.AnagramQuestions;
 	import java.util.HashMap;
 	import java.util.Scanner;
 
-	public class PrintAnagramGroups {
+	public class AnagramGroupsUsingXORHash {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
