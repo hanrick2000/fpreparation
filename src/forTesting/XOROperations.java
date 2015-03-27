@@ -1,4 +1,4 @@
-package fortesting;
+package forTesting;
 
 public class XOROperations {
 public static void main(String[] args) {
