@@ -5,6 +5,20 @@ T9 keyboard can provide three top results of probable words based on rankings fo
 
 Question And Answer Source: http://www.careercup.com/question?id=5639512665358336
 
+
+Algorithm:
+this could be solved with a trie data structure. 
+1) let's create a trie from dictionary 
+2) for every node in trie, let's precalculate and cache top 3 words based on ranking. 
+This could be done with dfs(node), where dfs returns minHeap with top 3 words matching the current prefix. 
+In every node, heap does not contain more than 3 elements in it. Once we reach a new word in trie, 
+we compare its ranking with min value in heap, replace iff curValue > minValue. 
+3) Having built trie, let's try all possible strings that can be formed with given digits.
+In worst case that would be O(3^m), where m is the number of typed digits. However, having trie we won't
+generate strings that we definetely now not in dictionary 
+
+So overall complexity is O(3^m + sum(length of words in dictionary))
+
 Example: 
 1)
 Enter the numeric string to search: 
@@ -257,6 +271,6 @@ class WordComparator implements Comparator<Word>{
 }
 /*
 Analysis:
-Time Complexity = O(TotalWords * AverageWordLength)
-Space Complexity = O(TotalWords * AverageWordLength)
+Time Complexity = O(3^m + sum(length of words in dictionary)) where m = AverageLengthOfThoseThreeWords
+Space Complexity = O(sum(length of words in dictionary))
 */
