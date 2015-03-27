@@ -69,7 +69,7 @@ public static int[]  DutchFlag (int[] input) {
     int high = input.length-1;
     
     while (mid <= high) {  
-        switch (input[mid]) {                      // switch case is VERY IMP. DONOT use if condition instead of switch case
+        switch(input[mid]) {                      // switch case is VERY IMP. DONOT use if condition instead of switch case
             case  0:  
                 swap(input, low, mid);  
                 low ++;  
