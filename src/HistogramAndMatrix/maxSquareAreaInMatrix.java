@@ -15,9 +15,9 @@ Algorithm:
 			
 NOTE: This only works to find SQUARE SUB MATRIX
 */
-package HistogramAndSubmatrix;
+package HistogramAndMatrix;
 
-class maxSquareAreaInSubMatrix{
+class maxSquareAreaInMatrix{
 
 	    public static void main(String[] args){
 	        

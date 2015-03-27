@@ -8,11 +8,11 @@ Source: http://tech-queries.blogspot.com/2011/03/maximum-area-rectangle-in-histo
 		3. max = Math.max(max,area)
 */	
 
-package HistogramAndSubmatrix;
+package HistogramAndMatrix;
 
 import java.util.Stack;
 
-public class maxRecAreaInSubMatrix {
+public class maxRecAreaInMatrix {
 	    public static void main(String[] args){
 	      
 	      int[][] knows = new int[][]{{0,1,1,0,1},

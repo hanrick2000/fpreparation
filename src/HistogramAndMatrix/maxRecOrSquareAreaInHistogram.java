@@ -1,4 +1,4 @@
-package HistogramAndSubmatrix;
+package HistogramAndMatrix;
 
 import java.util.Scanner;
 import java.util.Stack;
