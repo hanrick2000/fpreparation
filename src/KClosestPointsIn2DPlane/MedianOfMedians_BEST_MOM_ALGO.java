@@ -34,8 +34,8 @@ public class MedianOfMedians_BEST_MOM_ALGO {
              
              public double getDistanceFromPoint()
              {
-           	  //return  (Math.sqrt((this.xCoord)*(this.xCoord) + (this.yCoord)*(this.yCoord)));  // distance from origin
-           	  return  (Math.sqrt((this.xCoord-5)*(this.xCoord-5) + (this.yCoord-5)*(this.yCoord-5))); // distance from point (5,5)
+           	  return  (Math.sqrt((this.xCoord)*(this.xCoord) + (this.yCoord)*(this.yCoord)));  // distance from origin
+           	  //return  (Math.sqrt((this.xCoord-5)*(this.xCoord-5) + (this.yCoord-5)*(this.yCoord-5))); // distance from point (5,5)
              }
              
              public Point(int xCoord, int yCoord) {
