@@ -1,4 +1,4 @@
-package String.T9;
+package T9String;
 
 import java.util.Iterator;
 import java.util.LinkedList;
