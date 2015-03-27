@@ -77,7 +77,7 @@ Does 4 know 5? No. Eliminate 5
 				
  */
 
-package CelebrityProblem;
+package Celebrity;
 
 public class FindCelebrity {
 	static int knows[][];      // global variable
