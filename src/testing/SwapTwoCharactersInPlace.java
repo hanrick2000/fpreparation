@@ -1,4 +1,4 @@
-package Testing;
+package testing;
 
 public class SwapTwoCharactersInPlace {
 public static void main(String[] args) {
