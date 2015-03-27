@@ -49,12 +49,17 @@ public class AgeCountFromSortedArray {
 		}
 	}
 	public static HashMap<Integer,Integer> count(int[] input) {
+		
+		if(input==null||input.length==0)
+			return null;
+		
 		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
 		count (input, 0, input.length-1, map);
 		return map;
 	}
 		
 	private static void count(int[] input, int begin, int end, HashMap<Integer,Integer> map) {
+		
 		if (input[begin] == input[end]) {
 			if(map.get(input[begin])==null)
 				map.put(input[begin],end-begin+1);
