@@ -50,44 +50,48 @@ public static void main(String[] args) {
 		for(int i=0;i<n;i++){
 			array[i] = in.nextInt();
 		}
+		
 		printArrayElements(array);
-		array = implementation(array);
+		array = DutchFlag(array);
 		printArrayElements(array);
 	}
 	finally{
 		in.close();
 	}
 }
+public static int[]  DutchFlag (int[] input) {  
+    
+	if(input==null||input.length==0)  
+        return null;  
+    
+    int  low = 0;
+    int mid = 0;
+    int high = input.length-1;
+    
+    while (mid <= high) {  
+        switch (input[mid]) {                      // switch case is VERY IMP. DONOT use if condition instead of switch case
+            case  0:  
+                swap(input, low, mid);  
+                low ++;  
+                mid ++;  
+                break ;  
+            case  1:  
+                mid ++;  
+                break ;  
+            case  2:  
+                swap(input, mid, high);  
+                high--;  
+                break ;  
+        }  
+    }
+    return input;
+}  
+/*
+Analysis:
+	Time Complexity - O(n)
+	Space Complexity - O(1)
+*/
 
-public static int[] implementation(int[] a){
-	if(a==null||a.length==0)
-		return null;
-	if(a.length==1)
-		return a;
-	int low = 0;
-	int mid = 0;
-	int high = a.length-1;
-	
-	
-	/*
-	 * TO REMEMBER: "while" and "3 if's", all contain "MID" comparison
-	 */
-	while(mid<=high){ // VERY IMP: MID IS LESS THAN OR EQUAL TO HIGH. Similar to Binary Search Condition
-		if(a[mid]==0){   // If the mid is 0, then swap the low with mid, increment BOTH low and mid
-			a=swap(a,mid,low);
-			mid++;
-			low++;
-		}
-		if(a[mid]==1){	// If the mid is 1 then, just increment the mid
-			mid++;
-		}
-		if(a[mid]==2){	// If the mid is 2, then swap high with mid, decrement the high
-			a=swap(a,mid,high);
-			high--;
-		}
-	}
-	return a;	
-}
 private static int[] swap(int[] array,int i, int j) {
 	int temp = array[i];
 	array[i] = array[j];
@@ -103,9 +107,5 @@ public static void printArrayElements(int[] array){
 	System.out.println();
 }
 }
-/*
- Analysis:
-	Time Complexity - O(n)
-	Space Complexity - O(1)
-*/
+
 
