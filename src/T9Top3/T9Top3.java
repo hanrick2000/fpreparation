@@ -38,7 +38,7 @@ import java.util.Scanner;
 import java.util.PriorityQueue;
 import java.util.Comparator;
 
-public class T9Dictionary {
+public class T9Top3 {
 
 	Trie trie;
 
@@ -68,7 +68,7 @@ public class T9Dictionary {
 		}
 		
 
-		T9Dictionary t9Dict = new T9Dictionary();
+		T9Top3 t9Dict = new T9Top3();
 		t9Dict.createTrie(words);
 
 		System.out.println("Enter the numeric string to search: ");
@@ -89,7 +89,7 @@ public class T9Dictionary {
 
 	}
 
-	public T9Dictionary() {
+	public T9Top3() {
 		trie = new Trie();
 	}
 
