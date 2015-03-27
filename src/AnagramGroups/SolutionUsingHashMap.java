@@ -19,7 +19,7 @@ TO THIS QUESTION IS GIVEN
 
  */
 
-package anagramGroups;
+package AnagramGroups;
 
 import java.util.ArrayList;
 import java.util.HashMap;

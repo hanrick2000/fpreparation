@@ -1,4 +1,4 @@
-package findMissingElementInSequentialArrayElements;
+package FindMissingElementInSequentialArrayElements;
 
 import java.util.Scanner;
 

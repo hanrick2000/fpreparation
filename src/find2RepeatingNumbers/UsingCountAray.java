@@ -1,4 +1,4 @@
-package Find2RepeatingNumbers;
+package find2RepeatingNumbers;
 
 public class UsingCountAray {
 

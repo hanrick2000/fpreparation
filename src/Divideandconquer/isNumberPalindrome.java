@@ -1,4 +1,4 @@
-package divideandconquer;
+package Divideandconquer;
 
 public class isNumberPalindrome {
 	

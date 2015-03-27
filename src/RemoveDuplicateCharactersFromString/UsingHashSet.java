@@ -1,4 +1,4 @@
-package removeDuplicateCharactersFromString;
+package RemoveDuplicateCharactersFromString;
 
 import java.util.HashSet;
 import java.util.Scanner;
