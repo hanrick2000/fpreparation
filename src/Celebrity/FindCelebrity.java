@@ -114,7 +114,8 @@ Does 4 know 5? No. Eliminate 5
 		
 		int totalPeople = knows.length;
 
-		System.out.println(findCelebrity(0,totalPeople));
+		System.out.println(recursiveFindCelebrity(0,totalPeople));
+		System.out.println(iterativeFindCelebrity(totalPeople));
 	}
 
 /*
@@ -122,27 +123,61 @@ Efficient Celebrity Algorithm
 1. ELIMINATE ONE PERSON IF HE IS A NON-CELEBRITY.
 2. STRIKE ONE ROW AND ONE COLUMN.
  */
-	public static int findCelebrity(int candidate, int totalPeople) {
-		if (candidate >= totalPeople) {
+	public static int iterativeFindCelebrity(int N) {
+		int celebrity = 0;                            // Assume that the first index is a celebrity
+		for (int i = 1;  i < N; i++) {
+			if (knows(celebrity, i)) {
+				celebrity = i;
+			}
+			else if (knows(i, celebrity)) {
+				// No need to do anything here.
+			}
+			else if (i + 1 < N) {
+				// None of them are celebrity, lets select a new one.
+				celebrity = i + 1;
+				i++; // Increment the counter as none of these two are celebrity.
+			}
+		}
+		boolean noCelebrity = false;
+		// We need to confirm if the celebrity is correct or not.
+		for (int i = 0; i < N; i++) {
+			if (!knows(i, celebrity) || (i != celebrity && knows(celebrity, i))) {
+				noCelebrity = true;
+			}
+		}
+		if (noCelebrity) {
+			return -1;
+		}
+		return celebrity;
+	}
+	/*
+	Analysis:
+		Time Complexity:
+			(n) + (n) = 2(n)
+			Hence the time complexity ASYMPTOTICALLY is = O(n)
+		Space Complexity = O(1)
+	*/
+	public static int recursiveFindCelebrity(int celebrity, int totalPeople) {
+		if (celebrity >= totalPeople) {
 			return -1;
 		}
 
 		// Everyone including celebrity knows themselves.
 		// Hence even if knows[i][i] == 0 (i.e. a person who does not know himself)[which is an exception case]
 		// then also we should move forward
-		if (!knows(candidate, candidate)) {
-			return findCelebrity(candidate + 1, totalPeople);
+		if (!knows(celebrity, celebrity)) {
+			return recursiveFindCelebrity(celebrity + 1, totalPeople);
 		}
 
-		for (int newCandidate = candidate + 1; newCandidate < totalPeople; newCandidate++) {
+		for (int newCandidate = celebrity + 1; newCandidate < totalPeople; newCandidate++) {
 
-			if (knows(candidate, newCandidate)) {  // Does 1 know 4? Yes. Eliminate 1. That is eliminate candidate
-				return findCelebrity(newCandidate,totalPeople); // newCandidate now becomes candidate. Check whether newCandidate is a celebrity
+			if (knows(celebrity, newCandidate)) {  // Does 1 know 4? Yes. Eliminate 1. That is eliminate candidate
+				return recursiveFindCelebrity(newCandidate,totalPeople); // newCandidate now becomes candidate. Check whether newCandidate is a celebrity
 			}
 			else { }// Does 1 know 4? No. Eliminate 4. Check for other newCandidates.
 			
 		}
-		return checkCandidate(candidate,totalPeople);
+		return checkCandidate(celebrity,totalPeople);
 	}
 
 	private static int checkCandidate(int candidate, int totalPeople) {
@@ -160,11 +195,12 @@ Efficient Celebrity Algorithm
 	private static boolean knows(int i, int j) {
 		return (knows[i][j] == 1);  // returns true or false
 	}
+	
 }
 /*
 Analysis:
 	Time Complexity:
-		(n-1) + 2(n-1) = 3(n-1)
-		Hence the time complexity asymptotically is = O(n)
+		(n) + (n) = 2(n)
+		Hence the time complexity ASYMPTOTICALLY is = O(n)
 	Space Complexity = O(1)
 */
