@@ -1,3 +1,32 @@
+/*
+Question:
+Given an array of ages (integers) sorted lowest to highest, output the number of occurrences for each age. 
+For instance: 
+[8,8,8,9,9,11,15,16,16,16] 
+should output something like: 
+8: 3 
+9: 2 
+11: 1 
+15: 1 
+16: 3 
+
+This should be done in less than O(n).
+
+Example:
+8
+8
+8
+9
+9
+11
+15
+16
+16
+16
+Output should be: {16=3, 8=3, 9=2, 11=1, 15=1}
+ * 
+ */
+
 package Array.AgeCount;
 
 import java.util.HashMap;
