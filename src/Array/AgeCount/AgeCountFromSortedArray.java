@@ -69,6 +69,7 @@ public class AgeCountFromSortedArray {
 	/*
 	 * Analysis:
 	 * Time Complexity = O(mlgn) where m = unique number of ages and n = total number of elements
+	 * Since m is practically a constant (unfortunately our age is bound), the time complexity is log n.
 	 * Space Complexity = O(m) where m = unique number of ages
 	 */
 }
