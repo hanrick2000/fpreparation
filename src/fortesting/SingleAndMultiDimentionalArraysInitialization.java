@@ -1,4 +1,4 @@
-package forTesting;
+package fortesting;
 
 public class SingleAndMultiDimentionalArraysInitialization {
 public static void main(String[] args) {

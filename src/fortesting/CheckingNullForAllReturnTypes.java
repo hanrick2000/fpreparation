@@ -1,4 +1,4 @@
-package forTesting;
+package fortesting;
 
 import java.util.List;
 

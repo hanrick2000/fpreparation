@@ -1,4 +1,4 @@
-package forTesting;
+package fortesting;
 
 public class UsingLeftShiftForDivision {
 public static void main(String[] args) {
