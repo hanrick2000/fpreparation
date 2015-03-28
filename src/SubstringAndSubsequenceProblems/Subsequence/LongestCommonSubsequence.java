@@ -115,7 +115,6 @@ public class LongestCommonSubsequence {
 		 		}
 		 		
 		 		// if the characters do not match then go in the max direction in the match matrix
-		 		
 		 		else if(dp[i-1][j]>dp[i][j-1])  // HERE CONSIDER THE dp TABLE FOR MATCHING. THE ABOVE WE CONSIDERED
 		 										// THE TWO STRINGS
 		 			i--;
