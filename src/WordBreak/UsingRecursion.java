@@ -11,21 +11,24 @@ Source: http://www.careercup.com/question?id=5705581721550848
 */
 package WordBreak;
 
+import java.util.HashSet;
+
 
 public class UsingRecursion {
 	public static void main(String[] args) {
 		String[] array = {"world","hello","super","hell"};
-		System.out.println(usingRecursion("helloworld", array));
+		HashSet<String> dict = createHashSetDictionary(array);
+		System.out.println(usingRecursion("helloworld", dict));
 	
 	}
-	private static boolean usingRecursion(String search, String[] dict) {
+	private static boolean usingRecursion(String search, HashSet<String> dict) {
 		
 		if(search.length()==0)
 			return true;
 		
 		// Try all prefixes of lengths from 1 to (string.length()+1)
 		for(int i=1;i<(search.length()+1);i++)
-			if(dictContains(dict,search.substring(0, i)) && 
+			if(dict.contains(search.substring(0, i)) && 
 				usingRecursion(search.substring(i, search.length()), dict))
 				return true;
 			
@@ -33,23 +36,17 @@ public class UsingRecursion {
 		return false;
 		
 	}
-	// We can either use this dictContains method OR we can use HashSet which gives O(1) search, but HashSet
-	// requires where O(n*m) space where
-	//  n = length of each dictionary string
-	//  m = number of strings in the dictionary
-	// This search method has O(m) search time where m = number of strings in the dictionary 
-	private static boolean dictContains(String[] dict, String substring){
-		
-		for(String s: dict){
-			if(s.equals(substring))
-				return true;
-		}
-		return false;
+	private static HashSet<String> createHashSetDictionary(String[] array) {
+		HashSet<String> dictionary = new HashSet<String>();
+		for(String s : array)
+			dictionary.add(s);
+		return dictionary;
 	}
+	/*
+	Analysis: 
+		Time Complexity = O()    maybe O(n^3) considering substring is O(n) otherwise O(n^2)
+		Space Complexity = O()
+	*/
+	
 	
 }
-/*
-Analysis:
-	Time Complexity = 
-	Space Complexity = 
-*/
