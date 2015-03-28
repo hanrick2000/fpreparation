@@ -80,7 +80,7 @@ OF USING INTELLIGENT ALGORITHM CAN BE USED FOR ANY CASE (EVEN IF NODE.DATA IS NO
 */
 
 
-package LLCopyWithRandomPointer;
+package LinkedList.RandomPointer;
 
 public class UsingInteligentAlgorithms {
 public static void main(String[] args) {
