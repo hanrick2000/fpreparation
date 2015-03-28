@@ -39,6 +39,10 @@ public class DecodeToString {
 	// Using recursion we can find this
 	
 	public static Set<String> decode(String s){
+		
+		if(s==null||s.length()==0)
+			return null;
+		
 		String prefix="";
 		return decode(prefix,s);
 	}
@@ -83,10 +87,5 @@ public class DecodeToString {
 	Time Complexity = O()
 	Space Complexity = O()
 	*/
-	
-	
-	
-	// Number of ways to decode the String is given by DP solution mentioned below
-	// Preferred method to calculate number of ways because the Time Complexity = O(n)
 	
 }

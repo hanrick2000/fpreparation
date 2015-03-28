@@ -46,17 +46,6 @@ public class NumberOfWaysToDecode {
 		}
 	}
 	public static int numDecodings(String s) {
-		
-/*
- * Algorithm:
-Lets say we have String as "1" so our output will be 1 because we only form 'A' 
-but if we add 2 to the existing string "12" then output is "AB" and "L" so if you see 
-the logic is when you add a character to an existing string the number of combinations increase by combining 
-last 2 digits, in dp it can be formulized As 
-d[i]=dp[i-1]+dp[i-2](if the last 2 digits combined is smaller than 27) 
-else dp[i]=dp[i-1]
-Code is as below		
- */
 
 		if (s == null || s.length() == 0) {
 			return 0;
