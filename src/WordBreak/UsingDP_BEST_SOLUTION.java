@@ -7,7 +7,8 @@ dictionary: "world", "hello", "super", "hell"
 key: "helloworld" --> return true 
 key: "superman" --> return false 
 key: "hellohello" --> return true
-Source: http://www.careercup.com/question?id=5705581721550848
+
+Question and Answer Source: http://www.careercup.com/question?id=5705581721550848
 */
 
 
