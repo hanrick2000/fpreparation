@@ -15,7 +15,7 @@ Question and Answer Source: http://www.careercup.com/question?id=509635207574323
 
 */
 
-package LCCLongestConsecutiveCharacter;
+package String.LongestConsecutiveCharacter;
 
 import java.util.ArrayList;
 import java.util.List;

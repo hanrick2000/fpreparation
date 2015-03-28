@@ -14,6 +14,10 @@ Should produce:
 hello 
 all 
 
+Question Source: http://www.careercup.com/question?id=4849108141473792
+
+Answer Source: http://geeksquiz.com/remove-comments-given-cc-program/
+
 */
 
 
