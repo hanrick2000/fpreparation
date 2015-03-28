@@ -18,7 +18,7 @@ A group of connected 1s forms an island. For example, the below matrix contains 
 
 package Matrix.ConnectedComponentsCountOrIslandsCount;
 
-public class UsingDFS{
+public class CountConnectedComponentsOrIslands{
 	public static void main(String[] args) {
 		int[][] M= new int[][]{  {1, 1, 0, 0, 0},
 		        				 {0, 1, 0, 0, 1},
