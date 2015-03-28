@@ -58,6 +58,12 @@ Now all the words are read. Output the order by pick up a vertex randomly (say w
 
 The output is z, a, c, r. The ordering of "c" and "r" are random since we don't really know their
  relationship from the input.
+
+IMP Sources: http://siyang2notleetcode.blogspot.com/2015/02/derive-order-for-new-language.html
+http://www.fgdsb.com/2015/01/03/get-lexicographical-order-from-dictionary/
+http://pastebin.com/q7PyME7A
+http://stackoverflow.com/questions/10304176/order-a-list-of-characters-given-a-dictionary
+ *
  * 
  * 
  */
