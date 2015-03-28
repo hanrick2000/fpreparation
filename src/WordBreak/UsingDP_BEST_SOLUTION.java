@@ -1,12 +1,25 @@
+/*Question: You're given a dictionary of strings, and a key. Check if the key is composed of an 
+		  arbitrary number of concatenations of strings from the dictionary. 
+
+For example: 
+
+dictionary: "world", "hello", "super", "hell" 
+key: "helloworld" --> return true 
+key: "superman" --> return false 
+key: "hellohello" --> return true
+Source: http://www.careercup.com/question?id=5705581721550848
+*/
+
+
 package WordBreak;
 
 import java.util.HashSet;
 
-public class UsingDynamicProgramming {
+public class UsingDP_BEST_SOLUTION {
 	public static void main(String[] args) {
-		String[] array = {"world","hello","super","hell"};
+		String[] array = {"world","hello","super","hell","programcree","program","creek"};
 		HashSet<String> dict = createHashSetDictionary(array);
-		System.out.println(usingDP("helloworld", dict));
+		System.out.println(usingDP("programcreek", dict));
 	
 	}
 
@@ -41,10 +54,12 @@ public class UsingDynamicProgramming {
 }
 /*
 Analysis:
+	
+Time Complexity= O(n^3) if substring is taken to be O(n) operation
+
 	Time complexity of predefined methods:
 		substring = O(n)
 		contains = O(1) or if all the strings entered are same then their hash values are same and hence in worst 
 		case it is O(n) if all strings are same
-	
-Time Complexity= O(n^3) if substring is taken to be O(n) operation
+
 */
