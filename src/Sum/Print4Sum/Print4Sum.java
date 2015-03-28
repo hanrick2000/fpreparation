@@ -1,6 +1,6 @@
 /*
- * Question: You're given an array of integers(eg [3,4,7,1,2,9,8]) 
- * Find the index of values that satisfy A+B = C + D, where A,B,C & D are integers values in the array. 
+Question: You're given an array of integers(eg [3,4,7,1,2,9,8]) 
+Find the index of values that satisfy A+B = C + D, where A,B,C & D are integers values in the array. 
 
 Example: Given [3,4,7,1,2,9,8] array 
 The following 
@@ -52,7 +52,7 @@ public class Print4Sum {
 	                map.put(currentTwoSum, node); // enter the twoSum and the corresponding Node forming the twoSum  
 	            }
 	            else{  
-	                Node tnode = map.get(currentTwoSum);  
+	                Node tnode = map.get(currentTwoSum);
 	                int x = tnode.x;
 	                int y = tnode.y;
 	                if (x != i && x != j && y != i && y != j)  
