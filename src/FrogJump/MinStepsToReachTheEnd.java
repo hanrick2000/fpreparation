@@ -13,10 +13,7 @@
 	Question and Answer Solution: https://github.com/walnutown/CodingInTheDeep/blob/master/LeetCode/JumpGame2.java
 *
 */
-
-
-
-package Jump;
+package FrogJump;
 
 import java.util.Scanner;
 
@@ -59,5 +56,27 @@ Analysis:
 Time Complexity = O(n)
 Space Complexity = O(1)
 */
-
+	
+	
+	// Using Dynamic Programming the Time Complexity = O(n^2) and Space Complexity = O(n^2)
+	public int jump(int[] A) {
+        if (A==null || A.length==0) return 0;
+        int N = A.length;
+        int[] dp = new int[N+1];
+        dp[0] = 0;
+        dp[1] = 0;
+        for (int i=1; i<N; i++){
+            int range = A[i];
+            for (int j=1; j<=range && ((i+j)<N); j++){ 
+                if (dp[i+j] == 0)   dp[i+j] = dp[i] + 1;
+                else dp[i+j] = Math.min(dp[i+j], dp[i]+1);
+            }
+        }
+        return dp[N];
+    }
+	/*
+	Analysis:
+	Time Complexity = O(n^2)
+	Space Complexity = O(n^2)
+	*/
 }
