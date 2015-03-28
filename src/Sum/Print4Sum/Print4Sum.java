@@ -46,11 +46,12 @@ public class Print4Sum {
 	    outerloop:
 	    for(int i=0;i<len-1; i++){
 	        for(int j=i+1; j<len; j++){
-	            currentTwoSum = a[i] + a[j];
+	            currentTwoSum = a[i]+a[j];
 	            if (!map.containsKey(currentTwoSum)){  
 	                Node node = new Node(i,j);  
 	                map.put(currentTwoSum, node); // enter the twoSum and the corresponding Node forming the twoSum  
-	            }else{  
+	            }
+	            else{  
 	                Node tnode = map.get(currentTwoSum);  
 	                int x = tnode.x;
 	                int y = tnode.y;
