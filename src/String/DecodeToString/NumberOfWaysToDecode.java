@@ -19,12 +19,11 @@ Answer Source: http://shanjiaxin.blogspot.com/2014/04/decode-ways-leetcode.html
 
 Algorithm:
  * Solution: Linear DP
- * Nums [i] before representatives 0 digit number can be in the solution. 
  * 1. For each non-zero, num [i] = num [i-1]. Here only a single digit calculation problem 
  * 2. For two digit, look at whether the 10-26 range, if num [i] + = num [i-2] solution species equal
  *    num [i-2], which is focused on the front, such that Several
  * 3. test case, the last one if it is 0, the range, that is, num [i-2] possible, if not, the String is not legal.
- * 
+ *    (i.e. Number = 10. Output =1 as 10 can be decoded in 1 way)
 */
 
 
