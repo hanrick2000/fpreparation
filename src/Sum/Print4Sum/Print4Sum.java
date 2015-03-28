@@ -50,7 +50,7 @@ public class Print4Sum {
 	            currentTwoSum = a[i] + a[j];  
 	            if (!map.containsKey(currentTwoSum)){  
 	                Node node = new Node(i,j);  
-	                map.put(currentTwoSum, node);     // enter the twoSum and the corresponding Node forming the twoSum  
+	                map.put(currentTwoSum, node); // enter the twoSum and the corresponding Node forming the twoSum  
 	            }else{  
 	                Node tnode = map.get(currentTwoSum);  
 	                int x = tnode.x;
