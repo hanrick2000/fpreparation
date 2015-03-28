@@ -1,6 +1,6 @@
-package BST.HtDiameterBalancedTotalNodes;
+package BST.SubtreeMirrorDoubleSameisSymmetric;
 
-public class ToGetHtDiameterBalancedTotalNodes {
+public class SubtreeMirrorDoubleSameisSymmetric {
 	
 	// Check if tree is balanced
 	public static boolean balTree(Node root){
