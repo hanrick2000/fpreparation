@@ -14,12 +14,51 @@ derive one valid particular ordering of letters in this language.
  * 
  * Answer Source: http://siyang2notleetcode.blogspot.com/2015/02/derive-order-for-new-language.html
  * 
- * Algorithm:
+ * Explanation:
  * Complexity of the algorithm is O (nk) k is the average length of each word and n = number of words
  * Starting index = 0, every first find a letter before the same [begin, end] section, and then call 
  * the subroutine setOrder (Node [] order, String [] strArray, int begin, int end, int index) to connecting 
  * the corresponding node, after the completion of this part to get a DAG, DAG order to run on the 
  * resulting topological sorting order is a new language.
+ * 
+ * 
+ * 
+ALGORITHM (Source: http://stackoverflow.com/questions/10304176/order-a-list-of-characters-given-a-dictionary)
+Use a directed graph with 26 vertices, each vertex represents a character. 
+An edge from vertex A to vertex B means in the alphabet B is in front of A.
+
+The first step is to establish such a graph with only vertices but NO edges.
+
+Second, you scan the input dictionary, word by word. And compare each word with the previous word.
+ You should find exact one relationship for each word you scanned. So you add an edge in this graph.
+  Assume the dictionary is correct, there should be no conflicts.
+
+After you finished the dictionary, you output the alphabet by
+
+pick a random vertex, traverse its path until you find the one character that points to nothing. 
+This is the first character in the alphabet. Output it and delete it from the graph.
+keep doing 1 until all vertices are deleted.
+EDIT: To better explain this algorithm, let's run it on your sample input.
+
+Input: {"zebra', "apple", "cat", "crass"}
+
+Word 0 and word 1, we immediately know that z comes before a, so we make an edge a->z
+
+Word 1 and word 2, we immediately know that a comes before c, so we make another edge c->a
+
+Word 2 and Word 3, the first letters are the same "c", but the second ones differ, so we learn 
+that a comes before r, so we have another edge r->a
+
+Now all the words are read. Output the order by pick up a vertex randomly (say we pick c), then
+ we have c->a->z in the graph. Output z and delete z from the graph (mark it as NULL). Now pick 
+ another one (say we pick r), then we find r->a in the graph. We output a and delete a from graph. 
+ Now we pick another one (say we pick c again), there's no path found, so we just output c and 
+ delete it. Now we pick the last one, r, there's no path again, so we output r and delete it. 
+ Since all vertices are deleted, the algorithm is done.
+
+The output is z, a, c, r. The ordering of "c" and "r" are random since we don't really know their
+ relationship from the input.
+ * 
  * 
  */
 
