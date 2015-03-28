@@ -32,7 +32,12 @@ package SubstringAndSubsequenceProblems.Subsequence;
 				System.out.println("Enter the string");
 				String orig = in.nextLine();
 				
-				// Using DP algorithm of Longest Palindrome Subsequence
+				// Using Dynamic Programming Table (BEST SOLUTION)
+				System.out.println("The MIN INSERTIONS REQ FOR FORMING PALINDROME "
+						+ "using DYNAMIC PROGRAMMING TABLE is: "+usingDPTable(orig));
+				
+				
+				// Using Longest Palindrome Subsequence (USES EXTRA SPACE)
 				StringBuilder rev = new StringBuilder();
 				for(int i=orig.length()-1;i>=0;i--)
 					rev.append(orig.charAt(i));
@@ -40,12 +45,7 @@ package SubstringAndSubsequenceProblems.Subsequence;
 						+ "using LONGEST PALINDROME SUBSEQUENCE ALGORITHM is: "+usingLongestPalinSubSequence(orig,rev.toString()));
 		
 				
-				// Using Dynamic Programming Table
-				System.out.println("The MIN INSERTIONS REQ FOR FORMING PALINDROME "
-						+ "using DYNAMIC PROGRAMMING TABLE is: "+usingDPTable(orig));
-				
 				// Using Recursion. DONOT GIVE THIS SOLUTION IN INTERVIEW SINCE DP SOLUTIONS EXISTS WHICH ARE BETTER THAN RECURSION SOLUTION
-				
 				System.out.println("The MIN INSERTIONS REQ FOR FORMING PALINDROME "
 						+ "using RECURSION is: "+usingRecursion(orig,0,orig.length()-1));
 				
@@ -56,62 +56,9 @@ package SubstringAndSubsequenceProblems.Subsequence;
 			}
 		}
 
-
-
-
-		private static int usingLongestPalinSubSequence(String orig, String rev) {
-			return (orig.length() - usingLPSubSequenceAlgorithm(orig,rev));
-		}
-
-		private static int usingLPSubSequenceAlgorithm(String orig, String rev) {
-			
-			/*
-			 * Algorithm Source: http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
-			 *
-			 *III. Using (by Dynamic Programming) LONGEST PALINDROME SUBSEQUENCE Algorithm
-			Find the length of  LONGEST PALINDROME SUBSEQUENCE between original and reverse string
-			Now the Minimum Number of Insertions required to form a palindrome = Original String length - length of  LONGEST PALINDROME SUBSEQUENCE
-		
-			 */
-			
-			
-			int[][] dp = new int[orig.length()+1][rev.length()+1]; // +1 to store the previous matches
-			
-			// fill the 0th row
-			for(int i=0;i<(orig.length()+1);i++)
-				dp[i][0] = 0;
-			
-			// fill the 0th column
-			for(int j=0;j<(rev.length()+1);j++)
-				dp[0][j] = 0;
-			
-			int result = 0; // stores the length of longest palindrome SUBSEQUENCE
-			
-			// fill the remaining rows and columns
-			for(int i=1;i<(orig.length()+1);i++){
-				for(int j=1;j<(rev.length()+1);j++){
-					
-					if(orig.charAt(i-1)==rev.charAt(j-1))
-						dp[i][j] = dp[i-1][j-1]+1;
-					
-					else
-						dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);
-					
-					result = Math.max(result,dp[i][j]);
-					
-				}
-			}
-			return result;
-			
-		}
-		/*
-		 * Analysis:
-		 * Time Complexity = O(n^2)
-		 * Space Complexity = O(n^2)
-		 */
 		
 		
-		private static int usingDPTable(String s) {
+private static int usingDPTable(String s) {
 			
 			/*
 			 * Algorithm Source: http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
@@ -172,6 +119,61 @@ package SubstringAndSubsequenceProblems.Subsequence;
 		 * Time Complexity = O(n^2)
 		 * Space Complexity = O(n^2)
 		 */
+	
+		
+
+
+		private static int usingLongestPalinSubSequence(String orig, String rev) {
+			return (orig.length() - usingLPSubSequenceAlgorithm(orig,rev));
+		}
+
+		private static int usingLPSubSequenceAlgorithm(String orig, String rev) {
+			
+			/*
+			 * Algorithm Source: http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
+			 *
+			 *III. Using (by Dynamic Programming) LONGEST PALINDROME SUBSEQUENCE Algorithm
+			Find the length of  LONGEST PALINDROME SUBSEQUENCE between original and reverse string
+			Now the Minimum Number of Insertions required to form a palindrome = Original String length - length of  LONGEST PALINDROME SUBSEQUENCE
+		
+			 */
+			
+			
+			int[][] dp = new int[orig.length()+1][rev.length()+1]; // +1 to store the previous matches
+			
+			// fill the 0th row
+			for(int i=0;i<(orig.length()+1);i++)
+				dp[i][0] = 0;
+			
+			// fill the 0th column
+			for(int j=0;j<(rev.length()+1);j++)
+				dp[0][j] = 0;
+			
+			int result = 0; // stores the length of longest palindrome SUBSEQUENCE
+			
+			// fill the remaining rows and columns
+			for(int i=1;i<(orig.length()+1);i++){
+				for(int j=1;j<(rev.length()+1);j++){
+					
+					if(orig.charAt(i-1)==rev.charAt(j-1))
+						dp[i][j] = dp[i-1][j-1]+1;
+					
+					else
+						dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);
+					
+					result = Math.max(result,dp[i][j]);
+					
+				}
+			}
+			return result;
+			
+		}
+		/*
+		 * Analysis:
+		 * Time Complexity = O(n^2)
+		 * Space Complexity = O(n^2)
+		 */
+		
 		
 		
 

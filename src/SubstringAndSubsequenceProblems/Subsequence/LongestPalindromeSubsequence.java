@@ -22,19 +22,65 @@ public class LongestPalindromeSubsequence {
 		System.out.println("Enter the string to check for Longest Palindrome Subsequence");
 		String orig = in.nextLine();
 		
-		// Create a reverse string
-		StringBuilder rev = new StringBuilder();
-		for(int i=orig.length()-1;i>=0;i--)
-			rev.append(orig.charAt(i));
-		
-		System.out.println("Using the longest common subsequence algorithm: "+usingLCSubSequence(orig,rev.toString()));
+		// Using Dynamic Programming Table (BEST SOLUTION)
 		System.out.println("Using Dynamic Programming: "+usingDP(orig));
+		
+		// Using Longest Palindrome Subsequence (USES EXTRA SPACE)
+		StringBuilder rev = new StringBuilder();           // Create a reverse string   
+		for(int i=orig.length()-1;i>=0;i--)
+			rev.append(orig.charAt(i));                   
+		System.out.println("Using the longest common subsequence algorithm: "+usingLCSubSequence(orig,rev.toString()));
+
+		
+		// Using Recursion. DONOT GIVE THIS SOLUTION IN INTERVIEW SINCE DP SOLUTIONS EXISTS WHICH ARE BETTER THAN RECURSION SOLUTION
 		System.out.println("Using Recursion: "+usingRecursion(orig)); // DONOT give RECURSION solution in Interviews if the problem can be SOLVED using DP
 	}
 	finally{
 		in.close();
 	}
 	}
+	
+	
+	
+	
+	private static int usingDP(String s) {
+		int[][] dp = new int[s.length()][s.length()];    // VERY IMP: Exactly s.length() and NOT +1
+		
+		// if the length of the string is 1 then fill 1 in those boxes
+		for(int i=0;i<s.length();i++)
+			dp[i][i] = 1;
+		
+		// if the length of the string is 2 to string.length then do the following
+		int end = 0;
+		for(int length=2;length<=s.length();length++){ // len is length of the substring
+			
+			for(int start=0; start<s.length()-length+1;start++){
+
+				end = start+length-1;                             // VERY IMP
+				
+				if(s.charAt(start)==s.charAt(end) && length==2)
+					dp[start][end]=2;                             //=2
+				else if(s.charAt(start)==s.charAt(end))
+					dp[start][end] = dp[start+1][end-1] + 2;      //=+2
+				else
+					dp[start][end] = Math.max(dp[start][end-1],dp[start+1][end]);
+				
+				
+			}
+			
+		}
+		return dp[0][s.length()-1];                      // VERY IMP: row = 0 and column = s.length()-1
+		
+	}
+/*
+ * Analysis:
+ * Time Complexity = O(n^2)
+ * Space Complexiy = O(n^2)
+ */
+	
+	
+	
+	
 
 	private static int usingLCSubSequence(String orig, String rev) {
 		
@@ -81,40 +127,9 @@ This solution is also a O(n^2) solution.
 	 * Time Complexity = O(n^2)
 	 * Space Complexiy = O(n^2)
 	 */
-	private static int usingDP(String s) {
-		int[][] dp = new int[s.length()][s.length()];    // VERY IMP: Exactly s.length() and NOT +1
-		
-		// if the length of the string is 1 then fill 1 in those boxes
-		for(int i=0;i<s.length();i++)
-			dp[i][i] = 1;
-		
-		// if the length of the string is 2 to string.length then do the following
-		int end = 0;
-		for(int length=2;length<=s.length();length++){ // len is length of the substring
-			
-			for(int start=0; start<s.length()-length+1;start++){
-
-				end = start+length-1;                             // VERY IMP
-				
-				if(s.charAt(start)==s.charAt(end) && length==2)
-					dp[start][end]=2;                             //=2
-				else if(s.charAt(start)==s.charAt(end))
-					dp[start][end] = dp[start+1][end-1] + 2;      //=+2
-				else
-					dp[start][end] = Math.max(dp[start][end-1],dp[start+1][end]);
-				
-				
-			}
-			
-		}
-		return dp[0][s.length()-1];                      // VERY IMP: row = 0 and column = s.length()-1
-		
-	}
-/*
- * Analysis:
- * Time Complexity = O(n^2)
- * Space Complexiy = O(n^2)
- */
+	
+	
+	
 	
 	private static int usingRecursion(String s) {
 		if(s==null||s.length()==0)

@@ -157,7 +157,7 @@ ceil value with A[i]. We extend a list by adding element to auxiliary array. We 
 a counter to keep track of auxiliary array length.
 
  */
-package Array.LongestIncreasingSubsequence;
+package LongestIncreasingSubsequence;
 
 import java.util.Scanner;
 
