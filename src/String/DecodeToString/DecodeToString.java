@@ -30,7 +30,6 @@ public class DecodeToString {
 			String num = in.nextLine();
 			Set<String> result = decode(num);
 			System.out.println(result.toString());
-			System.out.println("Number of ways to decode the String: "+numDecodings(num));
 		}
 		finally{
 			in.close();
@@ -89,29 +88,5 @@ public class DecodeToString {
 	
 	// Number of ways to decode the String is given by DP solution mentioned below
 	// Preferred method to calculate number of ways because the Time Complexity = O(n)
-	public static int numDecodings(String s) {
-		if (s == null || s.length() == 0) {
-			return 0;
-		}
-		int[] nums = new int[s.length() + 1];
-		nums[0] = 1;                                         // Initially '1' to '9' can be decoded in 1 way
-		nums[1] = s.charAt(0) != '0' ? 1 : 0;           
-		// character is Not '0' then 1 
-		// that means any other character present from '1' to '9' can be decoded in 1 way 
-		// because mappings are present for all numbers from '1' to '9' 
-		
-		for (int i = 2; i <= s.length(); i++) {
-			if (s.charAt(i - 1) != '0') 
-				nums[i] = nums[i - 1];                            // Current = Previous
-			int twoDigits = (s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0'); 
-			if (twoDigits >= 10 && twoDigits <= 26) 
-				nums[i] = nums[i] + nums[i - 2];                  // Current = Current + Previous(Previous)
-		}
-		return nums[s.length()];
-    }
-	/*
-	Analysis:
-	Time Complexity = O(n) where n = length of the string
-	Space Complexity = O(n)
-	*/
+	
 }
