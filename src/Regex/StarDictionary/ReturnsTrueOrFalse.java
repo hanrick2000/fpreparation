@@ -23,7 +23,7 @@ Question and Answer Source: http://www.careercup.com/question?id=566940777683353
 
 
 
-public class UsingRecursion{
+public class ReturnsTrueOrFalse{
 
 /*
 Solution Approach: Since given that each query should be answered in O(1) time
