@@ -56,7 +56,7 @@ public class Print4Sum {
 	                int x = tnode.x;
 	                int y = tnode.y;  
 	                if (x != i && x != j && y != i && y != j)  
-	                {  // add the indices forming A+B=C+D
+	                {   // add the indices forming A+B=C+D
 	                    set.add(x);  
 	                    set.add(y);
 	                    set.add(i);  
@@ -71,7 +71,7 @@ public class Print4Sum {
 	/*
 	 * Analysis:
 	 * Time Complexity = O(n^2)
-	 * Space Complexity = O(1) since HashSet only requires storgae of 4 to print the result
+	 * Space Complexity = O(1) since HashSet only requires storage of 4 to print the result
 	 */
 }
 class Node  
