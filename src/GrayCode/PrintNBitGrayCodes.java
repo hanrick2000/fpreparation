@@ -24,7 +24,7 @@ And Following is 4-bit sequence (n = 4)
 *
 */
 
-package String.GrayCode;
+package GrayCode;
 
 import java.util.Scanner;
 

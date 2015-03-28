@@ -1,4 +1,4 @@
-package String.Regex.StarDictionary;
+package Regex.StarDictionary;
 
 import java.util.HashMap;
 import java.util.Scanner;

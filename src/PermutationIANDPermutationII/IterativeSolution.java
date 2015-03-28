@@ -1,4 +1,4 @@
-package String.PermutationIANDPermutationII;
+package PermutationIANDPermutationII;
 
 import java.util.ArrayList;
 import java.util.HashSet;
