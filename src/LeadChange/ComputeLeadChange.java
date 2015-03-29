@@ -57,11 +57,9 @@ question is asking count the lead change
 
 4. start from 3 , but the starting score is the result form steps no 3
 
-5. iterate above till either team reaches the final score
+5. iterate above till either team reaches the final score recursive call
 
-   recursive call
-
-5. compare the max and return
+6. compare the max and return
  
  */
 
