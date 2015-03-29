@@ -29,7 +29,7 @@ Output should be: {16=3, 8=3, 9=2, 11=1, 15=1}
  * 
  */
 
-package Array.AgeCount;
+package Array.CountRepeatedNumbersOrAgeCount;
 
 import java.util.HashMap;
 import java.util.Scanner;
