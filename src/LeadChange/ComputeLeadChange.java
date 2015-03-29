@@ -51,11 +51,11 @@ public class ComputeLeadChange {
 	  System.out.println(count(scores,S1,S2));
 	 }
 
-	 // This method returns the count 7 (which I think is correct)
+	 // This method returns the count 7 (which I think is correct)     <----- Correct
 	 // Source: http://ideone.com/RMVsXk
 	 public static int properCount(int[]scores, int OS1, int OS2) {
 			
-			int[][] R = new int[OS1+1][OS2+1];
+			int[][] R = new int[OS1+1][OS2+1];            // create a DP array of scores
 			for (int S1 = 0; S1 <= OS1; ++S1) {
 				for (int S2 = 0; S2 <= OS2; ++S2) {
 					for (int s1 : scores) {
@@ -63,23 +63,44 @@ public class ComputeLeadChange {
 							continue;
 						}
 						for (int s2 : scores) {
-							if (s1 == s2 || s2 > S2) {
+							if (s1 == s2 || s2 > S2) {     
 								continue;
 							}
-							if ((S1 < S2 && S1-s1 >= S2-s2) || (S1 > S2 && S1-s1 <= S2-s2) ||
-								(S1 == S2 && S1-s1 != S2-s2) || (S1 != S2 && S1-s1 == S2-s2)) {
+							/*
+							LEAD CHANGE CONDITION
+							(team1 score < team 2score) && 
+							(team1 score - current earn score1 >= team2 score - current earn score2)
+							OR
+							(team1 score > team 2score) && 
+							(team1 score - current earn score1 <= team2 score - current earn score2)
+							OR
+							(team1 score == team 2score) && 
+							(team1 score - current earn score1 != team2 score - current earn score2)
+							OR
+							(team1 score != team 2score) && 
+							(team1 score - current earn score1 == team2 score - current earn score2)
+							*/
+							if ((S1 < S2 && S1-s1 >= S2-s2) || 
+							    (S1 > S2 && S1-s1 <= S2-s2) ||
+								(S1 == S2 && S1-s1 != S2-s2)|| 
+								(S1 != S2 && S1-s1 == S2-s2)
+								){
 								R[S1][S2] = Math.max(R[S1][S2], 1+R[S1-s1][S2-s2]);
 							}
 							else {
 								R[S1][S2] = Math.max(R[S1][S2], R[S1-s1][S2-s2]);
 							}
-						}
-					}
-				}
-			}
+						} // end of s2 for
+					} // end of s1 for
+				} // end of OS2 for
+			} // end of OS1 for
 			return R[OS1][OS2];
 		}
-	 
+	 /*
+	  * Analysis:
+	  * Time Complexity = O(S1*S2*scores*scores)
+	  * Space Complexity = O(S1*S2)
+	  */
 	 
 	 
      // This method returns the count 4 (which I DON't think is correct)
@@ -122,4 +143,9 @@ public class ComputeLeadChange {
 	        }
 	        return dp[S1][S2];
 	    }
+	 /*
+	  * Analysis:
+	  * Time Complexity = O(S1*S2*scores)
+	  * Space Complexity = O(S1*S2)
+	  */
 	}
