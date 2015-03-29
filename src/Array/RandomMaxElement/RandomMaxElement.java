@@ -58,6 +58,7 @@ public class RandomMaxElement {
 				 3. Go through the array again, return rth occurrence. 
 				 Time: O(n). Number of passes = 2n 
 				 Space: O(1)
+	     Answer Source: http://www.careercup.com/question?id=5764338593824768
 		*/
 		
 		int currMaxElement = a[0];
@@ -106,6 +107,7 @@ public static int maxRandomElement2(int[] a){
 				 Now with newly created indices arraylist, return the random element.
 				 Time: O(n). Number of passes = n 
 				 Space: O(1)
+	     Answer Source: https://wincoding.wordpress.com/2014/07/21/32/
 		*/
 		
 		List<Integer> indicesList = new ArrayList<Integer>();
