@@ -32,13 +32,13 @@ public class FourSum {
 			int[] a = new int[n];
 			for(int i=0;i<n;i++)
 				a[i]=in.nextInt();
-			System.out.println(print4Sum(a).toString());
+			System.out.println(fourSum(a).toString());
 		}
 		finally{
 			in.close();
 		}
 	}
-	public static List<ResultPair> print4Sum(int[] a){
+	public static List<ResultPair> fourSum(int[] a){
 	    List<ResultPair> result= new ArrayList<ResultPair>();  
 	    if(a.length<4)
 	    	return result;
