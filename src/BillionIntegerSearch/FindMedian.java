@@ -16,7 +16,7 @@ Also worth noting is that the second cost is going to be the bottleneck here, so
   I propose something that we could call distributed quick select algorithm: 
 1. Select a control/master server. Probably the one with the least IP addr. Standard protocol, not a big deal.
 [something similar to the spaning tree protocol would do] 
-2. Control/master server selects a pivot from its own array and broadcasts the value to the est 
+2. Control/master server selects a pivot from its own array and broadcasts the value to the rest of the servers
 3. Each slave server partitions its own array based on this pivot value and sends the left , central and right count
  to the master server. 
 4. Based on the total number of elements in each slave server and those that the master itself has, master selects
