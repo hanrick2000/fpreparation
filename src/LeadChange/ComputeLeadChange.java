@@ -56,7 +56,7 @@ public class ComputeLeadChange {
 	  System.out.println(count(scores,S1,S2));
 	 }
 	 
-	// Correct Answer
+	     // Correct Answer
 		 // Source: https://codemeforever.wordpress.com/2014/11/12/count-lead-changes/
 		 public static int count(int[] scores, int S1, int S2){
 			 
