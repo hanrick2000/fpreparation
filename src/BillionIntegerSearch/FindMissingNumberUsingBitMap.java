@@ -10,7 +10,7 @@ https://answers.yahoo.com/question/index?qid=20080508203418AAIV0jK
 
 package BillionIntegerSearch;
 
-public class UsingBitMap {
+public class FindMissingNumberUsingBitMap {
 	
 	/*
 	 * Parameters to be calculated from the INPUT
