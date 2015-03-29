@@ -108,6 +108,8 @@ public class ComputeLeadChange {
 	    boolean leadChange=false;
 	    
 	    //condition if lead change occurs
+        /* (team1 score > team 2score) &&
+        (team1 score - current earn score1 < team2 score - current earn score2) */
 	    if(
 	      (
 	      (a>b) && (a-a1<b-b1) && (a-a1>=0) && (b-b1>=0) && (a-a1!=1) && (b-b1!=1)
