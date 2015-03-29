@@ -12,7 +12,7 @@ Algorithm:
 	   else if node.value < MIN and node.value > MAX then return false
 */
 
-package BST;
+package BST.isBST;
 
 public class CheckWhetherBSTIsValid {
 	public static void main(String[] args) {
