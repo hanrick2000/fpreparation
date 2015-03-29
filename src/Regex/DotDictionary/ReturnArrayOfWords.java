@@ -14,9 +14,17 @@
 
  4. traverse from start and find a string , store it to arraylist
 
- 5. iterate above until it walk through all "Trie node"
+SEARCHPRINT method:
+  1. It will printout current data as long as it finds "single character"
+    then move to the next node 
 
- 6. print the result
+ 2. But if it finds dot(.) ,
+    It will printout all the child data
+    then recursively call searchPrint method with  (substring(currenposition+1),childNode)
+    so that it can continue to walk through
+
+ 3. Because of step no 2. current loop will be actually void. - This is my trick :)
+    That's why "break" syntax is there.
  */
 package Regex.DotDictionary;
 
@@ -30,7 +38,7 @@ class ReturnArrayOfWords {
 		  t.insert("cata");
 		  t.insert("cot");
 		  t.insert("cuta");
-		  
+		  t.insert("cst");
 		  t.searchPrint("c.t",t.root); 
 		  System.out.println();
 		  System.out.println(t.search("cot"));

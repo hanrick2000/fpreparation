@@ -8,18 +8,22 @@ The following
 so print (0,2,3,5)
  * 
 Question and Answer Source: http://www.careercup.com/question?id=5652354158297088
+http://stackoverflow.com/questions/25142170/leetcode-four-sum
+
+VERY IMP NOTE: Question can also be asked as A+B-C-D = 0. Find A,B,C,D
+This is called as Four Sum Question. The solution is the SAME
 
 Algorithm:
 1. Use Node class to record the sum of two values.
 2. Use HashMap<Integer,Node> to record the sum of two pair(currentSum) and find two pairs(Node) which has the same sum
 */
-package Sum.Print4Sum;
+package Sum.FourSum;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class Print4Sum {
+public class FourSum {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
