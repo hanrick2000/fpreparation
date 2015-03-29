@@ -192,8 +192,12 @@ public static void printOrder(String words[], int totalCharacters)
 }
 /*
 Analysis:
+
+n = total number of words
+totalCharacters = Average length of each word from the list of words
+
 Time Complexity: The first step to create a graph takes O(n + totalCharacters) time where n is number 
-of given words and totalCharacters is number of characters in new language. 
+of given words and totalCharacters is average length of each word from the list of words. 
 The second step is also topological sorting. 
 Note that there would be alpha vertices and at-most (n-1) edges in the graph. 
 The time complexity of topological sorting is O(V+E) which is O(n + totalCharacters) here. So overall time complexity 
