@@ -1,4 +1,4 @@
-package Array.FindAllMissingNumbers;
+package Array.AllMissingNumbers;
 
 import java.util.ArrayList;
 import java.util.List;
