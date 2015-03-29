@@ -16,7 +16,7 @@ In order to do so, we move the upper cursor down (j = j-1).
 Whenever the sum is lower than N, we move the lower cursor up (i = i+1). 
 Else, when we find a match, we move both.
  */
-package Sum.SumOfTwoSquares;
+package Sum.SumOfTwoPerfectSquares;
 
 import java.util.Scanner;
 
