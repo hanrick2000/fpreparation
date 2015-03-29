@@ -38,6 +38,71 @@ public class SubtreeMirrorDoubleSameisSymmetric {
 			}
 	}
 	
+	/*
+	Diameter of a tree: The diameter of a tree is defined as the number of nodes between the extreme lchild node
+	and the extreme rchild node of a tree
+	Source: http://www.geeksforgeeks.org/diameter-of-a-binary-tree/
+	*/
+		
+	
+	// BEST SOLUTION FOR diameter   -> Time Complexity = O(n), Space Complexity = O(1)
+	int diameterOpt(Node root, int height)
+	{
+	  /* lh --> Height of lchild subtree
+	     rh --> Height of rchild subtree */
+	  int lh = 0, rh = 0;
+	  
+	  /* ldiameter  --> diameter of lchild subtree
+	     rdiameter  --> Diameter of rchild subtree */
+	  int ldiameter = 0, rdiameter = 0;
+	  
+	  if(root == null)
+	  {
+	     height = 0;
+	     return 0; /* diameter is also 0 */
+	  }
+	  
+	  /* Get the heights of lchild and rchild subtrees in lh and rh
+	    And store the returned values in ldiameter and ldiameter */
+	  ldiameter = diameterOpt(root.lchild, lh);
+	  rdiameter = diameterOpt(root.rchild, rh);
+	  
+	  /* Height of current node is max of heights of lchild and
+	     rchild subtrees plus 1*/
+	  height = Math.max(lh, rh) + 1;
+	  
+	  return Math.max(lh + rh + 1, Math.max(ldiameter, rdiameter));
+	}
+	/*
+	Time Complexity: O(n)
+	Space Complexity: O(1)
+	*/
+	
+	/* Function to get diameter of a binary tree Time Complexity = O(n^2), Space Complexity = O(1)*/
+	int diameter(Node root)
+	{
+	   /* base case where tree is empty */
+	   if (root == null)
+	     return 0;
+	 
+	  /* get the height of lchild and rchild sub-trees */
+	  int lheight = height(root.lchild);
+	  int rheight = height(root.rchild);
+	 
+	  /* get the diameter of lchild and rchild sub-trees */
+	  int ldiameter = diameter(root.lchild);
+	  int rdiameter = diameter(root.rchild);
+	 
+	  /* Return max of following three
+	   1) Diameter of lchild subtree
+	   2) Diameter of rchild subtree
+	   3) Height of lchild subtree + height of rchild subtree + 1 */
+	  return Math.max(lheight + rheight + 1, Math.max(ldiameter, rdiameter));
+	} 
+		/*
+		Time Complexity: O(n^2)
+		Space Complexity: O(1)
+		*/
 	/** Double the tree
 	 Changes the tree by inserting a duplicate Node 
 	 on each nodes's .lchild. 
@@ -123,20 +188,20 @@ public class SubtreeMirrorDoubleSameisSymmetric {
 	       3   1
 
 	 Uses a recursive helper that recurs over the tree, 
-	 swapping the left/right pointers. 
+	 swapping the lchild/rchild pointers. 
 	*/ 
 	public static Node mirror(Node n){
 
 		if(n==null)   // node does not exist
 			return n;
 			
-		if(n.lchild!=null)  // left child present
+		if(n.lchild!=null)  // lchild child present
 			mirror(n.lchild);
 			
 		if(n.rchild!=null)  // rignt child present
 			mirror(n.rchild);
 		
-		Node temp=n.lchild;  // swap left and right
+		Node temp=n.lchild;  // swap lchild and rchild
 		n.lchild=n.rchild;
 		n.rchild=temp;
 		
@@ -199,7 +264,7 @@ public class SubtreeMirrorDoubleSameisSymmetric {
 			return true;
 			
 		else if(n1!=null && n2!=null)  // if both nodes are not empty
-		                              // please note that n1.left compared with n2.right and vice-versa to check for mirror images
+		                              // please note that n1.lchild compared with n2.rchild and vice-versa to check for mirror images
 		return (n1.val==n2.val && isSubTreesSymmetric(n1.lchild, n2.rchild)&& isSubTreesSymmetric(n1.rchild, n2.lchild));
 			
 			
