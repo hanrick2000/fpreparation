@@ -13,7 +13,7 @@
 	Question and Answer Solution: https://github.com/walnutown/CodingInTheDeep/blob/master/LeetCode/JumpGame2.java
 *
 */
-package FrogJump;
+package Jump;
 
 import java.util.Scanner;
 

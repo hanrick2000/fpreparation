@@ -11,7 +11,7 @@
     Answer Source: https://github.com/walnutown/CodingInTheDeep/blob/master/LeetCode/JumpGame.java
 */
 
-package FrogJump;
+package Jump;
 
 import java.util.Scanner;
 
