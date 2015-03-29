@@ -51,12 +51,12 @@ public class FourSum {
 	    for(int i=0;i<len-1; i++){
 	        for(int j=i+1; j<len; j++){
 	            currentTwoSum = a[i]+a[j];
-	            if (!map.containsKey(currentTwoSum)){  
+	            if (!map.containsKey(currentTwoSum)){  // If asked for A+B+C+D then  (!map.containsKey(-currentTwoSum)
 	                Node node = new Node(i,j);  
 	                map.put(currentTwoSum, node); // enter the twoSum and the corresponding Node forming the twoSum  
 	            }
 	            else{  
-	                Node tnode = map.get(currentTwoSum);
+	                Node tnode = map.get(currentTwoSum);  // If asked for A+B+C+D then Node tnode = map.get(-currentTwoSum);
 	                int x = tnode.x;
 	                int y = tnode.y;
 	                if (x != i && x != j && y != i && y != j)  
