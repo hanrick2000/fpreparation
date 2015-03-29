@@ -70,7 +70,7 @@ public class FourSum {
 	/*
 	 * Analysis:
 	 * Time Complexity = O(n^2)
-	 * Space Complexity = O(1) since HashSet only requires storage of 4 to print the result
+	 * Space Complexity = O(n) since in the worst case all the indices can form valid pairs
 	 */
 }
 class Pair{  
