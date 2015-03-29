@@ -80,11 +80,19 @@ import java.util.Stack;
 public class NewLanguage_BEST_SOLUTION {
 	//Driver program to test above functions
 	public static void main(String[] args) {
-	 String words1[] = {"caa", "aaa", "aab"};
+	 
+	 // Solution of Question: Derive the sequence of characters from random triplet function
+	 String[] words1 = {"caa", "aaa", "aab"};
 	 Graph.printOrder(words1, 3);             // NOTE: Here 3 = totalNumberOfCharacters in the new language 
+	 
 	 // Solution of Question: Derive New Language from sorted list of words
-	 String words2[] = {"battle", "bare", "barffdfsdf", "apple", "act", "do", "coap", "cool","copf"};
+	 String[] words2 = {"battle", "bare", "barffdfsdf", "apple", "act", "do", "coap", "cool","copf"};
 	 Graph.printOrder(words2, 26);
+	 
+	 // Check for 4 characters
+	 String[] words3 = {"baa", "abcd", "abca", "cab", "cad"};
+	 Graph.printOrder(words3, 4);
+	 
 	}
 }
 class Edge{

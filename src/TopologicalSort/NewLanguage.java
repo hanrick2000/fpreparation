@@ -71,9 +71,9 @@ http://stackoverflow.com/questions/10304176/order-a-list-of-characters-given-a-d
 package TopologicalSort;
 
 	import java.util.List;
-	import java.util.ArrayList;
-	import java.util.Queue;
-	import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
 
 	public class NewLanguage{
 	    class Node{
@@ -89,8 +89,9 @@ package TopologicalSort;
 
 	    public static void main(String args[]){
 	    	NewLanguage s = new NewLanguage();
-	    	String[] strArray ={"baa", "abcd", "abca", "cab", "cad"};
-	    	//String[] strArray = {"battle", "bare", "barffdfsdf", "apple", "act", "do", "coap", "cool","copf"};
+	    	
+	    	//String[] strArray ={"baa", "abcd", "abca", "cab", "cad"};
+	    	String[] strArray = {"battle", "bare", "barffdfsdf", "apple", "act", "do", "coap", "cool","copf"};
 	        char[] result=s.deriveOrder(strArray);
 	        System.out.println(String.valueOf(result));
 	    }

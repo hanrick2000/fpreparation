@@ -1,6 +1,8 @@
 package testing;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class StaticVSNonStatic {
 	public static void main(String[] args) {
@@ -8,7 +10,19 @@ public class StaticVSNonStatic {
 		staticSwap(a,0,9);
 		System.out.println(Arrays.toString(a));
 		
+		String s = "This is a sample sentence to find the sorted list of words from this zoo of words and I will "
+				+ "somehow test this for you to peculiarly understand what goes behind extra sorting and I may very"
+				+ "closely find this";
 		
+		List<String> list = new ArrayList<String>();
+		String[] sArray = s.split(" ");
+		for(String theWord: sArray){
+			char[] chars = theWord.toCharArray();
+			Arrays.sort(chars);
+			String newWord = new String(chars);
+			list.add(newWord);
+		}
+		System.out.println(list);
 		
 		StaticVSNonStatic demo = new StaticVSNonStatic();
 		demo.nonStaticSwap(a,9,0);
