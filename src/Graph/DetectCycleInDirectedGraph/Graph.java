@@ -14,7 +14,7 @@ We have used recStack[] array to keep track of vertices in the recursion stack.
  */
 
 
-package GRaph.DetectCycleInDirectedGraph;
+package Graph.DetectCycleInDirectedGraph;
 
 import java.util.ArrayList;
 import java.util.Iterator;
