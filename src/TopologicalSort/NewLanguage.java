@@ -89,7 +89,8 @@ package TopologicalSort;
 
 	    public static void main(String args[]){
 	    	NewLanguage s = new NewLanguage();
-	        String[] strArray = {"battle", "bare", "barffdfsdf", "apple", "act", "do", "coap", "cool","copf"};
+	    	String[] strArray ={"baa", "abcd", "abca", "cab", "cad"};
+	    	//String[] strArray = {"battle", "bare", "barffdfsdf", "apple", "act", "do", "coap", "cool","copf"};
 	        char[] result=s.deriveOrder(strArray);
 	        System.out.println(String.valueOf(result));
 	    }
