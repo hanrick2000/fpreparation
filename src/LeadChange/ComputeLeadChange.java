@@ -109,17 +109,16 @@ public class ComputeLeadChange {
 	    
 	    //condition if lead change occurs
 	    if(
-	     (
+	      (
 	      (a>b) && (a-a1<b-b1) && (a-a1>=0) && (b-b1>=0) && (a-a1!=1) && (b-b1!=1)
 	      )
 	      ||
-	         (
-	         (a<b) && (a-a1>b-b1) && (a-a1>=0) && (b-b1>=0) && (a-a1!=1) && (b-b1!=1)
-	         )        
-	       ){
-	     
-	     leadChange=true;              
-	    }
+	      (
+	      (a<b) && (a-a1>b-b1) && (a-a1>=0) && (b-b1>=0) && (a-a1!=1) && (b-b1!=1)
+	      )        
+	      ){
+	      leadChange=true;              
+	      }
 	    //move to next score case
 	    int x=solve(a-a1,b-b1,c+(leadChange?1:0),p);
 	    
