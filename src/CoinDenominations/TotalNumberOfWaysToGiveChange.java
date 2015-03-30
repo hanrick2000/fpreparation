@@ -15,9 +15,9 @@ package CoinDenominations;
 public class TotalNumberOfWaysToGiveChange {
 	public static void main(String[] args) {
 		int[] denominations = new int[]{1,2,3};
-		int total = 4;
-		System.out.println("Total number of ways using Recursion: "+countUsingRecursion(denominations,denominations.length,total));
+		int total = 4;	
 		System.out.println("Total number of ways using DP: "+countUsingDP(denominations,denominations.length,total));
+		System.out.println("Total number of ways using Recursion: "+countUsingRecursion(denominations,denominations.length,total));
 	}
 	
 	public static int countUsingDP(int[] denominatons, int len, int total){
