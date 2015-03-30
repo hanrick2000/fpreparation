@@ -20,7 +20,7 @@ package SqrtCbrtLog;
 
 import java.util.Scanner;
 
-public class CubeAndSquareRoot {
+public class RecursiveCubeAndSquareRoot {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
