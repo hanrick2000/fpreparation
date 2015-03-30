@@ -37,7 +37,7 @@ public class MaxStolenValueUsingDP {
 		
 		if(len>2){
 			for(int i=2; i<len; i++){
-				if( (values[i]+table[i-2]) > table[i-1]){       // thief can not take values from two adjacent houses
+				if( (values[i]+table[i-2]) > table[i-1]){       // thief can take from non-adjacent houses
 					table[i]=values[i]+table[i-2];
 				}
 				else
