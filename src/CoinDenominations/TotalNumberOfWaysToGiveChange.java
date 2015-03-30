@@ -50,8 +50,8 @@ public class TotalNumberOfWaysToGiveChange {
 	}
 	/*
 	 * Analysis:
-	 * Time Complexity = O(lengthOfDenominationsArray * total)
-	 * Space Complexity = O(lengthOfDenominationsArray * total)
+	 * Time Complexity = O(lengthOfDenominationsArray * totalAmount)
+	 * Space Complexity = O(lengthOfDenominationsArray * totalAmount)
 	 */
 	
 	// Returns the count of ways we can sum  denominatons[0...len-1] coins to get sum total
@@ -74,7 +74,7 @@ public class TotalNumberOfWaysToGiveChange {
 	}
 	/*
 	 * Analysis:
-	 * Time Complexity = O(lengthOfDenominationsArray * total)
+	 * Time Complexity = O(lengthOfDenominationsArray * totalAmount)
 	 * Space Complexity = O(1)
 	 */
 }
