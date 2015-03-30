@@ -31,7 +31,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class PowerSetOfIntegerArrayUsingBitIncrement {
+public class UsingBitIncrementAndIterativeForInts {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
