@@ -16,10 +16,10 @@ package Thief;
 public class MaxStolenValueUsingDP {
 	public static void main(String[] args) {
 		int[] values={6,1,3,7,2};
-		int[] table=sol(values);
+		int[] table=usingDP(values);
 		System.out.println("Maximum value that can be stolen is: "+table[values.length-1]);
 	}
-	public static int[] sol(int[] values){
+	public static int[] usingDP(int[] values){
 		int[] table = new int[values.length];
 		int len=values.length;	
 		//initialization
