@@ -9,7 +9,7 @@ package Knapsack01ByDP;
 
 import java.util.Scanner;
 
-public class UsingDPAnsRecursion {
+public class UsingDPAndRecursion {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
