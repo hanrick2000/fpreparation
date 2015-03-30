@@ -38,7 +38,7 @@ package ReverseWordsInSentenseInConstantMemory;
 
 import java.util.Scanner;
 
-public class UsingReverseWordsFunction {
+public class ReverseWordsInSentence {
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	try{
