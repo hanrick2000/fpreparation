@@ -20,22 +20,23 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class AllPossibleWaysToClimbStepsInStair {
+public class AllPossiblePathsToClimbStairs {
 	 public static void main(String[] args) {
 		    Scanner in = new Scanner(System.in);
 		    try{
 		    	System.out.println("Enter the number of steps in the stair");
 		    	int steps = in.nextInt();
-		    	System.out.println("All unique paths are: ");
-		    	printAllPossibleSteps("", steps);
-		    	System.out.println("Total number of unique paths possible using DP: "+totalNumberOfUniquePathsPossible(steps));
+		    	System.out.println("Total number of unique ways to climb stairs using DP: "+totalNumberOfUniquePathsPossible(steps));
+		    	System.out.println("All unique paths using DP: ");
 		    	System.out.println(allPathsUsingDP(steps).toString());
+		    	System.out.println("All unique paths using Recursion are: ");
+		    	printAllPossibleSteps("", steps);  	
 		    }
 		    finally{
 		    	in.close();
 		    }
 	    }
-	 	
+	 	// Total number of unique ways to climb stairs using DP
 	    public static int totalNumberOfUniquePathsPossible(int n) {
 			if (n == 1)
 				return 1;
