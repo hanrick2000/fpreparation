@@ -1,4 +1,4 @@
-package Root.SqrtOfANumberWithPrecision;
+package SqrtCbrtLog;
 
 
 /*
@@ -19,7 +19,7 @@ would lie between 3.5 and 4 and we proceed to locate that. It is easy to notice 
 Search solution and we iterate up to a point when our value converges to the value whose log2() we wish 
 to find. Code is given below:
  */
-public class FindlgUsingSqrt {
+public class LogNUsingSqrt {
 	public static void main(String[] args) {
 		System.out.println(Log2(13));
 	}

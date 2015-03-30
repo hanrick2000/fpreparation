@@ -9,7 +9,7 @@
  */
 
 
-package Root.CubeRootWithPrecision;
+package SqrtCbrtLog;
 
 import java.util.Scanner;
 
