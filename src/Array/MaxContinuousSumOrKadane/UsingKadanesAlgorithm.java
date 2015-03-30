@@ -46,9 +46,16 @@ public class UsingKadanesAlgorithm {
 	        }
 	    }
 	  
-	  	// VERY IMP NOTE: This method handles the Extreme Case: All negative numbers
-		// This Solution uses Dynamic Programming
-		// Source: http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+	       /*
+	  	   Example:
+	  			1. Array = -2 -3 -4 -8 -2 -6 -5 -3  (Extreme Case: All negative numbers)
+	  			Expected Output: The max sum in the array is: -2
+		  		Actual Output using this method: The max sum in the array is: -2
+		  	
+	       VERY IMP NOTE: This method handles the Extreme Case: All negative numbers
+		   This Solution uses Dynamic Programming
+		   Source: http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+			*/   
 		public static int maxSubArraySum(int a[]){
 		   int maxSoFar = a[0], i;
 		   int currMax = a[0];
@@ -66,7 +73,16 @@ public class UsingKadanesAlgorithm {
 		 * Space Complexity = O(1)
 		 */
 		
-	// NOTE: This method DOES NOT handle the Extreme Case: All negative numbers
+		
+		
+		
+		// NOTE: This method DOES NOT handle the Extreme Case: All negative numbers
+				/*
+	  	   		Example:
+	  			1. Array = -2 -3 -4 -8 -2 -6 -5 -3  (Extreme Case: All negative numbers)
+	  			Expected Output: The max sum in the array is: -2
+		  		Actual Output using this method: The max sum in the array is: 0
+		  		*/
 	private static int usingKadanesAlgorithm(int[] a) {
 		if(a==null||a.length==0)
 			return -1;
