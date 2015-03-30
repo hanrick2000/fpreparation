@@ -1,3 +1,10 @@
+/*
+ * Question: Integers in an array are unique and increasingly sorted. Please write a function/method to find an 
+ * integer from the array who equals to its index. 
+ * Example: In the array {-3, -1, 1, 3, 5}, the number 3 equals its index 3.
+ * Question and Answer Source: http://codercareer.blogspot.in/
+ */
+
 package Array.NumberSameAsIndex;
 
 import java.util.Scanner;
