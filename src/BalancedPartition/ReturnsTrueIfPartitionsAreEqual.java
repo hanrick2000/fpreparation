@@ -86,8 +86,8 @@ part[i][j] = true if a subset of {a[0], a[1], ..a[j-1]} has sum
 	}
 	/*
 	 * Analysis:
-	 * Time Complexity = O(n^2)
-	 * Space Complexity = O(n^2)
+	 * Time Complexity = O(nN) where n = number of elements in the array and N = total sum of the array
+	 * Space Complexity = O(nN) where n = number of elements in the array and N = total sum of the array 
 	 */
 	
 	
@@ -147,7 +147,7 @@ part[i][j] = true if a subset of {a[0], a[1], ..a[j-1]} has sum
 		}
 	/*
 	 * Analysis:
-	 * Time Complexity = O(n^2)
-	 * Space Complexity = O(1)
+	 * Time Complexity = O(nN) where n = number of elements in the array and N = total sum of the array
+	 * Space Complexity = O(1) 
 	 */
 }
