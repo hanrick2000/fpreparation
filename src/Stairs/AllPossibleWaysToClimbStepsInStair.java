@@ -60,22 +60,7 @@ public class AllPossibleWaysToClimbStepsInStair {
 	     */
 	    
 	    
-	    // recursive solution for find all unique paths
-	    public static void printAllPossibleSteps(String path, int steps) {
-	        if(steps > 0){
-	            printAllPossibleSteps(path+" 1",steps-1);
-	            printAllPossibleSteps(path+" 2",steps-2);
-	        }
-	        else if(steps == 0)
-	            System.out.println(path);
-	    }
-	    /*
-	     * Analysis:
-	     * Time Complexity = O()
-	     * Space Complexity = O()
-	     */
-	    
-	    // dynamic programming solution to find all unique paths
+	    // Dynamic programming solution to find all unique paths
 	    public static HashSet<String> allPathsUsingDP(int n) {
 
 			ArrayList<HashSet<String>> prevPaths = new ArrayList<HashSet<String>>();
@@ -113,4 +98,19 @@ public class AllPossibleWaysToClimbStepsInStair {
 
 			return prevPaths.get(1);
 		}
+	    
+	    // Recursive solution for find all unique paths
+	    public static void printAllPossibleSteps(String path, int steps) {
+	        if(steps > 0){
+	            printAllPossibleSteps(path+" 1",steps-1);
+	            printAllPossibleSteps(path+" 2",steps-2);
+	        }
+	        else if(steps == 0)
+	            System.out.println(path);
+	    }
+	    /*
+	     * Analysis:
+	     * Time Complexity = O()
+	     * Space Complexity = O()
+	     */
 }
