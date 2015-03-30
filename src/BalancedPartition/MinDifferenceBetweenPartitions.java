@@ -72,7 +72,7 @@ public class MinDifferenceBetweenPartitions {
 		}
 	/*
 	 * Analysis:
-	 * Time Complexity = O(n^2)
-	 * Space Complexity = O(n^2) 
+	 * Time Complexity = O(nN) where n = number of elements in the array and N = total sum of the array
+	 * Space Complexity = O(nN) where n = number of elements in the array and N = total sum of the array 
 	 */
 }
