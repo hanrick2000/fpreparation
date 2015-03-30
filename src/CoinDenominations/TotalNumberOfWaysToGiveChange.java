@@ -16,9 +16,37 @@ public class TotalNumberOfWaysToGiveChange {
 	public static void main(String[] args) {
 		int[] denominations = new int[]{1,2,3};
 		int total = 4;	
+		System.out.println("Total number of ways using SPACE OPTIMIZED DP: "+countUsingSpaceOptimizedDP(denominations,denominations.length,total));
 		System.out.println("Total number of ways using DP: "+countUsingDP(denominations,denominations.length,total));
 		System.out.println("Total number of ways using Recursion: "+countUsingRecursion(denominations,denominations.length,total));
 	}
+	
+	
+	public static int countUsingSpaceOptimizedDP(int[] denominatons, int len, int total){
+		    // table[i] will be storing the number of solutions for
+		    // value i. We need total+1 rows as the table is consturcted
+		    // in bottom up manner using the base case (total = 0)
+		    int[] table=new int[total+1];
+		 
+		    // Base case (If given value is 0)
+		    table[0] = 1;
+		 
+		    // Pick all coins one by one and update the table[] values
+		    // after the index greater than or equal to the value of the
+		    // picked coin
+		    for(int i=0; i<len; i++)
+		        for(int j=denominatons[i]; j<=total; j++)
+		            table[j] += table[j-denominatons[i]];
+		 
+		    return table[total];
+		
+	}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(lengthOfDenominationsArray * totalAmount)
+	 * Space Complexity = O(totalAmount)
+	 */
+	
 	
 	public static int countUsingDP(int[] denominatons, int len, int total){
 		int i, j, x, y;
