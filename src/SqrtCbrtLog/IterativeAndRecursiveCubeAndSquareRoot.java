@@ -20,7 +20,7 @@ package SqrtCbrtLog;
 
 import java.util.Scanner;
 
-public class RecursiveCubeAndSquareRoot {
+public class IterativeAndRecursiveCubeAndSquareRoot {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
@@ -28,8 +28,10 @@ public class RecursiveCubeAndSquareRoot {
 			double n = in.nextDouble();
 		    double sqrt = Sqrt(n);
 		    double cbrt = Cbrt(n);
-		    System.out.println(sqrt);
-		    System.out.println(cbrt);
+		    System.out.println("Recursive square root: "+sqrt);
+		    System.out.println("Recursive cubic root: "+cbrt);
+		    System.out.println("Iterative sqrt: "+iterativeGetSquareRoot(n));
+		    System.out.println("Iterative cubic root: "+iterativeGetCubicRoot(n));
 		}
 		finally{
 			in.close();
@@ -55,6 +57,27 @@ public class RecursiveCubeAndSquareRoot {
 	 * Space Complexity = O(1)
 	 */
 	
+	
+	public static double iterativeGetSquareRoot(double n) {
+		double low=0.0;
+		double high=n;
+	    double errorMargin = 0.001;        
+	    double sqrt=0.0;
+	    double diff=0.0;
+	    while(low+errorMargin<high){
+	    	
+	    sqrt = (low + high) / 2;
+		diff = sqrt*sqrt - n;
+		    
+	    if ( diff > errorMargin)
+	        high=sqrt;
+	    if ( -diff > errorMargin)
+	        low=sqrt;
+	    }
+	    return sqrt;
+	}
+	
+	
 	// Program for cubic root
 	public static double Cbrt(double n) {
 	    return GetCubicRoot(n, 0, n);
@@ -74,4 +97,23 @@ public class RecursiveCubeAndSquareRoot {
 	 * Time Complexity = O(lgn)
 	 * Space Complexity = O(1)
 	 */
+	
+	public static double iterativeGetCubicRoot(double n) {
+		double low=0.0;
+		double high=n;
+	    double errorMargin = 0.001;        
+	    double cbrt=0.0;
+	    double diff=0.0;
+	    while(low+errorMargin<high){
+	    	
+	    cbrt = (low + high) / 2;
+		diff = cbrt*cbrt*cbrt - n;
+		    
+	    if ( diff > errorMargin)
+	        high=cbrt;
+	    if ( -diff > errorMargin)
+	        low=cbrt;
+	    }
+	    return cbrt;
+	}
 }
