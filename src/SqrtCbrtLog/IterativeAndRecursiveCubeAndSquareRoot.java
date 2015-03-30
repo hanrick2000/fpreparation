@@ -26,8 +26,8 @@ public class IterativeAndRecursiveCubeAndSquareRoot {
 		try{
 			System.out.println("Enter a number to find the square root");
 			double n = in.nextDouble();
-		    double sqrt = Sqrt(n);
-		    double cbrt = Cbrt(n);
+		    double sqrt = recursiveSqrt(n);
+		    double cbrt = recursiveCbrt(n);
 		    System.out.println("Recursive square root: "+sqrt);
 		    System.out.println("Recursive cubic root: "+cbrt);
 		    System.out.println("Iterative sqrt: "+iterativeGetSquareRoot(n));
@@ -38,24 +38,19 @@ public class IterativeAndRecursiveCubeAndSquareRoot {
 		}
 	}
 	// Program for square root
-	public static double Sqrt(double n){
-	    return GetSquareRoot(n, 0, n);
+	public static double recursiveSqrt(double n){
+	    return recursiveGetSquareRoot(n, 0, n);
 	}
-	public static double GetSquareRoot(double n, double low, double high) {
+	public static double recursiveGetSquareRoot(double n, double low, double high) {
 	    double errorMargin = 0.001;        
 	    double sqrt = (low + high) / 2;
 	    double diff = sqrt*sqrt - n;
 	    if ( diff > errorMargin)
-	        return GetSquareRoot(n, low, sqrt);
+	        return recursiveGetSquareRoot(n, low, sqrt);
 	    if ( -diff > errorMargin)
-	        return GetSquareRoot(n, sqrt, high);
+	        return recursiveGetSquareRoot(n, sqrt, high);
 	    return sqrt;
 	}
-	/*
-	 * Analysis:
-	 * Time Complexity = O(lgn)
-	 * Space Complexity = O(1)
-	 */
 	
 	
 	public static double iterativeGetSquareRoot(double n) {
@@ -76,27 +71,27 @@ public class IterativeAndRecursiveCubeAndSquareRoot {
 	    }
 	    return sqrt;
 	}
-	
-	
-	// Program for cubic root
-	public static double Cbrt(double n) {
-	    return GetCubicRoot(n, 0, n);
-	}
-	public static double GetCubicRoot(double n, double low, double high) {
-	    double errorMargin = 0.001;        
-	    double cbrt = (low + high) / 2;
-	    double diff = cbrt*cbrt*cbrt - n;
-	    if ( diff > errorMargin)
-	        return GetCubicRoot(n, low, cbrt);
-	    if ( -diff > errorMargin)
-	        return GetCubicRoot(n, cbrt, high);
-	    return cbrt;
-	}
 	/*
 	 * Analysis:
 	 * Time Complexity = O(lgn)
 	 * Space Complexity = O(1)
 	 */
+	
+	
+	// Program for cubic root
+	public static double recursiveCbrt(double n) {
+	    return recursiveGetCubicRoot(n, 0, n);
+	}
+	public static double recursiveGetCubicRoot(double n, double low, double high) {
+	    double errorMargin = 0.001;        
+	    double cbrt = (low + high) / 2;
+	    double diff = cbrt*cbrt*cbrt - n;
+	    if ( diff > errorMargin)
+	        return recursiveGetCubicRoot(n, low, cbrt);
+	    if ( -diff > errorMargin)
+	        return recursiveGetCubicRoot(n, cbrt, high);
+	    return cbrt;
+	}
 	
 	public static double iterativeGetCubicRoot(double n) {
 		double low=0.0;
@@ -116,4 +111,10 @@ public class IterativeAndRecursiveCubeAndSquareRoot {
 	    }
 	    return cbrt;
 	}
+	/*
+	 * Analysis:
+	 * Time Complexity = O(lgn)
+	 * Space Complexity = O(1)
+	 */
+	
 }
