@@ -15,7 +15,7 @@ The idea is to scan the string from left to right, keep track of the maximum len
   If it is not present, then we increase the currLength by 1. If present, then there are two cases:
   
 a) The previous instance of character is not part of current NRCS (The NRCS which is under process). 
-In this case, we need to simply increase currLength by 1.
+In this case, we need to simply increase currLength of current NRCS by 1.
 b) If the previous instance is part of the current NRCS, then our current NRCS changes. It becomes 
 the substring staring from the next character of previous instance to currently scanned character. 
 We also need to compare currLength and maxLength, before changing current NRCS (or changing currLength).
@@ -26,11 +26,24 @@ package SubstringAndSubsequenceProblems.Substring;
 
 public class LengthOfLongestSubstringWithoutRepeatedChars {
 	public static int longestUniqueSubsttr(String str){
-		
+/*
+Algorithm:
+The idea is to scan the string from left to right, keep track of the maximum length Non-Repeating Character
+ Substring (NRCS) seen so far. Let the maximum length be maxLength. When we traverse the string, 
+ we also keep track of length of the current NRCS using currLength variable. For every new character, 
+ we look for it in already processed part of the string (A temp array called visited[] is used for this purpose).
+  If it is not present, then we increase the currLength by 1. If present, then there are two cases:
+  
+a) The previous instance of character is not part of current NRCS (The NRCS which is under process). 
+In this case, we need to simply increase currLength of current NRCS by 1.
+b) If the previous instance is part of the current NRCS, then our current NRCS changes. It becomes 
+the substring staring from the next character of previous instance to currently scanned character. 
+We also need to compare currLength and maxLength, before changing current NRCS (or changing currLength).
+*/
 	    int n = str.length();
-	    int currLength = 1;  // To store the length of current substring
-	    int maxLength = 1;  // To store the result
-	    int prevIndex;  // To store the previous index
+	    int currLength = 1;  // To store the length of current NRCS
+	    int maxLength = 1;  // To store the length of result(maxLength of NRCS)
+	    int prevIndex;  // To store the previous index of every character
 	    int i;
 	    int[] visited = new int[256];    // all characters of the ASCII table
 	 
@@ -47,7 +60,8 @@ public class LengthOfLongestSubstringWithoutRepeatedChars {
 	       (currLength and maxLength are initialized as 1, and visited[str[0]] is set */
 	    for (i = 1; i < n; i++)
 	    {
-	        prevIndex =  visited[str.charAt(i)];
+	        prevIndex =  visited[str.charAt(i)];// get the previous index of the character.
+	        									// This will be -1 if the character is visited first time
 	 
 	        /* If the current character is not present in the already processed
 	           substring or it is not part of the current NRCS, then do currLength++ */
@@ -61,17 +75,12 @@ public class LengthOfLongestSubstringWithoutRepeatedChars {
 	            /* Also, when we are changing the NRCS, we should also check whether 
 	              length of the previous NRCS was greater than maxLength or not.*/
 	            maxLength = Math.max(maxLength,currLength);
-	 
 	            currLength = i - prevIndex;
 	        }
-	 
 	        visited[str.charAt(i)] = i; // update the index of current character
 	    }
-	 
 	    // Compare the length of last NRCS with maxLength and update maxLength if needed
-	    if (currLength > maxLength)
-	        maxLength = currLength;
-
+	    maxLength = Math.max(maxLength,currLength);
 	    return maxLength;
 	}
 	
