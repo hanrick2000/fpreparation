@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-public class IterativeSolution {
+public class IterativeSolutionWithAndWithoutRepetition {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{

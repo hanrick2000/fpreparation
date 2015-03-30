@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class UsingBacktracking {
+public class RecursiveSolutionWithAndWithoutRepetition {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
