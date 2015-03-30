@@ -18,7 +18,7 @@ package CuttingRod;
 
 import java.util.Scanner;
 
-public class CuttingRodProblem {
+public class UsingDPAndRecursion {
 	 public static void main(String[] args){
 		    Scanner in = new Scanner(System.in);
 		    try{
@@ -27,7 +27,7 @@ public class CuttingRodProblem {
 		    	int[] prices = new int[n];
 		    	System.out.println("Enter the prices of rod cuts");
 		    	for(int i=0;i<n;i++){
-		    		System.out.println("Enter price for "+(i+1)+" rod length");
+		    		System.out.println("Enter price for rod length of "+(i+1)+" is: ");
 		    		prices[i] = in.nextInt();
 		    	}
 		    	System.out.println("The best price for rod cut of size "+n+" using Recursion is: "+byRecursion(prices, n));
