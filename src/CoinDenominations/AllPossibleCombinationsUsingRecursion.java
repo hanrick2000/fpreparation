@@ -15,7 +15,7 @@ package CoinDenominations;
 
 import java.util.Arrays;
 
-public class UsingRecursion {
+public class AllPossibleCombinationsUsingRecursion {
 
 	public static void main(String[] args) {
 		int[] denom = new int[]{1,5,10,25};

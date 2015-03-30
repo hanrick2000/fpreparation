@@ -13,7 +13,7 @@ package CoinDenominations;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class UsingDynamicProgramming {
+public class MinCoinsUsingDynamicProgramming {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
