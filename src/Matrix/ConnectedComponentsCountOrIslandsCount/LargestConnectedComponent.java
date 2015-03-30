@@ -8,6 +8,8 @@ public class LargestConnectedComponent {
 using namespace std;
 class GraphDfs
 {
+
+// NOTE: This is for VERTEX AND ADJ LIST OF EDGES
     private:
         int v;
         list<int> *adj;
