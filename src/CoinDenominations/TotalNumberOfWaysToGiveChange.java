@@ -51,7 +51,7 @@ public class TotalNumberOfWaysToGiveChange {
 	public static int countUsingDP(int[] denominatons, int len, int total){
 		int i, j, x, y;
 		 
-	    // We need total+1 rows as the table is consturcted in bottom up manner using 
+	    // We need total+1 rows as the table is constructed in bottom up manner using 
 	    // the base case 0 value case (total = 0)
 	    int[][] table=new int[total+1][len];
 	    
