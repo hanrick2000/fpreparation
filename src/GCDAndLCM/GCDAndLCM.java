@@ -9,7 +9,7 @@ http://www.careercup.com/question?id=12475663
 
 
 
-package GcdAndlcm;
+package GCDAndLCM;
 
 import java.util.Scanner;
 
