@@ -4,9 +4,9 @@
  * Example: In the array {-3, -1, 1, 3, 5}, the number 3 equals its index 3.
  * Question and Answer Source: http://codercareer.blogspot.in/
  * 
- * Algorithm:
- * 	If we scan all integers in the array from beginning to end, we may check whether every element equals
- *  its index. Obviously, this solution costs O(n) time.
+ * Algorithm: 
+ 	If we scan all integers in the array from beginning to end, we may check whether every element equals
+ 	its index. Obviously, this solution costs O(n) time.
 	Since numbers are sorted in the array, let's try to utilize the binary search algorithm to optimize.
  	Supposing we reach the ith element in the array at some step. If the value of element is also i, 
  	it is a target integer and let's return it.
