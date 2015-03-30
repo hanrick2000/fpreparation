@@ -15,6 +15,13 @@ Loop for each element of the array
   (c) if(max_so_far < max_ending_here)
             max_so_far = max_ending_here
 return max_so_far
+
+Example:
+1. Array = -2 -3 4 -1 -2 1 5 -3
+Output: The max sum in the array is: 7
+
+2. Array = -2 -3 -4 -1 -2 -1 -5 -3
+Output: The max sum in the array is: -1
  */
 
 package Array.MaxContinuousSumOrKadane;
@@ -31,13 +38,35 @@ public class UsingKadanesAlgorithm {
 	            System.out.println("Enter the array elements");
 	            for(int i=0;i<n;i++)
 	                a[i]=in.nextInt();
-	            System.out.println("The max sum in the array is: "+usingKadanesAlgorithm(a));
+	            System.out.println("The max sum in the array is: "+maxSubArraySum(a));   // Handles negative numbers (DP technique)
+	            System.out.println("The max sum in the array is: "+usingKadanesAlgorithm(a));  // Does not handle negative numbers
 	        }
 	        finally{
 	        in.close();
 	        }
 	    }
-
+	  
+	  	// VERY IMP NOTE: This method handles negative numbers
+		// This Solution uses Dynamic Programming
+		// Source: http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+		public static int maxSubArraySum(int a[]){
+		   int maxSoFar = a[0], i;
+		   int currMax = a[0];
+		 
+		   for (i = 1; i < a.length; i++)
+		   {
+			   currMax = Math.max(a[i], currMax+a[i]);
+			   maxSoFar = Math.max(maxSoFar, currMax);
+		   }
+		   return maxSoFar;
+		}
+		/*
+		 * Analysis:
+		 * Time Complexity = O(n)
+		 * Space Complexity = O(1)
+		 */
+		
+	// NOTE: Does NOT HANDLE negative numbers
 	private static int usingKadanesAlgorithm(int[] a) {
 		if(a==null||a.length==0)
 			return -1;
