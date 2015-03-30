@@ -20,7 +20,7 @@ package SubstringAndSubsequenceProblems.Substring;
 
 import java.util.Scanner;
 
-public class LongestCommonSubstring {
+public class LenghtOfLongestCommonSubstring {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
