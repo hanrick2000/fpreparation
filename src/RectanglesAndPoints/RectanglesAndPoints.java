@@ -4,8 +4,8 @@ Note that the edge of each rectangle are aligned to XY axis.
 Question is how to find rectangles with point or points inside
 
 Question Source: Asked 2 times
-http://www.careercup.com/question?id=5722141007806464
 http://www.careercup.com/question?id=15443800
+http://www.careercup.com/question?id=5722141007806464
 
 Answer Source: http://www.careercup.com/question?id=5722141007806464
 
