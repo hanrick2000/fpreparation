@@ -17,7 +17,7 @@ Loop for each element of the array
 return max_so_far
 
 Example:
-1. Array = -2 -3 -4 -1 -2 -1 -5 -3
+1. Array = -2 -3 -4 -1 -2 -1 -5 -3  (Extreme Case: All negative numbers)
 Output: The max sum in the array is: -1
 
 2. Array = -2 -3 4 -1 -2 1 5 -3
@@ -46,7 +46,7 @@ public class UsingKadanesAlgorithm {
 	        }
 	    }
 	  
-	  	// VERY IMP NOTE: This method handles negative numbers
+	  	// VERY IMP NOTE: This method handles the Extreme Case: All negative numbers
 		// This Solution uses Dynamic Programming
 		// Source: http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 		public static int maxSubArraySum(int a[]){
@@ -66,7 +66,7 @@ public class UsingKadanesAlgorithm {
 		 * Space Complexity = O(1)
 		 */
 		
-	// NOTE: Does NOT HANDLE negative numbers
+	// NOTE: This method DOES NOT handle the Extreme Case: All negative numbers
 	private static int usingKadanesAlgorithm(int[] a) {
 		if(a==null||a.length==0)
 			return -1;
