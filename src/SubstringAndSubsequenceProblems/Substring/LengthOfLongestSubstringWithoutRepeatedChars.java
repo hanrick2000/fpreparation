@@ -25,7 +25,8 @@ We also need to compare currLength and maxLength, before changing current NRCS (
 package SubstringAndSubsequenceProblems.Substring;
 
 public class LengthOfLongestSubstringWithoutRepeatedChars {
-	public static int longestUniqueSubsttr(String str){
+	
+	public static int longestUniqueSubstringUsingDP(String str){
 /*
 Algorithm:
 The idea is to scan the string from left to right, keep track of the maximum length Non-Repeating Character
@@ -89,7 +90,7 @@ We also need to compare currLength and maxLength, before changing current NRCS (
 	public static void main(String[] args) {
 	    String str = "abscbedkheukloinneils";
 	    System.out.println("The input string is "+str);
-	    int len =  longestUniqueSubsttr(str);
+	    int len =  longestUniqueSubstringUsingDP(str);
 	    System.out.println("The length of the longest non-repeating character substring is: "+len);
 	}
 	/*
