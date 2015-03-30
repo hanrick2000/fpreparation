@@ -17,8 +17,8 @@ Loop for each element of the array
 return max_so_far
 
 Example:
-1. Array = -2 -3 -4 -1 -2 -1 -5 -3  (Extreme Case: All negative numbers)
-Output: The max sum in the array is: -1
+1. Array = -2 -3 -4 -8 -2 -6 -5 -3  (Extreme Case: All negative numbers)
+Output: The max sum in the array is: -2
 
 2. Array = -2 -3 4 -1 -2 1 5 -3
 Output: The max sum in the array is: 7
