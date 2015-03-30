@@ -3,11 +3,10 @@
 
 Find the smallest substring of the string containing all the characters in the set. 
 
-ex: 
-Set : [a, b, c] 
-String : "abbcbcba" 
-
-Result: "cba"
+Example:
+S = "ADOBECODEBANC"
+T = "ABC"
+Minimum window is "BANC".
 
 Question Source: http://www.careercup.com/question?id=5092414932910080
 
@@ -31,7 +30,10 @@ public class UsingTwoHashMapAndTwoPointers {
 			String big = in.nextLine();
 			System.out.println("Enter text which is small than sentence");
 			String small = in.nextLine();
-			System.out.println(minWindow(big.toCharArray(), small.toCharArray(), 0,0));
+			int minWindowBegin=0;
+			int minWindowEnd=0;
+			System.out.println(minWindow(big.toCharArray(), small.toCharArray(), minWindowBegin,minWindowEnd));
+			System.out.println(big.substring(minWindowBegin, minWindowEnd+1));
 		}
 		finally{
 			in.close();
