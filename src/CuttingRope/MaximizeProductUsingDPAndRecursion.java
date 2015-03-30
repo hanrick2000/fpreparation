@@ -42,6 +42,8 @@ public class MaximizeProductUsingDPAndRecursion {
 	    	in.close();
 	    }
 	}
+	
+	// Using Intelligent Algorithm
 	private static int usingIntelligentAlgorithm(int n) {
 /*
  * Algorithm:
@@ -73,7 +75,7 @@ For n = 11, the maximum product is obtained by 3, 3, 3, 2.
 	 */
 	
 	
-	
+	// Using Dynamic Programming
 	private static int maxProductUsingDP(int n) {
 		int[] val=new int[n+1];
 		   val[0] = val[1] = 0;
@@ -96,7 +98,7 @@ For n = 11, the maximum product is obtained by 3, 3, 3, 2.
 	 */
 	
 	
-	
+	// Using Recursion
 	// The main function that returns maximum product obtainable
 	// from a rope of length n
 	public static int maxProductUsingRecursion(int n)
