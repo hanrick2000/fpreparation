@@ -33,7 +33,6 @@ public class UsingTwoHashMapAndTwoPointers {
 			int minWindowBegin=0;
 			int minWindowEnd=0;
 			System.out.println(minWindow(big.toCharArray(), small.toCharArray(), minWindowBegin,minWindowEnd));
-			System.out.println(big.substring(minWindowBegin, minWindowEnd+1));
 		}
 		finally{
 			in.close();
