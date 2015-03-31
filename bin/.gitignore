@@ -39,6 +39,7 @@
 /KClosestPointsIn2DPlane/
 /Knapsack01ByDP/
 /KthSmallestElementInUnsortedArray/
+/KthSmallestOrMedianInTwoSortedArrays/
 /LRUCache/
 /LeadChange/
 /LinkedList/
@@ -46,6 +47,7 @@
 /MatchTwoStringsWithDotAndStar/
 /MathematicalOperations/
 /Matrix/
+/MaxPointsInSameLine/
 /Maze/
 /McDonalds/
 /MedianBetween2SortedArraysOfUnequalLength/
@@ -71,13 +73,13 @@
 /Robot/
 /RollDice/
 /RomanAndExcelNumbers/
-/Root/
 /RotateMatrix90Degrees/
 /RotatedSortedArray/
 /SetBitsInIntegerAndCharacter/
 /SortCharactersOfStringInASC/
 /SortingAlgorithms/
 /SortingTwoSortedLists/
+/SqrtCbrtLog/
 /Stairs/
 /String/
 /SubstractonOfTwoPositiveNumbers/
@@ -105,7 +107,3 @@
 /smallestOfThreeNumbersWithoutUsingComparisonOperator/
 /swapNibblesInAByte/
 /testing/
-/KthSmallestOrMedianInTwoSortedArrays/
-/SqrtCbrtLog/
-/MaxPointsInSameLine/
-/GCDAndLCM/
