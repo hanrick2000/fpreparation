@@ -1,4 +1,4 @@
-package SqrtCbrtLog;
+package SqrtCbrtLogSquareCube;
 
 
 /*

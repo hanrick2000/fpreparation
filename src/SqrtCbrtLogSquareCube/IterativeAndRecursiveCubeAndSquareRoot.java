@@ -16,7 +16,7 @@ Algorithm:
 	for larger values otherwise.
 */
 
-package SqrtCbrtLog;
+package SqrtCbrtLogSquareCube;
 
 import java.util.Scanner;
 
