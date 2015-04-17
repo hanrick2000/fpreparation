@@ -1,3 +1,8 @@
+/*
+ * Question: How can we get square of a number without using * or carrot sign.
+ * Question and Answer Source: http://www.careercup.com/question?id=5748016728244224
+ */
+
 package SqrtCbrtLogSquareCube;
 
 import java.util.Scanner;
