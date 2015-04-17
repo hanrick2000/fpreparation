@@ -2,7 +2,7 @@ package SqrtCbrtLogSquareCube;
 
 import java.util.Scanner;
 
-public class IterativeSquare {
+public class IterativeAndRecursiveSquare {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		try{
