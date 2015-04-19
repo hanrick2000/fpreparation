@@ -39,9 +39,9 @@ public class CheckWhetherBSTIsValid {
 	private static boolean isValidBST(Node a, int minValue, int maxValue) {
 		if(a==null)
 			return true;    // null tree is a valid BST
-		if(a.left==null && a.right==null)  
+		else if(a.left==null && a.right==null)  
 			return true;    // leaf node is a valid BST
-		if(a.value > minValue && a.value<maxValue)   // check for the left and right to satify the 
+		else if(a.value > minValue && a.value<maxValue)   // check for the left and right to satify the 
 // property that the   "minValue<node.value<maxValue" . If BOTH left and right satify the property then TRUE else FALSE
 			return (isValidBST(a.left, minValue, a.value) && isValidBST(a.right, a.value, maxValue));
 		else
