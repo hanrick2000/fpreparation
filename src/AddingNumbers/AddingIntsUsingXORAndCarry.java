@@ -11,10 +11,10 @@ public class AddingIntsUsingXORAndCarry {
 	public int add(int x, int y) {
 	    // add y into x (and y results to 0)
 	    while (y != 0) {
-	        int carry = x & y;
+	        int carry = (x & y) << 1;
 	        int sum = x ^ y;
 	        x = sum;
-	        y = carry << 1;
+	        y = carry;
 	    }
 	    return x;
 	}
