@@ -363,7 +363,7 @@ import java.util.Stack;
 					queue.add(node.rchild);
 			}
 			else{// node==null
-				System.out.println("\r");
+				System.out.println("\r");       // NOTE: println(3) method first prints 3(arguments) then goes to NEW line
 				queue.add(null);  // use null as 'end of certain depth' marker
 			}
 			
