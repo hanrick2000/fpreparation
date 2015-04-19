@@ -92,7 +92,7 @@ public Node root=null;
 		while(q.size()>1 || q.peek()!=null){
 			Node node = q.remove();
 			if(node!=null){
-				list.add(node.data); // List
+				list.add(node.data); 	// List
 				if(node.lchild!=null)
 					q.add(node.lchild); // Queue
 				if(node.rchild!=null)
