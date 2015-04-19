@@ -43,7 +43,6 @@ private static String addition(String s1, String s2) {
 	
 	
 	// do the addition
-	
 	int carry = 0;
 	int sum = 0;
 	
@@ -74,8 +73,7 @@ private static String makeLengthEqual(String big, String small) {
 		for(int i=0;i<big.length()-small.length();i++)
 			sb.append("0");
 		
-		char[] smallArray = small.toCharArray();
-		for(char c: smallArray)
+		for(char c: small.toCharArray())
 			sb.append(c);
 		return sb.toString();
 	
