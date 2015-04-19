@@ -37,4 +37,8 @@ public class CheckIfPangram {
 		}
 		return (count==26);
 	}
+	/*
+	 * Time Complexity = O(n) where n = length of string
+	 * Space Complexity = O(1)
+	 */
 }
