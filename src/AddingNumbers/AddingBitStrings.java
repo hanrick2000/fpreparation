@@ -48,9 +48,8 @@ private static String addition(String s1, String s2) {
 	
 	int firstNumberBit = 0;
 	int secondNumberBit = 0;
-	
+
 	String result = new String();
-	
 	
 	for(int i=(s1.length()-1);i>=0;i--){
 		firstNumberBit = s1.charAt(i)-'0';
@@ -60,7 +59,6 @@ private static String addition(String s1, String s2) {
 		result = (char)(sum+'0')+result; // FIRST Convert the sum into a character by appending '0' and then concatenate the two strings
 		
 		carry = (firstNumberBit & secondNumberBit)|(secondNumberBit & carry)|(firstNumberBit & carry);
-		
 	}
 	
 	return result;
