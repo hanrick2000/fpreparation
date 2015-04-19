@@ -1,4 +1,5 @@
 
+
 /*
 Question:
 	Add two bit strings
@@ -11,11 +12,12 @@ Algorithm: 1. Make the two strings equal in length
 		   		 b = bit of string b
 		   		 c = carry
 */
-package AddingTwoBitStrings;
+package AddingNumbers;
 
 import java.util.Scanner;
 
-public class UsingAsciiTable {
+public class AddingBitStrings {
+
 	public static void main(String[] args) {
 		
 Scanner in = new Scanner(System.in);
