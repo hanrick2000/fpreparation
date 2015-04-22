@@ -24,7 +24,7 @@ Output: The max sum in the array is: -2
 Output: The max sum in the array is: 7
 */
 
-package Array.MaxContinuousSumOrKadane;
+package Array.MaxAndMinSubarraySumOrKadane;
 
 import java.util.Scanner;
 
@@ -38,7 +38,7 @@ public class UsingKadanesAlgorithm {
 	            System.out.println("Enter the array elements");
 	            for(int i=0;i<n;i++)
 	                a[i]=in.nextInt();
-	            System.out.println("The max sum in the array is: "+maxSubArraySum(a));   // Handles negative numbers (DP technique)
+	            System.out.println("The max sum in the array is: "+variationOfKadaneAlgo(a));   // Handles negative numbers (DP technique)
 	            System.out.println("The max sum in the array is: "+usingKadanesAlgorithm(a));  // Does not handle negative numbers
 	        }
 	        finally{
@@ -56,7 +56,7 @@ public class UsingKadanesAlgorithm {
 		   This Solution uses Dynamic Programming
 		   Source: http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 			*/   
-		public static int maxSubArraySum(int a[]){
+		public static int variationOfKadaneAlgo(int a[]){
 		   int maxSoFar = a[0], i;
 		   int currMax = a[0];
 		 

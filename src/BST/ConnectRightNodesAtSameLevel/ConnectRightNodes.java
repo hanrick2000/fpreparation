@@ -34,8 +34,17 @@ Output Tree
     / \   \
    D-->E-->F-->NULL
 */	
+
 package BST.ConnectRightNodesAtSameLevel;
 
+class Node{
+	int value;
+	Node left;
+	Node right;
+	Node next;
+}
 public class ConnectRightNodes {
-	
+	public static void connectForPerfectBST(Node root){
+		
+	}
 }
