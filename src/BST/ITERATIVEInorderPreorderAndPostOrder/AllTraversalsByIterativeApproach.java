@@ -122,20 +122,22 @@ Check if there is right child to that node. If yes, move right child to stack an
 		s.push(curr);
 		
 		while(!s.isEmpty()){
-			probableParent = s.peek();                      // PEEK to get NEXT
-		    // If the next node is parent of the current node  OR next node is leaf node
+			probableParent = s.peek(); // since it is not confirmed parent, hence we don't pop(). Instead we peek()
+		    
+			// If the next node is parent of the current node  OR next node is leaf node
 			if(probableParent.lchild==curr || probableParent.rchild==curr || (probableParent.lchild==null && probableParent.rchild==null)){
-				s.pop();
-				System.out.print(probableParent.data+" ");  // PRINT NEXT
+				s.pop();          // confirmed (parent || leaf) node ; hence we pop, print and update current
+				System.out.print(probableParent.data+" ");  
 				curr=probableParent;
 			}
+			// if !(parent || leaf) node ; that means internal node so push right and left
 			else{
 				// VERY IMP NOTE: First push RIGHT then LEFT
-				// Everything is about next. No mention of cur here in else part
+				// Everything is about probableParent. No mention of cur here in else part
 				if(probableParent.rchild!=null)   
-					s.push(probableParent.rchild);         // PUSH NEXT.R
+					s.push(probableParent.rchild);         // PUSH probableParent.R
 				if(probableParent.lchild!=null)
-					s.push(probableParent.lchild);         // PUSH NEXT.L
+					s.push(probableParent.lchild);         // PUSH probableParent.L
 			}
 			
 		} // end of while
