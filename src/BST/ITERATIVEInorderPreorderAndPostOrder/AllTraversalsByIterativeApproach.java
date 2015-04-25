@@ -56,22 +56,22 @@ Check if there is right child to that node. If yes, move right child to stack an
  */
 
 	public static void inorder(Node root){
-		Node temp = root;
-		if(temp==null)
+		Node current = root;
+		if(current==null)
 			return;
 		
 		// The reason why we use Stack is because Stack can resemble recursive calls
 		Stack<Node> s = new Stack<Node>();
-		while(!s.isEmpty() || temp!=null){
+		while(!s.isEmpty() || current!=null){
 			
-			if(temp!=null){
-				s.push(temp);
-				temp=temp.lchild;
+			if(current!=null){
+				s.push(current);
+				current=current.lchild;
 			}
 			else{
-				temp=s.pop();  // trace the previous node
-				System.out.print(temp.data + " ");
-				temp=temp.rchild;
+				current=s.pop();  // trace the previous node
+				System.out.print(current.data + " ");
+				current=current.rchild;
 			}
 			
 		}
