@@ -1,4 +1,4 @@
-/AddingTwoBitStrings/
+/AddingNumbers/
 /AllPossibleCombinationThatAddUpToN/
 /AnagramAndPalindromeProblems/
 /AnagramGroups/
@@ -33,6 +33,7 @@
 /Hashtable/
 /Heap/
 /HistogramAndMatrix/
+/IMP_PROGRAMMING_RESOURCES
 /IntervalTree/
 /Intervals/
 /Jump/
@@ -108,4 +109,3 @@
 /smallestOfThreeNumbersWithoutUsingComparisonOperator/
 /swapNibblesInAByte/
 /testing/
-/AddingNumbers/

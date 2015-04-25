@@ -50,7 +50,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        int[] median=new int[(n+4)/5]; // There will be floor((n+4)/5) groups;
 	        for (i=0; i<n/5; i++)
 	            median[i] = findMedian(arr, l+i*5,5);
-	        if (i*5 < n) //For last group with less than 5 elements. 
+	        if(i*5 < n) //For last group with less than 5 elements. 
 	       // Thus even the last part is sorted and median is taken from even the last part.
 	       // If even number of elements in the last part Example 4 elements then 4/2 = 2nd index is taken in median array (RIGHTMOST index)
 	       // If odd number of elements in the last part Example 3 elements then 3/2 = 1st index is taken in the median array (No issue in selecting median since odd number of elements)
@@ -66,7 +66,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        if(i==1)                                  // VERY IMP: find med of MEDIANS array
 	        	medOfMed = median[i-1];
 	        else
-	        	medOfMed = kthSmallest(median, 0, i-1, i/2);
+	        	medOfMed = kthSmallest(median, 0, i-1, i/2);    // starts from 0 to i-1
 	        
 	        // Partition the array around a random element and
 	        // get position of pivot element in sorted array
@@ -75,7 +75,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	        // If position is same as k
 	        if (pos-l == k-1)                                          // VERY IMP: pos-l and k-1 comparisons
 	            return arr[pos];
-	        else if (pos-l > k-1)  // If position is more, recur for left
+	        else if (pos-l > k-1)  									   // If position is more, recur for left
 	            return kthSmallest(arr, l, pos-1, k);
 	        else
 	        // Else recur for right subarray
