@@ -33,8 +33,8 @@ is maintained.
 
 “end element of smaller list is smaller than end elements of larger lists”.
 
-It will be clear with an example, let us take example from wiki {0, 8, 4, 12, 2, 10,
- 6, 14, 1, 9, 5, 13, 3, 11, 7, 15}.
+It will be clear with an example, let us take example from wiki 
+{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15}.
 
 A[0] = 0. Case 1. There are no active lists, create one.
 0.
@@ -205,7 +205,7 @@ public class LongestIncreasingSubsequence {
 	    int[] tailTable   = new int[a.length];
 	    int length; // always points empty slot
 	 
-	    tailTable[0] = a[0];
+	    tailTable[0] = a[0]; // there is no active list, so lets create an active list with the fist element of the array
 	    length = 1;
 	    for( int i = 1; i < a.length; i++ ) {
 	        if( a[i] < tailTable[0] )
