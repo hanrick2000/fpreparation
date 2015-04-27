@@ -79,7 +79,7 @@ public class LongestCommonSubsequence {
 	                if(s1.charAt(i-1)==s2.charAt(j-1))
 	                    dp[i][j] = dp[i-1][j-1]+1;
 	                
-	                else  // if doesnt match then current match = Max of (previous matches)
+	                else  // if doesn't match then current match = Max of (previous matches)
 	                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
 	                    
 	                result = Math.max(result,dp[i][j]);  // this is to check the maximum match found
