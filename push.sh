@@ -1,5 +1,5 @@
 #!/bin/bash
-git add .
-git commit -m "added content"
+sudo git add .
+sudo git commit -m "added content"
 git push origin master
 
