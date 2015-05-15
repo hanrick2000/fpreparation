@@ -74,6 +74,9 @@ import java.util.Stack;
 			return;
 		
 		HashMap<Integer,ArrayList<Integer>> map = new HashMap<Integer,ArrayList<Integer>>();
+		/*
+		 * HashMap<Integer,ArrayList<Integer>> where KEY = Horizontal Distance and VALUE = All node with this Horizontal Distance
+		 */
 		int hd = 0;  // the horizontal distance of root is 0
 		getVerticalOrder(root,hd,map);
 		
