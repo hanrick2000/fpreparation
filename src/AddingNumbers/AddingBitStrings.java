@@ -56,9 +56,10 @@ private static String addition(String s1, String s2) {
 		secondNumberBit = s2.charAt(i)-'0';
 		
 		sum = firstNumberBit^secondNumberBit^carry;
-		result = (char)(sum+'0')+result; // FIRST Convert the sum into a character by appending '0' and then concatenate the two strings
-		
 		carry = (firstNumberBit & secondNumberBit)|(secondNumberBit & carry)|(firstNumberBit & carry);
+		
+		// FIRST Convert the sum into a character by appending '0' and then concatenate the two strings
+		result = (char)(sum+'0')+result; 
 	}
 	
 	return result;
