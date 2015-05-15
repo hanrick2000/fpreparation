@@ -60,7 +60,7 @@ import java.util.Stack;
 			System.out.println("BFS Traversal of the tree is: ");
 			bfs(bst);
 		
-			// DFS Traversal
+			// DFS Traversal  (Exact Pre-order)
 			System.out.println("DFS Traversal of the ree is: ");
 			dfs(bst);
 		}
