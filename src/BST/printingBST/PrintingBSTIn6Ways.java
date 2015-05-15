@@ -67,6 +67,7 @@ import java.util.Stack;
 	
 
 	// Print BST in VERTICAL ORDER
+	// Source: http://www.geeksforgeeks.org/print-binary-tree-vertical-order-set-2/
 	private static void printBSTInVerticalOrder(Node root) {
 		
 		if(root==null)
