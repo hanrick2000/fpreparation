@@ -324,6 +324,13 @@ import java.util.Stack;
 			 * This parameterized constructor constructs a list containing the elements of the specified collection,
 			 * in the order they are returned by the collection's iterator.
 			 */
+			
+			
+			
+			/*
+			 * ArrayList<Integer>(list) method is meant to copy an existing collection instance 
+			 * to the new ArrayList rather than creating one from scratch.
+			 */
 			printNodesFromRootToLeafAlgorithm(node.lchild, new ArrayList<Integer>(list)); 
 			printNodesFromRootToLeafAlgorithm(node.rchild, new ArrayList<Integer>(list));
 		}
