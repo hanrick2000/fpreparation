@@ -223,7 +223,11 @@ import java.util.Stack;
  * Algorithm:
  * We can print spiral order traversal in O(n) time and O(n) extra space. 
  * The idea is to use two stacks. We can use one stack for printing from left to right
- * and other stack for printing from right to left. In every iteration, we have nodes of one level 
+ * and other stack for printing from right to left. 
+ * 
+ * 
+ * VERY IMP EXPLANATION STEP:
+ * In every iteration, we have nodes of one level 
  * in one of the stacks. We print the nodes, and push nodes of next level in other stack.		
  */
 		if(root==null) // NULL check
@@ -235,9 +239,13 @@ import java.util.Stack;
 		// Push first level to first stack 'stack1'
 		stack1.push(root);
 		
-		// Keep printing while any of the stacks has some nodes
+		// Keep printing till both the stacks are empty
 		while(!stack1.empty() || !stack2.empty()){
-			// Print nodes of current level from s1 and push nodes of next level to s2
+			
+			 /* VERY IMP EXPLANATION STEP:
+				 * In every iteration, we have nodes of one level 
+				 * in one of the stacks. We print the nodes, and push nodes of next level in OTHER stack.		
+				 */
 			while(!stack1.empty()){              // this is stack1
 				Node n = stack1.pop();           // this is stack1
 				System.out.print(n.data+" ");
