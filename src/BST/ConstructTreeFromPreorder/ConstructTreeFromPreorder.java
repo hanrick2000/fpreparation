@@ -1,13 +1,26 @@
 /*
  * Question: Construct BST from preorder traversal
- * Question and Answer Source: http://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/
- * Algorithm:
+ * Question and Answer Source: 
+ * Recursive Solution:   http://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/
+ * 						 http://www.fusu.us/2013/07/re-creating-binary-search-tree-given.html
+ * Iterative Solution:   http://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversal-set-2/
+ *
+ * 
+ * Recursive Algorithm:
  * The idea used here is inspired from method 3 of this post. The trick is to set a range {min .. max} 
  * for every node. Initialize the range as {INT_MIN .. INT_MAX}. The first node will definitely be in range,
  * so create root node. To construct the left subtree, set the range as {INT_MIN …root->data}.
  * If a values is in the range {INT_MIN .. root->data}, the values is part part of left subtree.
  * To construct the right subtree, set the range as {root->data..max .. INT_MAX}.
  * 
+ * ITERATIVE ALGORITHM:
+1. Create an empty stack.
+2. Make the first value as root. Push it to the stack.
+3. Keep on popping while the stack is not empty and the next value is greater than stack’s top value.
+Make this value as the right child of the last popped node. Push the new node to the stack.
+4. If the next value is less than the stack’s top value, make this value as the left child of the 
+stack’s top node. Push the new node to the stack.
+5. Repeat steps 2 and 3 until there are items remaining in pre[].
  */
 
 package BST.ConstructTreeFromPreorder;
@@ -15,6 +28,8 @@ package BST.ConstructTreeFromPreorder;
 import java.util.Stack;
 
 public class ConstructTreeFromPreorder {
+	private static int preOrderIndex=0;
+	
 	public static void main(String[] args) {
 		int[] preOrder = new int[]{10, 5, 1, 7, 40, 50};
 		Node root = constructTree(preOrder);
@@ -24,10 +39,15 @@ public class ConstructTreeFromPreorder {
 
 
 	private static Node constructTree(int[] preOrder) {
-		return constructTreeUtil(preOrder,0,preOrder[0],Integer.MIN_VALUE,Integer.MAX_VALUE);
+		return recursiveConstructTreeUtil(preOrder,preOrder[0],Integer.MIN_VALUE,Integer.MAX_VALUE);
 	}
 
-	private static Node constructTreeUtil(int[] preOrder, int preOrderIndex, int key, int minValue, int maxValue) {
+	
+	/**
+	* NOTE:
+	* @param preOrderIndex = private static global variable
+	*/
+	private static Node recursiveConstructTreeUtil(int[] preOrder, int key, int minValue, int maxValue) {
 		
 		// If the preOrder array is all visited (BASE CASE)
 		if(preOrderIndex >= preOrder.length)
@@ -47,10 +67,10 @@ public class ConstructTreeFromPreorder {
 	        if(preOrderIndex<preOrder.length){
 	        	
 			// Construct the subtree under root. All nodes which are in range {min .. key} will go in left
-            root.left = constructTreeUtil(preOrder, preOrderIndex, preOrder[preOrderIndex], minValue, key);
+            root.left = recursiveConstructTreeUtil(preOrder, preOrder[preOrderIndex], minValue, key);
   
             // All nodes which are in range {key..max} will go in right
-            root.right = constructTreeUtil(preOrder, preOrderIndex, preOrder[preOrderIndex],key, maxValue);
+            root.right = recursiveConstructTreeUtil(preOrder,preOrder[preOrderIndex],key, maxValue);
 			}
 		
 	    }
