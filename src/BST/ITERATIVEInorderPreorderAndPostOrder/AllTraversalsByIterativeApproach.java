@@ -29,11 +29,11 @@ public static void main(String[] args) {
 }
 
 /*
- * Algorithm for inorder traversal (Left -> Parent -> Right)
+ * Algorithm for in order traversal (Left -> Parent -> Right)
  * 
  * 
  * Algorithm Source: http://www.algorithmsandme.com/2014/02/tree-traversal-without-recursion-using.html#.VOpYVp_0_VM
- * 
+ * http://www.programcreek.com/2012/12/leetcode-solution-of-binary-tree-inorder-traversal-in-java/
  * Algorithm is simple, we go to left child downwards till we reach the NULL node. 
  * Once we reach there, we trace back the previous node, and print that node data. 
  * Once node is printed, we go and process the right child of the node in similar manner.
