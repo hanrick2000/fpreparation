@@ -32,11 +32,73 @@ public class ConstructTreeFromPreorder {
 	
 	public static void main(String[] args) {
 		int[] preOrder = new int[]{10, 5, 1, 7, 40, 50};
-		Node root = constructTree(preOrder);
-		System.out.println("Inorder traversal of the constructed tree is: ");
-		iterativeInorder(root);
+		
+		// Recursive method
+		Node root1 = constructTree(preOrder);
+		System.out.println("Inorder traversal of the constructed tree using RECURSIVE approach is: ");
+		iterativeInorder(root1);
+		System.out.println();
+		
+		// Iterative method
+		Node root2 = iterativeConstructTreeUtil(preOrder);
+		System.out.println("Inorder traversal of the constructed tree using ITERATIVE approach is: ");
+		iterativeInorder(root2);
 	}
 
+
+	private static Node iterativeConstructTreeUtil(int[] preOrder) {
+		
+		// 1. Create an empty stack.
+		Stack<Node> s = new Stack<Node>();
+		
+		// 2. Make the first value as root. Push it to the stack.
+	    Node root = new Node(preOrder[0]);
+	    s.push(root);
+	    
+	    int i=0;
+	    Node temp=null;
+	    
+	    // Iterate through rest of the size-1 items of given preOrder[] array
+	    for (i = 1; i < preOrder.length; i++ )
+	    {
+	        temp = null;
+	 
+	        /* 3. Keep on popping while the stack is not empty and the next value is greater than
+	         * stack’s top value. Make this value as the right child of the last popped node. 
+	         * Push the new node to the stack 
+	         * */
+	        while (!s.isEmpty() && preOrder[i] > s.peek().value )
+	            temp = s.pop();
+	        
+	        if (temp != null)
+	        {
+	            temp.right = new Node(preOrder[i]);
+	            s.push(temp.right);
+	        }
+	 
+	        /*
+	         * 4. If the next value is less than the stack’s top value, make this value as 
+	         * the left child of the stack’s top node. Push the new node to the stack.
+	         */
+	        else
+	        {
+	            s.peek().left = new Node(preOrder[i]);
+	            s.push(s.peek().left);
+	        }
+	        
+	        // 5. Repeat steps 3 and 4 until there are items remaining in preOrder[].
+	    }
+	 
+	    return root;
+	}
+	/*
+	 * Time Complexity = O(n)
+	 * Space Complexity = O(n)
+	 */
+	
+	
+	
+	
 
 	private static Node constructTree(int[] preOrder) {
 		return recursiveConstructTreeUtil(preOrder,preOrder[0],Integer.MIN_VALUE,Integer.MAX_VALUE);
@@ -77,7 +139,17 @@ public class ConstructTreeFromPreorder {
 	    
 	    return root;
 	}
+	/*
+	 * Time Complexity = O(n)
+	 * Space Complexity = O(1)
+	 */
 
+	
+	
+	
+	
+	
+	
 	private static void iterativeInorder(Node root) {
 		Node current  = root;
 		if(current==null)
