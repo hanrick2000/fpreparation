@@ -55,17 +55,15 @@ private static void usingSorting(int[] array, int sum) {
 	
 	int low=0;
 	int high=0;
-	/* Sort the elements */
 	Arrays.sort(array);
-	/* Now fix the first element one by one and find the
-    other two elements */
+	/* Now fix the first element and one by one find the other two elements
+	   To find the other two elements, start two index variables
+       from two corners of the array and move them toward each  other  */
 	outerloop:
 	for(int i=0;i<(array.length-2);i++){
-		// To find the other two elements, start two index variables
-        // from two corners of the array and move them toward each
-        // other
-		low=i+1;
-		high = array.length-1;
+	 
+		low=i+1;                         // low is modified according to i
+		high = array.length-1;           // but high remains the same in every iteration
 		while(low<high){
 			if(array[i]+array[low]+array[high]==sum){
 				System.out.println(array[i]+" "+array[low]+" "+array[high]);
