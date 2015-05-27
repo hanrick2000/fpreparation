@@ -106,7 +106,7 @@ public class GeeksMedianOfMedians_BEST_MOM_ALGO {
 	 
 	    // Standard partition algorithm
 	    int storage = l;                                  // store the left
-	    for (int j = l; j <= r - 1; j++)
+	    for (int j = l; j < r; j++)
 	    {
 	        if (arr[j] <= pivotElement)
 	        {
