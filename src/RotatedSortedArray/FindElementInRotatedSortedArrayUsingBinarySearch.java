@@ -8,18 +8,18 @@ Answer Source: https://www.youtube.com/watch?v=uufaK2uLnSI
 
 Algorithm: get mid and check whether element at mid is the x element. If yes then return mid
 
-        if(a[mid] >= a[low]){   // then the lower half is a sorted array & Now search for find in sorted array
+        if(a[mid] >= a[low]){   // then the lower half is a sorted array & Now search for key in sorted array
             
-            if(a[low] <=find && a[mid] > find) // if find lies here then search here
+            if(a[low] <=key && a[mid] > key) // if key lies here then search here
                 high = mid-1;
             else
                 low = mid+1;
        
         }
         
-        else{ //(a[mid] <= a[high])  // then the upper half is a sorted array & Now search for find in sorted array
+        else{ //(a[mid] <= a[high])  // then the upper half is a sorted array & Now search for key in sorted array
         // VERY IMPORTANT THAT THIS SHOULD BE "ELSE"
-            if(a[mid] < find && a[high] >= find) // if find lies here then search here
+            if(a[mid] < key && a[high] >= key) // if key lies here then search here
                  low = mid+1;
             else
                  high = mid-1;
@@ -43,19 +43,19 @@ public class FindElementInRotatedSortedArrayUsingBinarySearch {
 		for(int i=0;i<n;i++)
 			a[i]=in.nextInt();
 		System.out.println("Enter the element you need to search");
-		int find = in.nextInt();
-		System.out.println("The index of the element is: "+usingModifiedBS(a,find));
+		int key = in.nextInt();
+		System.out.println("The index of the element is: "+usingModifiedBS(a,key));
 		}
 		finally{
 			in.close();
 		}
 	}
 
-public static int usingModifiedBS(int[] a, int find){
+public static int usingModifiedBS(int[] a, int key){
         /*
          * VERY IMPORTANT: This algorithm NOT work if the elements of the array have DUPLICATES
          * for example: will not work for a={2,2,2,2,2,0,1,2}
-         * and we need to find is x
+         * and we need to key is x
          * then this algorithm MIGHT GIVE WRONG RESULTS
          * 
          * IF THERE ARE DUPLICATES IN THE ARRAY THEN WE HAVE TO LINEARLY SEARCH ON EACH ELEMENT
@@ -70,20 +70,20 @@ public static int usingModifiedBS(int[] a, int find){
         
         mid = low+(high-low)/2;
         
-        if(a[mid]==find)
+        if(a[mid]==key)
             return mid;
         
-        if(a[mid] >= a[low]){   // then the lower half is a sorted array & Now search for find in sorted array
+        if(a[mid] >= a[low]){   // then the lower half is a sorted array & Now search for key in sorted array
             
-            if(a[low] <=find && a[mid] > find) // if find lies here then search here
+            if(a[low] <=key && a[mid] > key) // if key lies here then search here
                 high = mid-1;
             else
                 low = mid+1;
         }
         
-        else{ //(a[mid] < a[high])  // then the upper half is a sorted array & Now search for find in sorted array
+        else{ //(a[mid] < a[high])  // then the upper half is a sorted array & Now search for key in sorted array
         // VERY IMPORTANT THAT THIS SHOULD BE "ELSE"
-            if(a[mid] < find && a[high] >= find) // if find lies here then search here
+            if(a[mid] < key && a[high] >= key) // if key lies here then search here
                  low = mid+1;
             else
                  high = mid-1;
@@ -91,7 +91,7 @@ public static int usingModifiedBS(int[] a, int find){
         }
         
         }
-        return -1;  // find not present in the array
+        return -1;  // key not present in the array
         
     }
 }
