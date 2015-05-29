@@ -55,7 +55,7 @@ import java.util.HashMap;
 	            DoublyLinkedList hitNode = map.get(key);
 	           
 	                removeNode(hitNode);
-	                setHeadAndTail(hitNode);
+	                moveToFront(hitNode);
 	           
 	            return hitNode.value;
 	        }
@@ -87,7 +87,7 @@ import java.util.HashMap;
 	            post.prev=prev;
 	            
 	    }
-	    public void setHeadAndTail(DoublyLinkedList node){
+	    public void moveToFront(DoublyLinkedList node){
 	        DoublyLinkedList curr = node;
 	        /*
 	        check 2 conditions while setting head.
@@ -117,7 +117,7 @@ import java.util.HashMap;
 	            DoublyLinkedList oldNode = map.get(key);
 	            oldNode.value=value; // set the new value 
 	            removeNode(oldNode);
-	            setHeadAndTail(oldNode);
+	            moveToFront(oldNode);
 	        }
 	        else{
 	            // Create a new DLL
@@ -142,7 +142,7 @@ import java.util.HashMap;
 	            }
 	            
 	            map.put(key,newNode);
-	            setHeadAndTail(newNode);
+	            moveToFront(newNode);
 	        }
 	    }
 	}
