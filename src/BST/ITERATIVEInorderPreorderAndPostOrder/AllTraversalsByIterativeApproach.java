@@ -106,7 +106,7 @@ Check if there is right child to that node. If yes, move right child to stack an
 		 * 
 		 * TWO VERY VERY IMP NOTES:
 		 * 
-		 * I. Maintain two pointers, curr and next
+		 * I. Maintain two pointers, curr and probableParent
 		 * II. First push RIGHT then push LEFT
 		 * 
 		 * 
